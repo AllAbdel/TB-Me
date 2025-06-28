@@ -23,7 +23,7 @@ class TranslationService {
       }
     }
   }
-
+  
   String translate(String key) {
     List<String> keys = key.split('.');
     dynamic value = _localizedStrings;
@@ -37,6 +37,11 @@ class TranslationService {
     }
 
     return value.toString();
+  }
+
+  // AJOUTER CETTE MÉTHODE ICI :
+  Map<String, dynamic> getAllTranslations() {
+    return _localizedStrings;
   }
 
   String get currentLanguage => _currentLanguage;

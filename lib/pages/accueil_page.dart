@@ -192,11 +192,8 @@ void _demarrerRattrapage(Map<String, dynamic> medicament) {
               Navigator.pop(context);
               
               // Afficher un message d'encouragement
-              final encouragements = [
-                "🔄 L'important, c'est de reprendre. Chaque prise compte, même après un oubli !",
-                "🤗 Ce n'est pas grave, l'erreur est humaine. Concentrons-nous sur aujourd'hui !",
-                "💚 Un oubli arrive. Bravo d'avoir repris le traitement ! On continue ensemble.",
-              ];
+              final encouragements = _languageProvider.getEncouragementList('encouragement.missed_recovery');
+
               final message = CatchupService.getRandomEncouragement(encouragements);
               
               ScaffoldMessenger.of(context).showSnackBar(

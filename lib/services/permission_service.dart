@@ -73,35 +73,35 @@ class PermissionService {
         return AlertDialog(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           title: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.orange[400]!, Colors.red[400]!],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              ),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: const Column(
-              children: [
-                Icon(Icons.warning, color: Colors.white, size: 30),
-                SizedBox(height: 8),
-                Text(
-                  'Permissions requises',
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.orange[400]!, Colors.red[400]!],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
-              ],
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Column(  // Enlever le 'const' ici
+                children: [
+                  const Icon(Icons.warning, color: Colors.white, size: 30),
+                  const SizedBox(height: 8),
+                  Text(  // Pas de 'const' ici non plus
+                    _tr('permissions.required_title'),
+                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             ),
-          ),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Text(
-                'L\'application a besoin des permissions suivantes pour fonctionner correctement :',
+              Text(
+                _tr('permissions.required_message'),
                 style: TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
-              ),
+                ),
               const SizedBox(height: 12),
               ...deniedPermissions.map((permission) => 
                 Padding(
@@ -134,7 +134,7 @@ class PermissionService {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('Plus tard'),
+              child: Text(_tr('common.later')),
             ),
             ElevatedButton(
               onPressed: () {

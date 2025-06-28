@@ -230,11 +230,8 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
                       await CatchupService.removeCatchup(widget.medicament['id']);
                       
                       // Message d'encouragement
-                      final encouragements = [
-                        "💪 Vous prenez soin de vous, et ça se voit. Bravo !",
-                        "🏆 Petits gestes, grandes victoires. Superbe !",
-                        "✨ Chaque action vous rapproche de la santé. Excellent !",
-                      ];
+                      final encouragements = _languageProvider.getEncouragementList('encouragement.regular_taking');
+
                       final message = CatchupService.getRandomEncouragement(encouragements);
                       
                       ScaffoldMessenger.of(context).showSnackBar(

@@ -5,6 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../services/translation_service.dart';
 import 'dart:ui' as ui;
 
+
 class LanguageProvider extends ChangeNotifier {
   static final LanguageProvider _instance = LanguageProvider._internal();
   factory LanguageProvider() => _instance;
@@ -50,6 +51,7 @@ class LanguageProvider extends ChangeNotifier {
 
 };
 
+
   Map<String, Map<String, String>> get languages => _languages;
 
   /// Initialise la langue au démarrage de l'application
@@ -88,6 +90,42 @@ class LanguageProvider extends ChangeNotifier {
       _isInitialized = true;
     }
   }
+  
+
+  /// Retourne une liste d'encouragements
+List<String> getEncouragementList(String key) {
+  if (!_isInitialized) {
+    if (kDebugMode) print('LanguageProvider pas encore initialisé pour getEncouragementList');
+    return [];
+  }
+  
+  try {
+    // Utiliser le TranslationService pour récupérer les données
+    final translations = _translationService.getAllTranslations();
+    final keys = key.split('.');
+    dynamic value = translations;
+    
+    for (String k in keys) {
+      if (value is Map<String, dynamic> && value.containsKey(k)) {
+        value = value[k];
+      } else {
+        if (kDebugMode) print('Clé non trouvée dans getEncouragementList: $key');
+        return [];
+      }
+    }
+    
+    if (value is List) {
+      return List<String>.from(value);
+    }
+    
+    if (kDebugMode) print('La valeur pour la clé $key n\'est pas une liste: $value');
+    return [];
+    
+  } catch (e) {
+    if (kDebugMode) print('Erreur dans getEncouragementList pour la clé $key: $e');
+    return [];
+  }
+}
 
   /// Détecte la langue du système et retourne une langue supportée
   String _detectSystemLanguage() {

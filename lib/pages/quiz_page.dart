@@ -271,8 +271,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            Color(0xFF6C63FF),
-                            Color(0xFF4CAF50),
+                            Color.fromARGB(255, 117, 228, 238),
+                            Color.fromARGB(255, 76, 175, 172),
                           ],
                         ),
                       ),
