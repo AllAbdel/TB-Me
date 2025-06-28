@@ -1,305 +1,402 @@
 {
   "app": {
     "title": "TB&Me",
-    "home": "Yerɗe",
-    "medications": "Lewruɗe",
-    "quiz": "Sawtiɗe",
-    "information": "Hawruɗe",
-    "settings": "Dewruɗe",
-    "description": "Appiliino woodani tuberkuloosi haawataake"
+    "home": "Yerɗo",
+    "medications": "Yaakuɗe",
+    "quiz": "Hawlaade",
+    "information": "Waawi",
+    "settings": "Settinɗe",
+    "description": "Appel moɗɗo e ɗum ngam waccitii tuberkuloosi"
   },
   "home": {
-    "welcome": "No ngaa woodani!",
-    "medications_today": "lewrɗe ɗum kaaɗo",
-    "daily_dashboard": "Hoore Tabboorde",
-    "no_medications": "Aalaa lewrɗe",
-    "configure_medications": "Taw lewrɗe moƴƴere",
-    "daily_statistics": "Hoore Tabboorde",
-    "confirm_taking": "Woodani Lewre",
-    "mark_as_taken": "Woodi",
-    "mark_taken": "Woodi",
-    "tablets": "lewrɗe",
-    "current_stock": "Lewrɗe kaaɗo",
-    "stock_after": "Lewrɗe kaaɗo Woodani",
-    "stock": "Kaaɗo",
-    "marked_as_taken": "woodani",
-    "insufficient_stock": "Aalaa lewrɗe! Ko",
-    "tablets_remaining": "lewrɗe kaaɗo",
-    "take_on_empty_stomach": "Woodani fayde",
+    "welcome": "Njaɓɓata!",
+    "medications_today": "yaakuɗe (ji) oo waccataa",
+    "daily_dashboard": "Bordere e jooni",
+    "no_medications": "Yaakuɗe hotoo",
+    "configure_medications": "Wey to yaakuɗe tab mbaɗaa ɗum ngam waccitii",
+    "daily_statistics": "Tawa e jooni",
+    "confirm_taking": "Weydaa waccata",
+    "mark_as_taken": "Taa",
+    "mark_taken": "Taa\na 'waccata'",
+    "tablets": "tablet(ji)",
+    "current_stock": "Stock e no woni",
+    "stock_after": "Stock e waccata",
+    "stock": "Stock",
+    "marked_as_taken": "taata 'waccata'",
+    "insufficient_stock": "Stock kaaɗo! Ko",
+    "tablets_remaining": "tablet(ji) e yahay",
+    "take_on_empty_stomach": "Waccata a wuyru",
     "status": {
-      "taken": "Woodani",
-      "upcoming": "Njaɓi",
-      "now": "Noon",
-      "missed": "Holli"
+      "taken": "Waccata",
+      "upcoming": "Oo yahata",
+      "now": "No",
+      "missed": "Yiita"
     }
   },
   "date": {
-    "monday": "Hoore Bitti",
-    "tuesday": "Hoore Salla",
-    "wednesday": "Hoore Talata",
-    "thursday": "Hoore Araba",
-    "friday": "Hoore Jawwo",
-    "saturday": "Hoore Sawtu",
-    "sunday": "Hoore Leydi",
-    "january": "Diwete",
-    "february": "Diwete e Gille",
-    "march": "Diwete e Ñaar",
-    "april": "Diwete e Ñeeɓe",
-    "may": "Diwete e Ñooy",
-    "june": "Diwete e Jeegoom",
-    "july": "Diwete e Jeegoom e Ñaar",
-    "august": "Diwete e Jeegoom e Ñeeɓe",
-    "september": "Diwete e Jeegoom e Ñooy",
-    "october": "Diwete e Jeegoom e Ñooy e Ñaar",
-    "november": "Diwete e Jeegoom e Ñooy e Ñeeɓe",
-    "december": "Diwete e Jeegoom e Ñooy e Ñooy"
+    "monday": "Hoore-birne",
+    "tuesday": "Hoore-salaare",
+    "wednesday": "Hoore-naasaare",
+    "thursday": "Hoore-naayi",
+    "friday": "Hoore-jawwo",
+    "saturday": "Hoore-bottu",
+    "sunday": "Deernde",
+    "january": "Siffo",
+    "february": "Colte",
+    "march": "Arlitirde",
+    "april": "Werre",
+    "may": "Ngesum",
+    "june": "Corse",
+    "july": "Morso-deernde",
+    "august": "Morso-birne",
+    "september": "Morso-salaare",
+    "october": "Morso-naasaare",
+    "november": "Morso-naayi",
+    "december": "Morso-jawwo",
+    "monday_short": "H-bir",
+    "tuesday_short": "H-sal",
+    "wednesday_short": "H-naa",
+    "thursday_short": "H-nai",
+    "friday_short": "H-jaw",
+    "saturday_short": "H-bot",
+    "sunday_short": "Dee"
   },
   "medications": {
-    "available_title": "Lewrɗe kaaɗo",
-    "add_button": "Taw",
-    "my_posology": "Maa Lewrɗe",
-    "no_medication": "Aalaa lewrɗe",
-    "fasting": "Fayde",
-    "tablets": "lewrɗe",
-    "stock": "Kaaɗo",
-    "delete": "Holli",
-    "add_dialog_title": "Taw",
-    "time_format": "Njaɓi Foorde",
-    "time": "Njaɓi",
-    "change": "Holli",
-    "tablets_count": "Lewrɗe",
-    "take_fasting": "Woodani fayde",
-    "delete_confirmation": "Holli Woodani",
-    "delete_question": "A miɗo taw lewrɗe moƴƴere?",
+    "available_title": "Yaakuɗe e yahay",
+    "add_button": "Taa",
+    "my_posology": "ɗum ngam waccitii",
+    "no_medication": "Yaakuɗe hotoo e ɗum ngam waccitii",
+    "fasting": "A wuyru",
+    "tablets": "tablet(ji)",
+    "stock": "Stock",
+    "delete": "Hapta",
+    "add_dialog_title": "Taa",
+    "time_format": "Laawol time",
+    "time": "Time",
+    "change": "Cawata",
+    "tablets_count": "Tablet(ji)",
+    "take_fasting": "Waccata a wuyru",
+    "delete_confirmation": "Weydaa haptata",
+    "delete_question": "A waa, ne ɗum waccata yaakuɗe ɗum ngam waccitii?",
     "details": {
-    "description": "Njoɓdi",
-    "side_effects": "Koɓɓe makko",
-    "advice": "Waawi",
-    "see_documentation": "Yiy documentum",
-    "enlarge_hint": "Pettiko e ɓeyaaki",
-    "close": "Yah"
-  },
-  "pdf": {
-    "documentation_title": "Documentum PDF",
-    "document_available": "Documentum PDF ɓeyaaki",
-    "file": "Faaylu",
-    "view": "Yiy",
-    "download": "Telecharger",
-    "reading_title": "Lugge documentum",
-    "download_web_only": "Telecharger ɓeyaaki e telefoon",
-    "storage_permission": "Lugge ɓurɗe e telecharger",
-    "downloaded": "PDF telecharger",
-    "download_error": "Holi telecharger",
-    "view_error": "Holi yiy PDF",
-    "pdf_render_error": "Holi rendring PDF"
-  },
-  "image": {
-    "not_available": "Image ɓeyaaki",
-    "tap_to_close": "Pettiko e yah"
-  },
-  "time_label": "Jam",
-"drugs": {
-"rifadine": {
-"description": "Antibiotiik e tuberkuloosi hoore",
-"side_effects": "Mbaay oranje, ngalnguure, leydi ndiyam",
-"advice": "Waawo haa ngam, goonga 1 teekiraaɗum moɗɗum 2 teekiraaɗum ɗeen" },
-"rifater": {
-"description": "Rifampicin, izoniazid, e pirazinamid ngam",
-"side_effects": "Ndiyaam ndiyam, hoore huuɗo, ngalnguure",
-"advice": "3 ndiyam ngam e 1 tablet" },
-"rifinah": {
-"description": "Rifampicin e izoniazid ngam",
-"side_effects": "Mbaay oranje, ngalnguure",
-"advice": "Subaka ngam haa ngam" },
-"dexambutol": {
-"description": "Tuberkuloosi hoore e ɗum",
-"side_effects": "Yiitnde ndiyam, optik neeropat",
-"advice": "Hesere yiitnde diiwa" },
-"myambutol": {
-"description": "Etambutol, tuberkuloosi hoore bakteriostaatik",
-"side_effects": "Optik neeropat, yiitnde ndiyam",
-"advice": "Hesere yiitnde diiwa" },
-"pirilene": {
-"description": "Pirazinamid, tuberkuloosi hoore",
-"side_effects": "Leydi ndiyam, ɓernde ndiyam",
-"advice": "Leydi diiwa" },
-"rimactan": {
-"description": "Rifampicin, tuberkuloosi hoore antibiotiik",
-"side_effects": "Mbaay oranje",
-"advice": "Waawo haa sakaaɗe" },
-"rimifon": {
-"description": "Isoniazid, tuberkuloosi hoore e ɗum",
-"side_effects": "Neeropat periferik, hepatit",
-"advice": "Vitamin B6 diiwa" } }
+      "description": "Seere",
+      "side_effects": "Koɗɗe",
+      "advice": "Laawol",
+      "see_documentation": "Yi'i dokumentasiiju",
+      "enlarge_hint": "Taa mo ɗum ngal",
+      "close": "Taa"
+    },
+    "pdf": {
+      "documentation_title": "Dokumentasiiju PDF",
+      "document_available": "Dokumentasiiju PDF e yahay",
+      "file": "Faaylu",
+      "view": "Yi'i",
+      "download": "Download",
+      "reading_title": "Ngala dokumentasiiju",
+      "download_web_only": "Download e yahay faa mo e mobile",
+      "storage_permission": "Laawol stock e yahay mo download",
+      "downloaded": "PDF downloadata",
+      "download_error": "Download error",
+      "view_error": "Error e yi'ata PDF",
+      "pdf_render_error": "Error e render PDF"
+    },
+    "image": {
+      "not_available": "Image hotoo",
+      "tap_to_close": "Taa mo taata"
+    },
+    "time_label": "Time",
+    "drugs": {
+      "rifadine": {
+        "description": "Yaakuɗe e waccata tuberkuloosi e hoore",
+        "side_effects": "Rano wuɗɗi, yiita, koɗɗe e ati",
+        "advice": "Waccata a wuyru, 1 saatu moɓɓe na 2 saatu ɓe sakaa"
+      },
+      "rifater": {
+        "description": "Rifampicine, isoniazide e pyrazinamide e taata",
+        "side_effects": "Koɗɗe e sakaa, sakitii e looɗo, yiita",
+        "advice": "3 yaakuɗe e taata e tablet iɗii"
+      },
+      "rifinah": {
+        "description": "Rifampicine e isoniazide e taata",
+        "side_effects": "Rano wuɗɗi, yiita",
+        "advice": "Waccata a wuyru e subaka"
+      },
+      "dexambutol": {
+        "description": "Yaakuɗe e waccata tuberkuloosi e hoore naati",
+        "side_effects": "Koɗɗe e yiɗii, koɗɗe e yiɗii",
+        "advice": "Laawol yiɗii e yiɗii"
+      },
+      "myambutol": {
+        "description": "Ethambutol, yaakuɗe e waccata tuberkuloosi",
+        "side_effects": "Koɗɗe e yiɗii, koɗɗe e yiɗii",
+        "advice": "Laawol yiɗii e yiɗii"
+      },
+      "pirilene": {
+        "description": "Pyrazinamide, yaakuɗe e waccata tuberkuloosi",
+        "side_effects": "Koɗɗe e ati, koɗɗe e ɓernde",
+        "advice": "Laawol ati"
+      },
+      "rimactan": {
+        "description": "Rifampicine, yaakuɗe e waccata tuberkuloosi",
+        "side_effects": "Rano wuɗɗi",
+        "advice": "Waccata a wuyru"
+      },
+      "rimifon": {
+        "description": "Isoniazide, yaakuɗe e waccata tuberkuloosi e hoore",
+        "side_effects": "Koɗɗe e yiɗii, koɗɗe e ati",
+        "advice": "Waccata a wuyru"
+      }
+    },
+    "stock_management": {
+      "title": "Moɗɗo stock",
+      "current_stock": "Stock e no woni: {stock} tablet(ji)",
+      "confirm": "Weydaa"
+    }
   },
   "information": {
-    "title": "Tuberkuloosi Hawruɗe",
+    "title": "Waawi e tuberkuloosi",
     "links": {
-      "title": "Lewrɗe kaaɗo"
+      "title": "Link(ji) e yahay"
     },
     "understanding": {
-      "title": "Tuberkuloosi Hawruɗe",
-      "subtitle": "Pogol woodani",
-      "what_is": "Tuberkuloosi bino?",
-      "what_is_content": "Tuberkuloosi ndi pogol woodani, o woodani Mycobacterium tuberculosis, o woodani haawataake.",
-      "transmission": "O woodani e ɗum?",
-      "transmission_content": "Tuberkuloosi o woodani e ɗum, o woodani haawataake, o woodani e ɗum."
+      "title": "Faham tuberkuloosi",
+      "subtitle": "Koɗaa e ɗum ngam waccitii",
+      "what_is": "Waa tuberkuloosi?",
+      "what_is_content": "Tuberkuloosi koɗaa ne ɗum ngam bakteria e huuɗo Mycobacterium tuberculosis, e ɗum ngam latente, ɗum ngam waccata. ɗum ngam waccata koɗaa ne ɗum ngam bakteria e waccata. E ɗum ngam koɗɗe e ɗum ngam waccata e yaakuɗe e hoore.",
+      "transmission": "Yaa waccata?",
+      "transmission_content": "Tuberkuloosi e waccata e ɗum ngam rivotra e ɗum ngam neɗɗo e ɗum ngam ati e waccata, e ɗum ngam fihena, fihentsana na resaka. Waccata e ɗum ngam ɓe e ɗum ngam neɗɗo e ɗum ngam tuberkuloosi e waccata e ati."
     },
     "itl": {
-      "title": "Tuberkuloosi Hawruɗe (LTBI)",
-      "what_is": "LTBI bino?",
-      "what_is_content": "LTBI ndi tuberkuloosi woodani, o woodani haawataake, o woodani e ɗum.",
-      "vs_active": "LTBI vs Tuberkuloosi Woodani",
-      "itl_characteristics": "Tuberkuloosi Hawruɗe",
-      "itl_char_1": "Pogol o woodani",
-      "itl_char_2": "O woodani aalaa",
-      "itl_char_3": "Aalaa sɗiɗi",
-      "itl_char_4": "X-ray o woodani",
-      "itl_char_5": "Lewrɗe 3 hoore",
-      "active_characteristics": "Tuberkuloosi Woodani",
-      "active_char_1": "Pogol o woodani",
-      "active_char_2": "O woodani",
-      "active_char_3": "Sɗiɗi kaaɗo",
-      "active_char_4": "X-ray o woodani",
-      "active_char_5": "Lewrɗe 6 hoore bino"
+      "title": "Fifindirde tuberkuloosi latente (FTL)",
+      "what_is": "Waa FTL?",
+      "what_is_content": "E fifindirde tuberkuloosi latente, bakteria e ɗum ngam wuyru e ɗum ngam neɗɗo. Bakteria e ɗum ngam 'wuyru'. Neɗɗo e ɗum ngam koɗaa e ɗum ngam ɗum.",
+      "vs_active": "FTL vs tuberkuloosi e waccata",
+      "itl_characteristics": "Fifindirde tuberkuloosi latente",
+      "itl_char_1": "Bakteria e 'wuyru'",
+      "itl_char_2": "Neɗɗo e ɗum ngam waccata",
+      "itl_char_3": "Koɗɗe hotoo",
+      "itl_char_4": "Rady normal",
+      "itl_char_5": "3 kuuɗe e waccata e ɗum ngam fiarowol",
+      "active_characteristics": "Tuberkuloosi e waccata",
+      "active_char_1": "Bakteria e waccata",
+      "active_char_2": "Waccata raha ati",
+      "active_char_3": "Koɗɗe e ɗum",
+      "active_char_4": "Rady ɗum ngam normal",
+      "active_char_5": "6 kuuɗe na ɗum e waccata"
     },
     "symptoms": {
-      "title": "Sɗiɗi e Lewrɗe",
-      "symptoms_list": "Sɗiɗi kaaɗo",
-      "symptom_1": "Kusu woodani (3 hoore bino)",
-      "symptom_2": "Ji e ɗum",
-      "symptom_3": "Kɔrɔkɛla e ɗum",
-      "symptom_4": "Faya e ɗum",
-      "symptom_5": "Sɗiɗi e ɗum",
-      "symptom_6": "Fɛɓe e ɗum",
-      "symptom_7": "Ji e ɗum",
-      "treatment_title": "Lewrɗe",
-      "treatment_content": "Lewrɗe o woodani hoore 6, o woodani fayde.",
-      "important_note": "A miɗo woodani lewrɗe, o woodani haawataake."
+      "title": "Koɗɗe e waccitii",
+      "symptoms_list": "Koɗɗe e hoore",
+      "symptom_1": "Fihena e hoore (ɗum ngam 3 kuuɗe)",
+      "symptom_2": "Rano e fihentsana",
+      "symptom_3": "Sakitii e ati",
+      "symptom_4": "Yiita e yiɗii",
+      "symptom_5": "Yiita e laasu hotoo",
+      "symptom_6": "Homam e rano e jooni",
+      "symptom_7": "Yiita e aina",
+      "treatment_title": "Waccitii",
+      "treatment_content": "Waccitii e ɗum ngam yaakuɗe e jooni, e ɗum ngam kuuɗe e hoore. E ɗum ngam waccata a wuyru. E ɗum ngam 30 minitra moɓɓe na sakaa.",
+      "important_note": "A waa, ne ɗum waccata waccitii, koɗaa e ɗum ngam fii."
     },
     "prevention": {
-      "title": "Lewrɗe",
-      "vaccination": "BCG Lewrɗe",
-      "vaccination_content": "BCG lewrɗe o woodani, o woodani ɗe 5.",
-      "screening": "Tuberkuloosi Lewrɗe",
-      "screening_content": "Tuberkuloosi lewrɗe o woodani, o woodani haawataake."
+      "title": "Fiarowol",
+      "vaccination": "BCG e waccata",
+      "vaccination_content": "BCG e waccata e ɗum ngam laawol, ɗum ngam yaɓɓi e ɗum ngam 5 ɗum e ɗum ngam koɗɗe e ɗum ngam risk.",
+      "screening": "Screening e ɗum ngam centre e ɗum ngam waccitii tuberkuloosi",
+      "screening_content": "Centre e ɗum ngam waccitii tuberkuloosi e ɗum ngam role e hoore e fiarowol e ɗum ngam screening e ɗum ngam koɗaa."
     },
     "faq": {
-      "title": "Sawtiɗe Hawruɗe",
-      "q1": "Tuberkuloosi o woodani?",
-      "a1": "Awi, tuberkuloosi o woodani.",
-      "q2": "Lewrɗe o woodani e ɗum?",
-      "a2": "Lewrɗe o woodani e ɗum hoore 6.",
-      "q3": "Tuberkuloosi o woodani?",
-      "a3": "Ee, tuberkuloosi o woodani.",
-      "q4": "An o woodani?",
-      "a4": "O woodani, o woodani haawataake."
+      "title": "Hawlaade e hoore",
+      "q1": "Tuberkuloosi e waccata?",
+      "a1": "Ala, tuberkuloosi e ati e waccata. Raɓɓe ɗum ngam neɗɗo e ɗum ngam koɗaa, e ɗum ngam waccata.",
+      "q2": "Faharoa e waccitii?",
+      "a2": "Waccitii e ɗum ngam 6 kuuɗe, ɗum ngam koɗaa. A waa, ne ɗum waccata.",
+      "q3": "A waa, ne tuberkuloosi e waccata?",
+      "a3": "Ee, tuberkuloosi e waccata e Frantsi raha waccitii e ɗum ngam laawol.",
+      "q4": "Waɗaa e ɗum ngam screening?",
+      "a4": "Neɗɗo e ɗum ngam ɓe e ɗum ngam neɗɗo e ɗum ngam koɗaa e ɗum ngam maraaɗii e ɗum ngam screening e ɗum ngam ekipe e ɗum ngam centre e ɗum ngam waccitii tuberkuloosi."
     }
   },
   "quiz": {
-    "question": "Sawtuɗe",
-    "score": "Kaaɗo",
-    "explanation": "Lewrɗe",
-    "restart": "Yerɗe",
-    "home": "Yerɗe",
+    "question": "Hawlaade",
+    "score": "Score",
+    "explanation": "Seere",
+    "restart": "Moɓɓata",
+    "home": "Yerɗo",
     "result": {
-      "title": "Sawtuɗe o woodani!",
-      "excellent": "Ka kaaɗo!",
-      "good": "Ka kaaɗo!",
-      "average": "Ka kaaɗo!",
-      "needs_improvement": "A miɗo woodani tuberkuloosi hawruɗe."
+      "title": "Hawlaade e woni!",
+      "excellent": "Maaɗaama! A waa, ne ɗum ngam koɗaa e ɗum ngam woni!",
+      "good": "Goonga! A waa, ne waawi e ɗum ngam woni.",
+      "average": "Yahata. Koɗɗe e ɗum ngam woni mo ɗum ngam waccata.",
+      "needs_improvement": "A waa, ne ɗum ngam waawi e tuberkuloosi e ɗum ngam waccata."
     },
     "q1": {
-      "question": "Tuberkuloosi bino?",
-      "a1": "Pogol",
-      "a2": "Mycobacterium tuberculosis",
-      "a3": "Fɔɲɔ",
-      "a4": "Parasite",
-      "explanation": "Tuberkuloosi o woodani Mycobacterium tuberculosis."
+      "question": "Waa ne ɗum ngam tuberkuloosi?",
+      "a1": "Viriosy",
+      "a2": "Bakteria e huuɗo Mycobacterium tuberculosis",
+      "a3": "Fongotra",
+      "a4": "Parasity",
+      "explanation": "Tuberkuloosi koɗaa ne ɗum ngam bakteria e huuɗo Mycobacterium tuberculosis, e ɗum ngam huuɗo Koch e basily."
     },
     "q2": {
-      "question": "Tuberkuloosi o woodani e ɗum?",
-      "a1": "Njaɓi (kusu, sɗiɗi)",
-      "a2": "Kɔrɔkɛla",
-      "a3": "Ji",
-      "a4": "Lewrɗe",
-      "explanation": "Tuberkuloosi o woodani e ɗum, o woodani njaɓi."
+      "question": "Yaa ne ɗum ngam tuberkuloosi e waccata?",
+      "a1": "E ɗum ngam rivotra (fihena, fihentsana)",
+      "a2": "E ɗum ngam fifandirde e ɗum ngam hoɗii",
+      "a3": "E ɗum ngam ndiyam e ɗum ngam wuɗɗi",
+      "a4": "E ɗum ngam kitro",
+      "explanation": "Tuberkuloosi e waccata e ɗum ngam rivotra raɓɓe ɗum ngam neɗɗo e ɗum ngam koɗaa e waccata, e ɗum ngam fihena, fihentsana na resaka, mbaɗaa e ɗum ngam rano e ɗum ngam bakteria."
     },
     "q3": {
-      "question": "Tuberkuloosi bino?",
-      "a1": "Kɔrɔkɛla tuberkuloosi",
-      "a2": "Ji tuberkuloosi",
-      "a3": "Kusu tuberkuloosi",
-      "a4": "Lewrɗe tuberkuloosi",
-      "explanation": "Kusu tuberkuloosi o woodani."
+      "question": "Waa ne ɗum ngam tuberkuloosi e waccata?",
+      "a1": "Tuberkuloosi e ɓernde",
+      "a2": "Tuberkuloosi e ati",
+      "a3": "Tuberkuloosi e ati",
+      "a4": "Tuberkuloosi e kofehy",
+      "explanation": "Tuberkuloosi e ati e hoore e waccata satte e ɗum ngam ati e ɗum ngam waccata e ɗum ngam rivotra."
     },
     "q4": {
-      "question": "Tuberkuloosi lewrɗe o woodani e ɗum?",
-      "a1": "2 hoore",
-      "a2": "6 hoore",
-      "a3": "1 hoore",
-      "a4": "1 san",
-      "explanation": "Tuberkuloosi lewrɗe o woodani e ɗum hoore 6."
+      "question": "Faharoa e waccitii e tuberkuloosi?",
+      "a1": "2 kuuɗe",
+      "a2": "6 kuuɗe na ɗum",
+      "a3": "1 kuuɗe",
+      "a4": "1 caasa",
+      "explanation": "Waccitii e tuberkuloosi e ɗum ngam 6 kuuɗe, ɗum ngam koɗaa. A waa, ne ɗum waccata."
     },
     "q5": {
-      "question": "LTBI bino?",
-      "a1": "Tuberkuloosi Hawruɗe",
-      "a2": "Lewrɗe",
-      "a3": "Lewrɗe",
-      "a4": "Lewrɗe",
-      "explanation": "LTBI ndi Tuberkuloosi Hawruɗe."
+      "question": "Waa ne ɗum ngam FTL?",
+      "a1": "Fifindirde tuberkuloosi latente",
+      "a2": "Fifindirde e hoore e woni",
+      "a3": "Fifandirde e ɗum ngam waccitii",
+      "a4": "Fiarowol e ɗum ngam tuberkuloosi",
+      "explanation": "FTL e huuɗo Fifindirde Tuberkuloosi Latente. ɗum ngam koɗaa raɓɓe bakteria e ɗum ngam 'wuyru', koɗɗe hotoo na waccata."
     },
     "q6": {
-      "question": "Tuberkuloosi lewrɗe o woodani e ɗum?",
-      "a1": "Lewrɗe woodani",
-      "a2": "Lewrɗe woodani",
-      "a3": "O woodani e ɗum",
-      "a4": "Fayde (lewrɗe woodani)",
-      "explanation": "Tuberkuloosi lewrɗe o woodani fayde."
+      "question": "Waa ne ɗum ngam yaakuɗe e tuberkuloosi e waccata?",
+      "a1": "ɓe sakaa",
+      "a2": "E ɗum ngam sakaa",
+      "a3": "E ɗum ngam time e ɗum ngam woni",
+      "a4": "A wuyru (moɓɓe na sakaa)",
+      "explanation": "Yaakuɗe e tuberkuloosi e tokony ho waccata a wuyru, 30 minitra moɓɓe na sakaa na 2 saatu ɓe sakaa."
     },
     "q7": {
-      "question": "Kusu tuberkuloosi bino?",
-      "a1": "Tumu",
-      "a2": "Kusu woodani",
-      "a3": "Kɔrɔkɛla e ɗum",
-      "a4": "Lewrɗe e ɗum",
-      "explanation": "Kusu tuberkuloosi o woodani kusu."
+      "question": "Waa ne ɗum ngam koɗɗe e hoore e tuberkuloosi e ati?",
+      "a1": "Sakitii e looɗo",
+      "a2": "Fihena e hoore",
+      "a3": "Sakitii e ati",
+      "a4": "Fodii e ɗum ngam hoɗii",
+      "explanation": "Koɗɗe e hoore e tuberkuloosi e ati koɗaa ne fihena e hoore e ɗum ngam 3 kuuɗe."
     },
     "q8": {
-      "question": "Lewrɗe o woodani?",
-      "a1": "Aalaa sɗiɗi",
-      "a2": "Lewrɗe o woodani",
-      "a3": "Lewrɗe o woodani",
-      "a4": "Lewrɗe o woodani",
-      "explanation": "Lewrɗe o woodani, o woodani haawataake."
+      "question": "Waa ne ɗum ngam koɗaa raɓɓe waccitii e ɗum ngam taata?",
+      "a1": "Hotoo",
+      "a2": "Fahasalamana e haingana",
+      "a3": "Fii e fiarowol",
+      "a4": "Fahasahiranana e koɗɗe",
+      "explanation": "Waccitii e ɗum ngam taata e ɗum ngam koɗaa e ɗum ngam fii e fiarowol e ɗum ngam yaakuɗe."
     }
   },
   "settings": {
-    "language_choice": "Laamuɗo",
-    "language_changed": "Laamuɗo woodani",
-    "actions": "Dewruɗe",
-    "reset_data": "Kaaɗo Siri",
-    "reset_description": "Aalaa kaaɗo siri",
-    "reset_confirmation": "A miɗo siri kaaɗo?",
-    "reset_warning": "Aalaa kaaɗo siri: Maa Lewrɗe, Maa Lewrɗe Woodani, Maa Dewruɗe",
-    "reset_success": "Kaaɗo siri",
-    "quit_app": "TB&Me Siri",
-    "quit_description": "TB&Me siri",
-    "quit_confirmation": "A miɗo siri TB&Me?"
+    "language_choice": "Huuɗo laawol",
+    "language_changed": "Laawol e cawata",
+    "actions": "Koɗɗe",
+    "reset_data": "Reset data",
+    "reset_description": "Hapta data e ɗum ngam app",
+    "reset_confirmation": "A waa, ne ɗum reset data?",
+    "reset_warning": "Koɗaa e ɗum ngam hapta:\n• ɗum ngam waccitii\n• ɗum ngam waccata yaakuɗe\n• ɗum ngam settinɗe e ɗum ngam woni",
+    "reset_success": "Data e resetata",
+    "quit_app": "Taa app",
+    "quit_description": "Taa TB&Me",
+    "quit_confirmation": "A waa, ne ɗum taata TB&Me?"
   },
   "common": {
-    "cancel": "Siri",
-    "confirm": "Kaaɗo",
-    "reset": "Yerɗe",
-    "quit": "Siri"
+    "cancel": "Hapta",
+    "confirm": "Weydaa",
+    "reset": "Reset",
+    "quit": "Taa",
+    "close": "Taa",
+    "later": "ɓe"
   },
   "notifications": {
-    "fasting_reminder_title": "⏰ Hoore Jaayde",
-    "fasting_reminder_body": "Go 2 dewo e nder, yah {medication} {dosage}. Alaa haa wuuri ko ngam!",
-    "5min_reminder_title": "🔔 Hoore Njaayi",
-    "5min_reminder_body": "Go 5 minit e nder: {medication} {dosage} ({tablets} tabalit{plural})",
-    "time_reminder_title": "💊 Noo Wakkati!",
-    "time_reminder_body": "Yah ko iza: {medication} {dosage} ({tablets} tabalit{plural})",
-    "fasting_note": " - Yaawo e goonga"
+    "fasting_reminder_title": "⏰ Rappel e wuyru",
+    "fasting_reminder_body": "E 2 saatu, waccata {medication} {dosage}. A waa, ne misakaa na misotro anndii!",
+    "5min_reminder_title": "🔔 Rappel e 5 minitra",
+    "5min_reminder_body": "E 5 minitra: {medication} {dosage} ({tablets} tablet(ji))",
+    "time_reminder_title": "💊 Time!",
+    "time_reminder_body": "Waccata anndii: {medication} {dosage} ({tablets} tablet(ji))",
+    "fasting_note": " - Tokony ho waccata a wuyru",
+    "permissions_help": "A waa, ne ɗum ngam moɗɗo koɗɗe e ɗum ngam settinɗe e ɗum ngam app.",
+    "test_simple": "🔔 Test e woni",
+    "test_sent_immediately": "Test e woni e ɗum ngam waccata"
+  },
+  "permissions": {
+    "notifications": "Notifications",
+    "exact_alarms": "Alarms e woni",
+    "storage": "Stock",
+    "required_title": "Laawol e ɗum ngam woni",
+    "required_message": "App e ɗum ngam laawol e ɗum ngam woni mo miisaa tsara:"
+  },
+  "encouragement": {
+    "regular_taking": [
+      "💊 ɗum ngam waccata e ɗum ngam woni! Maaɗaama mo ɗum ngam waccata.",
+      "🌟 ɗum ngam waccitii e ɗum ngam woni. ɗum ngam waccata!",
+      "🎯 Maaɗaama! ɗum ngam jooni, a waa, ne ɗum ngam waccata ɗum ngam fahasalamana.",
+      "🌱 Koɗaa e ɗum ngam woni, tontolo e ɗum ngam woni. Maaɗaama!",
+      "💪 A waa, ne ɗum ngam waccata, e ɗum ngam woni. Maaɗaama!",
+      "🏆 Koɗɗe e ɗum ngam woni, vonjy e hoore. Maaɗaama!",
+      "✨ ɗum ngam koɗaa e ɗum ngam waccata ɗum ngam fahasalamana. Maaɗaama!"
+    ],
+    "missed_recovery": [
+      "🔄 Koɗaa e ɗum ngam woni koɗaa ne ɗum ngam moɓɓata. ɗum ngam waccata e ɗum ngam woni, ɗum ngam koɗaa e ɗum ngam yiita!",
+      "🤗 Hotoo, diso e ɗum ngam neɗɗo. Mifoka e ɗum ngam anndii!",
+      "💚 Koɗaa e ɗum ngam yiita. Maaɗaama mo ɗum ngam moɓɓata waccitii! ɗum ngam waccata miisaa.",
+      "🌈 Lalana e ɗum ngam koɗɗe e ɗum ngam woni, fa a waa, ne ɗum ngam woni! Maaɗaama mo ɗum ngam moɓɓata.",
+      "🚀 Koɗaa e ɗum ngam woni koɗaa ne ɗum ngam porofo e hoore e ɗum ngam waccitii. ɗum ngam waccata!",
+      "💪 A waa, ne ɗum ngam waccata! Koɗaa e ɗum ngam woni koɗaa ne ɗum ngam waccata. Maaɗaama mo ɗum ngam moɓɓata.",
+      "⭐ Mijanona e ɗum ngam lalana! Koɗaa e ɗum ngam yiita e ɗum ngam waccata ɗum ngam fandrosoana. Maaɗaama mo ɗum ngam moɓɓata."
+    ]
+  },
+  "catch_up": {
+    "title": "Waccata e yiita",
+    "button": "Waccata",
+    "fasting_period": "Time e wuyru e ɗum ngam woni",
+    "fasting_duration": "2 saatu e wuyru",
+    "fasting_rules": "E ɗum ngam 2 saatu e ɗum ngam woni:\n• A waa, ne misakaa\n• A waa, ne misotro\n• A waa, ne mipetraka",
+    "timer_title": "Time e wuyru e ɗum ngam woni",
+    "timer_subtitle": "Mijanona e wuyru",
+    "ready_title": "✅ Time e wuyru e woni!",
+    "ready_message": "A waa, ne waccata yaakuɗe anndii",
+    "take_now": "Waccata anndii",
+    "cancel_catchup": "Hapta waccata e yiita"
+  },
+  "messages": {
+    "medication_added_success": "Yaakuɗe e taata",
+    "medication_deleted_success": "Yaakuɗe e haptata",
+    "stock_updated": "Stock e cawata: {stock} tablet(ji)",
+    "notifications_scheduled": "Notifications e ɗum ngam waccata mo {medication} e {time}",
+    "notifications_scheduled_fasting": " (e ɗum ngam rappel e wuyru 2 saatu moɓɓe)",
+    "notifications_error": "Error e notifications: {error}",
+    "no_medications_posology": "Yaakuɗe hotoo e ɗum ngam waccitii",
+    "test_scheduled": "Test e ɗum ngam waccata e 1 minitra mo {medication}",
+    "view_photos_title": "📸 Photo(ji) e yaakuɗe",
+    "close_dialog": "Taa",
+    "image_not_available": "Image hotoo",
+    "touch_to_close": "Taa mo taata",
+    "touch_to_enlarge": "Taa mo ɗum ngal",
+    "medication_not_found": "Error: yaakuɗe hotoo",
+    "link_open_error": "A waa, ne mamoaka link: {url}",
+    "error": "Error: {error}"
+  },
+  "history": {
+    "title": "📊 Waawi",
+    "week_of": "Kuuɗe e",
+    "before_installation": "Moɓɓe na installation",
+    "upcoming": "Oo yahata",
+    "taken_count": "✅ {count} waccata",
+    "missed_count": "❌ {count} yiita",
+    "details_title": "Seere e",
+    "no_data": "Data hotoo mo ɗum ngam jooni",
+    "unknown_medication": "Hotoo",
+    "taken_at": "Waccata e",
+    "missed": "Yiita"
   }
 }

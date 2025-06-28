@@ -1,33 +1,33 @@
 {
   "app": {
-    "title": "Tuberculoza Mea",
+    "title": "TB&Me",
     "home": "Acasă",
     "medications": "Medicamente",
     "quiz": "Chestionar",
-    "information": "Informații",
+    "information": "Informație",
     "settings": "Setări",
     "description": "Aplicație dedicată monitorizării tratamentului tuberculozei"
   },
   "home": {
     "welcome": "Bun venit!",
-    "medications_today": "medicamente de luat astăzi",
+    "medications_today": "medicament(e) de luat astăzi",
     "daily_dashboard": "Panou de bord zilnic",
     "no_medications": "Niciun medicament configurat",
-    "configure_medications": "Mergeți la fila Medicamente pentru a configura doza dumneavoastră",
+    "configure_medications": "Mergeți la fila Medicamente pentru a configura doza",
     "daily_statistics": "Statistici zilnice",
     "confirm_taking": "Confirmă administrarea",
     "mark_as_taken": "Marchează",
-    "mark_taken": "Marchează\nca administrat",
+    "mark_taken": "Marchează\nca luat",
     "tablets": "comprimat(e)",
-    "current_stock": "Stoc curent",
+    "current_stock": "Stoc actual",
     "stock_after": "Stoc după administrare",
     "stock": "Stoc",
-    "marked_as_taken": "marcat ca administrat",
+    "marked_as_taken": "marcat ca luat",
     "insufficient_stock": "Stoc insuficient! Doar",
     "tablets_remaining": "comprimat(e) rămas(e)",
     "take_on_empty_stomach": "A se lua pe stomacul gol",
     "status": {
-      "taken": "Administrat",
+      "taken": "Luat",
       "upcoming": "Următor",
       "now": "Acum",
       "missed": "Ratată"
@@ -52,111 +52,132 @@
     "september": "Septembrie",
     "october": "Octombrie",
     "november": "Noiembrie",
-    "december": "Decembrie"
+    "december": "Decembrie",
+    "monday_short": "Lun",
+    "tuesday_short": "Mar",
+    "wednesday_short": "Mie",
+    "thursday_short": "Joi",
+    "friday_short": "Vin",
+    "saturday_short": "Sâm",
+    "sunday_short": "Dum"
   },
   "medications": {
     "available_title": "Medicamente disponibile",
     "add_button": "Adaugă",
     "my_posology": "Posologia mea",
-    "no_medication": "Niciun medicament adăugat în posologia dumneavoastră",
-    "fasting": "Post",
-    "tablets": "comprimate",
+    "no_medication": "Niciun medicament adăugat în posologia dvs.",
+    "fasting": "Pe stomacul gol",
+    "tablets": "comprimat(e)",
     "stock": "Stoc",
     "delete": "Șterge",
     "add_dialog_title": "Adaugă",
     "time_format": "Formatul orei",
     "time": "Ora",
-    "change": "Schimbă",
+    "change": "Modifică",
     "tablets_count": "Comprimate",
     "take_fasting": "A se lua pe stomacul gol",
     "delete_confirmation": "Confirmă ștergerea",
-    "delete_question": "Sunteți sigur că doriți să ștergeți acest medicament din posologia dumneavoastră?",
+    "delete_question": "Sunteți sigur că doriți să ștergeți acest medicament din posologia dvs.?",
     "details": {
-    "description": "Descriere",
-    "side_effects": "Efecte secundare",
-    "advice": "Sfat",
-    "see_documentation": "Vizualizează documentația",
-    "enlarge_hint": "Atingeți pentru a mări",
-    "close": "Închide"
-  },
-  "pdf": {
-    "documentation_title": "Documentație PDF",
-    "document_available": "Document PDF disponibil",
-    "file": "Fișier",
-    "view": "Vizualizează",
-    "download": "Descarcă",
-    "reading_title": "Citirea documentului",
-    "download_web_only": "Descărcare disponibilă doar pe mobil",
-    "storage_permission": "Permisiunea de stocare necesară pentru descărcare",
-    "downloaded": "PDF descărcat",
-    "download_error": "Eroare la descărcare",
-    "view_error": "Eroare la deschiderea PDF",
-    "pdf_render_error": "Eroare la randarea PDF"
-  },
-  "image": {
-    "not_available": "Imagine indisponibilă",
-    "tap_to_close": "Atingeți pentru a închide"
-  },
-  "time_label": "Timp",
-"drugs": {
-"rifadine": {
-"description": "Antibiotice de primă linie împotriva tuberculozei",
-"side_effects": "Urină portocalie, greață, probleme hepatice",
-"advice": "A se lua pe stomacul gol, cu 1 oră înainte sau 2 ore după masă" },
-"rifater": {
-"description": "Combinare fixă de rifampicină, izoniazid și pirazinamidă",
-"side_effects": "Probleme digestive, dureri de cap, oboseală",
-"advice": "Combinare de 3 medicamente într-un comprimat" },
-"rifinah": {
-"description": "Combinare de rifampicină și izoniazid",
-"side_effects": "Colorare portocalie a urinei, greață",
-"advice": "Preferabil a se lua dimineața pe stomacul gol" },
-"dexambutol": {
-"description": "Medicament împotriva tuberculozei de linia a doua",
-"side_effects": "Probleme de vedere, neuropatie optică",
-"advice": "Monitorizare oftalmologică necesară" },
-"myambutol": {
-"description": "Etambutol, medicament bacteriostatic împotriva tuberculozei",
-"side_effects": "Neurită optică, probleme de vedere",
-"advice": "Controlul vederii recomandat" },
-"pirilene": {
-"description": "Pirazinamidă, medicament împotriva tuberculozei",
-"side_effects": "Probleme hepatice, artralgie",
-"advice": "Monitorizare hepatică necesară" },
-"rimactan": {
-"description": "Rifampicină, antibiotic împotriva tuberculozei",
-"side_effects": "Colorare portocalie a secrețiilor",
-"advice": "A se lua departe de mese" },
-"rimifon": {
-"description": "Isoniazid, medicament principal împotriva tuberculozei",
-"side_effects": "Neuropatie periferică, hepatită",
-"advice": "Supliment de vitamină B6 recomandat" } }
+      "description": "Descriere",
+      "side_effects": "Efecte secundare",
+      "advice": "Sfaturi",
+      "see_documentation": "Vezi documentația",
+      "enlarge_hint": "Apăsați pentru a mări",
+      "close": "Închide"
+    },
+    "pdf": {
+      "documentation_title": "Documentație PDF",
+      "document_available": "Document PDF disponibil",
+      "file": "Fișier",
+      "view": "Vizualizează",
+      "download": "Descarcă",
+      "reading_title": "Citirea documentului",
+      "download_web_only": "Descărcarea este disponibilă doar pe mobil",
+      "storage_permission": "Permisiunea de stocare este necesară pentru descărcare",
+      "downloaded": "PDF descărcat",
+      "download_error": "Eroare la descărcare",
+      "view_error": "Eroare la deschiderea PDF-ului",
+      "pdf_render_error": "Eroare la randarea PDF-ului"
+    },
+    "image": {
+      "not_available": "Imagine indisponibilă",
+      "tap_to_close": "Apăsați pentru a închide"
+    },
+    "time_label": "Ora",
+    "drugs": {
+      "rifadine": {
+        "description": "Antibiotic antituberculos de primă linie",
+        "side_effects": "Urină portocalie, greață, probleme hepatice",
+        "advice": "A se lua pe stomacul gol, cu 1 oră înainte sau 2 ore după masă"
+      },
+      "rifater": {
+        "description": "Combinare fixă de rifampicină, izoniazidă și pirazinamidă",
+        "side_effects": "Tulburări digestive, dureri de cap, oboseală",
+        "advice": "Combinare de 3 medicamente într-un singur comprimat"
+      },
+      "rifinah": {
+        "description": "Asociere de rifampicină și izoniazidă",
+        "side_effects": "Colorare portocalie a urinei, greață",
+        "advice": "Se recomandă administrarea dimineața pe stomacul gol"
+      },
+      "dexambutol": {
+        "description": "Antituberculos de linia a doua",
+        "side_effects": "Tulburări de vedere, neuropatie optică",
+        "advice": "Monitorizare oftalmologică necesară"
+      },
+      "myambutol": {
+        "description": "Etambutol, antituberculos bacteriostatic",
+        "side_effects": "Neurită optică, tulburări de vedere",
+        "advice": "Controlul vederii recomandat"
+      },
+      "pirilene": {
+        "description": "Pirazinamidă, antituberculos",
+        "side_effects": "Probleme hepatice, artralgie",
+        "advice": "Monitorizare hepatică necesară"
+      },
+      "rimactan": {
+        "description": "Rifampicină, antibiotic antituberculos",
+        "side_effects": "Colorare portocalie a secrețiilor",
+        "advice": "A se lua la distanță de mese"
+      },
+      "rimifon": {
+        "description": "Isoniazidă, antituberculos major",
+        "side_effects": "Neuropatie periferică, hepatită",
+        "advice": "Supliment de vitamină B6 recomandat"
+      }
+    },
+    "stock_management": {
+      "title": "Gestionează stocul",
+      "current_stock": "Stoc actual: {stock} comprimate",
+      "confirm": "Confirmă"
+    }
   },
   "information": {
-    "title": "Informații despre Tuberculoză",
+    "title": "Informații despre tuberculoză",
     "links": {
       "title": "Link-uri utile"
     },
     "understanding": {
-      "title": "Înțelegerea Tuberculozei",
+      "title": "Înțelegerea tuberculozei",
       "subtitle": "O boală infecțioasă care necesită atenție",
-      "what_is": "Ce este tuberculoza?",
-      "what_is_content": "Tuberculoza este o boală cauzată de bacteria numită Mycobacterium tuberculosis, care, după o fază latentă, devine activă. Această formă activă a bolii corespunde unei multiplicări a bacteriei. Este însoțită de simptome și necesită un tratament îndelungat cu antibiotice specifice.",
+      "what_is": "Ce este tuberculоза?",
+      "what_is_content": "Tuberculoza este o boală cauzată de bacteria numită Mycobacterium tuberculosis, care după o fază latentă, devine activă. Această formă activă a bolii corespunde unei multiplicări a bacteriei. Este însoțită de simptome și necesită un tratament îndelungat cu antibiotice specifice.",
       "transmission": "Cum se transmite?",
-      "transmission_content": "Tuberculoza se transmite prin aer de la o persoană ale cărei plămâni sunt afectați când aceasta tușește, strănută sau vorbește. Transmiterea necesită un contact îndelungat și strâns cu o persoană care are tuberculoză pulmonară contagioasă."
+      "transmission_content": "Tuberculoza se transmite prin aer de la o persoană ale cărei plămâni sunt afectați atunci când aceasta tușește, strănută sau vorbește. Transmiterea necesită un contact îndelungat și strâns cu o persoană care are tuberculoză pulmonară contagioasă."
     },
     "itl": {
-      "title": "Infecția Tuberculoasă Latentă (ITL)",
+      "title": "Infecția tuberculică latentă (ITL)",
       "what_is": "Ce înseamnă ITL?",
-      "what_is_content": "În infecția tuberculoasă latentă, bacteria este neutralizată, prinsă datorită apărării corpului. Această bacterie poate rămâne 'latentă'. Persoana poate să nu dezvolte niciodată boala în viața sa.",
-      "vs_active": "ITL vs Tuberculoză Activă",
-      "itl_characteristics": "Infecția Tuberculoasă Latentă",
-      "itl_char_1": "Bacilii sunt 'latent, neutralizați'",
+      "what_is_content": "În infecția tuberculică latentă, bacteria este neutralizată, prinsă datorită apărării organismului. Această bacterie poate rămâne 'latentă'. Persoana poate să nu dezvolte niciodată boala în viața sa.",
+      "vs_active": "ITL vs Tuberculoză activă",
+      "itl_characteristics": "Infecție tuberculică latentă",
+      "itl_char_1": "Bacilii sunt 'latenti, neutralizați'",
       "itl_char_2": "Persoana nu este contagioasă",
       "itl_char_3": "Niciun simptom",
       "itl_char_4": "Radiografie normală",
       "itl_char_5": "Tratament preventiv timp de 3 luni",
-      "active_characteristics": "Tuberculoză Activă",
+      "active_characteristics": "Tuberculoză activă",
       "active_char_1": "Bacilii sunt activi",
       "active_char_2": "Contagioasă dacă este pulmonară",
       "active_char_3": "Prezența simptomelor",
@@ -164,53 +185,53 @@
       "active_char_5": "Tratament curativ timp de 6 luni sau mai mult"
     },
     "symptoms": {
-      "title": "Simptome și Tratament",
+      "title": "Simptome și tratament",
       "symptoms_list": "Simptome principale",
       "symptom_1": "Tuse persistentă (mai mult de 3 săptămâni)",
       "symptom_2": "Sânge în spută",
-      "symptom_3": "Dureri în piept",
+      "symptom_3": "Dureri toracice",
       "symptom_4": "Oboseală și slăbiciune",
       "symptom_5": "Pierdere în greutate neintenționată",
       "symptom_6": "Febră și transpirații nocturne",
       "symptom_7": "Pierderea poftei de mâncare",
       "treatment_title": "Tratament",
-      "treatment_content": "Tratamentul necesită administrarea a mai multor medicamente în fiecare zi, timp de mai multe luni. Acestea trebuie administrate pe stomacul gol. În practică, ar trebui administrate cel puțin cu o jumătate de oră înainte de a mânca.",
-      "important_note": "Este foarte important să nu întrerupeți tratamentul, altfel boala s-ar putea întoarce."
+      "treatment_content": "Tratamentul necesită administrarea mai multor medicamente în fiecare zi, timp de mai multe luni. Acestea trebuie luate pe stomacul gol. În practică, trebuie luate cel puțin o jumătate de oră înainte de masă.",
+      "important_note": "Este foarte important să nu întrerupeți tratamentul, altfel boala ar putea reveni."
     },
     "prevention": {
       "title": "Prevenție",
       "vaccination": "Vaccinarea BCG",
-      "vaccination_content": "Vaccinarea BCG rămâne foarte recomandată, în special pentru copiii sub cinci ani cu factori de risc.",
-      "screening": "Depistare de către Centrele de Tuberculoză",
-      "screening_content": "Centrele de Control al Tuberculozei joacă un rol central în prevenție prin organizarea anchetelor și depistărilor în jurul cazurilor."
+      "vaccination_content": "Vaccinarea BCG rămâne puternic recomandată, mai ales pentru copiii sub cinci ani cu factori de risc.",
+      "screening": "Depistarea de către centrele de combatere a tuberculozei",
+      "screening_content": "Centrele de combatere a tuberculozei joacă un rol central în prevenție prin organizarea anchetelor și depistărilor în jurul cazurilor."
     },
     "faq": {
       "title": "Întrebări frecvente",
-      "q1": "Este tuberculoza întotdeauna contagioasă?",
-      "a1": "Nu, doar tuberculoza pulmonară este contagioasă. Când afectează alte părți ale corpului, nu este contagioasă.",
+      "q1": "Tuberculoza este întotdeauna contagioasă?",
+      "a1": "Nu, doar tuberculоза pulmonară este contagioasă. Când afectează alte părți ale corpului, nu este contagioasă.",
       "q2": "Cât durează tratamentul?",
       "a2": "Tratamentul durează în general 6 luni, uneori mai mult în funcție de caz. Este crucial să îl urmați complet.",
-      "q3": "Poate fi vindecată tuberculoza?",
-      "a3": "Da, tuberculoza este foarte tratabilă astăzi în Franța dacă tratamentul este urmat corect.",
+      "q3": "Tuberculoza poate fi vindecată?",
+      "a3": "Da, tuberculоза este foarte tratabilă astăzi în Franța dacă tratamentul este urmat corect.",
       "q4": "Cine ar trebui depistat?",
-      "a4": "Contactele apropiate și persoanele în contact frecvent cu un pacient sunt depistate de echipele Centrelor de Tuberculoză."
+      "a4": "Contactele apropiate și persoanele în contact frecvent cu un pacient sunt depistate de echipele centrelor de combatere a tuberculozei."
     }
   },
   "quiz": {
     "question": "Întrebare",
     "score": "Scor",
     "explanation": "Explicație",
-    "restart": "Repornire",
+    "restart": "Reîncepe",
     "home": "Acasă",
     "result": {
       "title": "Chestionar finalizat!",
       "excellent": "Excelent! Stăpâniți foarte bine subiectul!",
-      "good": "Bun! Aveți cunoștințe bune.",
+      "good": "Bine! Aveți cunoștințe bune.",
       "average": "Corect. Mai sunt câteva puncte de revizuit.",
       "needs_improvement": "Ar fi bine să recitiți informațiile despre tuberculoză."
     },
     "q1": {
-      "question": "Ce provoacă tuberculoza?",
+      "question": "Ce provoacă tuberculоза?",
       "a1": "Un virus",
       "a2": "O bacterie numită Mycobacterium tuberculosis",
       "a3": "O ciupercă",
@@ -218,20 +239,20 @@
       "explanation": "Tuberculoza este cauzată de o bacterie numită Mycobacterium tuberculosis, cunoscută și sub numele de bacilul lui Koch."
     },
     "q2": {
-      "question": "Cum se transmite tuberculoza?",
+      "question": "Cum se transmite tuberculоза?",
       "a1": "Prin aer (tuse, strănut)",
-      "a2": "Prin contactul pielii",
+      "a2": "Prin contact cutanat",
       "a3": "Prin apă contaminată",
-      "a4": "Prin mușcături de insecte",
-      "explanation": "Tuberculoza se transmite prin aer când o persoană infectată tușește, strănută sau vorbește, eliberând picături care conțin bacteria."
+      "a4": "Prin înțepături de insecte",
+      "explanation": "Tuberculoza se transmite prin aer atunci când o persoană infectată tușește, strănută sau vorbește, eliberând picături care conțin bacteria."
     },
     "q3": {
-      "question": "Care formă de tuberculoză este contagioasă?",
-      "a1": "Tuberculoza osoasă",
-      "a2": "Tuberculoza renală",
-      "a3": "Tuberculoza pulmonară",
-      "a4": "Tuberculoza ganglionară",
-      "explanation": "Numai tuberculoza pulmonară este contagioasă deoarece afectează plămânii și permite transmiterea aeriană."
+      "question": "Ce formă de tuberculoză este contagioasă?",
+      "a1": "Tuberculoză osoasă",
+      "a2": "Tuberculoză renală",
+      "a3": "Tuberculoză pulmonară",
+      "a4": "Tuberculoză ganglionară",
+      "explanation": "Numai tuberculoza pulmonară este contagioasă deoarece afectează plămânii și permite transmiterea pe cale aeriană."
     },
     "q4": {
       "question": "Cât durează în general tratamentul tuberculozei?",
@@ -243,19 +264,19 @@
     },
     "q5": {
       "question": "Ce înseamnă ITL?",
-      "a1": "Infecția Tuberculoasă Latentă",
-      "a2": "Infecție Totală Lungă",
-      "a3": "Intervenție Terapeutică Locală",
-      "a4": "Imunitate Limitată la Tuberculoză",
-      "explanation": "ITL înseamnă Infecție Tuberculoasă Latentă. Este când bacteria este prezentă dar 'latentă', fără simptome sau contagiozitate."
+      "a1": "Infecție tuberculică latentă",
+      "a2": "Infecție totală îndelungată",
+      "a3": "Intervenție terapeutică locală",
+      "a4": "Imunitate limitată la tuberculoză",
+      "explanation": "ITL înseamnă Infecție Tuberculică Latentă. Este când bacteria este prezentă dar 'latentă', fără simptome sau contagiozitate."
     },
     "q6": {
-      "question": "Când ar trebui administrate medicamentele pentru tuberculoză?",
+      "question": "Când trebuie luate medicamentele împotriva tuberculozei?",
       "a1": "După mese",
       "a2": "În timpul meselor",
-      "a3": "Orice moment",
+      "a3": "În orice moment",
       "a4": "Pe stomacul gol (înainte de mese)",
-      "explanation": "Medicamentele pentru tuberculoză ar trebui administrate pe stomacul gol, cel puțin cu o jumătate de oră înainte de mese sau la două ore după."
+      "explanation": "Medicamentele împotriva tuberculozei trebuie luate pe stomacul gol, cel puțin 30 de minute înainte de mese sau 2 ore după."
     },
     "q7": {
       "question": "Care este simptomul principal al tuberculozei pulmonare?",
@@ -266,40 +287,116 @@
       "explanation": "Simptomul principal al tuberculozei pulmonare este o tuse persistentă care durează mai mult de 3 săptămâni."
     },
     "q8": {
-      "question": "Ce se întâmplă dacă tratamentul este întrerupt prea devreme?",
+      "question": "Ce se întâmplă dacă tratamentul este oprit prea devreme?",
       "a1": "Nimic special",
       "a2": "Recuperare mai rapidă",
       "a3": "Risc de recidivă și rezistență",
       "a4": "Reducerea efectelor secundare",
-      "explanation": "Întreruperea tratamentului prea devreme poate duce la o recidivă a bolii și la dezvoltarea rezistenței la medicamente."
+      "explanation": "Oprirea tratamentului prea devreme poate duce la recidiva bolii și la dezvoltarea unei rezistențe la medicamente."
     }
   },
   "settings": {
     "language_choice": "Alegerea limbii",
-    "language_changed": "Limba a fost schimbată în",
+    "language_changed": "Limba schimbată în",
     "actions": "Acțiuni",
     "reset_data": "Resetează datele",
     "reset_description": "Șterge toate datele aplicației",
     "reset_confirmation": "Sunteți sigur că doriți să resetați toate datele?",
-    "reset_warning": "Această acțiune va șterge:\n• Posologia dumneavoastră\n• Administrarea medicamentelor dumneavoastră\n• Toate setările dumneavoastră",
-    "reset_success": "Datele au fost resetate cu succes",
-    "quit_app": "Părăsirea aplicației",
+    "reset_warning": "Această acțiune va șterge:\n• Posologia dvs.\n• Administrarea medicamentelor dvs.\n• Toate configurațiile dvs.",
+    "reset_success": "Date resetate cu succes",
+    "quit_app": "Ieșiți din aplicație",
     "quit_description": "Închide Tuberculoza Mea",
-    "quit_confirmation": "Sunteți sigur că doriți să părăsiți Tuberculoza Mea?"
+    "quit_confirmation": "Sunteți sigur că doriți să ieșiți din Tuberculoza Mea?"
   },
   "common": {
-    "cancel": "Anulare",
+    "cancel": "Anulează",
     "confirm": "Confirmă",
     "reset": "Resetează",
-    "quit": "Ieșire"
+    "quit": "Ieși",
+    "close": "Închide",
+    "later": "Mai târziu"
   },
   "notifications": {
-    "fasting_reminder_title": "⏰ Memento de post",
-    "fasting_reminder_body": "În 2 ore, luați {medication} {dosage}. Nu mâncați sau beți acum!",
+    "fasting_reminder_title": "⏰ Memento postul",
+    "fasting_reminder_body": "În 2 ore, luați {medication} {dosage}. Nu mâncați sau beți nimic acum!",
     "5min_reminder_title": "🔔 Memento apropiat",
-    "5min_reminder_body": "În 5 minute: {medication} {dosage} ({tablets} comprimat{plural})",
+    "5min_reminder_body": "În 5 minute: {medication} {dosage} ({tablets} comprimat(e))",
     "time_reminder_title": "💊 Este timpul!",
-    "time_reminder_body": "Luați acum: {medication} {dosage} ({tablets} comprimat{plural})",
-    "fasting_note": " - De luat pe stomacul gol"
+    "time_reminder_body": "Luați acum: {medication} {dosage} ({tablets} comprimat(e))",
+    "fasting_note": " - De luat pe stomacul gol",
+    "permissions_help": "Puteți activa aceste permisiuni în setările dispozitivului.",
+    "test_simple": "🔔 Test simplu",
+    "test_sent_immediately": "Notificarea de test trimisă imediat"
+  },
+  "permissions": {
+    "notifications": "Notificări",
+    "exact_alarms": "Alarme exacte",
+    "storage": "Stocare",
+    "required_title": "Permisiuni necesare",
+    "required_message": "Aplicația are nevoie de următoarele permisiuni pentru a funcționa corect:"
+  },
+  "encouragement": {
+    "regular_taking": [
+      "💊 Fiecare administrare contează! Felicitări pentru acest pas în plus.",
+      "🌟 Angajamentul dvs. face diferența. Continuați așa!",
+      "🎯 Bună treabă! În fiecare zi, vă construiți vindecarea.",
+      "🌱 Un gest esențial, un viitor mai sănătos. Felicitări!",
+      "💪 Aveți grijă de dvs., și se vede. Felicitări!",
+      "🏆 Pași mici, victorii mari. Superb!",
+      "✨ Fiecare acțiune vă apropie de sănătate. Excelent!"
+    ],
+    "missed_recovery": [
+      "🔄 Important este să reluați. Fiecare administrare contează, chiar și după o omisiune!",
+      "🤗 Nu este grav, eroarea este umană. Să ne concentrăm pe astăzi!",
+      "💚 O omisiune se întâmplă. Felicitări pentru reluarea tratamentului! Continuăm împreună.",
+      "🌈 Calea este uneori plină de obstacole, dar sunteți aici! Bună treabă pentru reluare.",
+      "🚀 Acest pas mic este o mare dovadă a determinării dvs. Haideți!",
+      "💪 Nu renunțăm! Esențial este să perseverăm. Felicitări pentru această reluare.",
+      "⭐ Țineți cursul! O omisiune nu oprește progresul dvs. Felicitări pentru reluarea dvs."
+    ]
+  },
+  "catch_up": {
+    "title": "Recuperarea administrării",
+    "button": "Recuperați",
+    "fasting_period": "Perioada de post necesară",
+    "fasting_duration": "2 ore de post",
+    "fasting_rules": "Pentru următoarele 2 ore:\n• Nu mâncați\n• Nu beți\n• Nu fumați",
+    "timer_title": "Perioada de post în curs",
+    "timer_subtitle": "Rămâneți în post încă",
+    "ready_title": "✅ Perioada de post a luat sfârșit!",
+    "ready_message": "Acum puteți lua medicamentul",
+    "take_now": "Luați acum",
+    "cancel_catchup": "Anulați recuperarea"
+  },
+  "messages": {
+    "medication_added_success": "Medicament adăugat cu succes",
+    "medication_deleted_success": "Medicament șters cu succes",
+    "stock_updated": "Stoc actualizat: {stock} comprimate",
+    "notifications_scheduled": "Notificări programate pentru {medication} la {time}",
+    "notifications_scheduled_fasting": " (cu memento de post cu 2 ore înainte)",
+    "notifications_error": "Eroare notificări: {error}",
+    "no_medications_posology": "Niciun medicament în posologia dvs.",
+    "test_scheduled": "Test programat în 1 minut pentru {medication}",
+    "view_photos_title": "📸 Poze cu medicamente",
+    "close_dialog": "Închide",
+    "image_not_available": "Imagine indisponibilă",
+    "touch_to_close": "Atingeți pentru a închide",
+    "touch_to_enlarge": "Atingeți pentru a mări",
+    "medication_not_found": "Eroare: medicament negăsit",
+    "link_open_error": "Nu se poate deschide link-ul: {url}",
+    "error": "Eroare: {error}"
+  },
+  "history": {
+    "title": "📊 Istoric",
+    "week_of": "Săptămâna din",
+    "before_installation": "Înainte de instalare",
+    "upcoming": "Următor",
+    "taken_count": "✅ {count} luat(e)",
+    "missed_count": "❌ {count} ratat(e)",
+    "details_title": "Detalii din",
+    "no_data": "Niciună dată pentru această zi",
+    "unknown_medication": "Necunoscut",
+    "taken_at": "Luat la",
+    "missed": "Ratată"
   }
 }

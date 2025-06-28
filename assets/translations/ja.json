@@ -1,35 +1,34 @@
-
 {
   "app": {
-    "title": "私の結核",
+    "title": "TB&Me",
     "home": "ホーム",
     "medications": "薬",
     "quiz": "クイズ",
     "information": "情報",
     "settings": "設定",
-    "description": "結核治療を監視するための専用アプリケーション"
+    "description": "結核治療の追跡に特化したアプリケーション"
   },
   "home": {
     "welcome": "ようこそ！",
-    "medications_today": "本日の服用薬",
-    "daily_dashboard": "デイリーダッシュボード",
-    "no_medications": "薬が設定されていません",
+    "medications_today": "本日服用する薬",
+    "daily_dashboard": "日次ダッシュボード",
+    "no_medications": "設定された薬はありません",
     "configure_medications": "用量を設定するには、薬タブに移動してください",
-    "daily_statistics": "デイリー統計",
+    "daily_statistics": "日次統計",
     "confirm_taking": "服用を確認",
     "mark_as_taken": "マーク",
     "mark_taken": "服用済みとしてマーク",
-    "tablets": "錠剤",
+    "tablets": "錠",
     "current_stock": "現在の在庫",
     "stock_after": "服用後の在庫",
     "stock": "在庫",
     "marked_as_taken": "服用済みとしてマークされました",
     "insufficient_stock": "在庫不足！残り",
-    "tablets_remaining": "錠剤",
-    "take_on_empty_stomach": "空腹時に服用",
+    "tablets_remaining": "錠",
+    "take_on_empty_stomach": "空腹で服用",
     "status": {
       "taken": "服用済み",
-      "upcoming": "今後の",
+      "upcoming": "予定",
       "now": "今",
       "missed": "未服用"
     }
@@ -53,147 +52,168 @@
     "september": "9月",
     "october": "10月",
     "november": "11月",
-    "december": "12月"
+    "december": "12月",
+    "monday_short": "月",
+    "tuesday_short": "火",
+    "wednesday_short": "水",
+    "thursday_short": "木",
+    "friday_short": "金",
+    "saturday_short": "土",
+    "sunday_short": "日"
   },
   "medications": {
     "available_title": "利用可能な薬",
     "add_button": "追加",
-    "my_posology": "私の投薬量",
-    "no_medication": "投薬量に薬が追加されていません",
-    "fasting": "空腹時",
-    "tablets": "錠剤",
+    "my_posology": "私の処方",
+    "no_medication": "処方に追加された薬はありません",
+    "fasting": "空腹",
+    "tablets": "錠",
     "stock": "在庫",
     "delete": "削除",
     "add_dialog_title": "追加",
     "time_format": "時間形式",
     "time": "時間",
     "change": "変更",
-    "tablets_count": "錠剤数",
-    "take_fasting": "空腹時に服用",
+    "tablets_count": "錠数",
+    "take_fasting": "空腹で服用",
     "delete_confirmation": "削除の確認",
-    "delete_question": "この薬を投薬量から削除してもよろしいですか？",
-     "details": {
-    "description": "説明",
-    "side_effects": "副作用",
-    "advice": "アドバイス",
-    "see_documentation": "ドキュメントを表示",
-    "enlarge_hint": "拡大するにはタップ",
-    "close": "閉じる"
-  },
-  "pdf": {
-    "documentation_title": "PDFドキュメント",
-    "document_available": "PDFドキュメント利用可能",
-    "file": "ファイル",
-    "view": "表示",
-    "download": "ダウンロード",
-    "reading_title": "ドキュメントを読む",
-    "download_web_only": "ダウンロードはモバイルのみで利用可能",
-    "storage_permission": "ダウンロードにはストレージの許可が必要",
-    "downloaded": "PDFをダウンロードしました",
-    "download_error": "ダウンロードエラー",
-    "view_error": "PDFを開くエラー",
-    "pdf_render_error": "PDFのレンダリングエラー"
-  },
-  "image": {
-    "not_available": "画像は利用できません",
-    "tap_to_close": "閉じるにはタップ"
-  },
-  "time_label": "時間",
-"drugs": {
-"rifadine": {
-"description": "第一選択抗結核抗生物質",
-"side_effects": "オレンジ色の尿、吐き気、肝臓の問題",
-"advice": "空腹時に服用、食事の1時間前または2時間後" },
-"rifater": {
-"description": "リファンピシン、イソニアジド、ピラジナミドの固定組み合わせ",
-"side_effects": "消化器系の問題、頭痛、疲労",
-"advice": "3つの薬を1錠に組み合わせ" },
-"rifinah": {
-"description": "リファンピシンとイソニアジドの組み合わせ",
-"side_effects": "尿がオレンジ色に、吐き気",
-"advice": "朝空腹時に服用するのが望ましい" },
-"dexambutol": {
-"description": "第二選択抗結核薬",
-"side_effects": "視覚障害、視神経症",
-"advice": "眼科モニタリングが必要" },
-"myambutol": {
-"description": "エタンブトール、抗結核性静菌薬",
-"side_effects": "視神経炎、視力の問題",
-"advice": "視力検査が推奨される" },
-"pirilene": {
-"description": "ピラジナミド、抗結核薬",
-"side_effects": "肝臓の問題、関節痛",
-"advice": "肝臓モニタリングが必要" },
-"rimactan": {
-"description": "リファンピシン、抗結核抗生物質",
-"side_effects": "分泌物がオレンジ色に",
-"advice": "食事と離して服用" },
-"rimifon": {
-"description": "イソニアジド、主要な抗結核薬",
-"side_effects": "末梢神経障害、肝炎",
-"advice": "ビタミンB6サプリメントが推奨される" } }
+    "delete_question": "この薬を処方から削除してもよろしいですか？",
+    "details": {
+      "description": "説明",
+      "side_effects": "副作用",
+      "advice": "アドバイス",
+      "see_documentation": "ドキュメントを参照",
+      "enlarge_hint": "拡大するにはタップ",
+      "close": "閉じる"
+    },
+    "pdf": {
+      "documentation_title": "PDFドキュメント",
+      "document_available": "利用可能なPDFドキュメント",
+      "file": "ファイル",
+      "view": "表示",
+      "download": "ダウンロード",
+      "reading_title": "ドキュメントの読み取り",
+      "download_web_only": "ダウンロードはモバイルでのみ利用可能",
+      "storage_permission": "ダウンロードにはストレージの許可が必要",
+      "downloaded": "PDFがダウンロードされました",
+      "download_error": "ダウンロードエラー",
+      "view_error": "PDFを開く際のエラー",
+      "pdf_render_error": "PDFのレンダリングエラー"
+    },
+    "image": {
+      "not_available": "画像は利用できません",
+      "tap_to_close": "閉じるにはタップ"
+    },
+    "time_label": "時間",
+    "drugs": {
+      "rifadine": {
+        "description": "第一選択抗結核薬",
+        "side_effects": "オレンジ色の尿、吐き気、肝障害",
+        "advice": "空腹で、食事の1時間前または2時間後に服用"
+      },
+      "rifater": {
+        "description": "リファンピシン、イソニアジド、ピラジナミドの固定組み合わせ",
+        "side_effects": "消化不良、頭痛、疲労",
+        "advice": "1錠に3つの薬の組み合わせ"
+      },
+      "rifinah": {
+        "description": "リファンピシンとイソニアジドの組み合わせ",
+        "side_effects": "尿のオレンジ色変色、吐き気",
+        "advice": "可能であれば朝空腹で服用"
+      },
+      "dexambutol": {
+        "description": "第二選択抗結核薬",
+        "side_effects": "視覚障害、視神経症",
+        "advice": "眼科的モニタリングが必要"
+      },
+      "myambutol": {
+        "description": "エタンブトール、静菌性抗結核薬",
+        "side_effects": "視神経炎、視覚障害",
+        "advice": "視力検査が推奨されます"
+      },
+      "pirilene": {
+        "description": "ピラジナミド、抗結核薬",
+        "side_effects": "肝障害、関節痛",
+        "advice": "肝機能モニタリングが必要"
+      },
+      "rimactan": {
+        "description": "リファンピシン、抗結核薬",
+        "side_effects": "分泌物のオレンジ色変色",
+        "advice": "食事と離して服用"
+      },
+      "rimifon": {
+        "description": "イソニアジド、主要な抗結核薬",
+        "side_effects": "末梢神経障害、肝炎",
+        "advice": "ビタミンB6のサプリメントが推奨されます"
+      }
+    },
+    "stock_management": {
+      "title": "在庫管理",
+      "current_stock": "現在の在庫: {stock} 錠",
+      "confirm": "確認"
+    }
   },
   "information": {
-    "title": "結核に関する情報",
+    "title": "結核についての情報",
     "links": {
       "title": "役立つリンク"
     },
     "understanding": {
       "title": "結核を理解する",
-      "subtitle": "注意を要する感染症",
-      "what_is": "結核とは？",
-      "what_is_content": "結核は、潜伏期間の後、活動期に入る Mycobacterium tuberculosis という細菌によって引き起こされる病気です。この活動期の病気は細菌の増殖を伴い、症状が現れ、特定の抗生物質による長期の治療が必要となります。",
-      "transmission": "どのように伝染しますか？",
-      "transmission_content": "結核は、肺に影響を受けた人が咳、くしゃみ、または話をすることによって空気中に伝染します。伝染には、伝染性の肺結核を持つ人との長時間の密接な接触が必要です。"
+      "subtitle": "注意が必要な感染症",
+      "what_is": "結核とは?",
+      "what_is_content": "結核はMycobacterium tuberculosisと呼ばれる細菌によって引き起こされる病気で、潜伏期を経て活性化します。この活性型の病気は細菌の増殖を特徴とし、症状を伴い、特定の抗生物質による長期治療が必要です。",
+      "transmission": "どのように伝染するのですか?",
+      "transmission_content": "結核は、肺に感染した人が咳、くしゃみ、または話をするときに空気中に放出される細菌を含む小さな飛沫によって伝染します。伝染には、伝染性のある肺結核患者との長時間の密接な接触が必要です。"
     },
     "itl": {
-      "title": "潜在性結核感染症（LTBI）",
-      "what_is": "LTBIとは何ですか？",
-      "what_is_content": "潜在性結核感染症では、細菌は体の防御によって中和され、閉じ込められます。この細菌は「休眠状態」のままになることがあります。人は一生の間に病気を発症しないかもしれません。",
-      "vs_active": "LTBI vs 活動性結核",
-      "itl_characteristics": "潜在性結核感染症",
-      "itl_char_1": "菌は「休眠状態、中和」",
-      "itl_char_2": "人は伝染性ではない",
+      "title": "潜伏結核感染症（ITL）",
+      "what_is": "ITLとは何を意味しますか?",
+      "what_is_content": "潜伏結核感染症では、細菌は体の防御機構によって中和され、閉じ込められています。この細菌は「休眠」状態のまま残ることがあります。人は一生の間に病気を発症しないかもしれません。",
+      "vs_active": "ITL vs 活動性結核",
+      "itl_characteristics": "潜伏結核感染症",
+      "itl_char_1": "菌が「休眠、中和」状態",
+      "itl_char_2": "人は非伝染性",
       "itl_char_3": "症状なし",
-      "itl_char_4": "正常なX線",
-      "itl_char_5": "3ヶ月の予防治療",
+      "itl_char_4": "X線検査は正常",
+      "itl_char_5": "3ヶ月の予防的治療",
       "active_characteristics": "活動性結核",
-      "active_char_1": "菌は活動的",
-      "active_char_2": "肺の場合、伝染性",
+      "active_char_1": "菌が活動的",
+      "active_char_2": "肺結核の場合は伝染性あり",
       "active_char_3": "症状の存在",
-      "active_char_4": "異常なX線",
+      "active_char_4": "X線検査は異常",
       "active_char_5": "6ヶ月以上の治療"
     },
     "symptoms": {
       "title": "症状と治療",
       "symptoms_list": "主な症状",
       "symptom_1": "持続的な咳（3週間以上）",
-      "symptom_2": "痰に血が混じる",
+      "symptom_2": "痰に血",
       "symptom_3": "胸の痛み",
       "symptom_4": "疲労と弱さ",
       "symptom_5": "意図しない体重減少",
-      "symptom_6": "発熱と夜間の発汗",
+      "symptom_6": "発熱と夜間発汗",
       "symptom_7": "食欲不振",
       "treatment_title": "治療",
-      "treatment_content": "治療には、数ヶ月間、毎日複数の薬を服用する必要があります。それらは空腹時に服用する必要があります。実際には、食事の少なくとも30分前に服用する必要があります。",
-      "important_note": "治療を中止しないことが非常に重要です。さもなければ、病気が再発する可能性があります。"
+      "treatment_content": "治療には、数ヶ月間にわたり毎日複数の薬を服用する必要があります。これらは空腹で服用する必要があります。実際には、食事の少なくとも30分前に服用する必要があります。",
+      "important_note": "治療を中止しないことが非常に重要です。そうしないと、病気が再発する可能性があります。"
     },
     "prevention": {
       "title": "予防",
       "vaccination": "BCGワクチン接種",
-      "vaccination_content": "BCGワクチン接種は、特にリスク要因を持つ5歳未満の子供に強く推奨されます。",
-      "screening": "結核センターによるスクリーニング",
-      "screening_content": "結核対策センターは、症例周辺の調査とスクリーニングを組織することにより、予防において中心的な役割を果たします。"
+      "vaccination_content": "BCGワクチン接種は、特にリスク要因のある5歳未満の子供に強く推奨されます。",
+      "screening": "結核対策センターによるスクリーニング",
+      "screening_content": "結核対策センターは、症例の周りで調査とスクリーニングを組織することで、予防において中心的な役割を果たしています。"
     },
     "faq": {
       "title": "よくある質問",
-      "q1": "結核は常に伝染性ですか？",
-      "a1": "いいえ、肺結核のみが伝染性です。体の他の部分に影響を与える場合、伝染性ではありません。",
-      "q2": "治療はどのくらいの期間続きますか？",
-      "a2": "治療は通常6ヶ月続き、場合によってはそれ以上続きます。完全に従うことが重要です。",
-      "q3": "結核は治癒しますか？",
-      "a3": "はい、治療を正しく従えば、結核は現在フランスで非常に治療可能です。",
-      "q4": "誰がスクリーニングを受けるべきですか？",
+      "q1": "結核は常に伝染性がありますか?",
+      "a1": "いいえ、肺結核のみが伝染性があります。体の他の部分に影響を与える場合、伝染性はありません。",
+      "q2": "治療期間はどのくらいですか?",
+      "a2": "治療期間は通常6ヶ月ですが、場合によってはそれ以上かかることもあります。完全に従うことが重要です。",
+      "q3": "結核は治癒可能ですか?",
+      "a3": "はい、結核は現在フランスで適切に治療すれば非常に治療可能です。",
+      "q4": "誰がスクリーニングを受けるべきですか?",
       "a4": "密接な接触者や患者と頻繁に接触する人は、結核対策センターのチームによってスクリーニングを受けます。"
     }
   },
@@ -204,62 +224,62 @@
     "restart": "再開",
     "home": "ホーム",
     "result": {
-      "title": "クイズが完了しました！",
-      "excellent": "素晴らしい！あなたはこの主題を非常によく理解しています！",
-      "good": "良い！あなたは良い知識を持っています。",
-      "average": "正解です。まだいくつかのポイントを復習する必要があります。",
-      "needs_improvement": "結核に関する情報を再読することが良いでしょう。"
+      "title": "クイズ終了！",
+      "excellent": "素晴らしい！このテーマを非常によく理解しています！",
+      "good": "良い！良い知識を持っています。",
+      "average": "普通です。まだいくつかの点を復習する必要があります。",
+      "needs_improvement": "結核についての情報を再読する必要があります。"
     },
     "q1": {
-      "question": "結核の原因は何ですか？",
+      "question": "結核の原因は何ですか?",
       "a1": "ウイルス",
-      "a2": "Mycobacterium tuberculosis という細菌",
+      "a2": "Mycobacterium tuberculosisと呼ばれる細菌",
       "a3": "真菌",
       "a4": "寄生虫",
-      "explanation": "結核は Mycobacterium tuberculosis という細菌、別名コッホ菌によって引き起こされます。"
+      "explanation": "結核はMycobacterium tuberculosisと呼ばれる細菌、すなわちコッホ菌によって引き起こされます。"
     },
     "q2": {
-      "question": "結核はどのように伝染しますか？",
-      "a1": "空気中（咳、くしゃみ）",
+      "question": "結核はどのように伝染しますか?",
+      "a1": "空気（咳、くしゃみ）",
       "a2": "皮膚接触",
       "a3": "汚染された水",
-      "a4": "昆虫の刺し傷",
-      "explanation": "結核は、感染した人が咳、くしゃみ、または話をすることによって細菌を含む飛沫が放出され、空気中を伝染します。"
+      "a4": "昆虫に刺される",
+      "explanation": "結核は、感染した人が咳、くしゃみ、または話をするときに、細菌を含む小さな飛沫を空気中に放出することで伝染します。"
     },
     "q3": {
-      "question": "結核のどの形態が伝染性ですか？",
+      "question": "どの形態の結核が伝染性がありますか?",
       "a1": "骨結核",
       "a2": "腎結核",
       "a3": "肺結核",
       "a4": "リンパ節結核",
-      "explanation": "肺結核のみが伝染性です。肺に影響を与え、空気感染を可能にするためです。"
+      "explanation": "肺結核のみが伝染性があります。なぜなら、肺に影響を与え、空気感染を可能にするからです。"
     },
     "q4": {
-      "question": "結核治療は通常どのくらいの期間続きますか？",
+      "question": "結核の治療期間は通常どのくらいですか?",
       "a1": "2週間",
       "a2": "6ヶ月以上",
       "a3": "1ヶ月",
       "a4": "1年",
-      "explanation": "結核治療は通常6ヶ月続き、場合によってはそれ以上続きます。完全に従うことが重要です。"
+      "explanation": "結核の治療期間は通常6ヶ月ですが、場合によってはそれ以上かかることもあります。完全に従うことが重要です。"
     },
     "q5": {
-      "question": "LTBIとは何ですか？",
-      "a1": "潜在性結核感染症",
-      "a2": "長期総感染",
+      "question": "ITLとは何を意味しますか?",
+      "a1": "潜伏結核感染症",
+      "a2": "長期感染",
       "a3": "局所的治療介入",
-      "a4": "限定結核免疫",
-      "explanation": "LTBIは潜在性結核感染症を意味します。細菌が存在するが「休眠状態」で、症状や伝染性がない場合です。"
+      "a4": "結核に対する限定的免疫",
+      "explanation": "ITLは潜伏結核感染症を意味します。これは、細菌が存在するが「休眠」状態で、症状や伝染性がない場合を指します。"
     },
     "q6": {
-      "question": "結核薬はいつ服用するべきですか？",
+      "question": "結核薬はいつ服用する必要がありますか?",
       "a1": "食事後",
       "a2": "食事中",
       "a3": "いつでも",
       "a4": "空腹時（食事前）",
-      "explanation": "結核薬は空腹時に、食事の少なくとも30分前または2時間後に服用する必要があります。"
+      "explanation": "結核薬は空腹時、つまり食事の少なくとも30分前または2時間後に服用する必要があります。"
     },
     "q7": {
-      "question": "肺結核の主な症状は何ですか？",
+      "question": "肺結核の主な症状は何ですか?",
       "a1": "頭痛",
       "a2": "持続的な咳",
       "a3": "腹痛",
@@ -267,40 +287,116 @@
       "explanation": "肺結核の主な症状は、3週間以上続く持続的な咳です。"
     },
     "q8": {
-      "question": "治療を早期に中止するとどうなりますか？",
-      "a1": "特に何も起こらない",
-      "a2": "より早い回復",
+      "question": "治療を早すぎる終了するとどうなりますか?",
+      "a1": "何も特別なことはありません",
+      "a2": "より速い回復",
       "a3": "再発と耐性のリスク",
       "a4": "副作用の減少",
-      "explanation": "治療を早期に中止すると、病気の再発や薬剤耐性の発生につながる可能性があります。"
+      "explanation": "治療を早すぎる終了すると、病気が再発し、薬物耐性が発生する可能性があります。"
     }
   },
   "settings": {
     "language_choice": "言語選択",
     "language_changed": "言語がに変更されました",
-    "actions": "アクション",
+    "actions": "操作",
     "reset_data": "データをリセット",
-    "reset_description": "すべてのアプリケーションデータを削除",
-    "reset_confirmation": "すべてのデータをリセットしてもよろしいですか？",
-    "reset_warning": "このアクションは以下を削除します：\n• 投薬量\n• 薬の摂取\n• すべての設定",
+    "reset_description": "アプリケーションのすべてのデータを削除",
+    "reset_confirmation": "すべてのデータをリセットしてもよろしいですか?",
+    "reset_warning": "この操作は以下を削除します:\n• あなたの処方\n• あなたの薬の服用\n• あなたのすべての設定",
     "reset_success": "データが正常にリセットされました",
     "quit_app": "アプリケーションを終了",
-    "quit_description": "TB&Me",
-    "quit_confirmation": "TB&Meを終了してもよろしいですか？"
+    "quit_description": "私の結核を終了",
+    "quit_confirmation": "私の結核を終了してもよろしいですか?"
   },
   "common": {
     "cancel": "キャンセル",
     "confirm": "確認",
     "reset": "リセット",
-    "quit": "終了"
+    "quit": "終了",
+    "close": "閉じる",
+    "later": "後で"
   },
   "notifications": {
     "fasting_reminder_title": "⏰ 断食リマインダー",
-    "fasting_reminder_body": "2時間後、{medication} {dosage}を服用してください。今は何も食べたり飲んだりしないでください！",
-    "5min_reminder_title": "🔔 近づいたリマインダー",
-    "5min_reminder_body": "5分後：{medication} {dosage} ({tablets} 錠{plural})",
+    "fasting_reminder_body": "2時間後、{medication} {dosage}を服用してください。今何も食べたり飲んだりしないでください！",
+    "5min_reminder_title": "🔔 近いリマインダー",
+    "5min_reminder_body": "5分後: {medication} {dosage} ({tablets} 錠)",
     "time_reminder_title": "💊 時間です！",
-    "time_reminder_body": "今服用してください：{medication} {dosage} ({tablets} 錠{plural})",
-    "fasting_note": " - 空腹時に服用"
+    "time_reminder_body": "今服用してください: {medication} {dosage} ({tablets} 錠)",
+    "fasting_note": " - 空腹で服用",
+    "permissions_help": "これらの許可はデバイスの設定で有効にできます。",
+    "test_simple": "🔔 シンプルなテスト",
+    "test_sent_immediately": "テスト通知がすぐに送信されました"
+  },
+  "permissions": {
+    "notifications": "通知",
+    "exact_alarms": "正確なアラーム",
+    "storage": "ストレージ",
+    "required_title": "必要な許可",
+    "required_message": "アプリケーションが正常に機能するには、次の許可が必要です:"
+  },
+  "encouragement": {
+    "regular_taking": [
+      "💊 毎回の服用が重要です。さらに一歩進んだことを祝福します。",
+      "🌟 あなたの取り組みが違いを生みます。このまま続けてください！",
+      "🎯 よくできました！毎日、あなたの回復を築いています。",
+      "🌱 必要な行動、より健康な未来。おめでとうございます！",
+      "💪 あなたは自分自身をケアしており、それが見えます。よくできました！",
+      "🏆 小さな行動、大きな勝利。素晴らしい！",
+      "✨ 毎回の行動が健康に近づけています。素晴らしい！"
+    ],
+    "missed_recovery": [
+      "🔄 大切なのは再開することです。忘れた後でも、毎回の服用が重要です！",
+      "🤗 大丈夫です、間違いは人間です。今日に集中しましょう！",
+      "💚 忘れることはあります。治療を再開したことを祝福します！一緒に続けましょう。",
+      "🌈 道は時々障害物がありますが、あなたはここにいます！再開したことをよくやりました。",
+      "🚀 この小さな一歩は、あなたの決意の大きな証です。行きましょう！",
+      "💪 あきらめないでください！重要なのは粘り強く続けることです。再開したことを祝福します。",
+      "⭐ コースを保ってください！忘れることはあなたの進歩を止めません。再開したことを祝福します。"
+    ]
+  },
+  "catch_up": {
+    "title": "服用の追いつき",
+    "button": "追いつく",
+    "fasting_period": "必要な断食期間",
+    "fasting_duration": "2時間の断食",
+    "fasting_rules": "次の2時間:\n• 食べない\n• 飲まない\n• 吸わない",
+    "timer_title": "断食期間進行中",
+    "timer_subtitle": "さらに断食する必要があります",
+    "ready_title": "✅ 断食期間終了！",
+    "ready_message": "今、薬を服用できます",
+    "take_now": "今服用",
+    "cancel_catchup": "追いつきをキャンセル"
+  },
+  "messages": {
+    "medication_added_success": "薬が正常に追加されました",
+    "medication_deleted_success": "薬が正常に削除されました",
+    "stock_updated": "在庫が更新されました: {stock} 錠",
+    "notifications_scheduled": "{medication}の通知が{time}にスケジュールされました",
+    "notifications_scheduled_fasting": " (2時間前に断食リマインダー付き)",
+    "notifications_error": "通知エラー: {error}",
+    "no_medications_posology": "処方に薬がありません",
+    "test_scheduled": "{medication}のテストが1分後にスケジュールされました",
+    "view_photos_title": "📸 薬の写真",
+    "close_dialog": "閉じる",
+    "image_not_available": "画像は利用できません",
+    "touch_to_close": "閉じるにはタッチ",
+    "touch_to_enlarge": "拡大するにはタッチ",
+    "medication_not_found": "エラー: 薬が見つかりません",
+    "link_open_error": "リンクを開けません: {url}",
+    "error": "エラー: {error}"
+  },
+  "history": {
+    "title": "📊 履歴",
+    "week_of": "週",
+    "before_installation": "インストール前",
+    "upcoming": "予定",
+    "taken_count": "✅ {count} 服用済み",
+    "missed_count": "❌ {count} 未服用",
+    "details_title": "詳細",
+    "no_data": "この日にデータがありません",
+    "unknown_medication": "不明",
+    "taken_at": "服用時間",
+    "missed": "未服用"
   }
 }

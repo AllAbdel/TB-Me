@@ -52,7 +52,15 @@
     "september": "Septembre",
     "october": "Octobre",
     "november": "Novembre",
-    "december": "Décembre"
+    "december": "Décembre",
+    "monday_short": "Lun",
+    "tuesday_short": "Mar", 
+    "wednesday_short": "Mer",
+    "thursday_short": "Jeu",
+    "friday_short": "Ven",
+    "saturday_short": "Sam",
+    "sunday_short": "Dim"
+
   },
   "medications": {
     
@@ -137,6 +145,11 @@
         "side_effects": "Neuropathie périphérique, hépatite",
         "advice": "Supplément en vitamine B6 recommandé"
       }
+    },
+    "stock_management": {
+      "title": "Gérer le stock",
+      "current_stock": "Stock actuel: {stock} comprimés",
+      "confirm": "Confirmer"
     }
     
   },
@@ -299,7 +312,10 @@
     "cancel": "Annuler",
     "confirm": "Confirmer",
     "reset": "Réinitialiser",
-    "quit": "Quitter"
+    "quit": "Quitter",
+    "close": "Fermer",
+    "later": "Plus tard"
+
   },
   "notifications": {
     "fasting_reminder_title": "⏰ Rappel de jeûne",
@@ -308,7 +324,18 @@
     "5min_reminder_body": "Dans 5 minutes : {medication} {dosage} ({tablets} comprimé{plural})",
     "time_reminder_title": "💊 C'est l'heure !",
     "time_reminder_body": "Prenez maintenant : {medication} {dosage} ({tablets} comprimé{plural})",
-    "fasting_note": " - À prendre à jeun"
+    "fasting_note": " - À prendre à jeun",
+    "permissions_help": "Vous pouvez activer ces permissions dans les paramètres de l'appareil.",
+    "test_simple": "🔔 Test Simple",
+    "test_sent_immediately": "Notification test envoyée immédiatement"
+
+  },
+  "permissions": {
+    "notifications": "Notifications",
+    "exact_alarms": "Alarmes exactes", 
+    "storage": "Stockage",
+    "required_title": "Permissions requises",
+    "required_message": "L'application a besoin des permissions suivantes pour fonctionner correctement :"
   },
   "encouragement": {
     "regular_taking": [
@@ -342,5 +369,38 @@
     "ready_message": "Vous pouvez maintenant prendre votre médicament",
     "take_now": "Prendre maintenant",
     "cancel_catchup": "Annuler le rattrapage"
-  }
+  },
+    "messages": {
+    "medication_added_success": "Médicament ajouté avec succès",
+    "medication_deleted_success": "Médicament supprimé avec succès",
+    "stock_updated": "Stock mis à jour: {stock} comprimés",
+    "notifications_scheduled": "Notifications programmées pour {medication} à {time}",
+    "notifications_scheduled_fasting": " (avec rappel de jeûne 2h avant)",
+    "notifications_error": "Erreur notifications: {error}",
+    "no_medications_posology": "Aucun médicament dans votre posologie",
+    "test_scheduled": "Test programmé dans 1 minute pour {medication}",
+    "view_photos_title": "📸 Photos des médicaments",
+    "close_dialog": "Fermer",
+    "image_not_available": "Image non disponible",
+    "touch_to_close": "Toucher pour fermer",
+    "touch_to_enlarge": "Toucher pour agrandir",
+    "medication_not_found": "Erreur: médicament non trouvé",
+    "link_open_error": "Impossible d'ouvrir le lien: {url}",
+    "error": "Erreur: {error}"
+
+
+    },
+    "history": {
+    "title": "📊 Historique",
+    "week_of": "Semaine du",
+    "before_installation": "Avant installation",
+    "upcoming": "À venir",
+    "taken_count": "✅ {count} pris",
+    "missed_count": "❌ {count} manqués",
+    "details_title": "Détails du",
+    "no_data": "Aucune donnée pour ce jour",
+    "unknown_medication": "Inconnu",
+    "taken_at": "Pris à",
+    "missed": "Manqué"
+    }
 }

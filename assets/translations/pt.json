@@ -4,31 +4,31 @@
     "home": "Início",
     "medications": "Medicações",
     "quiz": "Questionário",
-    "information": "Informações",
+    "information": "Informação",
     "settings": "Configurações",
     "description": "Aplicativo dedicado ao acompanhamento do tratamento da tuberculose"
   },
   "home": {
     "welcome": "Bem-vindo!",
     "medications_today": "medicamento(s) para tomar hoje",
-    "daily_dashboard": "Painel do dia",
-    "no_medications": "Nenhum medicamento configurado",
-    "configure_medications": "Vá para a aba Medicações para configurar sua posologia",
-    "daily_statistics": "Estatísticas do dia",
-    "confirm_taking": "Confirmar a ingestão",
+    "daily_dashboard": "Painel diário",
+    "no_medications": "Nenhuma medicação configurada",
+    "configure_medications": "Vá para a aba Medicações para configurar sua dosagem",
+    "daily_statistics": "Estatísticas diárias",
+    "confirm_taking": "Confirmar ingestão",
     "mark_as_taken": "Marcar",
-    "mark_taken": "Marcar\ncomo tomado",
+    "mark_taken": "Marcar como tomado",
     "tablets": "comprimido(s)",
     "current_stock": "Estoque atual",
     "stock_after": "Estoque após ingestão",
     "stock": "Estoque",
     "marked_as_taken": "marcado como tomado",
-    "insufficient_stock": "Estoque insuficiente! Restam apenas",
-    "tablets_remaining": "comprimido(s)",
+    "insufficient_stock": "Estoque insuficiente! Apenas",
+    "tablets_remaining": "comprimido(s) restante(s)",
     "take_on_empty_stomach": "Tomar em jejum",
     "status": {
       "taken": "Tomado",
-      "upcoming": "Próximo",
+      "upcoming": "Próximos",
       "now": "Agora",
       "missed": "Perdido"
     }
@@ -52,148 +52,169 @@
     "september": "Setembro",
     "october": "Outubro",
     "november": "Novembro",
-    "december": "Dezembro"
+    "december": "Dezembro",
+    "monday_short": "Seg",
+    "tuesday_short": "Ter",
+    "wednesday_short": "Qua",
+    "thursday_short": "Qui",
+    "friday_short": "Sex",
+    "saturday_short": "Sáb",
+    "sunday_short": "Dom"
   },
   "medications": {
-    "available_title": "Medicamentos disponíveis",
+    "available_title": "Medicações disponíveis",
     "add_button": "Adicionar",
     "my_posology": "Minha posologia",
-    "no_medication": "Nenhum medicamento adicionado à sua posologia",
-    "fasting": "Em jejum",
+    "no_medication": "Nenhuma medicação adicionada à sua posologia",
+    "fasting": "Jejum",
     "tablets": "comprimido(s)",
     "stock": "Estoque",
     "delete": "Excluir",
     "add_dialog_title": "Adicionar",
-    "time_format": "Formato de hora",
+    "time_format": "Formato da hora",
     "time": "Hora",
-    "change": "Alterar",
+    "change": "Modificar",
     "tablets_count": "Comprimidos",
     "take_fasting": "Tomar em jejum",
     "delete_confirmation": "Confirmar exclusão",
-    "delete_question": "Tem certeza de que deseja excluir este medicamento da sua posologia?",
+    "delete_question": "Tem certeza de que deseja excluir esta medicação da sua posologia?",
     "details": {
-    "description": "Descrição",
-    "side_effects": "Efeitos secundários",
-    "advice": "Conselho",
-    "see_documentation": "Ver documentação",
-    "enlarge_hint": "Toque para ampliar",
-    "close": "Fechar"
-  },
-  "pdf": {
-    "documentation_title": "Documentação PDF",
-    "document_available": "Documento PDF disponível",
-    "file": "Arquivo",
-    "view": "Ver",
-    "download": "Baixar",
-    "reading_title": "Lendo documento",
-    "download_web_only": "Download disponível apenas no celular",
-    "storage_permission": "Permissão de armazenamento necessária para download",
-    "downloaded": "PDF baixado",
-    "download_error": "Erro de download",
-    "view_error": "Erro ao abrir PDF",
-    "pdf_render_error": "Erro ao renderizar PDF"
-  },
-  "image": {
-    "not_available": "Imagem não disponível",
-    "tap_to_close": "Toque para fechar"
-  },
-  "time_label": "Hora",
-"drugs": {
-"rifadine": {
-"description": "Antibiótico antituberculose de primeira linha",
-"side_effects": "Urina alaranjada, náuseas, problemas hepáticos",
-"advice": "Tomar em jejum, 1 hora antes ou 2 horas após a refeição" },
-"rifater": {
-"description": "Combinação fixa de rifampicina, isoniazida e pirazinamida",
-"side_effects": "Problemas digestivos, dores de cabeça, fadiga",
-"advice": "Combinação de 3 medicamentos em 1 comprimido" },
-"rifinah": {
-"description": "Combinação de rifampicina e isoniazida",
-"side_effects": "Coloração laranja da urina, náuseas",
-"advice": "Preferencialmente tomar de manhã em jejum" },
-"dexambutol": {
-"description": "Medicamento antituberculose de segunda linha",
-"side_effects": "Distúrbios visuais, neuropatia óptica",
-"advice": "Monitoramento oftalmológico necessário" },
-"myambutol": {
-"description": "Etambutol, medicamento bacteriostático antituberculose",
-"side_effects": "Neurite óptica, problemas de visão",
-"advice": "Controle da visão recomendado" },
-"pirilene": {
-"description": "Pirazinamida, medicamento antituberculose",
-"side_effects": "Problemas hepáticos, artralgia",
-"advice": "Monitoramento hepático necessário" },
-"rimactan": {
-"description": "Rifampicina, antibiótico antituberculose",
-"side_effects": "Coloração laranja das secreções",
-"advice": "Tomar longe das refeições" },
-"rimifon": {
-"description": "Isoniazida, principal medicamento antituberculose",
-"side_effects": "Neuropatia periférica, hepatite",
-"advice": "Suplemento de vitamina B6 recomendado" } }
+      "description": "Descrição",
+      "side_effects": "Efeitos colaterais",
+      "advice": "Conselho",
+      "see_documentation": "Ver documentação",
+      "enlarge_hint": "Toque para ampliar",
+      "close": "Fechar"
+    },
+    "pdf": {
+      "documentation_title": "Documentação PDF",
+      "document_available": "Documento PDF disponível",
+      "file": "Arquivo",
+      "view": "Ver",
+      "download": "Baixar",
+      "reading_title": "Leitura do documento",
+      "download_web_only": "Download disponível apenas no celular",
+      "storage_permission": "Permissão de armazenamento necessária para download",
+      "downloaded": "PDF baixado",
+      "download_error": "Erro de download",
+      "view_error": "Erro ao abrir o PDF",
+      "pdf_render_error": "Erro de renderização do PDF"
+    },
+    "image": {
+      "not_available": "Imagem não disponível",
+      "tap_to_close": "Toque para fechar"
+    },
+    "time_label": "Hora",
+    "drugs": {
+      "rifadine": {
+        "description": "Antibiótico antituberculose de primeira linha",
+        "side_effects": "Urina alaranjada, náuseas, problemas hepáticos",
+        "advice": "Tomar em jejum, 1 hora antes ou 2 horas após a refeição"
+      },
+      "rifater": {
+        "description": "Combinação fixa de rifampicina, isoniazida e pirazinamida",
+        "side_effects": "Distúrbios digestivos, dores de cabeça, fadiga",
+        "advice": "Combinação de 3 medicamentos em 1 comprimido"
+      },
+      "rifinah": {
+        "description": "Associação de rifampicina e isoniazida",
+        "side_effects": "Coloração alaranjada da urina, náuseas",
+        "advice": "Tomar de manhã em jejum, de preferência"
+      },
+      "dexambutol": {
+        "description": "Antituberculose de segunda linha",
+        "side_effects": "Distúrbios visuais, neuropatia óptica",
+        "advice": "Monitoramento oftalmológico necessário"
+      },
+      "myambutol": {
+        "description": "Etambutol, antituberculose bacteriostático",
+        "side_effects": "Neurite óptica, problemas de visão",
+        "advice": "Controle da visão recomendado"
+      },
+      "pirilene": {
+        "description": "Pirazinamida, antituberculose",
+        "side_effects": "Problemas hepáticos, artralgia",
+        "advice": "Monitoramento hepático necessário"
+      },
+      "rimactan": {
+        "description": "Rifampicina, antibiótico antituberculose",
+        "side_effects": "Coloração alaranjada das secreções",
+        "advice": "Tomar longe das refeições"
+      },
+      "rimifon": {
+        "description": "Isoniazida, antituberculose principal",
+        "side_effects": "Neuropatia periférica, hepatite",
+        "advice": "Suplemento de vitamina B6 recomendado"
+      }
+    },
+    "stock_management": {
+      "title": "Gerenciar estoque",
+      "current_stock": "Estoque atual: {stock} comprimidos",
+      "confirm": "Confirmar"
+    }
   },
   "information": {
-    "title": "Informações sobre a Tuberculose",
+    "title": "Informações sobre a tuberculose",
     "links": {
-      "title": "Links Úteis"
+      "title": "Links úteis"
     },
     "understanding": {
-      "title": "Entendendo a Tuberculose",
+      "title": "Entendendo a tuberculose",
       "subtitle": "Uma doença infecciosa que requer atenção",
       "what_is": "O que é tuberculose?",
-      "what_is_content": "A tuberculose é uma doença causada pela bactéria chamada Mycobacterium tuberculosis, que após uma fase latente, torna-se ativa. Esta forma ativa da doença corresponde à multiplicação da bactéria. É acompanhada de sintomas e requer tratamento prolongado com antibióticos específicos.",
-      "transmission": "Como ela é transmitida?",
-      "transmission_content": "A tuberculose é transmitida pelo ar, por uma pessoa cujos pulmões estão afetados quando ela tosse, espirra ou fala. A transmissão requer contatos prolongados e próximos com uma pessoa que tem tuberculose pulmonar contagiosa."
+      "what_is_content": "A tuberculose é uma doença causada pela bactéria chamada Mycobacterium tuberculosis, que após uma fase latente, torna-se ativa. Esta forma ativa da doença corresponde a uma multiplicação da bactéria. É acompanhada de sintomas e requer tratamento prolongado com antibióticos específicos.",
+      "transmission": "Como é transmitida?",
+      "transmission_content": "A tuberculose é transmitida pelo ar por uma pessoa cujos pulmões são afetados quando ela tosse, espirra ou fala. A transmissão requer contato prolongado e próximo com uma pessoa que tem tuberculose pulmonar contagiosa."
     },
     "itl": {
       "title": "Infecção Tuberculosa Latente (ITL)",
       "what_is": "O que significa ITL?",
-      "what_is_content": "Na infecção tuberculosa latente, a bactéria é neutralizada, presa graças às defesas do organismo. Esta bactéria pode permanecer 'adormecida'. A pessoa pode nunca desenvolver a doença durante a sua vida.",
-      "vs_active": "ITL vs Tuberculose Ativa",
+      "what_is_content": "Na infecção tuberculosa latente, a bactéria é neutralizada, presa graças às defesas do organismo. Esta bactéria pode permanecer 'dormente'. A pessoa pode nunca desenvolver a doença em sua vida.",
+      "vs_active": "ITL vs Tuberculose ativa",
       "itl_characteristics": "Infecção Tuberculosa Latente",
-      "itl_char_1": "Os bacilos estão 'adormecidos, neutralizados'",
+      "itl_char_1": "Os bacilos estão 'dormentes, neutralizados'",
       "itl_char_2": "A pessoa não é contagiosa",
       "itl_char_3": "Nenhum sintoma",
-      "itl_char_4": "Raio X normal",
-      "itl_char_5": "Tratamento preventivo de 3 meses",
-      "active_characteristics": "Tuberculose Ativa",
+      "itl_char_4": "Raio-X normal",
+      "itl_char_5": "Tratamento preventivo por 3 meses",
+      "active_characteristics": "Tuberculose ativa",
       "active_char_1": "Os bacilos estão ativos",
       "active_char_2": "Contagiosa se pulmonar",
       "active_char_3": "Presença de sintomas",
-      "active_char_4": "Raio X anormal",
-      "active_char_5": "Tratamento curativo de 6 meses ou mais"
+      "active_char_4": "Raio-X anormal",
+      "active_char_5": "Tratamento curativo por 6 meses ou mais"
     },
     "symptoms": {
-      "title": "Sintomas e Tratamento",
-      "symptoms_list": "Sintomas principais",
+      "title": "Sintomas e tratamento",
+      "symptoms_list": "Principais sintomas",
       "symptom_1": "Tosse persistente (mais de 3 semanas)",
-      "symptom_2": "Escarro com sangue",
+      "symptom_2": "Sangue no escarro",
       "symptom_3": "Dores no peito",
       "symptom_4": "Fadiga e fraqueza",
-      "symptom_5": "Perda de peso involuntária",
+      "symptom_5": "Perda de peso não intencional",
       "symptom_6": "Febre e suores noturnos",
       "symptom_7": "Perda de apetite",
-      "treatment_title": "O Tratamento",
-      "treatment_content": "O tratamento exige tomar vários medicamentos todos os dias, durante vários meses. Eles devem ser tomados em jejum. Na prática, é necessário tomá-los pelo menos meia hora antes de comer.",
+      "treatment_title": "Tratamento",
+      "treatment_content": "O tratamento requer a ingestão de vários medicamentos todos os dias, por vários meses. Eles devem ser tomados em jejum. Na prática, devem ser tomados pelo menos meia hora antes de comer.",
       "important_note": "É muito importante não interromper o tratamento, caso contrário a doença pode voltar."
     },
     "prevention": {
       "title": "Prevenção",
       "vaccination": "Vacinação BCG",
-      "vaccination_content": "A vacinação BCG continua sendo fortemente recomendada, prioritariamente para crianças menores de cinco anos com fator de risco.",
-      "screening": "Triagem pelos CLAT",
-      "screening_content": "Os Centros de Luta Antituberculose (CLAT) desempenham um papel central na prevenção, organizando investigações e triagens em torno dos casos."
+      "vaccination_content": "A vacinação BCG permanece fortemente recomendada, especialmente para crianças menores de cinco anos com fatores de risco.",
+      "screening": "Triagem por centros de luta contra a tuberculose",
+      "screening_content": "Os centros de luta contra a tuberculose desempenham um papel central na prevenção, organizando investigações e triagens em torno dos casos."
     },
     "faq": {
-      "title": "Perguntas Frequentes",
+      "title": "Perguntas frequentes",
       "q1": "A tuberculose é sempre contagiosa?",
       "a1": "Não, apenas a tuberculose pulmonar é contagiosa. Quando afeta outras partes do corpo, não é contagiosa.",
       "q2": "Quanto tempo dura o tratamento?",
       "a2": "O tratamento geralmente dura 6 meses, às vezes mais dependendo do caso. É crucial segui-lo completamente.",
-      "q3": "Pode-se curar da tuberculose?",
+      "q3": "A tuberculose pode ser curada?",
       "a3": "Sim, a tuberculose é muito tratável hoje na França se o tratamento for seguido corretamente.",
       "q4": "Quem deve ser rastreado?",
-      "a4": "O entorno próximo e as pessoas em contato frequente com um doente são rastreados pelas equipes do CLAT."
+      "a4": "Contatos próximos e pessoas em contato frequente com um paciente são rastreados pelas equipes dos centros de luta contra a tuberculose."
     }
   },
   "quiz": {
@@ -219,11 +240,11 @@
     },
     "q2": {
       "question": "Como a tuberculose é transmitida?",
-      "a1": "Por via aérea (tosse, espirros)",
-      "a2": "Por contato com a pele",
+      "a1": "Pelo ar (tosse, espirros)",
+      "a2": "Por contato cutâneo",
       "a3": "Por água contaminada",
       "a4": "Por picadas de insetos",
-      "explanation": "A tuberculose é transmitida por via aérea quando uma pessoa infectada tosse, espirra ou fala, liberando gotículas contendo a bactéria."
+      "explanation": "A tuberculose é transmitida pelo ar quando uma pessoa infectada tosse, espirra ou fala, liberando gotículas contendo a bactéria."
     },
     "q3": {
       "question": "Qual forma de tuberculose é contagiosa?",
@@ -231,7 +252,7 @@
       "a2": "Tuberculose renal",
       "a3": "Tuberculose pulmonar",
       "a4": "Tuberculose ganglionar",
-      "explanation": "Apenas a tuberculose pulmonar é contagiosa, pois afeta os pulmões e permite a transmissão por via aérea."
+      "explanation": "Apenas a tuberculose pulmonar é contagiosa porque afeta os pulmões e permite a transmissão por via aérea."
     },
     "q4": {
       "question": "Quanto tempo geralmente dura o tratamento da tuberculose?",
@@ -246,31 +267,31 @@
       "a1": "Infecção Tuberculosa Latente",
       "a2": "Infecção Total Longa",
       "a3": "Intervenção Terapêutica Local",
-      "a4": "Imunidade à Tuberculose Limitada",
-      "explanation": "ITL significa Infecção Tuberculosa Latente. É quando a bactéria está presente, mas 'adormecida', sem sintomas ou contagiosidade."
+      "a4": "Imunidade Limitada à Tuberculose",
+      "explanation": "ITL significa Infecção Tuberculosa Latente. É quando a bactéria está presente, mas 'dormente', sem sintomas ou contagiosidade."
     },
     "q6": {
-      "question": "Quando se deve tomar os medicamentos antituberculose?",
+      "question": "Quando os medicamentos contra a tuberculose devem ser tomados?",
       "a1": "Após as refeições",
       "a2": "Durante as refeições",
       "a3": "A qualquer momento",
       "a4": "Em jejum (antes das refeições)",
-      "explanation": "Os medicamentos antituberculose devem ser tomados em jejum, pelo menos 30 minutos antes das refeições ou 2 horas depois."
+      "explanation": "Os medicamentos contra a tuberculose devem ser tomados em jejum, pelo menos 30 minutos antes das refeições ou 2 horas depois."
     },
     "q7": {
-      "question": "Qual é o principal sintoma da tuberculose pulmonar?",
+      "question": "Qual é o sintoma principal da tuberculose pulmonar?",
       "a1": "Dor de cabeça",
       "a2": "Tosse persistente",
-      "a3": "Dores abdominais",
+      "a3": "Dor abdominal",
       "a4": "Erupção cutânea",
-      "explanation": "O principal sintoma da tuberculose pulmonar é uma tosse persistente que dura mais de 3 semanas."
+      "explanation": "O sintoma principal da tuberculose pulmonar é uma tosse persistente que dura mais de 3 semanas."
     },
     "q8": {
       "question": "O que acontece se o tratamento for interrompido muito cedo?",
       "a1": "Nada de especial",
-      "a2": "Cura mais rápida",
+      "a2": "Recuperação mais rápida",
       "a3": "Risco de recaída e resistência",
-      "a4": "Diminuição dos efeitos colaterais",
+      "a4": "Redução dos efeitos colaterais",
       "explanation": "Interromper o tratamento muito cedo pode levar a uma recaída da doença e ao desenvolvimento de resistência aos medicamentos."
     }
   },
@@ -291,15 +312,91 @@
     "cancel": "Cancelar",
     "confirm": "Confirmar",
     "reset": "Redefinir",
-    "quit": "Sair"
+    "quit": "Sair",
+    "close": "Fechar",
+    "later": "Mais tarde"
   },
   "notifications": {
-    "fasting_reminder_title": "⏰ Lembrete de Jejum",
+    "fasting_reminder_title": "⏰ Lembrete de jejum",
     "fasting_reminder_body": "Em 2 horas, tome {medication} {dosage}. Não coma nem beba nada agora!",
-    "5min_reminder_title": "🔔 Lembrete Próximo",
-    "5min_reminder_body": "Em 5 minutos: {medication} {dosage} ({tablets} comprimido{plural})",
-    "time_reminder_title": "💊 É Hora!",
-    "time_reminder_body": "Tome agora: {medication} {dosage} ({tablets} comprimido{plural})",
-    "fasting_note": " - A ser tomado em jejum"
+    "5min_reminder_title": "🔔 Lembrete próximo",
+    "5min_reminder_body": "Em 5 minutos: {medication} {dosage} ({tablets} comprimido(s))",
+    "time_reminder_title": "💊 É hora!",
+    "time_reminder_body": "Tome agora: {medication} {dosage} ({tablets} comprimido(s))",
+    "fasting_note": " - Tomar em jejum",
+    "permissions_help": "Você pode ativar essas permissões nas configurações do dispositivo.",
+    "test_simple": "🔔 Teste simples",
+    "test_sent_immediately": "Notificação de teste enviada imediatamente"
+  },
+  "permissions": {
+    "notifications": "Notificações",
+    "exact_alarms": "Alarmes exatos",
+    "storage": "Armazenamento",
+    "required_title": "Permissões necessárias",
+    "required_message": "O aplicativo precisa das seguintes permissões para funcionar corretamente:"
+  },
+  "encouragement": {
+    "regular_taking": [
+      "💊 Cada ingestão conta! Parabéns por este passo a mais.",
+      "🌟 Seu compromisso faz a diferença. Continue assim!",
+      "🎯 Bem feito! Cada dia, você constrói sua recuperação.",
+      "🌱 Um gesto essencial, um futuro mais saudável. Parabéns!",
+      "💪 Você cuida de si mesmo, e isso se vê. Parabéns!",
+      "🏆 Pequenos gestos, grandes vitórias. Excelente!",
+      "✨ Cada ação o aproxima da saúde. Excelente!"
+    ],
+    "missed_recovery": [
+      "🔄 O importante é retomar. Cada ingestão conta, mesmo após um esquecimento!",
+      "🤗 Não tem problema, o erro é humano. Vamos nos concentrar no hoje!",
+      "💚 Um esquecimento acontece. Parabéns por retomar o tratamento! Continuamos juntos.",
+      "🌈 O caminho às vezes é cheio de obstáculos, mas você está aqui! Bem feito por retomar.",
+      "🚀 Este pequeno passo é uma grande prova da sua determinação. Vamos lá!",
+      "💪 Não desistimos! O essencial é perseverar. Parabéns por esta retomada.",
+      "⭐ Mantenha o rumo! Um esquecimento não para seu progresso. Parabéns pela sua retomada."
+    ]
+  },
+  "catch_up": {
+    "title": "Recuperação de ingestão",
+    "button": "Recuperar",
+    "fasting_period": "Período de jejum necessário",
+    "fasting_duration": "2 horas de jejum",
+    "fasting_rules": "Durante as próximas 2 horas:\n• Não coma\n• Não beba\n• Não fume",
+    "timer_title": "Período de jejum em andamento",
+    "timer_subtitle": "Permaneça em jejum por mais",
+    "ready_title": "✅ Período de jejum concluído!",
+    "ready_message": "Você pode tomar seu medicamento agora",
+    "take_now": "Tomar agora",
+    "cancel_catchup": "Cancelar recuperação"
+  },
+  "messages": {
+    "medication_added_success": "Medicamento adicionado com sucesso",
+    "medication_deleted_success": "Medicamento excluído com sucesso",
+    "stock_updated": "Estoque atualizado: {stock} comprimidos",
+    "notifications_scheduled": "Notificações agendadas para {medication} às {time}",
+    "notifications_scheduled_fasting": " (com lembrete de jejum 2 horas antes)",
+    "notifications_error": "Erro nas notificações: {error}",
+    "no_medications_posology": "Nenhum medicamento na sua posologia",
+    "test_scheduled": "Teste agendado em 1 minuto para {medication}",
+    "view_photos_title": "📸 Fotos dos medicamentos",
+    "close_dialog": "Fechar",
+    "image_not_available": "Imagem não disponível",
+    "touch_to_close": "Toque para fechar",
+    "touch_to_enlarge": "Toque para ampliar",
+    "medication_not_found": "Erro: medicamento não encontrado",
+    "link_open_error": "Não foi possível abrir o link: {url}",
+    "error": "Erro: {error}"
+  },
+  "history": {
+    "title": "📊 Histórico",
+    "week_of": "Semana de",
+    "before_installation": "Antes da instalação",
+    "upcoming": "Próximos",
+    "taken_count": "✅ {count} tomado(s)",
+    "missed_count": "❌ {count} perdido(s)",
+    "details_title": "Detalhes de",
+    "no_data": "Nenhum dado para este dia",
+    "unknown_medication": "Desconhecido",
+    "taken_at": "Tomado em",
+    "missed": "Perdido"
   }
 }

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import '../providers/language_provider.dart';
 import '../services/catchup_service.dart';
+import '../services/notification_service.dart';
 
 class CatchupTimerPage extends StatefulWidget {
   final Map<String, dynamic> medicament;
 
-  const CatchupTimerPage({super.key, required this.medicament});
+  const CatchupTimerPage({Key? key, required this.medicament}) : super(key: key);
 
   @override
   _CatchupTimerPageState createState() => _CatchupTimerPageState();
@@ -15,8 +16,9 @@ class CatchupTimerPage extends StatefulWidget {
 class _CatchupTimerPageState extends State<CatchupTimerPage> {
   final LanguageProvider _languageProvider = LanguageProvider();
   Timer? _timer;
-  Duration _remainingTime = const Duration(hours: 2);
+  Duration _remainingTime = Duration(hours: 2);
   bool _isCompleted = false;
+  DateTime? _endTime;
 
   String _tr(String key) {
     return _languageProvider.translate(key);
@@ -25,19 +27,66 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
   @override
   void initState() {
     super.initState();
+    _loadCatchupData();
+  }
+
+  Future<void> _loadCatchupData() async {
+    // Charger les données de rattrapage existantes
+    final catchups = await CatchupService.getActiveCatchups();
+    final existingCatchup = catchups.firstWhere(
+      (c) => c['medicationId'] == widget.medicament['id'],
+      orElse: () => {},
+    );
+
+    if (existingCatchup.isNotEmpty) {
+      // Rattrapage existant - calculer le temps restant
+      _endTime = DateTime.fromMillisecondsSinceEpoch(existingCatchup['endTime']);
+      _calculateRemainingTime();
+    } else {
+      // Nouveau rattrapage - créer et programmer notification
+      _endTime = DateTime.now().add(Duration(hours: 2));
+      await _programmerNotificationRattrapage();
+    }
+    
     _startTimer();
   }
 
-  void _startTimer() {
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+  Future<void> _programmerNotificationRattrapage() async {
+    // Programmer une notification quand les 2h sont écoulées
+    await NotificationService.showCatchupComplete(
+      baseId: widget.medicament['id'],
+      medicamentNom: widget.medicament['nom'],
+      dosage: widget.medicament['dosage'],
+      scheduledTime: _endTime!,
+    );
+  }
+
+  void _calculateRemainingTime() {
+    final now = DateTime.now();
+    if (_endTime!.isAfter(now)) {
       setState(() {
-        if (_remainingTime.inSeconds > 0) {
-          _remainingTime = _remainingTime - const Duration(seconds: 1);
-        } else {
-          _isCompleted = true;
+        _remainingTime = _endTime!.difference(now);
+      });
+    } else {
+      setState(() {
+        _isCompleted = true;
+        _remainingTime = Duration.zero;
+      });
+    }
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (_endTime != null) {
+        _calculateRemainingTime();
+        
+        if (_remainingTime.inSeconds <= 0) {
+          setState(() {
+            _isCompleted = true;
+          });
           timer.cancel();
         }
-      });
+      }
     });
   }
 

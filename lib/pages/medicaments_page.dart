@@ -20,10 +20,18 @@ class MedicamentsPage extends StatefulWidget {
 
 class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObserver {
   final LanguageProvider _languageProvider = LanguageProvider();
+  
 
   String _tr(String key) {
     return _languageProvider.translate(key);
   }
+  int _generateSafeId() {
+  // Utiliser les secondes depuis epoch + un nombre aléatoire
+  final now = DateTime.now();
+  final seconds = now.millisecondsSinceEpoch ~/ 1000; // Diviser par 1000
+  final random = (seconds % 100000); // Garder seulement les 5 derniers chiffres
+  return random;
+}
 
   List<Map<String, dynamic>> medicamentsDisponibles = [
     {
@@ -171,9 +179,9 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                     Icon(Icons.inventory, color: Colors.white, size: 30),
                     SizedBox(height: 8),
                     Text(
-                      'Gérer le stock',
-                      style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
+                    _tr('medications.stock_management.title'),
+                    style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
                     ),
                     Text(
                       '${medicament['nom']} ${medicament['dosage']}',
@@ -186,7 +194,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text('Stock actuel: $currentStock comprimés', style: TextStyle(fontSize: 16)),
+                  Text(_tr('medications.stock_management.current_stock'), style: TextStyle(fontSize: 16)),
                   SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -229,7 +237,6 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                 ElevatedButton(
                   onPressed: () async {
                     await prefs.setInt(stockKey, newStock);
-                    
                     // Mettre à jour aussi dans la posologie si le médicament y est
                     bool updated = false;
                     for (int i = 0; i < maPosologie.length; i++) {
@@ -250,7 +257,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                     
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text('Stock mis à jour: $newStock comprimés'),
+                        content: Text(_tr('messages.stock_updated').replaceAll('{stock}', '$newStock')),
                         backgroundColor: Colors.orange[600],
                       ),
                     );
@@ -259,7 +266,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                     backgroundColor: Colors.orange[600],
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   ),
-                  child: Text('Confirmer', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                child: Text(_tr('medications.stock_management.confirm'), style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                 ),
               ],
             );
@@ -282,21 +289,87 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
   }
 
   Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication) async {
-    final testTime = DateTime.now().add(Duration(minutes: 1));
-    
-    print('🧪 TEST: Programmation notification test dans 1 minute pour ${medication['nom']}');
-    
-    await NotificationService.showTimeReminder(
-      baseId: medication['id'],
-      medicamentNom: medication['nom'],
-      dosage: medication['dosage'],
-      nombreComprimes: medication['nombreComprimes'],
-      aJeun: medication['aJeun'] ?? false,
-      scheduledTime: testTime,
-    );
-  }
-
-  Future<void> _synchroniserStocks() async {
+    try {
+      final time = medication['heure'].split(':');
+      final hour = int.parse(time[0]);
+      final minute = int.parse(time[1]);
+      final aJeun = medication['aJeun'] ?? false;
+      final now = DateTime.now();
+      
+      // Pour aujourd'hui
+      DateTime scheduledTime = DateTime(now.year, now.month, now.day, hour, minute);
+      
+      // Si l'heure est déjà passée aujourd'hui, programmer pour demain
+      if (scheduledTime.isBefore(now)) {
+        scheduledTime = scheduledTime.add(Duration(days: 1));
+      }
+      
+      final baseId = medication['id'];
+      
+      // 1. Notification de jeûne (2h avant, seulement si à jeun)
+      if (aJeun) {
+        DateTime fastingTime = scheduledTime.subtract(Duration(hours: 2));
+        if (fastingTime.isAfter(now)) {
+          await NotificationService.showFastingReminder(
+            baseId: baseId,
+            medicamentNom: medication['nom'],
+            dosage: medication['dosage'],
+            scheduledTime: scheduledTime,
+          );
+        }
+      }
+      
+      // 2. Notification 5 minutes avant
+      DateTime fiveMinBefore = scheduledTime.subtract(Duration(minutes: 5));
+      if (fiveMinBefore.isAfter(now)) {
+        await NotificationService.show5MinReminder(
+          baseId: baseId,
+          medicamentNom: medication['nom'],
+          dosage: medication['dosage'],
+          nombreComprimes: medication['nombreComprimes'],
+          aJeun: aJeun,
+          scheduledTime: scheduledTime,
+        );
+      }
+      
+      // 3. Notification à l'heure exacte
+      if (scheduledTime.isAfter(now)) {
+        await NotificationService.showTimeReminder(
+          baseId: baseId,
+          medicamentNom: medication['nom'],
+          dosage: medication['dosage'],
+          nombreComprimes: medication['nombreComprimes'],
+          aJeun: aJeun,
+          scheduledTime: scheduledTime,
+        );
+      }
+      
+      // Message de confirmation
+      String confirmMsg = _tr('messages.notifications_scheduled')
+        .replaceAll('{medication}', medication['nom'])
+        .replaceAll('{time}', medication['heure']);
+      if (aJeun && scheduledTime.subtract(Duration(hours: 2)).isAfter(now)) {
+        confirmMsg += _tr('messages.notifications_scheduled_fasting');
+      }
+      
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(confirmMsg),
+          backgroundColor: Colors.green,
+          duration: Duration(seconds: 3),
+        ),
+      );
+      
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(_tr('messages.notifications_error').replaceAll('{error}', '$e')),
+          backgroundColor: Colors.red,
+          duration: Duration(seconds: 5),
+        ),
+      );
+    }
+  }  Future<void> _synchroniserStocks() async {
     final prefs = await SharedPreferences.getInstance();
     bool stocksModifies = false;
     
@@ -722,7 +795,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                   onPressed: () {
                     setState(() {
                       final newMedication = {
-                        'id': DateTime.now().millisecondsSinceEpoch,
+                        'id': _generateSafeId(),
                         'nom': medicament['nom'],
                         'dosage': medicament['dosage'],
                         'heure': '${heureSelectionnee.hour.toString().padLeft(2, '0')}:${heureSelectionnee.minute.toString().padLeft(2, '0')}',
@@ -815,28 +888,25 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                 
                 // Vérifier si la suppression a fonctionné
                 final newLength = maPosologie.length;
-                print('📊 Taille avant: $initialLength, après: $newLength');
                 
                 if (newLength < initialLength) {
                   // Sauvegarder immédiatement
                   await _savePosologie();
-                  print('✅ Médicament supprimé et sauvegardé');
                   
                   Navigator.pop(context);
                   
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('Médicament supprimé avec succès'),
+                    content: Text(_tr('messages.medication_deleted_success')),
                       backgroundColor: Colors.green[600],
                     ),
                   );
                 } else {
-                  print('❌ Échec de la suppression - médicament non trouvé');
                   Navigator.pop(context);
                   
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
-                      content: Text('Erreur: médicament non trouvé'),
+                    content: Text(_tr('messages.medication_not_found')),
                       backgroundColor: Colors.red[600],
                     ),
                   );
@@ -846,7 +916,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                 backgroundColor: Colors.red[600],
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               ),
-              child: Text('Supprimer', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+            child: Text(_tr('medications.delete'), style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
             ),
           ],
         );
@@ -1506,7 +1576,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                               padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                                             ),
                                             child: Text(
-                                              'Stock',
+                                              _tr('medications.stock'),
                                               style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 11),
                                             ),
                                           ),

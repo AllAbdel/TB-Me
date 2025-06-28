@@ -233,8 +233,7 @@ void _quitApp() {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text("Fermer"),
-          ),
+            child: Text(_tr('common.close')),          ),
         ],
       );
     },
@@ -388,28 +387,25 @@ Widget build(BuildContext context) {
                         // Section Actions avec traductions
                         ElevatedButton.icon(
                           onPressed: () async {
-                            print('Test notification démarré'); // Debug
                             
                             try {
                               await NotificationService.showSimpleTestNotification();
-                              print('Notification envoyée avec succès'); // Debug
                               
                               ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text('Notification test envoyée immédiatement')),
+                              SnackBar(content: Text(_tr('notifications.test_sent_immediately'))),
                               );
                             } catch (e) {
-                              print('Erreur notification: $e'); // Debug
                               
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('Erreur: $e'),
+                                  content: Text(_tr('messages.error').replaceAll('{error}', '$e')),
                                   backgroundColor: Colors.red,
                                 ),
                               );
                             }
                           },
                           icon: const Icon(Icons.notifications_active),
-                          label: const Text('🔔 Test Simple'),
+                        label: Text(_tr('notifications.test_simple')),
                         ),
 
                         _buildSectionTitle(

@@ -1,305 +1,402 @@
 {
   "app": {
     "title": "TB&Me",
-    "home": "an-trano",
+    "home": "Tranonkala",
     "medications": "Fanafody",
-    "quiz": "fanontaniana",
-    "information": "Information",
-    "settings": "Fikirana",
-    "description": "Fampiharana natokana hanaraha-maso ny fitsaboana ny raboka"
+    "quiz": "Fikarohana",
+    "information": "Vaovao",
+    "settings": "Fitantanana",
+    "description": "Rakitra mifantoka amin'ny fanaraha-maso ny fanaovana fanafody amin'ny aretina tuberkulozy"
   },
   "home": {
     "welcome": "Tongasoa!",
-    "medications_today": "fanafody (s) handray anio",
-    "daily_dashboard": "Dashboard isan'andro isan'andro",
-    "no_medications": "Tsy misy fanafody namboarina",
-    "configure_medications": "Mankanesa any amin'ny tabilao fanafody mba hanamboarana ny fatranao",
-    "daily_statistics": "Antontan'isa isan'andro",
-    "confirm_taking": "Hamarino ny maka",
-    "mark_as_taken": "Marka",
-    "mark_taken": "Mark \\ Nas nalaina",
-    "tablets": "tablet (s)",
-    "current_stock": "Stock stock",
-    "stock_after": "Tahiry rehefa avy naka",
-    "stock": "Stock",
-    "marked_as_taken": "voamarika toy ny nalaina",
-    "insufficient_stock": "Tsy ampy stock!ihany",
-    "tablets_remaining": "Tablet (s) sisa",
-    "take_on_empty_stomach": "Makà kibo foana",
+    "medications_today": "fanafody(na fanafody) tokony hofidinina anio",
+    "daily_dashboard": "Tabilao isan'andro",
+    "no_medications": "Tsy misy fanafody voatondro",
+    "configure_medications": "Mandehana amin'ny fanafody mba hanaovana ny fanaovana fanafody",
+    "daily_statistics": "Statistika isan'andro",
+    "confirm_taking": "Manamafy ny fanaovana",
+    "mark_as_taken": "Manamarika",
+    "mark_taken": "Manamarika\nao fa efa natao",
+    "tablets": "habakabaka(na habakabaka)",
+    "current_stock": "Fari-piainana ankehitriny",
+    "stock_after": "Fari-piainana aorian'ny fanaovana",
+    "stock": "Fari-piainana",
+    "marked_as_taken": "voamarika fa efa natao",
+    "insufficient_stock": "Tsy ampy ny fari-piainana! Fa",
+    "tablets_remaining": "habakabaka(na habakabaka) mbola misy",
+    "take_on_empty_stomach": "Azo an'ny alina",
     "status": {
-      "taken": "Nalaina",
-      "upcoming": "ho avy",
-      "now": "ankehitriny",
-      "missed": "hita"
+      "taken": "Efa natao",
+      "upcoming": "Ho avy",
+      "now": "Ano",
+      "missed": "Very"
     }
   },
   "date": {
-    "monday": "ALATSINAINY",
-    "tuesday": "TALATA",
-    "wednesday": "ALAROBIA",
-    "thursday": "ALAKAMISY",
-    "friday": "ZOMA",
-    "saturday": "ASABOTSY",
-    "sunday": "ALAHADY",
+    "monday": "Alahady",
+    "tuesday": "Talata",
+    "wednesday": "Alarobia",
+    "thursday": "Alakamisy",
+    "friday": "Zoma",
+    "saturday": "Asabotsy",
+    "sunday": "Alahady",
     "january": "Janoary",
-    "february": "février",
-    "march": "MARTSA",
+    "february": "Febroary",
+    "march": "Marty",
     "april": "Aprily",
-    "may": "MEY",
+    "may": "Mey",
     "june": "Jona",
-    "july": "JOLAY",
+    "july": "Jolay",
     "august": "Aogositra",
-    "september": "septembre",
-    "october": "OKTOBRA",
+    "september": "Septambra",
+    "october": "Oktobra",
     "november": "Novambra",
-    "december": "Desambra"
+    "december": "Desambra",
+    "monday_short": "Alah",
+    "tuesday_short": "Tal",
+    "wednesday_short": "Alar",
+    "thursday_short": "Alak",
+    "friday_short": "Zom",
+    "saturday_short": "Asab",
+    "sunday_short": "Alah"
   },
   "medications": {
-    "available_title": "Fanafody azo alaina",
-    "add_button": "hametraka",
-    "my_posology": "Ny posology nataoko",
-    "no_medication": "Tsy misy fanafody ampiana ao amin'ny posolosinao",
-    "fasting": "Fifadian-kanina",
-    "tablets": "tablet (s)",
-    "stock": "Stock",
-    "delete": "Mamafa",
-    "add_dialog_title": "hametraka",
-    "time_format": "Format form fotoana",
-    "time": "Time",
-    "change": "FIOVANA",
-    "tablets_count": "takela-bato",
-    "take_fasting": "Makà kibo foana",
-    "delete_confirmation": "Hamarino ny famafana",
-    "delete_question": "Azo antoka ve fa te-hamafa ny fanafody avy amin'ny posologinao ianao?",
+    "available_title": "Fanafody azo",
+    "add_button": "Ampiana",
+    "my_posology": "Ny fanaovako fanafody",
+    "no_medication": "Tsy misy fanafody nao ampidirina ao amin'ny fanaovanao fanafody",
+    "fasting": "Azo an'ny alina",
+    "tablets": "habakabaka(na habakabaka)",
+    "stock": "Fari-piainana",
+    "delete": "Afoana",
+    "add_dialog_title": "Ampiana",
+    "time_format": "Endriky ny ora",
+    "time": "Ora",
+    "change": "Oviana",
+    "tablets_count": "Habakabaka",
+    "take_fasting": "Azo an'ny alina",
+    "delete_confirmation": "Manamafy ny fanafoana",
+    "delete_question": "Tena tianao ve ny mafana ny fanafody ao amin'ny fanaovanao fanafody?",
     "details": {
-    "description": "Famaritana",
-    "side_effects": "Efatra mifandraika",
-    "advice": "Fampianarana",
-    "see_documentation": "Jereo ny taratasy",
-    "enlarge_hint": "Tadidio",
-    "close": "Akato"
-  },
-  "pdf": {
-    "documentation_title": "Taratasy PDF",
-    "document_available": "Taratasy PDF misy",
-    "file": "Rakitra",
-    "view": "Jereo",
-    "download": "Telecharger",
-    "reading_title": "Mamaky taratasy",
-    "download_web_only": "Telecharger dia misy amin'ny finday",
-    "storage_permission": "Fankatoavana ilaina ny fahazoana",
-    "downloaded": "PDF voalohany",
-    "download_error": "Diso ny fampidirana",
-    "view_error": "Diso ny famokarana PDF",
-    "pdf_render_error": "Diso ny famoahana PDF"
-  },
-  "image": {
-    "not_available": "Tsy misy sary",
-    "tap_to_close": "Tadidio hanakatona"
-  },
-  "time_label": "Ora",
-"drugs": {
-"rifadine": {
-"description": "Antibiotika fanoherana ny aretina tuberkilôzy voalohany",
-"side_effects": "Pisina volondavenona, fiahiana, olana momba ny aty",
-"advice": "Azy eo am-pisotroana, 1 ora aloha na 2 ora aorian'ny sakafo" },
-"rifater": {
-"description": "Fifangaroan-tsiraka mifandimby amin'ny rifampicine, isoniazide ary pyrazinamide",
-"side_effects": "Olana momba ny fahasalamana, tohanan-tsiraka, fahasosohana",
-"advice": "Fifangaroana fanoherana telo amin'ny kabetsa iray" },
-"rifinah": {
-"description": "Fifangaroana amin'ny rifampicine sy ny isoniazide",
-"side_effects": "Fisokajiana volondavenona ny pisina, fiahiana",
-"advice": "Tokony ho azina maraina eo am-pisotroana" },
-"dexambutol": {
-"description": "Fanoherana ny aretina tuberkilôzy faharoa",
-"side_effects": "Olana momba ny maso, neuropatia ôptika",
-"advice": "Diakona ny fanaraha-maso" },
-"myambutol": {
-"description": "Ethambutol, fanoherana ny aretina tuberkilôzy bakteriôstatika",
-"side_effects": "Nevrita ôptika, olana momba ny maso",
-"advice": "Tokony dia diakona ny fanaraha-maso" },
-"pirilene": {
-"description": "Pyrazinamide, fanoherana ny aretina tuberkilôzy",
-"side_effects": "Olana momba ny aty, artralgia",
-"advice": "Diakona ny fanaraha-maso" },
-"rimactan": {
-"description": "Rifampicine, antibiotika fanoherana ny aretina tuberkilôzy",
-"side_effects": "Fisokajiana volondavenona ny zava-mananaina",
-"advice": "Azy lahy ny sakafo" },
-"rimifon": {
-"description": "Isoniazide, fanoherana ny aretina tuberkilôzy lehibe",
-"side_effects": "Neuropatia periferika, hepatita",
-"advice": "Tokony ho ampiana vitaminina B6" } }
+      "description": "Famaritana",
+      "side_effects": "Fahasalamana",
+      "advice": "Torolalana",
+      "see_documentation": "Jereo ny torolalana",
+      "enlarge_hint": "Kliky mba hamakivaky",
+      "close": "Akato"
+    },
+    "pdf": {
+      "documentation_title": "Torolalana PDF",
+      "document_available": "Torolalana PDF azo",
+      "file": "Rakipahana",
+      "view": "Jereo",
+      "download": "Jereo",
+      "reading_title": "Mamaky ny torolalana",
+      "download_web_only": "Fafao fotsiny amin'ny finday",
+      "storage_permission": "Ilaina ny alalana amin'ny fari-piainana mba hahafahana manakatonana",
+      "downloaded": "PDF voatonona",
+      "download_error": "Diso ny fanaovana fanafody",
+      "view_error": "Diso ny fanaovana fanafody",
+      "pdf_render_error": "Diso ny fanaovana fanafody"
+    },
+    "image": {
+      "not_available": "Sary tsy azo",
+      "tap_to_close": "Kliky mba hakatoana"
+    },
+    "time_label": "Ora",
+    "drugs": {
+      "rifadine": {
+        "description": "Antibiotika fanoherana tuberkulozy voalohany",
+        "side_effects": "Rano mena, fahasahiranana, aretina aty",
+        "advice": "Azo an'ny alina, 1 ora aloha na 2 ora aorian'ny sakafo"
+      },
+      "rifater": {
+        "description": "Fifangaroan'ny rifampicine, isoniazide ary pyrazinamide",
+        "side_effects": "Fahasahiranana, sakitry ny loha, fahasahiranana",
+        "advice": "Fifangaroan'ny fanafody telo ao amin'ny habakabaka iray"
+      },
+      "rifinah": {
+        "description": "Fifangaroan'ny rifampicine sy ny isoniazide",
+        "side_effects": "Rano mena, fahasahiranana",
+        "advice": "Azo an'ny alina amin'ny maraina"
+      },
+      "dexambutol": {
+        "description": "Fanoherana tuberkulozy faharoa",
+        "side_effects": "Fahasahiranana maso, aretina maso",
+        "advice": "Ilaina ny fanaraha-maso ny maso"
+      },
+      "myambutol": {
+        "description": "Ethambutol, fanoherana tuberkulozy bakteriostatique",
+        "side_effects": "Aretina maso, fahasahiranana maso",
+        "advice": "Ananana ny fanaraha-maso ny maso"
+      },
+      "pirilene": {
+        "description": "Pyrazinamide, fanoherana tuberkulozy",
+        "side_effects": "Aretina aty, sakitry ny tongotra",
+        "advice": "Ilaina ny fanaraha-maso ny aty"
+      },
+      "rimactan": {
+        "description": "Rifampicine, antibiotika fanoherana tuberkulozy",
+        "side_effects": "Rano mena",
+        "advice": "Azo an'ny alina"
+      },
+      "rimifon": {
+        "description": "Isoniazide, fanoherana tuberkulozy lehibe",
+        "side_effects": "Aretina maso, aretina aty",
+        "advice": "Ananana ny vitamin B6"
+      }
+    },
+    "stock_management": {
+      "title": "Fitarika fari-piainana",
+      "current_stock": "Fari-piainana ankehitriny: {stock} habakabaka",
+      "confirm": "Manamafy"
+    }
   },
   "information": {
-    "title": "Fampahalalana momba ny tioberkilaozy",
+    "title": "Vaovao momba ny tuberkulozy",
     "links": {
-      "title": "Rohy mahasoa"
+      "title": "Rohy ilaina"
     },
     "understanding": {
-      "title": "Mahatakatra ny tioberkilaozy",
-      "subtitle": "Aretina areti-mifindra izay mila fifantohana",
-      "what_is": "Inona ny tioberkilaozy?",
-      "what_is_content": "Ny tioberkilaos dia aretina nateraky ny bakteria antsoina hoe mycobacterium tuberkulose, izay aorian'ny dingana iray, dia lasa mavitrika.Ity endrika mavitrika amin'ny aretina ity dia mifanitsy amin'ny fampitomboana ny bakteria.Miaraka amin'ny soritr'aretina ary mitaky fitsaboana maharitra amin'ny antibiotika manokana.",
-      "transmission": "Ahoana no fandefasana azy io?",
-      "transmission_content": "Ny tuberkulosis dia mifindra amin'ny alàlan'ny rivotra izay iharan'izany ny havokavony rehefa mikohaka, mihetsiketsika, na miresaka.Ny fifindrana dia mitaky fifandraisana maharitra sy akaiky amin'ny olona iray izay manana tuberkulosis pulmonary."
+      "title": "Mahafantatra ny tuberkulozy",
+      "subtitle": "Aretina mifindra mitondra aretina",
+      "what_is": "Inona ny tuberkulozy?",
+      "what_is_content": "Ny tuberkulozy dia aretina azo atao amin'ny bakteria atao hoe Mycobacterium tuberculosis, izay mandalo ny fizarana latenta aloha, dia manomboka miasa. Ny endriky ny aretina manomboka miasa dia mitovy amin'ny fihena ny bakteria. Mifanandrify amin'ny mariky ny aretina ary mila fanaovana fanafody maharitra amin'ny antibiotika manokana.",
+      "transmission": "Inona ny fomba ahafahany mifindra?",
+      "transmission_content": "Ny tuberkulozy dia mifindra amin'ny rivotra amin'ny alalan'ny olona manana ny pônina voarara tamin'ny fihena, fihentsana na resaka. Ny fifindrà-monina dia mila fifandraisana maharitra sy akaiky amin'ny olona manana tuberkulozy mifindra amin'ny pônina."
     },
     "itl": {
-      "title": "Ny otrikaretina retentikisma (LTBI)",
-      "what_is": "Inona no dikan'i ltbi?",
-      "what_is_content": "Ao amin'ny otrikaretina tuberculosis, ny bakteria dia tsy miandany, voafandrika noho ny fiarovan-tena.Ity bakteria ity dia afaka mijanona ho 'dormant'.Mety tsy hampivoatra ilay aretina amin'ny androm-piainany ilay olona.",
-      "vs_active": "Ltbi vs mavitrika tuberculosis",
-      "itl_characteristics": "Ny otrikaretina retenturosis",
-      "itl_char_1": "Bacilli dia 'dormant, tsy miangatra'",
-      "itl_char_2": "Tsy voan'ny areti-mifindra ilay olona",
-      "itl_char_3": "Tsy misy soritr'aretina",
-      "itl_char_4": "X-ray mahazatra",
-      "itl_char_5": "Fisorohana ny fitsaboana mandritra ny 3 volana",
-      "active_characteristics": "Tuberculosis mavitrika mavitrika",
-      "active_char_1": "Bacilli dia mavitrika",
-      "active_char_2": "Mifindra raha pulmonary",
-      "active_char_3": "Ny fisian'ny soritr'aretina",
-      "active_char_4": "Tsy mahazatra x-ray",
-      "active_char_5": "Fitsaboana tsy tapaka mandritra ny 6 volana na mihoatra"
+      "title": "Fifindrà-monina tuberkulozy latenta (FTL)",
+      "what_is": "Inona ny dika ny FTL?",
+      "what_is_content": "Amin'ny fifindrà-monina tuberkulozy latenta, ny bakteria dia voafetra, voarara amin'ny alalan'ny fiarovana atao amin'ny vatana. Ny bakteria dia afaka mijanona 'mahaleo tena'. Ny olona dia afaka tsy hanana aretina mandra-pahafatiny.",
+      "vs_active": "FTL vs tuberkulozy manomboka miasa",
+      "itl_characteristics": "Fifindrà-monina tuberkulozy latenta",
+      "itl_char_1": "Ny basily dia 'mahaleo tena, voafetra'",
+      "itl_char_2": "Ny olona tsy mifindra",
+      "itl_char_3": "Tsy misy mariky ny aretina",
+      "itl_char_4": "Sary rady normaly",
+      "itl_char_5": "Fanaovana fanafody fiarovana 3 volana",
+      "active_characteristics": "Tuberkulozy manomboka miasa",
+      "active_char_1": "Ny basily dia manomboka miasa",
+      "active_char_2": "Mifindra raha pônina",
+      "active_char_3": "Misy mariky ny aretina",
+      "active_char_4": "Sary rady tsy normaly",
+      "active_char_5": "Fanaovana fanafody 6 volana na mahery kokoa"
     },
     "symptoms": {
-      "title": "Ny soritr'aretina sy ny fitsaboana",
-      "symptoms_list": "Soritr'aretina lehibe",
-      "symptom_1": "Kohaka maharitra (mihoatra ny 3 herinandro)",
-      "symptom_2": "Ra ao anaty sputum",
-      "symptom_3": "Fanaintainan'ny tratrany",
-      "symptom_4": "Havizanana sy fahalemena",
-      "symptom_5": "Fatiantoka mavesatra tsy nahy",
-      "symptom_6": "Fenoy sy hatsemboka amin'ny alina",
-      "symptom_7": "Fahaverezan'ny teatra",
-      "treatment_title": "fitsaboana",
-      "treatment_content": "Ny fitsaboana dia mitaky fanafody maromaro isan'andro, volana maromaro.Tsy maintsy alaina amin'ny kibo foana izy ireo.Raha ny fanao dia tokony ho antsasaky ny antsasak'adiny alohan'ny hisakafoanana.",
-      "important_note": "Tena zava-dehibe ny tsy hampijanonana ny fitsaboana fa raha tsy izany dia mety hiverina ilay aretina."
+      "title": "Mariky ny aretina sy fanaovana fanafody",
+      "symptoms_list": "Mariky ny aretina lehibe",
+      "symptom_1": "Fihena maharitra (mihoatra ny 3 herinandro)",
+      "symptom_2": "Rano ao amin'ny fihentsana",
+      "symptom_3": "Sakitry ny kibo",
+      "symptom_4": "Fahasahiranana sy fahasahiranana",
+      "symptom_5": "Fihena ny laza tsy natao",
+      "symptom_6": "Homana sy rano mahery",
+      "symptom_7": "Fahasahiranana ny aina",
+      "treatment_title": "Fanaovana fanafody",
+      "treatment_content": "Ny fanaovana fanafody dia mila fanaovana fanafody maro isan'andro, mandritra ny volana maro. Tokony ho an'ny alina izy ireo. Amin'ny toetra, tokony ho 30 minitra aloha na dia ny sakafo.",
+      "important_note": "Tsy maintsy ny tsy hanafoana ny fanaovana fanafody, satria mety ho avy indray ny aretina."
     },
     "prevention": {
-      "title": "Fisorohana",
-      "vaccination": "Bcg vaksiny",
-      "vaccination_content": "Ny vaksiny BCG dia mijanona ho soso-kevitra tsara, indrindra ho an'ny ankizy latsaky ny dimy taona izay misy antony mampidi-doza.",
-      "screening": "Screening avy amin'ny TB Center",
-      "screening_content": "Ny foiben'ny fanaraha-maso Tuberkulasis dia manana anjara toerana lehibe amin'ny fisorohana amin'ny alàlan'ny fikarakarana ny fanadihadiana sy ny fitiliana manodidina ny tranga."
+      "title": "Fiarovana",
+      "vaccination": "Fanasan-draharaha BCG",
+      "vaccination_content": "Ny fanasan-draharaha BCG dia ananana indrindra, indrindra fa ho an'ny ankizy latsaky ny dimy taona manana toetra mety ho loza.",
+      "screening": "Fanadihadiana atao amin'ny alalan'ny sekretera momba ny ady amin'ny tuberkulozy",
+      "screening_content": "Ny sekretera momba ny ady amin'ny tuberkulozy dia manana andraikitra lehibe amin'ny fiarovana amin'ny alalan'ny fanadihadiana sy fanadihadiana manodidina ny tranga."
     },
     "faq": {
-      "title": "Fanontaniana matetika",
-      "q1": "Mifindra ve ny tuberkulose?",
-      "a1": "Tsia, ny tioberkilaozy pulmonary ihany no voan'ny areti-mifindra.Rehefa misy fiantraikany amin'ny faritra hafa amin'ny vatana, dia tsy voahaja izany.",
-      "q2": "Hafiriana no maharitra ny fitsaboana?",
-      "a2": "Ny fitsaboana amin'ny ankapobeny dia maharitra 6 volana, indraindray miankina kokoa amin'ny raharaha.Zava-dehibe ny hanaraka azy tanteraka.",
-      "q3": "Mety ho sitrana ve ny raboka?",
-      "a3": "Eny, ny raboka dia tena azo tsaboina ankehitriny any Frantsa raha manaraka tsara ny fitsaboana.",
-      "q4": "Iza no tokony hojerena?",
-      "a4": "Fifandraisana akaiky sy ny olona amin'ny fifandraisana matetika amin'ny marary iray dia voafandrika ny ekipa TB Center."
+      "title": "Fikarohana malalaka",
+      "q1": "Efa mifindra ve ny tuberkulozy?",
+      "a1": "Tsia, ny tuberkulozy pônina ihany no mifindra. Rehefa manimba ny ampahany hafa amin'ny vatana, dia tsy mifindra izy io.",
+      "q2": "Faharoa ve ny fanaovana fanafody?",
+      "a2": "Ny fanaovana fanafody dia maharitra 6 volana, indraindray mahery kokoa arakaraka ny tranga. Mahavoky ny manaraka azy manontolo.",
+      "q3": "Azo afaka asiana fanafody ve ny tuberkulozy?",
+      "a3": "Eny, ny tuberkulozy dia azo asiana fanafody ankehitriny ao Frantsa raha ny fanaovana fanafody dia voarara tsara.",
+      "q4": "Ovatra inona no tokony ho anisan'ny fanadihadiana?",
+      "a4": "Ny olona akaiky sy ny olona manana fifandraisana maharitra amin'ny marary no anisan'ny fanadihadiana atao amin'ny alalan'ny ekipe ao amin'ny sekretera momba ny ady amin'ny tuberkulozy."
     }
   },
   "quiz": {
-    "question": "Fanontaniana",
-    "score": "Maty",
-    "explanation": "fanazavana",
-    "restart": "Haverina velomina",
-    "home": "an-trano",
+    "question": "Fikarohana",
+    "score": "Isa",
+    "explanation": "Famaritana",
+    "restart": "Fanombokanana indray",
+    "home": "Tranonkala",
     "result": {
-      "title": "Vita i Quiz!",
-      "excellent": "Tena tsara!Ianao no mahay tsara ny lohahevitra!",
-      "good": "Tsara!Manana fahalalana tsara ianao.",
-      "average": "Marina.Mbola misy teboka vitsivitsy hojerena.",
-      "needs_improvement": "Tsara ny mamerina mamaky ny vaovao momba ny tioberkilaozy."
+      "title": "Vita ny fikarohana!",
+      "excellent": "Tsara indrindra! Mahay tsara ny lohahevitra ianao!",
+      "good": "Tsara! Manana fahalalana tsara ianao.",
+      "average": "Antoka. Mbola misy teny vitsivitsy tokony ho jerena indray.",
+      "needs_improvement": "Metika ny mamaky indray ny vaovao momba ny tuberkulozy."
     },
     "q1": {
-      "question": "Inona no mahatonga ny raboka?",
-      "a1": "Virus",
-      "a2": "Bakteria iray antsoina hoe tuberculosis mycobacterium",
-      "a3": "Holatra",
-      "a4": "Parasita iray",
-      "explanation": "Ny tuberkulosis dia vokatry ny bakteria antsoina hoe robabacteurium tuberculosis, izay fantatra ihany koa ny bacillus koch."
+      "question": "Inona ny mahatonga ny tuberkulozy?",
+      "a1": "Viriosy",
+      "a2": "Bakteria atao hoe Mycobacterium tuberculosis",
+      "a3": "Fongotra",
+      "a4": "Parasity",
+      "explanation": "Ny tuberkulozy dia azo atao amin'ny bakteria atao hoe Mycobacterium tuberculosis, izay fantatra koa amin'ny anaran'ny basily Koch."
     },
     "q2": {
-      "question": "Ahoana no fomba itaterana ny tioberkilaozy?",
-      "a1": "Amin'ny alàlan'ny rivotra (kohaka, suneezing)",
-      "a2": "Amin'ny alàlan'ny fifandraisana amin'ny hoditra",
-      "a3": "Amin'ny alàlan'ny rano voaloto",
-      "a4": "Amin'ny alàlan'ny bibikely bibikely",
-      "explanation": "Ny tuberkulosis dia mifindra amin'ny alàlan'ny rivotra raha misy kohaka tratry ny voan'ny aretina, sneezes, na lahateny, fametahana ranonorana misy ny bakteria."
+      "question": "Inona ny fomba ahafahany mifindra ny tuberkulozy?",
+      "a1": "Amin'ny rivotra (fihena, fihentsana)",
+      "a2": "Amin'ny fifandraisana amin'ny hoditra",
+      "a3": "Amin'ny rano voafetra",
+      "a4": "Amin'ny kitro",
+      "explanation": "Ny tuberkulozy dia mifindra amin'ny rivotra rehefa mifihena, mifentsana na miteny ny olona voarara, mba hamela ny rano kely manana bakteria."
     },
     "q3": {
-      "question": "Iza amin'ireo tuberkulosis no mifindra?",
-      "a1": "Raboka taolana",
-      "a2": "Voa rablasis ny voa",
-      "a3": "Rablasis pulmonary",
-      "a4": "Ganglion tuberculosis",
-      "explanation": "Ny tioberkilaozy pulmonary ihany no voan'ny areti-mifindra satria misy fiantraikany amin'ny havokavoka ary mamela ny fifindran'ny Airborne."
+      "question": "Inona ny endriky ny tuberkulozy mifindra?",
+      "a1": "Tuberkulozy taolambiby",
+      "a2": "Tuberkulozy aty",
+      "a3": "Tuberkulozy pônina",
+      "a4": "Tuberkulozy kofehy",
+      "explanation": "Ny tuberkulozy pônina ihany no mifindra satria manimba ny pônina ary mahafaha-mifindra amin'ny rivotra."
     },
     "q4": {
-      "question": "Mandra-pahoviana ny fitsaboana rabletra matetika no maharitra?",
+      "question": "Faharoa ve ny fanaovana fanafody amin'ny tuberkulozy?",
       "a1": "2 herinandro",
-      "a2": "6 volana na mihoatra",
+      "a2": "6 volana na mahery kokoa",
       "a3": "1 volana",
       "a4": "1 taona",
-      "explanation": "Ny fitsaboana tuberkulosis amin'ny ankapobeny dia maharitra 6 volana, indraindray miankina kokoa amin'ny raharaha.Zava-dehibe ny hanaraka azy tanteraka."
+      "explanation": "Ny fanaovana fanafody amin'ny tuberkulozy dia maharitra 6 volana, indraindray mahery kokoa arakaraka ny tranga. Mahavoky ny manaraka azy manontolo."
     },
     "q5": {
-      "question": "Inona no dikan'i ltbi?",
-      "a1": "Ny otrikaretina retenturosis",
-      "a2": "Ny otrikaretina tanteraka",
-      "a3": "Ny fitsabahan'ny fitsaboana eo an-toerana",
-      "a4": "Voafetra ny tsimoka tuberculosis",
-      "explanation": "Ltbi dia midika fa ny otrikaretina retenturisslosis.Rehefa misy ny bakteria dia misy fa 'dormant', tsy misy soritr'aretina na areti-mifindra."
+      "question": "Inona ny dika ny FTL?",
+      "a1": "Fifindrà-monina tuberkulozy latenta",
+      "a2": "Fifindrà-monina maharitra manontolo",
+      "a3": "Fifanarahana ara-pananahana",
+      "a4": "Fiarovana eo amin'ny tuberkulozy",
+      "explanation": "Ny FTL dia midika Fifindrà-monina Tuberkulozy Latenta. Izany dia rehefa misy ny bakteria fa 'mahaleo tena', tsy misy mariky ny aretina na fifindrà-monina."
     },
     "q6": {
-      "question": "Rahoviana no tokony halaina ny ruberculosis?",
+      "question": "Amin'ny ora inona no tokony hofidinina ny fanafody amin'ny tuberkulozy?",
       "a1": "Aorian'ny sakafo",
-      "a2": "Mandritra ny sakafo",
-      "a3": "Amin'ny fotoana rehetra",
-      "a4": "Amin'ny kibo tsy misy na inona na inona (alohan'ny sakafo)",
-      "explanation": "Ny fanafody tuberculosis dia tokony halaina amin'ny kibo tsy misy na inona na inona farafahakeliny 30 minitra alohan'ny sakafo na 2 ora aorian'izay."
+      "a2": "Raha misakafo",
+      "a3": "Amin'ny ora rehetra",
+      "a4": "Azo an'ny alina (alohan'ny sakafo)",
+      "explanation": "Ny fanafody amin'ny tuberkulozy dia tokony ho an'ny alina, 30 minitra aloha na dia ny sakafo na 2 ora aorian'izany."
     },
     "q7": {
-      "question": "Inona ny soritr'aretina lehibe amin'ny tioberkilaozy pulmonary?",
-      "a1": "Aretin'andoha",
-      "a2": "Kohaka maharitra",
-      "a3": "Fanaintainan'ny vavony",
-      "a4": "Hoditra hoditra",
-      "explanation": "Ny soritr'aretina lehibe indrindra amin'ny raboka pulmonary dia kohaka maharitra izay maharitra 3 herinandro mahery."
+      "question": "Inona ny mariky ny aretina lehibe amin'ny tuberkulozy pônina?",
+      "a1": "Sakitry ny loha",
+      "a2": "Fihena maharitra",
+      "a3": "Sakitry ny kibo",
+      "a4": "Fodiana eo amin'ny hoditra",
+      "explanation": "Ny mariky ny aretina lehibe amin'ny tuberkulozy pônina dia fihena maharitra maharitra mihoatra ny 3 herinandro."
     },
     "q8": {
-      "question": "Inona no mitranga raha toa ka mbola manomboka aloha ny fitsaboana?",
-      "a1": "Tsy misy zavatra manokana",
-      "a2": "Famerenana haingana kokoa",
-      "a3": "Loza ateraky ny fihemorana sy ny fanoherana",
-      "a4": "Ny fampihenana ny voka-dratsy",
-      "explanation": "Ny fijanonana ny fitsaboana aloha loatra dia mety hitarika ny aretina sy ny fampandrosoana ny fanoherana ny fanafody."
+      "question": "Inona no mety hitranga raha ny fanaovana fanafody dia voafetra tainginana?",
+      "a1": "Tsy misy na inona na inona",
+      "a2": "Fahasalamana haingana",
+      "a3": "Fiverenana sy fanoherana",
+      "a4": "Fahasahiranana ny fahasahiranana",
+      "explanation": "Ny fanafoana ny fanaovana fanafody tainginana dia mety mahatonga ny fiverenana ny aretina sy ny fahasahiranana amin'ny fanafody."
     }
   },
   "settings": {
-    "language_choice": "Safidy fiteny",
-    "language_changed": "Niova ny fiteny",
-    "actions": "asa",
-    "reset_data": "Reset data",
-    "reset_description": "Fafao ny angon-drakitra rehetra fampiharana",
-    "reset_confirmation": "Azonao antoka ve fa te hamerina ny data rehetra ianao?",
-    "reset_warning": "Ity hetsika ity dia hamafa: \\ In •",
-    "reset_success": "Mamerina am-pahombiazana ny angon-drakitra",
-    "quit_app": "Esory ny fampiharana",
-    "quit_description": "Close TB&Me",
-    "quit_confirmation": "Azo antoka ve fa te hiala amin'ny TB&Me ianao?"
+    "language_choice": "Fifidianana teny",
+    "language_changed": "Tenina voavaha",
+    "actions": "Asa",
+    "reset_data": "Manitsakitsaka ny angona",
+    "reset_description": "Afoana ny angona rehetra ao amin'ny rakitra",
+    "reset_confirmation": "Tena tianao ve ny manitsakitsaka ny angona rehetra?",
+    "reset_warning": "Izany asa izany dia hafoana:\n• Ny fanaovanao fanafody\n• Ny fanaovanao fanafody\n• Ny fanaovanao rehetra",
+    "reset_success": "Angona voarara tsara",
+    "quit_app": "Hiala amin'ny rakitra",
+    "quit_description": "Akato ny TB&Me",
+    "quit_confirmation": "Tena tianao ve ny hiala amin'ny TB&Me?"
   },
   "common": {
-    "cancel": "hanafoana",
-    "confirm": "Manamarina",
-    "reset": "Avereno",
-    "quit": "Miala"
+    "cancel": "Afoana",
+    "confirm": "Manamafy",
+    "reset": "Manitsakitsaka",
+    "quit": "Hiala",
+    "close": "Akato",
+    "later": "Mahery kokoa"
   },
   "notifications": {
-    "fasting_reminder_title": "⏰ Fankahitan'ny fialan-tsakafom",
-    "fasting_reminder_body": "Araka ny 2 ora, azo anao ny {medication} {dosage}. Aza mihinana na misotro izao!",
-    "5min_reminder_title": "🔔 Fankahitana akaiky",
-    "5min_reminder_body": "Araka ny 5 minitra: {medication} {dosage} ({tablets} kabetsaka{plural})",
-    "time_reminder_title": "💊 Izay fotoana!",
-    "time_reminder_body": "Azo anao izao: {medication} {dosage} ({tablets} kabetsaka{plural})",
-    "fasting_note": " - Tokony ho entina amin'ny alina foana"
+    "fasting_reminder_title": "⏰ Fampahatsiahivana alina",
+    "fasting_reminder_body": "2 ora, aoka {medication} {dosage}. Aza misakafo na misotro na mipetraka anio!",
+    "5min_reminder_title": "🔔 Fampahatsiahivana 5 minitra",
+    "5min_reminder_body": "5 minitra: {medication} {dosage} ({tablets} habakabaka)",
+    "time_reminder_title": "💊 Ora!",
+    "time_reminder_body": "Aoka anio: {medication} {dosage} ({tablets} habakabaka)",
+    "fasting_note": " - Tokony ho an'ny alina",
+    "permissions_help": "Afaka mamela izany alalana izany ao amin'ny fanaovanao fitaovana.",
+    "test_simple": "🔔 Fikarohana fampahatsiahivana",
+    "test_sent_immediately": "Fampahatsiahivana voalohany"
+  },
+  "permissions": {
+    "notifications": "Fampahatsiahivana",
+    "exact_alarms": "Fampahatsiahivana marina",
+    "storage": "Fari-piainana",
+    "required_title": "Alalana ilaina",
+    "required_message": "Ilaina ny alalana manaraka mba hahafahana ny rakitra miasa tsara:"
+  },
+  "encouragement": {
+    "regular_taking": [
+      "💊 Ny fanaovanao isan'andro dia manan-danja! Tsara ny fanatanterahana.",
+      "🌟 Ny fankatoavanao dia manan-danja. Mandehana izany!",
+      "🎯 Tsara indrindra! Isan'andro dia mamorona ny fahasalamanao ianao.",
+      "🌱 Asa ilaina, tontolo mahasoa. Tsara indrindra!",
+      "💪 Mandroso ny tenanao, ary izany dia hita. Tsara indrindra!",
+      "🏆 Asa kely, vonjy lehibe. Tsara indrindra!",
+      "✨ Ny asa rehetra dia mamelona anao amin'ny fahasalamana. Tsara indrindra!"
+    ],
+    "missed_recovery": [
+      "🔄 Ny zavatra manan-danja dia ny fanombokanana indray. Ny fanaovanao isan'andro dia manan-danja, na dia aorian'ny fahadisoana aza!",
+      "🤗 Tsy misy na inona na inona, diso dia azo atao amin'ny olombelona. Mifoka amin'ny andro anio!",
+      "💚 Misy diso. Tsara indrindra ny fanombokanana indray ny fanaovana fanafody! Mandehana isika miaraka.",
+      "🌈 Ny lalana dia mety misy fahasahiranana, fa ianao eto! Tsara indrindra ny fanombokanana indray.",
+      "🚀 Ny asa kely izany dia porofo lehibe amin'ny fankatoavanao. Mandehana!",
+      "💪 Tsy miala tsiny! Ny zavatra manan-danja dia ny fanatanterahana. Tsara indrindra ny fanombokanana indray.",
+      "⭐ Mijanona amin'ny lalana! Tsy mamela ny fahadisoana hanoherana ny fandrosoanao. Tsara indrindra ny fanombokanana indray."
+    ]
+  },
+  "catch_up": {
+    "title": "Fanitsakitsahana ny fanaovana",
+    "button": "Fanitsakitsahana",
+    "fasting_period": "Fotoana alina ilaina",
+    "fasting_duration": "2 ora alina",
+    "fasting_rules": "Mandritra ny 2 ora manaraka:\n• Aza misakafo\n• Aza misotro\n• Aza mipetraka",
+    "timer_title": "Fotoana alina manomboka",
+    "timer_subtitle": "Mijanona alina",
+    "ready_title": "✅ Fotoana alina vita!",
+    "ready_message": "Afaka mifidy ny fanafody anao ankehitriny",
+    "take_now": "Aoka anio",
+    "cancel_catchup": "Afoana ny fanitsakitsahana"
+  },
+  "messages": {
+    "medication_added_success": "Fanafody voatondro tsara",
+    "medication_deleted_success": "Fanafody voafafa tsara",
+    "stock_updated": "Fari-piainana voarara: {stock} habakabaka",
+    "notifications_scheduled": "Fampahatsiahivana voatondro ho an'ny {medication} amin'ny {time}",
+    "notifications_scheduled_fasting": " (amin'ny fampahatsiahivana alina 2 ora aloha)",
+    "notifications_error": "Diso ny fampahatsiahivana: {error}",
+    "no_medications_posology": "Tsy misy fanafody ao amin'ny fanaovanao fanafody",
+    "test_scheduled": "Fikarohana voatondro amin'ny 1 minitra ho an'ny {medication}",
+    "view_photos_title": "📸 Sary ny fanafody",
+    "close_dialog": "Akato",
+    "image_not_available": "Sary tsy azo",
+    "touch_to_close": "Kliky mba hakatoana",
+    "touch_to_enlarge": "Kliky mba hamakivaky",
+    "medication_not_found": "Diso: tsy hita ny fanafody",
+    "link_open_error": "Tsy afaka mamoaka ny rohy: {url}",
+    "error": "Diso: {error}"
+  },
+  "history": {
+    "title": "📊 Tantara",
+    "week_of": "Herinandro",
+    "before_installation": "Alohan'ny fananganana",
+    "upcoming": "Ho avy",
+    "taken_count": "✅ {count} efa natao",
+    "missed_count": "❌ {count} very",
+    "details_title": "Antsony ny",
+    "no_data": "Tsy misy angona ho an'ity andro ity",
+    "unknown_medication": "Tsy fantatra",
+    "taken_at": "Natao tamin'ny",
+    "missed": "Very"
   }
 }

@@ -3,6 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import '../providers/language_provider.dart';
 
+
 class HistoriquePage extends StatefulWidget {
   const HistoriquePage({super.key});
 
@@ -105,7 +106,7 @@ class _HistoriquePageState extends State<HistoriquePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('📊 Historique'),
+        title: Text(_tr('history.title')),
         backgroundColor: Colors.teal[600],
         foregroundColor: Colors.white,
       ),
@@ -130,7 +131,7 @@ class _HistoriquePageState extends State<HistoriquePage> {
                     icon: Icon(Icons.arrow_back_ios, color: Colors.teal[700]),
                   ),
                   Text(
-                    'Semaine du ${_getWeekRange()}',
+                    '${_tr('history.week_of')} ${_getWeekRange()}',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.teal[700]),
                   ),
                   IconButton(
@@ -166,20 +167,21 @@ class _HistoriquePageState extends State<HistoriquePage> {
   }
 
 Widget _buildDayCard(DateTime day, List<Map<String, dynamic>> dayData) {
-  List<String> dayNames = ['Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam', 'Dim'];
-  DateTime today = DateTime.now();
+List<String> dayNames = [
+  _tr('date.monday_short'), 
+  _tr('date.tuesday_short'), 
+  _tr('date.wednesday_short'), 
+  _tr('date.thursday_short'), 
+  _tr('date.friday_short'), 
+  _tr('date.saturday_short'), 
+  _tr('date.sunday_short')
+];  DateTime today = DateTime.now();
   DateTime todayOnly = DateTime(today.year, today.month, today.day);
   DateTime dayOnly = DateTime(day.year, day.month, day.day);
-  
-  // DEBUG: Afficher les dates pour comprendre le problème
-  print('🔍 DEBUG Jour: $dayOnly');
-  print('🔍 DEBUG Installation: $_installationDate');
   
   // NOUVEAU : Vérifier si le jour est avant l'installation
   if (_installationDate != null) {
     DateTime installationOnly = DateTime(_installationDate!.year, _installationDate!.month, _installationDate!.day);
-    print('🔍 DEBUG Installation (only): $installationOnly');
-    print('🔍 DEBUG Jour < Installation ? ${dayOnly.isBefore(installationOnly)}');
     
     if (dayOnly.isBefore(installationOnly)) {
       // Jour avant l'installation - ne pas compter
@@ -221,7 +223,7 @@ Widget _buildDayCard(DateTime day, List<Map<String, dynamic>> dayData) {
               Expanded(
                 child: Center(
                   child: Text(
-                    'Avant installation',
+                    _tr('history.before_installation'),
                     style: TextStyle(
                       fontSize: 14, 
                       color: Colors.grey[500], 
@@ -244,7 +246,7 @@ Widget _buildDayCard(DateTime day, List<Map<String, dynamic>> dayData) {
   
   if (dayOnly.isAfter(todayOnly)) {
     // Jour futur
-    statusText = 'À venir';
+    statusText = _tr('history.upcoming');
   } else if (dayOnly.isBefore(todayOnly)) {
     // Jour passé (mais après l'installation)
     taken = dayData.where((d) => d['pris'] == true).length;
@@ -304,10 +306,10 @@ Widget _buildDayCard(DateTime day, List<Map<String, dynamic>> dayData) {
                   )
                 : Row(
                     children: [
-                      _buildStatChip('✅ $taken pris', Colors.green),
+                      _buildStatChip('${_tr('history.taken_count').replaceAll('{count}', taken.toString())}', Colors.green),
                       const SizedBox(width: 8),
-                      if (missed > 0) _buildStatChip('❌ $missed manqués', Colors.red),
-                    ],
+                      if (missed > 0) _buildStatChip('${_tr('history.missed_count').replaceAll('{count}', missed.toString())}', Colors.red),
+                    ]
                   ),
           ),
           // Détails (seulement pour les jours passés/présents après installation)
@@ -346,19 +348,19 @@ int _getExpectedMedicationsForDay(DateTime day) {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('Détails du ${day.day}/${day.month}'),
+        title: Text('${_tr('history.details_title')} ${day.day}/${day.month}'),
         content: SizedBox(
           width: double.maxFinite,
           height: 300,
           child: dayData.isEmpty
-              ? const Center(child: Text('Aucune donnée pour ce jour'))
+            ? Center(child: Text(_tr('history.no_data')))
               : ListView.builder(
                   itemCount: dayData.length,
                   itemBuilder: (context, index) {
                     final prise = dayData[index];
                     final medicament = _posology.firstWhere(
                       (m) => m['id'].toString() == prise['medicamentId'].toString(),
-                      orElse: () => {'nom': 'Inconnu', 'dosage': ''},
+                    orElse: () => {'nom': _tr('history.unknown_medication'), 'dosage': ''},
                     );
                     
                     return ListTile(
@@ -367,7 +369,7 @@ int _getExpectedMedicationsForDay(DateTime day) {
                         color: prise['pris'] ? Colors.green : Colors.red,
                       ),
                       title: Text('${medicament['nom']} ${medicament['dosage']}'),
-                      subtitle: Text(prise['pris'] ? 'Pris à ${prise['heurePrise']}' : 'Manqué'),
+                    subtitle: Text(prise['pris'] ? '${_tr('history.taken_at')} ${prise['heurePrise']}' : _tr('history.missed')),
                     );
                   },
                 ),
@@ -375,8 +377,7 @@ int _getExpectedMedicationsForDay(DateTime day) {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: const Text('Fermer'),
-          ),
+            child: Text(_tr('common.close')),          ),
         ],
       ),
     );

@@ -1,23 +1,23 @@
 {
   "app": {
-    "title": "MeineTuberkulose",
+    "title": "TB&Me",
     "home": "Startseite",
     "medications": "Medikamente",
     "quiz": "Quiz",
     "information": "Informationen",
     "settings": "Einstellungen",
-    "description": "Anwendung zur Überwachung der Tuberkulosebehandlung"
+    "description": "Anwendung zur Überwachung der Tuberkulose-Behandlung"
   },
   "home": {
     "welcome": "Willkommen!",
-    "medications_today": "heute einzunehmende Medikamente",
+    "medications_today": "Medikament(e) heute einzunehmen",
     "daily_dashboard": "Tägliches Dashboard",
     "no_medications": "Keine Medikamente konfiguriert",
-    "configure_medications": "Gehen Sie zur Registerkarte Medikamente, um Ihre Dosierung zu konfigurieren",
+    "configure_medications": "Gehen Sie zum Tab Medikamente, um Ihre Dosierung zu konfigurieren",
     "daily_statistics": "Tägliche Statistiken",
     "confirm_taking": "Einnahme bestätigen",
     "mark_as_taken": "Markieren",
-    "mark_taken": "Als eingenommen markieren",
+    "mark_taken": "Markieren\nals eingenommen",
     "tablets": "Tablette(n)",
     "current_stock": "Aktueller Bestand",
     "stock_after": "Bestand nach Einnahme",
@@ -30,7 +30,7 @@
       "taken": "Eingenommen",
       "upcoming": "Bevorstehend",
       "now": "Jetzt",
-      "missed": "Verpasst"
+      "missed": "Versäumt"
     }
   },
   "date": {
@@ -52,14 +52,21 @@
     "september": "September",
     "october": "Oktober",
     "november": "November",
-    "december": "Dezember"
+    "december": "Dezember",
+    "monday_short": "Mo",
+    "tuesday_short": "Di",
+    "wednesday_short": "Mi",
+    "thursday_short": "Do",
+    "friday_short": "Fr",
+    "saturday_short": "Sa",
+    "sunday_short": "So"
   },
   "medications": {
     "available_title": "Verfügbare Medikamente",
     "add_button": "Hinzufügen",
-    "my_posology": "Meine Posologie",
-    "no_medication": "Kein Medikament zu Ihrer Posologie hinzugefügt",
-    "fasting": "Nüchtern",
+    "my_posology": "Meine Dosierung",
+    "no_medication": "Keine Medikamente zu Ihrer Dosierung hinzugefügt",
+    "fasting": "Auf nüchternen Magen",
     "tablets": "Tablette(n)",
     "stock": "Bestand",
     "delete": "Löschen",
@@ -69,68 +76,82 @@
     "change": "Ändern",
     "tablets_count": "Tabletten",
     "take_fasting": "Auf nüchternen Magen einnehmen",
-    "delete_confirmation": "Löschbestätigung",
-    "delete_question": "Sind Sie sicher, dass Sie dieses Medikament aus Ihrer Posologie löschen möchten?",
+    "delete_confirmation": "Löschen bestätigen",
+    "delete_question": "Möchten Sie dieses Medikament wirklich aus Ihrer Dosierung löschen?",
     "details": {
-    "description": "Beschreibung",
-    "side_effects": "Nebenwirkungen",
-    "advice": "Ratschlag",
-    "see_documentation": "Dokumentation anzeigen",
-    "enlarge_hint": "Zum Vergrößern antippen",
-    "close": "Schließen"
-  },
-  "pdf": {
-    "documentation_title": "PDF-Dokumentation",
-    "document_available": "PDF-Dokument verfügbar",
-    "file": "Datei",
-    "view": "Anzeigen",
-    "download": "Herunterladen",
-    "reading_title": "Dokument lesen",
-    "download_web_only": "Download nur auf Mobilgeräten verfügbar",
-    "storage_permission": "Speicherberechtigung zum Herunterladen erforderlich",
-    "downloaded": "PDF heruntergeladen",
-    "download_error": "Download-Fehler",
-    "view_error": "Fehler beim Öffnen der PDF",
-    "pdf_render_error": "Fehler beim Rendern der PDF"
-  },
-  "image": {
-    "not_available": "Bild nicht verfügbar",
-    "tap_to_close": "Zum Schließen antippen"
-  },
-  "time_label": "Zeit",
-"drugs": {
-"rifadine": {
-"description": "Antibiotikum der ersten Wahl gegen Tuberkulose",
-"side_effects": "Orangefärbiger Urin, Übelkeit, Leberprobleme",
-"advice": "Auf nüchternen Magen einnehmen, 1 Stunde vor oder 2 Stunden nach dem Essen" },
-"rifater": {
-"description": "Feste Kombination aus Rifampicin, Isoniazid und Pyrazinamid",
-"side_effects": "Verdauungsprobleme, Kopfschmerzen, Müdigkeit",
-"advice": "Kombination von 3 Medikamenten in 1 Tablette" },
-"rifinah": {
-"description": "Kombination aus Rifampicin und Isoniazid",
-"side_effects": "Orangefärbung des Urins, Übelkeit",
-"advice": "Vorzugsweise morgens auf nüchternen Magen einnehmen" },
-"dexambutol": {
-"description": "Medikament der zweiten Wahl gegen Tuberkulose",
-"side_effects": "Sehstörungen, optische Neuropathie",
-"advice": "Augenärztliche Überwachung notwendig" },
-"myambutol": {
-"description": "Ethambutol, bakteriostatisches Medikament gegen Tuberkulose",
-"side_effects": "Optikusneuritis, Sehprobleme",
-"advice": "Sehtest wird empfohlen" },
-"pirilene": {
-"description": "Pyrazinamid, Medikament gegen Tuberkulose",
-"side_effects": "Leberprobleme, Gelenkschmerzen",
-"advice": "Überwachung der Leber notwendig" },
-"rimactan": {
-"description": "Rifampicin, Antibiotikum gegen Tuberkulose",
-"side_effects": "Orangefärbung von Sekreten",
-"advice": "Einnahme entfernt von Mahlzeiten" },
-"rimifon": {
-"description": "Isoniazid, Hauptmedikament gegen Tuberkulose",
-"side_effects": "Periphere Neuropathie, Hepatitis",
-"advice": "Vitamin B6 Supplement wird empfohlen" } }
+      "description": "Beschreibung",
+      "side_effects": "Nebenwirkungen",
+      "advice": "Ratschlag",
+      "see_documentation": "Dokumentation anzeigen",
+      "enlarge_hint": "Zum Vergrößern tippen",
+      "close": "Schließen"
+    },
+    "pdf": {
+      "documentation_title": "PDF-Dokumentation",
+      "document_available": "PDF-Dokument verfügbar",
+      "file": "Datei",
+      "view": "Anzeigen",
+      "download": "Herunterladen",
+      "reading_title": "Dokument lesen",
+      "download_web_only": "Download nur auf Mobilgeräten verfügbar",
+      "storage_permission": "Speicherberechtigung für Download erforderlich",
+      "downloaded": "PDF heruntergeladen",
+      "download_error": "Download-Fehler",
+      "view_error": "Fehler beim Öffnen der PDF",
+      "pdf_render_error": "PDF-Rendering-Fehler"
+    },
+    "image": {
+      "not_available": "Bild nicht verfügbar",
+      "tap_to_close": "Zum Schließen tippen"
+    },
+    "time_label": "Zeit",
+    "drugs": {
+      "rifadine": {
+        "description": "Erstlinien-Antibiotikum gegen Tuberkulose",
+        "side_effects": "Orangefarbener Urin, Übelkeit, Leberprobleme",
+        "advice": "Auf nüchternen Magen einnehmen, 1 Stunde vor oder 2 Stunden nach dem Essen"
+      },
+      "rifater": {
+        "description": "Feste Kombination aus Rifampicin, Isoniazid und Pyrazinamid",
+        "side_effects": "Verdauungsprobleme, Kopfschmerzen, Müdigkeit",
+        "advice": "Kombination von 3 Medikamenten in 1 Tablette"
+      },
+      "rifinah": {
+        "description": "Kombination aus Rifampicin und Isoniazid",
+        "side_effects": "Orangefarbener Urin, Übelkeit",
+        "advice": "Morgens auf nüchternen Magen einnehmen"
+      },
+      "dexambutol": {
+        "description": "Zweitlinien-Medikament gegen Tuberkulose",
+        "side_effects": "Sehstörungen, optische Neuropathie",
+        "advice": "Augenärztliche Überwachung erforderlich"
+      },
+      "myambutol": {
+        "description": "Ethambutol, bakteriostatisches Medikament gegen Tuberkulose",
+        "side_effects": "Optische Neuritis, Sehstörungen",
+        "advice": "Sehtests werden empfohlen"
+      },
+      "pirilene": {
+        "description": "Pyrazinamid, Medikament gegen Tuberkulose",
+        "side_effects": "Leberprobleme, Gelenkschmerzen",
+        "advice": "Leberüberwachung erforderlich"
+      },
+      "rimactan": {
+        "description": "Rifampicin, Antibiotikum gegen Tuberkulose",
+        "side_effects": "Orangefarbene Sekrete",
+        "advice": "Mit Abstand zu den Mahlzeiten einnehmen"
+      },
+      "rimifon": {
+        "description": "Isoniazid, Hauptmedikament gegen Tuberkulose",
+        "side_effects": "Periphere Neuropathie, Hepatitis",
+        "advice": "Vitamin B6 Supplement wird empfohlen"
+      }
+    },
+    "stock_management": {
+      "title": "Bestand verwalten",
+      "current_stock": "Aktueller Bestand: {stock} Tabletten",
+      "confirm": "Bestätigen"
+    }
   },
   "information": {
     "title": "Informationen über Tuberkulose",
@@ -141,25 +162,25 @@
       "title": "Tuberkulose verstehen",
       "subtitle": "Eine Infektionskrankheit, die Aufmerksamkeit erfordert",
       "what_is": "Was ist Tuberkulose?",
-      "what_is_content": "Tuberkulose ist eine Krankheit, die durch das Bakterium Mycobacterium tuberculosis verursacht wird, das nach einer Latenzphase aktiv wird. Diese aktive Form der Krankheit entspricht einer Vermehrung des Bakteriums. Sie wird von Symptomen begleitet und erfordert eine längere Behandlung mit spezifischen Antibiotika.",
+      "what_is_content": "Tuberkulose ist eine Krankheit, die durch das Bakterium Mycobacterium tuberculosis verursacht wird, das nach einer latenten Phase aktiv wird. Diese aktive Form der Krankheit entspricht einer Vermehrung des Bakteriums. Sie geht mit Symptomen einher und erfordert eine längere Behandlung mit speziellen Antibiotika.",
       "transmission": "Wie wird sie übertragen?",
-      "transmission_content": "Tuberkulose wird durch die Luft von einer Person übertragen, deren Lunge betroffen ist, wenn sie hustet, niest oder spricht. Die Übertragung erfordert einen längeren und engen Kontakt mit einer Person, die an ansteckender Lungentuberkulose leidet."
+      "transmission_content": "Tuberkulose wird über die Luft durch eine Person übertragen, deren Lunge betroffen ist, wenn sie hustet, niest oder spricht. Die Übertragung erfordert einen längeren und engen Kontakt mit einer Person, die eine ansteckende Lungentuberkulose hat."
     },
     "itl": {
-      "title": "Latente Tuberkuloseinfektion (LTBI)",
-      "what_is": "Was bedeutet LTBI?",
-      "what_is_content": "Bei einer latenten Tuberkuloseinfektion wird das Bakterium durch die Abwehrkräfte des Körpers neutralisiert und eingeschlossen. Dieses Bakterium kann 'ruhend' bleiben. Die Person könnte in ihrem Leben niemals die Krankheit entwickeln.",
-      "vs_active": "LTBI vs aktive Tuberkulose",
+      "title": "Latente Tuberkuloseinfektion (LTI)",
+      "what_is": "Was bedeutet LTI?",
+      "what_is_content": "Bei der latenten Tuberkuloseinfektion wird das Bakterium durch die Abwehrkräfte des Körpers neutralisiert und eingeschlossen. Dieses Bakterium kann 'ruhend' bleiben. Die Person kann die Krankheit nie in ihrem Leben entwickeln.",
+      "vs_active": "LTI vs aktive Tuberkulose",
       "itl_characteristics": "Latente Tuberkuloseinfektion",
-      "itl_char_1": "Bazillen sind 'ruhend, neutralisiert'",
+      "itl_char_1": "Die Bazillen sind 'ruhend, neutralisiert'",
       "itl_char_2": "Die Person ist nicht ansteckend",
       "itl_char_3": "Keine Symptome",
       "itl_char_4": "Normales Röntgenbild",
       "itl_char_5": "Präventive Behandlung für 3 Monate",
       "active_characteristics": "Aktive Tuberkulose",
-      "active_char_1": "Bazillen sind aktiv",
-      "active_char_2": "Ansteckend, wenn die Lunge betroffen ist",
-      "active_char_3": "Vorhandensein von Symptomen",
+      "active_char_1": "Die Bazillen sind aktiv",
+      "active_char_2": "Ansteckend, wenn Lunge betroffen",
+      "active_char_3": "Symptome vorhanden",
       "active_char_4": "Abnormales Röntgenbild",
       "active_char_5": "Heilende Behandlung für 6 Monate oder länger"
     },
@@ -167,33 +188,33 @@
       "title": "Symptome und Behandlung",
       "symptoms_list": "Hauptsymptome",
       "symptom_1": "Anhaltender Husten (länger als 3 Wochen)",
-      "symptom_2": "Blut im Sputum",
+      "symptom_2": "Blut im Auswurf",
       "symptom_3": "Brustschmerzen",
       "symptom_4": "Müdigkeit und Schwäche",
       "symptom_5": "Unbeabsichtigter Gewichtsverlust",
       "symptom_6": "Fieber und Nachtschweiß",
-      "symptom_7": "Appetitverlust",
+      "symptom_7": "Appetitlosigkeit",
       "treatment_title": "Behandlung",
-      "treatment_content": "Die Behandlung erfordert die tägliche Einnahme mehrerer Medikamente über mehrere Monate. Sie müssen auf nüchternen Magen eingenommen werden. In der Praxis sollten sie mindestens eine halbe Stunde vor dem Essen eingenommen werden.",
+      "treatment_content": "Die Behandlung erfordert die tägliche Einnahme mehrerer Medikamente über mehrere Monate. Sie sollten auf nüchternen Magen eingenommen werden. Praktisch gesehen sollten sie mindestens eine halbe Stunde vor dem Essen eingenommen werden.",
       "important_note": "Es ist sehr wichtig, die Behandlung nicht abzubrechen, da die Krankheit sonst zurückkehren könnte."
     },
     "prevention": {
-      "title": "Vorbeugung",
+      "title": "Prävention",
       "vaccination": "BCG-Impfung",
-      "vaccination_content": "Die BCG-Impfung bleibt stark empfohlen, insbesondere für Kinder unter fünf Jahren mit Risikofaktoren.",
-      "screening": "Screening durch Tuberkulosezentren",
-      "screening_content": "Tuberkulose-Kontrollzentren spielen eine zentrale Rolle bei der Vorbeugung, indem sie Untersuchungen und Screenings um Fälle herum organisieren."
+      "vaccination_content": "Die BCG-Impfung wird weiterhin stark empfohlen, insbesondere für Kinder unter fünf Jahren mit Risikofaktoren.",
+      "screening": "Screening durch Tuberkulose-Bekämpfungszentren",
+      "screening_content": "Die Tuberkulose-Bekämpfungszentren spielen eine zentrale Rolle bei der Prävention, indem sie Untersuchungen und Screenings um die Fälle herum organisieren."
     },
     "faq": {
       "title": "Häufig gestellte Fragen",
       "q1": "Ist Tuberkulose immer ansteckend?",
       "a1": "Nein, nur Lungentuberkulose ist ansteckend. Wenn sie andere Körperteile betrifft, ist sie nicht ansteckend.",
       "q2": "Wie lange dauert die Behandlung?",
-      "a2": "Die Behandlung dauert in der Regel 6 Monate, manchmal länger, abhängig vom Fall. Es ist entscheidend, sie vollständig durchzuführen.",
+      "a2": "Die Behandlung dauert in der Regel 6 Monate, manchmal länger, je nach Fall. Es ist entscheidend, sie vollständig durchzuführen.",
       "q3": "Kann Tuberkulose geheilt werden?",
       "a3": "Ja, Tuberkulose ist heute in Frankreich sehr gut behandelbar, wenn die Behandlung korrekt durchgeführt wird.",
       "q4": "Wer sollte gescreent werden?",
-      "a4": "Enge Kontaktpersonen und Personen mit häufigem Kontakt zu einem Patienten werden von den Teams der Tuberkulosezentren gescreent."
+      "a4": "Enge Kontakte und Personen, die häufigen Kontakt mit einem Patienten haben, werden von den Teams der Tuberkulose-Bekämpfungszentren gescreent."
     }
   },
   "quiz": {
@@ -203,10 +224,10 @@
     "restart": "Neustart",
     "home": "Startseite",
     "result": {
-      "title": "Quiz abgeschlossen!",
+      "title": "Quiz beendet!",
       "excellent": "Hervorragend! Sie beherrschen das Thema sehr gut!",
       "good": "Gut! Sie haben gute Kenntnisse.",
-      "average": "Richtig. Es gibt noch einige Punkte zu wiederholen.",
+      "average": "Durchschnittlich. Es bleiben noch einige Punkte zu überprüfen.",
       "needs_improvement": "Es wäre gut, die Informationen über Tuberkulose noch einmal zu lesen."
     },
     "q1": {
@@ -223,7 +244,7 @@
       "a2": "Durch Hautkontakt",
       "a3": "Durch kontaminiertes Wasser",
       "a4": "Durch Insektenstiche",
-      "explanation": "Tuberkulose wird durch die Luft übertragen, wenn eine infizierte Person hustet, niest oder spricht und dabei Tröpfchen freisetzt, die das Bakterium enthalten."
+      "explanation": "Tuberkulose wird durch die Luft übertragen, wenn eine infizierte Person hustet, niest oder spricht und dabei Tröpfchen mit dem Bakterium freisetzt."
     },
     "q3": {
       "question": "Welche Form der Tuberkulose ist ansteckend?",
@@ -231,47 +252,47 @@
       "a2": "Nierentuberkulose",
       "a3": "Lungentuberkulose",
       "a4": "Lymphknotentuberkulose",
-      "explanation": "Nur Lungentuberkulose ist ansteckend, weil sie die Lunge betrifft und eine Übertragung durch die Luft ermöglicht."
+      "explanation": "Nur Lungentuberkulose ist ansteckend, da sie die Lunge betrifft und eine Übertragung über die Luft ermöglicht."
     },
     "q4": {
-      "question": "Wie lange dauert die Tuberkulosebehandlung in der Regel?",
+      "question": "Wie lange dauert die Behandlung von Tuberkulose in der Regel?",
       "a1": "2 Wochen",
       "a2": "6 Monate oder länger",
       "a3": "1 Monat",
       "a4": "1 Jahr",
-      "explanation": "Die Tuberkulosebehandlung dauert in der Regel 6 Monate, manchmal länger, abhängig vom Fall. Es ist entscheidend, sie vollständig durchzuführen."
+      "explanation": "Die Behandlung von Tuberkulose dauert in der Regel 6 Monate, manchmal länger, je nach Fall. Es ist entscheidend, sie vollständig durchzuführen."
     },
     "q5": {
-      "question": "Was bedeutet LTBI?",
+      "question": "Was bedeutet LTI?",
       "a1": "Latente Tuberkuloseinfektion",
       "a2": "Lange totale Infektion",
       "a3": "Lokale therapeutische Intervention",
-      "a4": "Begrenzte Tuberkuloseimmunität",
-      "explanation": "LTBI bedeutet latente Tuberkuloseinfektion. Dabei ist das Bakterium vorhanden, aber 'ruhend' ohne Symptome oder Ansteckungsgefahr."
+      "a4": "Begrenzte Immunität gegen Tuberkulose",
+      "explanation": "LTI bedeutet latente Tuberkuloseinfektion. Dies ist der Fall, wenn das Bakterium vorhanden, aber 'ruhend' ist, ohne Symptome oder Ansteckungsgefahr."
     },
     "q6": {
-      "question": "Wann sollten Tuberkulosemedikamente eingenommen werden?",
+      "question": "Wann sollten Tuberkulose-Medikamente eingenommen werden?",
       "a1": "Nach den Mahlzeiten",
       "a2": "Während der Mahlzeiten",
-      "a3": "Jederzeit",
+      "a3": "Zu jeder Zeit",
       "a4": "Auf nüchternen Magen (vor den Mahlzeiten)",
-      "explanation": "Tuberkulosemedikamente sollten auf nüchternen Magen eingenommen werden, mindestens 30 Minuten vor den Mahlzeiten oder 2 Stunden danach."
+      "explanation": "Tuberkulose-Medikamente sollten auf nüchternen Magen eingenommen werden, mindestens 30 Minuten vor den Mahlzeiten oder 2 Stunden danach."
     },
     "q7": {
-      "question": "Was ist das Hauptsymptom der Lungentuberkulose?",
+      "question": "Was ist das Hauptsymptom von Lungentuberkulose?",
       "a1": "Kopfschmerzen",
       "a2": "Anhaltender Husten",
       "a3": "Bauchschmerzen",
       "a4": "Hautausschlag",
-      "explanation": "Das Hauptsymptom der Lungentuberkulose ist ein anhaltender Husten, der länger als 3 Wochen andauert."
+      "explanation": "Das Hauptsymptom von Lungentuberkulose ist ein anhaltender Husten, der länger als 3 Wochen dauert."
     },
     "q8": {
       "question": "Was passiert, wenn die Behandlung zu früh abgebrochen wird?",
       "a1": "Nichts Besonderes",
       "a2": "Schnellere Erholung",
-      "a3": "Risiko eines Rückfalls und Resistenz",
+      "a3": "Risiko eines Rückfalls und von Resistenzen",
       "a4": "Reduzierung der Nebenwirkungen",
-      "explanation": "Ein zu früher Abbruch der Behandlung kann zu einem Rückfall der Krankheit und der Entwicklung von Resistenzen gegen Medikamente führen."
+      "explanation": "Ein zu früher Abbruch der Behandlung kann zu einem Rückfall der Krankheit und der Entwicklung von Resistenzen gegen die Medikamente führen."
     }
   },
   "settings": {
@@ -279,27 +300,103 @@
     "language_changed": "Sprache geändert in",
     "actions": "Aktionen",
     "reset_data": "Daten zurücksetzen",
-    "reset_description": "Alle Anwendungsdaten löschen",
-    "reset_confirmation": "Sind Sie sicher, dass Sie alle Daten zurücksetzen möchten?",
-    "reset_warning": "Diese Aktion wird löschen:\n• Ihre Posologie\n• Ihre Medikamenteneinnahmen\n• Alle Ihre Einstellungen",
+    "reset_description": "Alle App-Daten löschen",
+    "reset_confirmation": "Möchten Sie wirklich alle Daten zurücksetzen?",
+    "reset_warning": "Diese Aktion löscht:\n• Ihre Dosierung\n• Ihre Medikamenteneinnahmen\n• Alle Ihre Einstellungen",
     "reset_success": "Daten erfolgreich zurückgesetzt",
-    "quit_app": "Anwendung beenden",
-    "quit_description": "MeineTuberkulose schließen",
-    "quit_confirmation": "Sind Sie sicher, dass Sie MeineTuberkulose beenden möchten?"
+    "quit_app": "App verlassen",
+    "quit_description": "TB&Me schließen",
+    "quit_confirmation": "Möchten Sie TB&Me wirklich verlassen?"
   },
   "common": {
     "cancel": "Abbrechen",
     "confirm": "Bestätigen",
     "reset": "Zurücksetzen",
-    "quit": "Beenden"
+    "quit": "Verlassen",
+    "close": "Schließen",
+    "later": "Später"
   },
   "notifications": {
     "fasting_reminder_title": "⏰ Fasten-Erinnerung",
-    "fasting_reminder_body": "In 2 Stunden, nehmen Sie {medication} {dosage}. Essen oder trinken Sie jetzt nichts!",
-    "5min_reminder_title": "🔔 Baldige Erinnerung",
-    "5min_reminder_body": "In 5 Minuten: {medication} {dosage} ({tablets} Tablette{plural})",
+    "fasting_reminder_body": "In 2 Stunden nehmen Sie {medication} {dosage}. Essen oder trinken Sie jetzt nichts!",
+    "5min_reminder_title": "🔔 Erinnerung in 5 Minuten",
+    "5min_reminder_body": "In 5 Minuten: {medication} {dosage} ({tablets} Tablette(n))",
     "time_reminder_title": "💊 Es ist Zeit!",
-    "time_reminder_body": "Nehmen Sie jetzt: {medication} {dosage} ({tablets} Tablette{plural})",
-    "fasting_note": " - Auf nüchternen Magen einnehmen"
+    "time_reminder_body": "Nehmen Sie jetzt: {medication} {dosage} ({tablets} Tablette(n))",
+    "fasting_note": " - Auf nüchternen Magen einnehmen",
+    "permissions_help": "Sie können diese Berechtigungen in den Geräteeinstellungen aktivieren.",
+    "test_simple": "🔔 Einfacher Test",
+    "test_sent_immediately": "Testbenachrichtigung sofort gesendet"
+  },
+  "permissions": {
+    "notifications": "Benachrichtigungen",
+    "exact_alarms": "Exakte Alarme",
+    "storage": "Speicher",
+    "required_title": "Erforderliche Berechtigungen",
+    "required_message": "Die App benötigt die folgenden Berechtigungen, um korrekt zu funktionieren:"
+  },
+  "encouragement": {
+    "regular_taking": [
+      "💊 Jede Einnahme zählt! Weiter so.",
+      "🌟 Ihr Engagement macht den Unterschied. Machen Sie weiter so!",
+      "🎯 Gut gemacht! Jeden Tag bauen Sie Ihre Genesung auf.",
+      "🌱 Ein wesentlicher Schritt zu einer gesünderen Zukunft. Weiter so!",
+      "💪 Sie kümmern sich um sich selbst, und das zeigt sich. Weiter so!",
+      "🏆 Kleine Schritte, große Siege. Hervorragend!",
+      "✨ Jede Aktion bringt Sie der Gesundheit näher. Hervorragend!"
+    ],
+    "missed_recovery": [
+      "🔄 Wichtig ist, dass Sie weitermachen. Jede Einnahme zählt, auch nach einem Versäumnis!",
+      "🤗 Kein Problem, Fehler sind menschlich. Konzentrieren wir uns auf heute!",
+      "💚 Ein Versäumnis passiert. Gut, dass Sie die Behandlung wieder aufgenommen haben! Wir machen weiter zusammen.",
+      "🌈 Der Weg ist manchmal mit Hindernissen gepflastert, aber Sie sind da! Gut gemacht, dass Sie weitermachen.",
+      "🚀 Dieser kleine Schritt ist ein großer Beweis für Ihre Entschlossenheit. Weiter so!",
+      "💪 Geben Sie nicht auf! Wichtig ist, dass Sie weitermachen. Gut gemacht, dass Sie wieder eingestiegen sind.",
+      "⭐ Bleiben Sie auf Kurs! Ein Versäumnis stoppt Ihren Fortschritt nicht. Gut gemacht, dass Sie wieder eingestiegen sind."
+    ]
+  },
+  "catch_up": {
+    "title": "Einnahme nachholen",
+    "button": "Nachholen",
+    "fasting_period": "Erforderliche Fastenzeit",
+    "fasting_duration": "2 Stunden Fasten",
+    "fasting_rules": "Für die nächsten 2 Stunden:\n• Nicht essen\n• Nicht trinken\n• Nicht rauchen",
+    "timer_title": "Fastenzeit läuft",
+    "timer_subtitle": "Bleiben Sie noch",
+    "ready_title": "✅ Fastenzeit beendet!",
+    "ready_message": "Sie können jetzt Ihr Medikament einnehmen",
+    "take_now": "Jetzt einnehmen",
+    "cancel_catchup": "Nachholen abbrechen"
+  },
+  "messages": {
+    "medication_added_success": "Medikament erfolgreich hinzugefügt",
+    "medication_deleted_success": "Medikament erfolgreich gelöscht",
+    "stock_updated": "Bestand aktualisiert: {stock} Tabletten",
+    "notifications_scheduled": "Benachrichtigungen für {medication} um {time} geplant",
+    "notifications_scheduled_fasting": " (mit Fasten-Erinnerung 2 Stunden vorher)",
+    "notifications_error": "Benachrichtigungsfehler: {error}",
+    "no_medications_posology": "Keine Medikamente in Ihrer Dosierung",
+    "test_scheduled": "Test in 1 Minute für {medication} geplant",
+    "view_photos_title": "📸 Fotos der Medikamente",
+    "close_dialog": "Schließen",
+    "image_not_available": "Bild nicht verfügbar",
+    "touch_to_close": "Zum Schließen tippen",
+    "touch_to_enlarge": "Zum Vergrößern tippen",
+    "medication_not_found": "Fehler: Medikament nicht gefunden",
+    "link_open_error": "Link kann nicht geöffnet werden: {url}",
+    "error": "Fehler: {error}"
+  },
+  "history": {
+    "title": "📊 Verlauf",
+    "week_of": "Woche des",
+    "before_installation": "Vor der Installation",
+    "upcoming": "Bevorstehend",
+    "taken_count": "✅ {count} eingenommen",
+    "missed_count": "❌ {count} versäumt",
+    "details_title": "Details des",
+    "no_data": "Keine Daten für diesen Tag",
+    "unknown_medication": "Unbekannt",
+    "taken_at": "Eingenommen um",
+    "missed": "Versäumt"
   }
 }

@@ -1,36 +1,36 @@
 {
   "app": {
-    "title": "Mytuberculase",
-    "home": "Guri",
-    "medications": "Daawooyinka",
-    "quiz": "Kedis",
-    "information": "War",
+    "title": "TB&Me",
+    "home": "Hargaaga",
+    "medications": "Daawada",
+    "quiz": "Su'aalo",
+    "information": "Macluumaad",
     "settings": "Dejinta",
-    "description": "Codsi loogu talagalay in lagu dabaqo daaweynta qaaxada"
+    "description": "App-ka loogu talagalay in la xakameeyo daawooyinka tuberculosis"
   },
   "home": {
-    "welcome": "Soo dhawow!",
-    "medications_today": "Daawooyinka (yaasha) maanta la qaato",
-    "daily_dashboard": "Damaasha maalinlaha ah",
-    "no_medications": "Daawo lama habeyn",
-    "configure_medications": "Tag tabinta daawooyinka si aad u dejiso qiyaastaada",
-    "daily_statistics": "Tirakoobka Daily",
-    "confirm_taking": "Xaqiiji qaadashada",
-    "mark_as_taken": "Calaamadin",
-    "mark_taken": "Mark \\ nas qaatay",
-    "tablets": "Kiniini (yaasha)",
-    "current_stock": "Kaydka hadda jira",
-    "stock_after": "Kayd ka dib qaadashada",
-    "stock": "Badeeco",
-    "marked_as_taken": "loo calaamadeeyay sida loo qaaday",
-    "insufficient_stock": "Suuqa aan ku filnayn!Haddii",
-    "tablets_remaining": "Kiniini (yaasha) haray",
-    "take_on_empty_stomach": "Calool madhan",
+    "welcome": "Soo dhawoow!",
+    "medications_today": "daawo(oyin) la qaadanayo maanta",
+    "daily_dashboard": "Dashboord maalinle ah",
+    "no_medications": "Daawash ma jiraan",
+    "configure_medications": "Taa tabka Daawada si aad u dejiso daawadaada",
+    "daily_statistics": "Istatistikaad maalinle ah",
+    "confirm_taking": "Xaqiiqsi daawooyinka",
+    "mark_as_taken": "Xariir",
+    "mark_taken": "Xariir\nsida la qaatay",
+    "tablets": "tablet(ka)",
+    "current_stock": "Kala duwan maanta",
+    "stock_after": "Kala duwan kadib daawooyinka",
+    "stock": "Kala duwan",
+    "marked_as_taken": "la xariiriyay sida la qaatay",
+    "insufficient_stock": "Kala duwan aan buuxsan! Kalena",
+    "tablets_remaining": "tablet(ka) ah oo baakiya",
+    "take_on_empty_stomach": "Qaado halka ay jirto",
     "status": {
-      "taken": "Qaaday",
-      "upcoming": "Soo socda",
+      "taken": "La qaatay",
+      "upcoming": "Soo socota",
       "now": "Hadda",
-      "missed": "Seegay"
+      "missed": "Laga yaabay"
     }
   },
   "date": {
@@ -38,268 +38,365 @@
     "tuesday": "Talaado",
     "wednesday": "Arbaco",
     "thursday": "Khamiis",
-    "friday": "Jimce",
+    "friday": "Jimco",
     "saturday": "Sabti",
     "sunday": "Axad",
-    "january": "Jannaayo",
-    "february": "Febraayo",
-    "march": "Gaardi",
-    "april": "Abriil",
-    "may": "Maayo",
-    "june": "Juun",
-    "july": "Julay",
-    "august": "Ogost",
-    "september": "Setembar",
-    "october": "Oktoobar",
-    "november": "Noofeembar",
-    "december": "Desembar"
+    "january": "Bisha Koobaad",
+    "february": "Bisha Labaad",
+    "march": "Bisha Saddexaad",
+    "april": "Bisha Afraad",
+    "may": "Bisha Shanaad",
+    "june": "Bisha Lixaad",
+    "july": "Bisha Todobaad",
+    "august": "Bisha Sideedaad",
+    "september": "Bisha Sagaalaad",
+    "october": "Bisha Tobnaad",
+    "november": "Bisha Kow iyo Tobnaad",
+    "december": "Bisha Laba iyo Tobnaad",
+    "monday_short": "Isn",
+    "tuesday_short": "Tal",
+    "wednesday_short": "Arb",
+    "thursday_short": "Kha",
+    "friday_short": "Jim",
+    "saturday_short": "Sab",
+    "sunday_short": "Ax"
   },
   "medications": {
-    "available_title": "Daawooyinka la heli karo",
-    "add_button": "Xisaab isku darid",
-    "my_posology": "Saadaashayda",
-    "no_medication": "Wax daawo ah kuma darin sawirkaaga",
-    "fasting": "Soomid",
-    "tablets": "Kiniini (yaasha)",
-    "stock": "Badeeco",
-    "delete": "Tirtirid",
-    "add_dialog_title": "Xisaab isku darid",
-    "time_format": "Waqtiga waqtiga",
+    "available_title": "Daawada la heli karo",
+    "add_button": "Ku dar",
+    "my_posology": "Daawadaada",
+    "no_medication": "Daawash ma jiraan ku daray daawadaada",
+    "fasting": "Halka ay jirto",
+    "tablets": "tablet(ka)",
+    "stock": "Kala duwan",
+    "delete": "Tirtir",
+    "add_dialog_title": "Ku dar",
+    "time_format": "Qaabka waqtiga",
     "time": "Waqti",
-    "change": "Beddelid",
-    "tablets_count": "Kiniiniyada",
-    "take_fasting": "Calool madhan",
-    "delete_confirmation": "Xaqiiji tirtirka",
-    "delete_question": "Ma hubtaa inaad rabto inaad ka tirtirto dawadan sawiradaada?",
+    "change": "Bedel",
+    "tablets_count": "Tablet(ka)",
+    "take_fasting": "Qaado halka ay jirto",
+    "delete_confirmation": "Xaqiiqsi tirinta",
+    "delete_question": "Ma hubtaa inaad tirto daawooyinkan daawadaada?",
     "details": {
-    "description": "Sharaxaad",
-    "side_effects": "Saamaynta dhinaca",
-    "advice": "Taloyin",
-    "see_documentation": "Eeg warqadda",
-    "enlarge_hint": "Dhiibo si aad u waydiin",
-    "close": "Xir"
-  },
-  "pdf": {
-    "documentation_title": "Warqad PDF",
-    "document_available": "Warqad PDF la helay",
-    "file": "Fayl",
-    "view": "Eeg",
-    "download": "Soo deji",
-    "reading_title": "Akhrinta warqadda",
-    "download_web_only": "Soo dejinta la helay mobile ka",
-    "storage_permission": "Ogolaansho la baahido inuu soo deji",
-    "downloaded": "PDF la soo dejiyay",
-    "download_error": "Khalad soo dejinta",
-    "view_error": "Khalad furitaanka PDF",
-    "pdf_render_error": "Khalad muuqaalka PDF"
-  },
-  "image": {
-    "not_available": "Casuushu ma jiro",
-    "tap_to_close": "Dhiibo si aad u xirto"
-  },
-  "time_label": "Waqti",
-"drugs": {
-"rifadine": {
-"description": "Antibayootig u horreeya ee dagaalka tuberkulooska",
-"side_effects": "Shidid cas, qaaxo, dhibaatooyin ka socota xanuunka beenta",
-"advice": "Qaado ilaa shidid, 1 saac ka hor inta cunto la qaado ama 2 saac ka dib" },
-"rifater": {
-"description": "Isweydiin ka duwan oo ah rifampicin, isoniazid, iyo pyrazinamide",
-"side_effects": "Dhibaatooyin ka socota hufnaanta, carar, dhiirran",
-"advice": "Isweydiin 3 oo ku jira 1 tablet" },
-"rifinah": {
-"description": "Isweydiin ka duwan oo ah rifampicin iyo isoniazid",
-"side_effects": "Shidid cas, qaaxo",
-"advice": "Si fiican u qaado subaxnimo ilaa shidid" },
-"dexambutol": {
-"description": "Dawa dagaalka tuberkulooska ee labaad",
-"side_effects": "Dhibaatooyin ka socota aragtida, neuropathy optika",
-"advice": "Dhaqdhaqaaq aragtida waa loo baahan tahay" },
-"myambutol": {
-"description": "Ethambutol, dagaalka tuberkulooska bakteriostatic",
-"side_effects": "Optic neuritis, dhibaatooyin ka socota aragtida",
-"advice": "Dhaqdhaqaaq aragtida waa loo talo galay" },
-"pirilene": {
-"description": "Pyrazinamide, dagaalka tuberkulooska",
-"side_effects": "Dhibaatooyin ka socota xanuunka beenta, carar",
-"advice": "Dhaqdhaqaaq xanuunka beenta waa loo baahan tahay" },
-"rimactan": {
-"description": "Rifampicin, antibayootig dagaalka tuberkulooska",
-"side_effects": "Shidid cas oo ah xanuunka",
-"advice": "Qaado ka fog cunto" },
-"rimifon": {
-"description": "Isoniazid, dagaalka tuberkulooska ugu muhiimsan",
-"side_effects": "Neuropathy periferik, hepatitis",
-"advice": "Waa loo talo galay vitamin B6" } }
+      "description": "Sharaxaad",
+      "side_effects": "Dhaqaajiyaha kalsoon",
+      "advice": "Taloyin",
+      "see_documentation": "Eeg dakuumentiga",
+      "enlarge_hint": "Guji si aad u weyn u sameysid",
+      "close": "Xidh"
+    },
+    "pdf": {
+      "documentation_title": "Dakuumentiga PDF",
+      "document_available": "Dakuumentiga PDF la heli karo",
+      "file": "Fayl",
+      "view": "Eeg",
+      "download": "Soo deji",
+      "reading_title": "Akhrinta dakuumentiga",
+      "download_web_only": "Soo dejinta ma ahan wax laga heli karo mobile-ka",
+      "storage_permission": "Ogolaansho loo baahan yahay in la soo dejo",
+      "downloaded": "PDF-ka la soo dejiyay",
+      "download_error": "Khalad soo dejinta",
+      "view_error": "Khalad furitaanka PDF-ka",
+      "pdf_render_error": "Khalad u qaabaysiga PDF-ka"
+    },
+    "image": {
+      "not_available": "Sawir ma heli karo",
+      "tap_to_close": "Guji si aad xidhid"
+    },
+    "time_label": "Waqti",
+    "drugs": {
+      "rifadine": {
+        "description": "Antibiotic-ka ugu horreeya ee tuberculosis",
+        "side_effects": "Cagaar meesha, qubinta, dhibaatooyinka kabadka",
+        "advice": "Qaado halka ay jirto, 1 saac ka hor inta cunto la qaato ama 2 saac kadib"
+      },
+      "rifater": {
+        "description": "Is-dhexgalka rifampicin, isoniazid iyo pyrazinamide",
+        "side_effects": "Dhibaatooyinka hawsha, xanuun madaxa, dacad",
+        "advice": "Is-dhexgal 3 daawo oo tablet 1 ah"
+      },
+      "rifinah": {
+        "description": "Is-dhexgalka rifampicin iyo isoniazid",
+        "side_effects": "Cagaar meesha, qubinta",
+        "advice": "Qaado subaxda halka ay jirto"
+      },
+      "dexambutol": {
+        "description": "Tuberculosis-ka labaad ee daawooyinka",
+        "side_effects": "Dhibaatooyinka aragtida, dhibaatooyinka aragtida",
+        "advice": "Xakameynta aragtida loo baahan yahay"
+      },
+      "myambutol": {
+        "description": "Ethambutol, tuberculosis-ka bakteriyastaatika",
+        "side_effects": "Neuropathy aragtida, dhibaatooyinka aragtida",
+        "advice": "Xakameynta aragtida loo talin yahay"
+      },
+      "pirilene": {
+        "description": "Pyrazinamide, tuberculosis",
+        "side_effects": "Dhibaatooyinka kabadka, xanuunka xididka",
+        "advice": "Xakameynta kabadka loo baahan yahay"
+      },
+      "rimactan": {
+        "description": "Rifampicin, antibiotic-ka tuberculosis",
+        "side_effects": "Cagaar meesha",
+        "advice": "Qaado ka fog cunto"
+      },
+      "rimifon": {
+        "description": "Isoniazid, tuberculosis-ka ugu muhiimsan",
+        "side_effects": "Neuropathy kalsoon, hepatitis",
+        "advice": "Daawooyinka vitamin B6 loo talin yahay"
+      }
+    },
+    "stock_management": {
+      "title": "Maareynta kala duwanaanta",
+      "current_stock": "Kala duwan maanta: {stock} tablet(ka)",
+      "confirm": "Xaqiiqsi"
+    }
   },
   "information": {
-    "title": "Macluumaadka qaaxada",
+    "title": "Macluumaadka ku saabsan tuberculosis",
     "links": {
-      "title": "Xiriirro waxtar leh"
+      "title": "Link-yada caawimaad ah"
     },
     "understanding": {
-      "title": "Fahmitaanka qaaxada",
-      "subtitle": "Cudur faafa oo u baahan feejignaan",
-      "what_is": "Waa maxay qaaxada?",
-      "what_is_content": "Cudurka qaaxada waa cudur ay sababaan bakteeriyada loo yaqaan 'mycobacterium qaaxada, oo ka dib marxalad la mid ah, uu noqdo mid firfircoon.Qaabkan firfircoon ee cudurka wuxuu u dhigantaa isku dhufashada bakteeriyada.Waxaa weheliya astaamaha oo u baahan daaweyn daba dheeraaday oo ay ku jiraan antibiyootig gaar ah.",
-      "transmission": "Sidee loo kala qaadaa?",
-      "transmission_content": "Qaaxada waxaa hawada ku faafa hawada qofka sanbabka ay u saameeyeen markay qufacaan, ama ay hadlaan ama hadlaan.Gudbinta waxay u baahan tahay mid dheer oo xidhiidh ah oo lala yeesho qof qaba qaaxada sambabada ee faafa."
+      "title": "Fahamka tuberculosis",
+      "subtitle": "Cudurrada faafa ah ee loo baahan yahay in la xakameeyo",
+      "what_is": "Waa maxay tuberculosis?",
+      "what_is_content": "Tuberculosis waa cudur ka timid bacteria-ka loo yaqaan Mycobacterium tuberculosis, kadib markii uu ka soo noqdo heerka latent, waxa uu noqonayaa active. Noocan active ee cudurka waxa uu ku saabsan yahay in bacteria-ku u dhaafay. Waxa uu la mid yahay astaamaha iyo waxa uu u baahan yahay daawooyin aad u dheer oo loo yaqaan antibiotics-ka gaarka ah.",
+      "transmission": "Sidee uu u dhaqaa?",
+      "transcription_content": "Tuberculosis waxa uu u dhaqaa heerka heerka ee qofka uu ku jiro buuraha markii uu qasbo, cusboonaamiyo ama hadal. Dhaqanka waxa uu u baahan yahay in la xiriiro dhererka u dhow iyo qofka uu ku jiro tuberculosis-ka buuraha ee u dhaqaa."
     },
     "itl": {
-      "title": "Infekshinka qaaxada qarsoon (LTBI)",
-      "what_is": "Waa maxay macnaha LTBI?",
-      "what_is_content": "Infekshinka qaaxada ee qarsoon, bakteeriyada ayaa ka takhalusay, ku xayiran tahay difaaca jirka.Bakteeriyadaani waxay joogi kartaa 'hurdo la'aan'.Qofku weligiis ma qaadi karo cudurka inta uu nool yahay oo dhan.",
-      "vs_active": "Ltbi vs qaaxada firfircoon",
-      "itl_characteristics": "Infekshinka qaaxada qarsoon",
-      "itl_char_1": "Bacilli waa 'hurdo, ka takhalusay'",
-      "itl_char_2": "Qofku ma is qaadsiin karo",
-      "itl_char_3": "Astaamo ma leh",
-      "itl_char_4": "Raajada caadiga ah",
-      "itl_char_5": "Preventive treatment for 3 months",
-      "active_characteristics": "Qaaxada firfircoon",
-      "active_char_1": "Bacilli waa mid firfircoon",
-      "active_char_2": "La is qaadsiin karo haddii sambabada",
-      "active_char_3": "Joogitaanka astaamaha",
-      "active_char_4": "Raajada aan caadi ahayn",
-      "active_char_5": "Daaweynta daaweyn ee 6 bilood ama ka badan"
+      "title": "Faafa Tuberculosis Infection (FTI)",
+      "what_is": "Waa maxay FTI?",
+      "what_is_content": "Faafa tuberculosis infection, bacteria-ka waxa uu la nugul yahay, la xidhiidha dhamaanteeda badan ee jismiga. Bacteria-gan waxa uu ku noqon karaa 'dhulul'. Qofka waxa uu kama qaadan karo inuu cudurka uu ku dhaco hayaatada.",
+      "vs_active": "FTI vs Tuberculosis active",
+      "itl_characteristics": "Faafa tuberculosis infection",
+      "itl_char_1": "Bacillada waxay yihiin 'dhulul, la nugul'",
+      "itl_char_2": "Qofka ma u dhaqaa",
+      "itl_char_3": "Astaamaha ma jiraan",
+      "itl_char_4": "X-ray normal",
+      "itl_char_5": "3 bilood daawooyin ka hor inta cudurka",
+      "active_characteristics": "Tuberculosis active",
+      "active_char_1": "Bacillada waxay yihiin active",
+      "active_char_2": "U dhaqaa haddii buuraha",
+      "active_char_3": "Astaamaha jira",
+      "active_char_4": "X-ray aan normalin",
+      "active_char_5": "6 bilood ama inta badan daawooyin daawooyin"
     },
     "symptoms": {
-      "title": "Astaamaha iyo daaweynta",
-      "symptoms_list": "Calaamadaha ugu waaweyn",
-      "symptom_1": "Qufac joogto ah (in ka badan 3 toddobaad)",
-      "symptom_2": "Dhiiga xaako",
-      "symptom_3": "Xanaaq xabadka",
-      "symptom_4": "Daalka iyo daciifnimada",
-      "symptom_5": "Miisaanka oo yaraada",
-      "symptom_6": "Qandho iyo dhidid habeenkii",
-      "symptom_7": "Cunto rabitaanka cuntada",
-      "treatment_title": "Macaamilo",
-      "treatment_content": "Daaweyntu waxay u baahan tahay qaadashada daawooyinka dhowr ah maalin kasta, dhowr bilood.Waa in lagu qaataa calool madhan.Ficil ahaan, waa in la qaataa ugu yaraan nus saac kahor cunida.",
-      "important_note": "Aad ayey muhiim u tahay inaadan joojin daaweynta, haddii kale cudurku wuu soo laaban karaa."
+      "title": "Astaamaha iyo daawooyinka",
+      "symptoms_list": "Astaamaha ugu muhiimsan",
+      "symptom_1": "Qasbo dherer (ka badan 3 usbuuc)",
+      "symptom_2": "Dhiig qasabka",
+      "symptom_3": "Xanuunka saddexda",
+      "symptom_4": "Dacad iyo aanan ku filan",
+      "symptom_5": "Meel aan la rabin meel kasta",
+      "symptom_6": "Qandho iyo kasoo saar",
+      "symptom_7": "Aan cunto la qaadanin",
+      "treatment_title": "Daawooyinka",
+      "treatment_content": "Daawooyinka waxay u baahan tahay in la qaato daawooyin badan maalin kasta, bilood badan. Waxay u baahan tahay in la qaato halka ay jirto. Si caadi ahaan, waxay u baahan tahay in la qaato 30 daqiiqo ka hor inta cunto la qaadanayo.",
+      "important_note": "Waa muhiim in aan daawooyinka joojin, illaa cudurka waxa uu noqon karaa inuu mar kale soo noqdaa."
     },
     "prevention": {
-      "title": "Ka hor tag",
-      "vaccination": "Tallaalka BCG",
-      "vaccination_content": "Tallaalka BCG ayaa weli si heer sare ah loogu talinayaa, gaar ahaan carruurta ka yar shan sano jirka oo leh arrimo halista ah.",
-      "screening": "Baadhitaanka xarumaha qaaxada",
-      "screening_content": "Xarumaha Xakamaynta Qaaxada ee Qaaxada waxay door muhiim ah ka ciyaaraan ka hortagga iyagoo abaabulaya baaritaanno iyo baaritaanno agagaarka kiisaska."
+      "title": "Ka hor inta cudurka",
+      "vaccination": "Vaccination BCG",
+      "vaccination_content": "Vaccination BCG waxa uu sii jiraa in la talin karo, gaar ahaan carruurta ka yar 5 sano ee leh xaalado loo baahan yahay in la xakameeyo.",
+      "screening": "Xakameynta ee iskaashiga tuberculosis",
+      "screening_content": "Iskaashiga tuberculosis waxay leeyihiin doorka muhiimka ah ee ka hor inta cudurka oo ay sameeyaan baarista iyo xakameynta xaaladaha cudurka."
     },
     "faq": {
-      "title": "Su'aalaha badanaa la isweydiiyo",
-      "q1": "Cudurka qaaxada marwalba ma la is qaadsiin karaa?",
-      "a1": "Maya, kaliya qaaxada sambabka ayaa la is qaadsiiyaa.Markay saameyn ku yeelato qaybaha kale ee jirka, ma la is qaadsiin karo.",
-      "q2": "Muddo intee le'eg ayuu daaweynta ugu dambeysay?",
-      "a2": "Daaweyntu guud ahaan waxay qaadataa 6 bilood, mararka qaarkoodna waxay kuxirantahay kiiska.Waa muhiim in si buuxda loola socdo.",
-      "q3": "Cudurka qaaxada miyaa la daaweyn karaa?",
-      "a3": "Haa, qaaxada ayaa maanta lagu daaweyn karaa Faransiiska haddii daaweynta si sax ah loo raaco.",
-      "q4": "Ayaa la baarayaa?",
-      "a4": "Xiriir dhawr ah iyo dadka ku jira xiriir joogto ah oo lala yeesho bukaanka waxaa uu baarayaa kooxaha xarunta Qaaxada."
+      "title": "Su'aalo badan la weydiiyo",
+      "q1": "Ma tuberculosis-ku dhan u dhaqaa?",
+      "a1": "Maya, tuberculosis-ka buuraha kalena waxa uu u dhaqaa. Markii uu ku saabsan yahay qeybaha kale ee jismiga, ma u dhaqaa.",
+      "q2": "Imisa bilood ah daawooyinka?",
+      "a2": "Daawooyinka waxay u dhaan tahay 6 bilood, marar badan oo aad u badan xaaladda. Waa muhiim in la raaco dhammaan.",
+      "q3": "Ma tuberculosis-ku iibsan karaa?",
+      "a3": "Haa, tuberculosis-ku waxa uu aad u iibsan karaa maanta Faransiiska haddii daawooyinka la raaco si sax ah.",
+      "q4": "Yaa u baahan in la xakameeyo?",
+      "a4": "Xiriirada u dhow iyo dadka uu si aad u la xiriira mararya waxay ku xakameeyaan kooxda iskaashiga tuberculosis."
     }
   },
   "quiz": {
-    "question": "Su'aalid",
-    "score": "Gool",
-    "explanation": "Sharax",
-    "restart": "Dib u bilow",
-    "home": "Guri",
+    "question": "Su'aal",
+    "score": "Goob",
+    "explanation": "Sharaxaad",
+    "restart": "Bilaw",
+    "home": "Hargaaga",
     "result": {
-      "title": "Kediska!",
-      "excellent": "Aad u fiican!Adigu waxaad u tagtaa maaddada si aad u wanaagsan!",
-      "good": "Wanaagsan!Waxaad leedahay aqoon wanaagsan.",
-      "average": "Sax.Weli waxaa jira dhowr qodob oo lagu eegayo.",
-      "needs_improvement": "Way fiicnaan laheyd in la akhriyo macluumaadka ku saabsan qaaxada."
+      "title": "Su'aalaha dhamaatay!",
+      "excellent": "Waa fiican! Waxaad ugu fiican tahay mowduuca!",
+      "good": "Waa wanaagsan! Waxaad leh macno wanaagsan.",
+      "average": "Dhexdhexaad ah. Waxaa jira tenaha badan oo aan la eegin.",
+      "needs_improvement": "Waa wanaagsan in aad mar kale akhrido macluumaadka tuberculosis."
     },
     "q1": {
-      "question": "Maxaa sababa qaaxada?",
+      "question": "Waa maxay sababta tuberculosis?",
       "a1": "Fayras",
-      "a2": "Bakteeriyada loo yaqaan 'mycobacterium qaaxada'",
-      "a3": "Fangas",
-      "a4": "Ku dul-noole",
-      "explanation": "Qaaxada waxaa sababa bakteeriyada loo yaqaan 'mycobacterium qaaxada', oo sidoo kale loo yaqaan Koch's Bacillus."
+      "a2": "Bacteria-ka loo yaqaan Mycobacterium tuberculosis",
+      "a3": "Fungus",
+      "a4": "Parasite",
+      "explanation": "Tuberculosis waxa uu sababtaa bacteria-ka loo yaqaan Mycobacterium tuberculosis, oo loo yaqaan Koch bacillus."
     },
     "q2": {
-      "question": "Sidee cudurka qaaxada loo kala qaadaa?",
-      "a1": "Hawada (qufaca, hindhisada)",
-      "a2": "Iyada oo loo marayo taabashada maqaarka",
-      "a3": "Iyada oo loo marayo biyo wasakhaysan",
-      "a4": "Iyada oo loo marayo qaniinyada cayayaanka",
-      "explanation": "Qaaxada waxaa lagu kala qaadaa hawada markii qof cudurka qaba uu qufaco, hindhisto, ama hadlo, sii daaya dhibco dhibco ah ee ay ku jiraan bakteeriyada."
+      "question": "Sidee uu tuberculosis u dhaqaa?",
+      "a1": "Heerka heerka (qasbo, cusboonaamiyo)",
+      "a2": "Xiriirka macnaanta",
+      "a3": "Biyaha dhilif ah",
+      "a4": "Dhaqdhaqaaqa buugga",
+      "explanation": "Tuberculosis waxa uu u dhaqaa heerka heerka markii qofka uu ku jiro cudurka uu qasbo, cusboonaamiyo ama hadal, oo u soo saaraya qotrooyin leh bacteria."
     },
     "q3": {
-      "question": "Qaabkee qaaxada ee qaaxada la is qaadsiiyaa?",
-      "a1": "Qaaxada lafaha",
-      "a2": "Qaaxada kelyaha",
-      "a3": "Cudurka sambabada",
-      "a4": "Qaaxada gaangilion",
-      "explanation": "Kaliya qaaxada sambabada ayaa la is qaadsiiyaa maxaa yeelay waxay saameyn ku leedahay sambabbada waxayna u oggolaaneysaa gudbinta hawada."
+      "question": "Waa maxay noocan tuberculosis ee u dhaqaa?",
+      "a1": "Tuberculosis-ka carabta",
+      "a2": "Tuberculosis-ka kabadka",
+      "a3": "Tuberculosis-ka buuraha",
+      "a4": "Tuberculosis-ka kofaha",
+      "explanation": "Kaliya tuberculosis-ka buuraha waxa uu u dhaqaa sababtoo ah uu ku saabsan yahay buuraha oo u ogolaanaya in uu u dhaqaa heerka heerka."
     },
     "q4": {
-      "question": "Muddo intee le'eg ayuu daaweynta qaaxada badanaa?",
-      "a1": "2 toddobaad",
-      "a2": "6 bilood ama ka badan",
+      "question": "Imisa bilood ah daawooyinka tuberculosis?",
+      "a1": "2 usbuuc",
+      "a2": "6 bilood ama inta badan",
       "a3": "1 bil",
-      "a4": "1 sano",
-      "explanation": "Daaweynta qaaxada guud ahaan waxay qaadataa 6 bilood, mararka qaarkoodna waxay kuxirantahay kiiska.Waa muhiim in si buuxda loola socdo."
+      "a4": "1 sanad",
+      "explanation": "Daawooyinka tuberculosis waxay u dhaan tahay 6 bilood, marar badan oo aad u badan xaaladda. Waa muhiim in la raaco dhammaan."
     },
     "q5": {
-      "question": "Waa maxay macnaha LTBI?",
-      "a1": "Infekshinka qaaxada qarsoon",
-      "a2": "Infekshan dheer",
-      "a3": "Dhexgalka daweynta ee maxalliga ah",
-      "a4": "Xannaano xadidan oo xadidan",
-      "explanation": "LTBI macnaheedu waa infakshanka qaaxada qarsoon ee qarsoon.Waa marka bakteeriyada uu jiro laakiin 'hurdo', oo aan lahayn astaamo ama faafin."
+      "question": "Waa maxay macnaheeda FTI?",
+      "a1": "Faafa tuberculosis infection",
+      "a2": "Dhererka u dhow dhaqanka",
+      "a3": "Daawooyin deegaanka ah",
+      "a4": "Daaqaadka tuberculosis",
+      "explanation": "FTI waxay macnaheedaysaa Faafa Tuberculosis Infection. Tani waa markii bacteria-ku uu jiro laakiin 'dhulul', aan jirin astaamaha ama u dhaqaaqa."
     },
     "q6": {
-      "question": "Goorma ayaa la qaadayaa dawooyinka qaaxada (qaaxada)?",
-      "a1": "Cuntada kadib",
-      "a2": "Inta lagu jiro cuntada",
-      "a3": "Mar walba",
-      "a4": "Calool madhan (cuntada ka hor)",
-      "explanation": "Daawooyinka cudurka qaaxada waa in lagu qaataa calool madhan, ugu yaraan 30 daqiiqo cuntada ka hor ama 2 saacadood ka dib."
+      "question": "Goormay daawooyinka tuberculosis la qaadanayo?",
+      "a1": "Kadib cunto",
+      "a2": "Waqtiga cuntada",
+      "a3": "Waqtiga kasta",
+      "a4": "Halka ay jirto (ka hor inta cunto)",
+      "explanation": "Daawooyinka tuberculosis waxay u baahan tahay in la qaato halka ay jirto, ka dib 30 daqiiqo ka hor inta cunto ama 2 saac kadib."
     },
     "q7": {
-      "question": "Waa maxay astaamaha ugu weyn ee qaaxada sambabka?",
-      "a1": "Madax xanuun",
-      "a2": "Qufac joogto ah",
-      "a3": "Calool xanuun",
-      "a4": "Finanka maqaarka",
-      "explanation": "Calaamadaha ugu weyn ee qaaxada sambabadadu waa qufac joogto ah oo soconaya wax ka badan 3 toddobaad."
+      "question": "Waa maxay astaamaha ugu muhiimsan ee tuberculosis-ka buuraha?",
+      "a1": "Xanuunka madaxa",
+      "a2": "Qasbo dherer",
+      "a3": "Xanuunka saddexda",
+      "a4": "Fodii macnaanta",
+      "explanation": "Astaamaha ugu muhiimsan ee tuberculosis-ka buuraha waa qasbo dherer oo u dhaan 3 usbuuc."
     },
     "q8": {
-      "question": "Maxaa dhacaya haddii daaweynta goor hore la joojiyo?",
-      "a1": "Wax khaas ah",
-      "a2": "Si dhakhso ah soo kabashada",
-      "a3": "Khatarta soo noqoshada iyo iska caabinta",
-      "a4": "Yaraynta waxyeelooyinka",
-      "explanation": "Joojinta daaweynta goor hore waxay kuu horseedi kartaa soo noqoshada cudurka iyo horumarinta caabbinta caabbinta daawooyinka."
+      "question": "Waa maxay dhacaya haddii daawooyinka la joojiyo qaarkood?",
+      "a1": "Wax walba ma jiro",
+      "a2": "Daawooyin dhaqso badan",
+      "a3": "Risiko dib u noqoshada iyo ka hor inta daawooyinka",
+      "a4": "Yarida dhaqaajiyaha kalsoon",
+      "explanation": "Daawooyinka joojinta qaarkood waxay keeni kartaa dib u noqoshada cudurka iyo horumarka ka hor inta daawooyinka."
     }
   },
   "settings": {
-    "language_choice": "Xulashada Luuqadda",
-    "language_changed": "Luqadda ayaa loo beddelay",
-    "actions": "Falalka",
-    "reset_data": "Xogta dib-u-dejinta",
-    "reset_description": "Tirtir dhammaan xogta arjiga",
-    "reset_confirmation": "Ma hubtaa inaad rabto inaad dib u dejiso dhammaan xogta?",
-    "reset_warning": "Ficilkani wuu tirtiri doonaa: \\ • Sawirkaaga \\ iyo • Daawadaadu waxay ku dhacdaa \\ gudaha • dhammaan dejintaada",
-    "reset_success": "Xogta si guul leh dib ugu dejiso",
-    "quit_app": "Jooji arjiga",
-    "quit_description": "Xir mytutculase",
-    "quit_confirmation": "Ma hubtaa inaad rabto inaad joojiso Mytutculose?"
+    "language_choice": "Doorta luqadda",
+    "language_changed": "Luqadda la bedelay",
+    "actions": "Ficilada",
+    "reset_data": "Tirtir data-ga",
+    "reset_description": "Tirtir dhammaan data-ga app-ka",
+    "reset_confirmation": "Ma hubtaa inaad tirtid dhammaan data-ga?",
+    "reset_warning": "Ficilkan waxay tirtirtaa:\n• Daawadaada\n• Daawooyinka aad qaatay\n• Dhammaan dejiyntaada",
+    "reset_success": "Data-ga waxaa loo tirtiriyaa si wanaagsan",
+    "quit_app": "Ka bax app-ka",
+    "quit_description": "Xidh TB&Me",
+    "quit_confirmation": "Ma hubtaa inaad ka tagto TB&Me?"
   },
   "common": {
-    "cancel": "Burin",
-    "confirm": "Xaqiijin",
-    "reset": "Dib u dhigid",
-    "quit": "Joojin"
+    "cancel": "Jebi",
+    "confirm": "Xaqiiqsi",
+    "reset": "Tirtir",
+    "quit": "Ka tag",
+    "close": "Xidh",
+    "later": "Dhibaatada"
   },
   "notifications": {
-    "fasting_reminder_title": "⏰ Xasuusin Roobka",
-    "fasting_reminder_body": "Labo saacadood, qaado {medication} {dosage}. Hada ama isku cuno ama cabbo!",
-    "5min_reminder_title": "🔔 Xasuusin Dhawaan",
-    "5min_reminder_body": "Shan daqiiqo: {medication} {dosage} ({tablets} xabka{plural})",
-    "time_reminder_title": "💊 Waa Waqtiga!",
-    "time_reminder_body": "Hada qaado: {medication} {dosage} ({tablets} xabka{plural})",
-    "fasting_note": " - La qaado oo xadid"
+    "fasting_reminder_title": "⏰ Xasuusin halka ay jirto",
+    "fasting_reminder_body": "2 saac kadib, qaado {medication} {dosage}. Hadda wax cuntada ama shidada kama qaadin!",
+    "5min_reminder_title": "🔔 Xasuusin 5 daqiiqo kadib",
+    "5min_reminder_body": "5 daqiiqo kadib: {medication} {dosage} ({tablets} tablet(ka))",
+    "time_reminder_title": "💊 Waqti!",
+    "time_reminder_body": "Hadda qaado: {medication} {dosage} ({tablets} tablet(ka))",
+    "fasting_note": " - La qaadanayo halka ay jirto",
+    "permissions_help": "Waxaad u ogolaan kartaa ogolaanshahanadaas setinka qalabka.",
+    "test_simple": "🔔 Test wanaagsan",
+    "test_sent_immediately": "Test-ka la soo diray si toos ah"
+  },
+  "permissions": {
+    "notifications": "Xogta warbixinta",
+    "exact_alarms": "Alaarmooyinka saxda ah",
+    "storage": "Hay'adda",
+    "required_title": "Ogolaanshooyinka loo baahan yahay",
+    "required_message": "App-ka waxay u baahan yihiin ogolaanshooyinkan si uu u shaqeeyo si sax ah:"
+  },
+  "encouragement": {
+    "regular_taking": [
+      "💊 Qaadashada kasta waxay muhiim tahay! Wanaagsan tahay in aad sii wadid.",
+      "🌟 Dhiirigelinadaada waxay ku saabsan tahay. Si wanaagsan sii wad!",
+      "🎯 Wanaagsan tahay! Maalin kasta, waxaad ku dhisaysaa caafimaadkaaga.",
+      "🌱 Ficil muhiim ah, mustaqbal caafimaad leh. Wanaagsan tahay!",
+      "💪 Waxaad ka ilaaliyaa nafkaaga, waxaana la arkaa. Wanaagsan tahay!",
+      "🏆 Ficil yar, guul wanaag. Wanaagsan tahay!",
+      "✨ Ficil kasta waxay kuu dhiibaysaa caafimaadka. Wanaagsan tahay!"
+    ],
+    "missed_recovery": [
+      "🔄 Waxa muhiim ah in aad dib ugu noqotid. Qaadashada kasta waxay muhiim tahay, isagoo laga yaabay in la yaabay!",
+      "🤗 Wax walba ma jiro, khalad waa dadka. Ku fiiris maanta!",
+      "💚 Laga yaabay waxay dhacdaa. Wanaagsan tahay in aad dib ugu noqotid daawooyinka! Waxaan sii wadaya.",
+      "🌈 Waddanka waxay marar badan u baahan yihiin caqabadaha, laakiin aad hadda haysataa! Wanaagsan tahay in aad dib ugu noqotid.",
+      "🚀 Ficilkan yaryar waxa uu tahay muujin wanaag oo ku saabsan dhiirigelinadaada. Sii wad!",
+      "💪 Waxaan ka tagi karna. Waxa muhiim ah in aad sii wadid. Wanaagsan tahay in aad dib ugu noqotid.",
+      "⭐ Ku jira lalanka! Laga yaabay ma awoodi doonto horumarkaaga. Wanaagsan tahay in aad dib ugu noqotid."
+    ]
+  },
+  "catch_up": {
+    "title": "Dib u qaadista daawooyinka",
+    "button": "Dib u qaado",
+    "fasting_period": "Waqti halka ay jirto loo baahan yahay",
+    "fasting_duration": "2 saac halka ay jirto",
+    "fasting_rules": "2 saacad kadib:\n• Wax kama cuntid\n• Wax kama shidid\n• Wax kama cadid",
+    "timer_title": "Waqti halka ay jirto jariya",
+    "timer_subtitle": "Si aad u jirto halka ay jirto",
+    "ready_title": "✅ Waqti halka ay jirto dhamaatay!",
+    "ready_message": "Hadda waxaad qaadan kartaa daawooyinkaada",
+    "take_now": "Qaado hadda",
+    "cancel_catchup": "Jebi dib u qaadista"
+  },
+  "messages": {
+    "medication_added_success": "Daawo waxaa loo ku daray si wanaagsan",
+    "medication_deleted_success": "Daawo waxaa loo tirtiray si wanaagsan",
+    "stock_updated": "Kala duwan la cusbooneysiiyay: {stock} tablet(ka)",
+    "notifications_scheduled": "Warbixintu waxaa loo dejiyay {medication} {time}",
+    "notifications_scheduled_fasting": " (oo leh xasuusin halka ay jirto 2 saac ka hor)",
+    "notifications_error": "Khalad warbixinta: {error}",
+    "no_medications_posology": "Daawash ma jiraan daawadaada",
+    "test_scheduled": "Test-ka waxaa loo dejiyay 1 daqiiqo kadib {medication}",
+    "view_photos_title": "📸 Sawirrada daawooyinka",
+    "close_dialog": "Xidh",
+    "image_not_available": "Sawir ma heli karo",
+    "touch_to_close": "Guji si aad xidhid",
+    "touch_to_enlarge": "Guji si aad u weyn u sameysid",
+    "medication_not_found": "Khalad: daawo ma helin",
+    "link_open_error": "Link-ka ma furin karo: {url}",
+    "error": "Khalad: {error}"
+  },
+  "history": {
+    "title": "📊 Taariikhda",
+    "week_of": "Usbuuc",
+    "before_installation": "Ka hor inta la rakibay",
+    "upcoming": "Soo socota",
+    "taken_count": "✅ {count} la qaatay",
+    "missed_count": "❌ {count} la yaabay",
+    "details_title": "Faahfaahin",
+    "no_data": "Data ma jiro maalinan",
+    "unknown_medication": "Aan la aqoonin",
+    "taken_at": "La qaatay",
+    "missed": "Laga yaabay"
   }
 }

@@ -667,7 +667,7 @@ class _InformationsPageState extends State<InformationsPage> {
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text('Impossible d\'ouvrir le lien: $url'),
+            content: Text(_tr('messages.link_open_error').replaceAll('{url}', url)),
             ),
           );
         }
