@@ -1,6 +1,6 @@
 {
   "app": {
-    "title": "MaTuberculose",
+    "title": "TB&Me",
     "home": "Accueil",
     "medications": "Médicaments",
     "quiz": "Quiz",
@@ -305,8 +305,8 @@
     "reset_warning": "Cette action supprimera :\n• Votre posologie\n• Vos prises de médicaments\n• Toutes vos configurations",
     "reset_success": "Données réinitialisées avec succès",
     "quit_app": "Quitter l'application",
-    "quit_description": "Fermer MaTuberculose",
-    "quit_confirmation": "Êtes-vous sûr de vouloir quitter MaTuberculose ?"
+    "quit_description": "Fermer TB&Me",
+    "quit_confirmation": "Êtes-vous sûr de vouloir quitter TB&Me ?"
   },
   "common": {
     "cancel": "Annuler",

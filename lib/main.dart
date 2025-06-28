@@ -134,7 +134,7 @@ class _PermissionWrapperState extends State<PermissionWrapper> {
                 ),
                 const SizedBox(height: 30),
                 const Text(
-                  'MaTuberculose',
+                  'TB',
                   style: TextStyle(
                     fontSize: 28,
                     fontWeight: FontWeight.bold,
