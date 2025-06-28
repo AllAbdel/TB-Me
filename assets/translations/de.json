@@ -1,0 +1,305 @@
+{
+  "app": {
+    "title": "MeineTuberkulose",
+    "home": "Startseite",
+    "medications": "Medikamente",
+    "quiz": "Quiz",
+    "information": "Informationen",
+    "settings": "Einstellungen",
+    "description": "Anwendung zur Überwachung der Tuberkulosebehandlung"
+  },
+  "home": {
+    "welcome": "Willkommen!",
+    "medications_today": "heute einzunehmende Medikamente",
+    "daily_dashboard": "Tägliches Dashboard",
+    "no_medications": "Keine Medikamente konfiguriert",
+    "configure_medications": "Gehen Sie zur Registerkarte Medikamente, um Ihre Dosierung zu konfigurieren",
+    "daily_statistics": "Tägliche Statistiken",
+    "confirm_taking": "Einnahme bestätigen",
+    "mark_as_taken": "Markieren",
+    "mark_taken": "Als eingenommen markieren",
+    "tablets": "Tablette(n)",
+    "current_stock": "Aktueller Bestand",
+    "stock_after": "Bestand nach Einnahme",
+    "stock": "Bestand",
+    "marked_as_taken": "als eingenommen markiert",
+    "insufficient_stock": "Unzureichender Bestand! Nur",
+    "tablets_remaining": "Tablette(n) übrig",
+    "take_on_empty_stomach": "Auf nüchternen Magen einnehmen",
+    "status": {
+      "taken": "Eingenommen",
+      "upcoming": "Bevorstehend",
+      "now": "Jetzt",
+      "missed": "Verpasst"
+    }
+  },
+  "date": {
+    "monday": "Montag",
+    "tuesday": "Dienstag",
+    "wednesday": "Mittwoch",
+    "thursday": "Donnerstag",
+    "friday": "Freitag",
+    "saturday": "Samstag",
+    "sunday": "Sonntag",
+    "january": "Januar",
+    "february": "Februar",
+    "march": "März",
+    "april": "April",
+    "may": "Mai",
+    "june": "Juni",
+    "july": "Juli",
+    "august": "August",
+    "september": "September",
+    "october": "Oktober",
+    "november": "November",
+    "december": "Dezember"
+  },
+  "medications": {
+    "available_title": "Verfügbare Medikamente",
+    "add_button": "Hinzufügen",
+    "my_posology": "Meine Posologie",
+    "no_medication": "Kein Medikament zu Ihrer Posologie hinzugefügt",
+    "fasting": "Nüchtern",
+    "tablets": "Tablette(n)",
+    "stock": "Bestand",
+    "delete": "Löschen",
+    "add_dialog_title": "Hinzufügen",
+    "time_format": "Zeitformat",
+    "time": "Zeit",
+    "change": "Ändern",
+    "tablets_count": "Tabletten",
+    "take_fasting": "Auf nüchternen Magen einnehmen",
+    "delete_confirmation": "Löschbestätigung",
+    "delete_question": "Sind Sie sicher, dass Sie dieses Medikament aus Ihrer Posologie löschen möchten?",
+    "details": {
+    "description": "Beschreibung",
+    "side_effects": "Nebenwirkungen",
+    "advice": "Ratschlag",
+    "see_documentation": "Dokumentation anzeigen",
+    "enlarge_hint": "Zum Vergrößern antippen",
+    "close": "Schließen"
+  },
+  "pdf": {
+    "documentation_title": "PDF-Dokumentation",
+    "document_available": "PDF-Dokument verfügbar",
+    "file": "Datei",
+    "view": "Anzeigen",
+    "download": "Herunterladen",
+    "reading_title": "Dokument lesen",
+    "download_web_only": "Download nur auf Mobilgeräten verfügbar",
+    "storage_permission": "Speicherberechtigung zum Herunterladen erforderlich",
+    "downloaded": "PDF heruntergeladen",
+    "download_error": "Download-Fehler",
+    "view_error": "Fehler beim Öffnen der PDF",
+    "pdf_render_error": "Fehler beim Rendern der PDF"
+  },
+  "image": {
+    "not_available": "Bild nicht verfügbar",
+    "tap_to_close": "Zum Schließen antippen"
+  },
+  "time_label": "Zeit",
+"drugs": {
+"rifadine": {
+"description": "Antibiotikum der ersten Wahl gegen Tuberkulose",
+"side_effects": "Orangefärbiger Urin, Übelkeit, Leberprobleme",
+"advice": "Auf nüchternen Magen einnehmen, 1 Stunde vor oder 2 Stunden nach dem Essen" },
+"rifater": {
+"description": "Feste Kombination aus Rifampicin, Isoniazid und Pyrazinamid",
+"side_effects": "Verdauungsprobleme, Kopfschmerzen, Müdigkeit",
+"advice": "Kombination von 3 Medikamenten in 1 Tablette" },
+"rifinah": {
+"description": "Kombination aus Rifampicin und Isoniazid",
+"side_effects": "Orangefärbung des Urins, Übelkeit",
+"advice": "Vorzugsweise morgens auf nüchternen Magen einnehmen" },
+"dexambutol": {
+"description": "Medikament der zweiten Wahl gegen Tuberkulose",
+"side_effects": "Sehstörungen, optische Neuropathie",
+"advice": "Augenärztliche Überwachung notwendig" },
+"myambutol": {
+"description": "Ethambutol, bakteriostatisches Medikament gegen Tuberkulose",
+"side_effects": "Optikusneuritis, Sehprobleme",
+"advice": "Sehtest wird empfohlen" },
+"pirilene": {
+"description": "Pyrazinamid, Medikament gegen Tuberkulose",
+"side_effects": "Leberprobleme, Gelenkschmerzen",
+"advice": "Überwachung der Leber notwendig" },
+"rimactan": {
+"description": "Rifampicin, Antibiotikum gegen Tuberkulose",
+"side_effects": "Orangefärbung von Sekreten",
+"advice": "Einnahme entfernt von Mahlzeiten" },
+"rimifon": {
+"description": "Isoniazid, Hauptmedikament gegen Tuberkulose",
+"side_effects": "Periphere Neuropathie, Hepatitis",
+"advice": "Vitamin B6 Supplement wird empfohlen" } }
+  },
+  "information": {
+    "title": "Informationen über Tuberkulose",
+    "links": {
+      "title": "Nützliche Links"
+    },
+    "understanding": {
+      "title": "Tuberkulose verstehen",
+      "subtitle": "Eine Infektionskrankheit, die Aufmerksamkeit erfordert",
+      "what_is": "Was ist Tuberkulose?",
+      "what_is_content": "Tuberkulose ist eine Krankheit, die durch das Bakterium Mycobacterium tuberculosis verursacht wird, das nach einer Latenzphase aktiv wird. Diese aktive Form der Krankheit entspricht einer Vermehrung des Bakteriums. Sie wird von Symptomen begleitet und erfordert eine längere Behandlung mit spezifischen Antibiotika.",
+      "transmission": "Wie wird sie übertragen?",
+      "transmission_content": "Tuberkulose wird durch die Luft von einer Person übertragen, deren Lunge betroffen ist, wenn sie hustet, niest oder spricht. Die Übertragung erfordert einen längeren und engen Kontakt mit einer Person, die an ansteckender Lungentuberkulose leidet."
+    },
+    "itl": {
+      "title": "Latente Tuberkuloseinfektion (LTBI)",
+      "what_is": "Was bedeutet LTBI?",
+      "what_is_content": "Bei einer latenten Tuberkuloseinfektion wird das Bakterium durch die Abwehrkräfte des Körpers neutralisiert und eingeschlossen. Dieses Bakterium kann 'ruhend' bleiben. Die Person könnte in ihrem Leben niemals die Krankheit entwickeln.",
+      "vs_active": "LTBI vs aktive Tuberkulose",
+      "itl_characteristics": "Latente Tuberkuloseinfektion",
+      "itl_char_1": "Bazillen sind 'ruhend, neutralisiert'",
+      "itl_char_2": "Die Person ist nicht ansteckend",
+      "itl_char_3": "Keine Symptome",
+      "itl_char_4": "Normales Röntgenbild",
+      "itl_char_5": "Präventive Behandlung für 3 Monate",
+      "active_characteristics": "Aktive Tuberkulose",
+      "active_char_1": "Bazillen sind aktiv",
+      "active_char_2": "Ansteckend, wenn die Lunge betroffen ist",
+      "active_char_3": "Vorhandensein von Symptomen",
+      "active_char_4": "Abnormales Röntgenbild",
+      "active_char_5": "Heilende Behandlung für 6 Monate oder länger"
+    },
+    "symptoms": {
+      "title": "Symptome und Behandlung",
+      "symptoms_list": "Hauptsymptome",
+      "symptom_1": "Anhaltender Husten (länger als 3 Wochen)",
+      "symptom_2": "Blut im Sputum",
+      "symptom_3": "Brustschmerzen",
+      "symptom_4": "Müdigkeit und Schwäche",
+      "symptom_5": "Unbeabsichtigter Gewichtsverlust",
+      "symptom_6": "Fieber und Nachtschweiß",
+      "symptom_7": "Appetitverlust",
+      "treatment_title": "Behandlung",
+      "treatment_content": "Die Behandlung erfordert die tägliche Einnahme mehrerer Medikamente über mehrere Monate. Sie müssen auf nüchternen Magen eingenommen werden. In der Praxis sollten sie mindestens eine halbe Stunde vor dem Essen eingenommen werden.",
+      "important_note": "Es ist sehr wichtig, die Behandlung nicht abzubrechen, da die Krankheit sonst zurückkehren könnte."
+    },
+    "prevention": {
+      "title": "Vorbeugung",
+      "vaccination": "BCG-Impfung",
+      "vaccination_content": "Die BCG-Impfung bleibt stark empfohlen, insbesondere für Kinder unter fünf Jahren mit Risikofaktoren.",
+      "screening": "Screening durch Tuberkulosezentren",
+      "screening_content": "Tuberkulose-Kontrollzentren spielen eine zentrale Rolle bei der Vorbeugung, indem sie Untersuchungen und Screenings um Fälle herum organisieren."
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "q1": "Ist Tuberkulose immer ansteckend?",
+      "a1": "Nein, nur Lungentuberkulose ist ansteckend. Wenn sie andere Körperteile betrifft, ist sie nicht ansteckend.",
+      "q2": "Wie lange dauert die Behandlung?",
+      "a2": "Die Behandlung dauert in der Regel 6 Monate, manchmal länger, abhängig vom Fall. Es ist entscheidend, sie vollständig durchzuführen.",
+      "q3": "Kann Tuberkulose geheilt werden?",
+      "a3": "Ja, Tuberkulose ist heute in Frankreich sehr gut behandelbar, wenn die Behandlung korrekt durchgeführt wird.",
+      "q4": "Wer sollte gescreent werden?",
+      "a4": "Enge Kontaktpersonen und Personen mit häufigem Kontakt zu einem Patienten werden von den Teams der Tuberkulosezentren gescreent."
+    }
+  },
+  "quiz": {
+    "question": "Frage",
+    "score": "Punkte",
+    "explanation": "Erklärung",
+    "restart": "Neustart",
+    "home": "Startseite",
+    "result": {
+      "title": "Quiz abgeschlossen!",
+      "excellent": "Hervorragend! Sie beherrschen das Thema sehr gut!",
+      "good": "Gut! Sie haben gute Kenntnisse.",
+      "average": "Richtig. Es gibt noch einige Punkte zu wiederholen.",
+      "needs_improvement": "Es wäre gut, die Informationen über Tuberkulose noch einmal zu lesen."
+    },
+    "q1": {
+      "question": "Was verursacht Tuberkulose?",
+      "a1": "Ein Virus",
+      "a2": "Ein Bakterium namens Mycobacterium tuberculosis",
+      "a3": "Ein Pilz",
+      "a4": "Ein Parasit",
+      "explanation": "Tuberkulose wird durch ein Bakterium namens Mycobacterium tuberculosis verursacht, auch bekannt als Koch-Bazillus."
+    },
+    "q2": {
+      "question": "Wie wird Tuberkulose übertragen?",
+      "a1": "Durch die Luft (Husten, Niesen)",
+      "a2": "Durch Hautkontakt",
+      "a3": "Durch kontaminiertes Wasser",
+      "a4": "Durch Insektenstiche",
+      "explanation": "Tuberkulose wird durch die Luft übertragen, wenn eine infizierte Person hustet, niest oder spricht und dabei Tröpfchen freisetzt, die das Bakterium enthalten."
+    },
+    "q3": {
+      "question": "Welche Form der Tuberkulose ist ansteckend?",
+      "a1": "Knochentuberkulose",
+      "a2": "Nierentuberkulose",
+      "a3": "Lungentuberkulose",
+      "a4": "Lymphknotentuberkulose",
+      "explanation": "Nur Lungentuberkulose ist ansteckend, weil sie die Lunge betrifft und eine Übertragung durch die Luft ermöglicht."
+    },
+    "q4": {
+      "question": "Wie lange dauert die Tuberkulosebehandlung in der Regel?",
+      "a1": "2 Wochen",
+      "a2": "6 Monate oder länger",
+      "a3": "1 Monat",
+      "a4": "1 Jahr",
+      "explanation": "Die Tuberkulosebehandlung dauert in der Regel 6 Monate, manchmal länger, abhängig vom Fall. Es ist entscheidend, sie vollständig durchzuführen."
+    },
+    "q5": {
+      "question": "Was bedeutet LTBI?",
+      "a1": "Latente Tuberkuloseinfektion",
+      "a2": "Lange totale Infektion",
+      "a3": "Lokale therapeutische Intervention",
+      "a4": "Begrenzte Tuberkuloseimmunität",
+      "explanation": "LTBI bedeutet latente Tuberkuloseinfektion. Dabei ist das Bakterium vorhanden, aber 'ruhend' ohne Symptome oder Ansteckungsgefahr."
+    },
+    "q6": {
+      "question": "Wann sollten Tuberkulosemedikamente eingenommen werden?",
+      "a1": "Nach den Mahlzeiten",
+      "a2": "Während der Mahlzeiten",
+      "a3": "Jederzeit",
+      "a4": "Auf nüchternen Magen (vor den Mahlzeiten)",
+      "explanation": "Tuberkulosemedikamente sollten auf nüchternen Magen eingenommen werden, mindestens 30 Minuten vor den Mahlzeiten oder 2 Stunden danach."
+    },
+    "q7": {
+      "question": "Was ist das Hauptsymptom der Lungentuberkulose?",
+      "a1": "Kopfschmerzen",
+      "a2": "Anhaltender Husten",
+      "a3": "Bauchschmerzen",
+      "a4": "Hautausschlag",
+      "explanation": "Das Hauptsymptom der Lungentuberkulose ist ein anhaltender Husten, der länger als 3 Wochen andauert."
+    },
+    "q8": {
+      "question": "Was passiert, wenn die Behandlung zu früh abgebrochen wird?",
+      "a1": "Nichts Besonderes",
+      "a2": "Schnellere Erholung",
+      "a3": "Risiko eines Rückfalls und Resistenz",
+      "a4": "Reduzierung der Nebenwirkungen",
+      "explanation": "Ein zu früher Abbruch der Behandlung kann zu einem Rückfall der Krankheit und der Entwicklung von Resistenzen gegen Medikamente führen."
+    }
+  },
+  "settings": {
+    "language_choice": "Sprachauswahl",
+    "language_changed": "Sprache geändert in",
+    "actions": "Aktionen",
+    "reset_data": "Daten zurücksetzen",
+    "reset_description": "Alle Anwendungsdaten löschen",
+    "reset_confirmation": "Sind Sie sicher, dass Sie alle Daten zurücksetzen möchten?",
+    "reset_warning": "Diese Aktion wird löschen:\n• Ihre Posologie\n• Ihre Medikamenteneinnahmen\n• Alle Ihre Einstellungen",
+    "reset_success": "Daten erfolgreich zurückgesetzt",
+    "quit_app": "Anwendung beenden",
+    "quit_description": "MeineTuberkulose schließen",
+    "quit_confirmation": "Sind Sie sicher, dass Sie MeineTuberkulose beenden möchten?"
+  },
+  "common": {
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
+    "reset": "Zurücksetzen",
+    "quit": "Beenden"
+  },
+  "notifications": {
+    "fasting_reminder_title": "⏰ Fasten-Erinnerung",
+    "fasting_reminder_body": "In 2 Stunden, nehmen Sie {medication} {dosage}. Essen oder trinken Sie jetzt nichts!",
+    "5min_reminder_title": "🔔 Baldige Erinnerung",
+    "5min_reminder_body": "In 5 Minuten: {medication} {dosage} ({tablets} Tablette{plural})",
+    "time_reminder_title": "💊 Es ist Zeit!",
+    "time_reminder_body": "Nehmen Sie jetzt: {medication} {dosage} ({tablets} Tablette{plural})",
+    "fasting_note": " - Auf nüchternen Magen einnehmen"
+  }
+}

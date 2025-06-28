@@ -1,0 +1,346 @@
+{
+  "app": {
+    "title": "MaTuberculose",
+    "home": "Accueil",
+    "medications": "Médicaments",
+    "quiz": "Quiz",
+    "information": "Information",
+    "settings": "Paramètres",
+    "description": "Application dédiée au suivi du traitement de la tuberculose"
+  },
+  "home": {
+    "welcome": "Bienvenue !",
+    "medications_today": "médicament(s) à prendre aujourd'hui",
+    "daily_dashboard": "Tableau de bord quotidien",
+    "no_medications": "Aucun médicament configuré",
+    "configure_medications": "Allez à l'onglet Médicaments pour configurer votre dosage",
+    "daily_statistics": "Statistiques quotidiennes",
+    "confirm_taking": "Confirmer la prise",
+    "mark_as_taken": "Marquer",
+    "mark_taken": "Marquer\ncomme pris",
+    "tablets": "comprimé(s)",
+    "current_stock": "Stock actuel",
+    "stock_after": "Stock après prise",
+    "stock": "Stock",
+    "marked_as_taken": "marqué comme pris",
+    "insufficient_stock": "Stock insuffisant ! Seulement",
+    "tablets_remaining": "comprimé(s) restant(s)",
+    "take_on_empty_stomach": "Prendre à jeun",
+    "status": {
+      "taken": "Pris",
+      "upcoming": "À venir",
+      "now": "Maintenant",
+      "missed": "Manqué"
+    }
+  },
+  "date": {
+    "monday": "Lundi",
+    "tuesday": "Mardi",
+    "wednesday": "Mercredi",
+    "thursday": "Jeudi",
+    "friday": "Vendredi",
+    "saturday": "Samedi",
+    "sunday": "Dimanche",
+    "january": "Janvier",
+    "february": "Février",
+    "march": "Mars",
+    "april": "Avril",
+    "may": "Mai",
+    "june": "Juin",
+    "july": "Juillet",
+    "august": "Août",
+    "september": "Septembre",
+    "october": "Octobre",
+    "november": "Novembre",
+    "december": "Décembre"
+  },
+  "medications": {
+    
+    "available_title": "Médicaments disponibles",
+    "add_button": "Ajouter",
+    "my_posology": "Ma posologie",
+    "no_medication": "Aucun médicament ajouté à votre posologie",
+    "fasting": "À jeun",
+    "tablets": "comprimé(s)",
+    "stock": "Stock",
+    "delete": "Supprimer",
+    "add_dialog_title": "Ajouter",
+    "time_format": "Format de l'heure",
+    "time": "Heure",
+    "change": "Modifier",
+    "tablets_count": "Comprimés",
+    "take_fasting": "Prendre à jeun",
+    "delete_confirmation": "Confirmer la suppression",
+    "delete_question": "Êtes-vous sûr de vouloir supprimer ce médicament de votre posologie ?",
+    "details": { 
+    "description": "Description", 
+    "side_effects": "Effets secondaires", 
+    "advice": "Conseil", 
+    "see_documentation": "Voir la documentation", 
+    "enlarge_hint": "Appuyez pour agrandir", 
+    "close": "Fermer" }, 
+    "pdf": { 
+      "documentation_title": "Documentation PDF", 
+      "document_available": "Document PDF disponible", 
+      "file": "Fichier", 
+      "view": "Voir", 
+      "download": "Télécharger", 
+      "reading_title": "Lecture du document", 
+      "download_web_only": "Téléchargement disponible uniquement sur mobile", 
+      "storage_permission": "Permission de stockage requise pour le téléchargement", 
+      "downloaded": "PDF téléchargé", 
+      "download_error": "Erreur de téléchargement", 
+      "view_error": "Erreur lors de l'ouverture du PDF", 
+      "pdf_render_error": "Erreur de rendu du PDF" }, 
+      "image": { 
+        "not_available": "Image non disponible", 
+        "tap_to_close": "Appuyez pour fermer" },
+    "time_label": "Heure",
+    "drugs": {
+      "rifadine": {
+        "description": "Antibiotique antituberculeux de première ligne",
+        "side_effects": "Urine orangée, nausées, troubles hépatiques",
+        "advice": "À prendre à jeun, 1h avant ou 2h après le repas"
+      },
+      "rifater": {
+        "description": "Combinaison fixe de rifampicine, isoniazide et pyrazinamide",
+        "side_effects": "Troubles digestifs, maux de tête, fatigue",
+        "advice": "Combinaison de 3 médicaments en 1 comprimé"
+      },
+      "rifinah": {
+        "description": "Association rifampicine et isoniazide",
+        "side_effects": "Coloration orange des urines, nausées",
+        "advice": "À prendre le matin à jeun de préférence"
+      },
+      "dexambutol": {
+        "description": "Antituberculeux de seconde ligne",
+        "side_effects": "Troubles visuels, neuropathie optique",
+        "advice": "Surveillance ophtalmologique nécessaire"
+      },
+      "myambutol": {
+        "description": "Éthambutol, antituberculeux bactériostatique",
+        "side_effects": "Névrite optique, troubles de la vision",
+        "advice": "Contrôle de la vision recommandé"
+      },
+      "pirilene": {
+        "description": "Pyrazinamide, antituberculeux",
+        "side_effects": "Troubles hépatiques, arthralgies",
+        "advice": "Surveillance hépatique nécessaire"
+      },
+      "rimactan": {
+        "description": "Rifampicine, antibiotique antituberculeux",
+        "side_effects": "Coloration orange des sécrétions",
+        "advice": "À prendre à distance des repas"
+      },
+      "rimifon": {
+        "description": "Isoniazide, antituberculeux majeur",
+        "side_effects": "Neuropathie périphérique, hépatite",
+        "advice": "Supplément en vitamine B6 recommandé"
+      }
+    }
+    
+  },
+  "information": {
+    "title": "Informations sur la tuberculose",
+    "links": {
+      "title": "Liens utiles"
+    },
+    "understanding": {
+      "title": "Comprendre la tuberculose",
+      "subtitle": "Une maladie infectieuse qui nécessite de l'attention",
+      "what_is": "Qu'est-ce que la tuberculose ?",
+      "what_is_content": "La tuberculose est une maladie causée par la bactérie appelée Mycobacterium tuberculosis, qui après une phase latente, devient active. Cette forme active de la maladie correspond à une multiplication de la bactérie. Elle est accompagnée de symptômes et nécessite un traitement prolongé avec des antibiotiques spécifiques.",
+      "transmission": "Comment est-elle transmise ?",
+      "transmission_content": "La tuberculose est transmise par l'air par une personne dont les poumons sont atteints lorsqu'elle tousse, éternue ou parle. La transmission nécessite un contact prolongé et étroit avec une personne qui a une tuberculose pulmonaire contagieuse."
+    },
+    "itl": {
+      "title": "Infection tuberculeuse latente (ITL)",
+      "what_is": "Que signifie ITL ?",
+      "what_is_content": "Dans l'infection tuberculeuse latente, la bactérie est neutralisée, piégée grâce aux défenses de l'organisme. Cette bactérie peut rester 'dormante'. La personne peut ne jamais développer la maladie de sa vie.",
+      "vs_active": "ITL vs Tuberculose active",
+      "itl_characteristics": "Infection tuberculeuse latente",
+      "itl_char_1": "Les bacilles sont 'dormants, neutralisés'",
+      "itl_char_2": "La personne n'est pas contagieuse",
+      "itl_char_3": "Aucun symptôme",
+      "itl_char_4": "Radiographie normale",
+      "itl_char_5": "Traitement préventif pendant 3 mois",
+      "active_characteristics": "Tuberculose active",
+      "active_char_1": "Les bacilles sont actifs",
+      "active_char_2": "Contagieuse si pulmonaire",
+      "active_char_3": "Présence de symptômes",
+      "active_char_4": "Radiographie anormale",
+      "active_char_5": "Traitement curatif pendant 6 mois ou plus"
+    },
+    "symptoms": {
+      "title": "Symptômes et traitement",
+      "symptoms_list": "Principaux symptômes",
+      "symptom_1": "Toux persistante (plus de 3 semaines)",
+      "symptom_2": "Sang dans les crachats",
+      "symptom_3": "Douleurs thoraciques",
+      "symptom_4": "Fatigue et faiblesse",
+      "symptom_5": "Perte de poids non intentionnelle",
+      "symptom_6": "Fièvre et sueurs nocturnes",
+      "symptom_7": "Perte d'appétit",
+      "treatment_title": "Traitement",
+      "treatment_content": "Le traitement nécessite la prise de plusieurs médicaments chaque jour, pendant plusieurs mois. Ils doivent être pris à jeun. En pratique, ils doivent être pris au moins une demi-heure avant de manger.",
+      "important_note": "Il est très important de ne pas arrêter le traitement, sinon la maladie pourrait revenir."
+    },
+    "prevention": {
+      "title": "Prévention",
+      "vaccination": "Vaccination BCG",
+      "vaccination_content": "La vaccination BCG reste fortement recommandée, surtout pour les enfants de moins de cinq ans avec des facteurs de risque.",
+      "screening": "Dépistage par les centres de lutte contre la tuberculose",
+      "screening_content": "Les centres de lutte contre la tuberculose jouent un rôle central dans la prévention en organisant des enquêtes et des dépistages autour des cas."
+    },
+    "faq": {
+      "title": "Foire aux questions",
+      "q1": "La tuberculose est-elle toujours contagieuse ?",
+      "a1": "Non, seule la tuberculose pulmonaire est contagieuse. Lorsqu'elle affecte d'autres parties du corps, elle n'est pas contagieuse.",
+      "q2": "Combien de temps dure le traitement ?",
+      "a2": "Le traitement dure généralement 6 mois, parfois plus selon le cas. Il est crucial de le suivre complètement.",
+      "q3": "La tuberculose peut-elle être guérie ?",
+      "a3": "Oui, la tuberculose est très traitable aujourd'hui en France si le traitement est suivi correctement.",
+      "q4": "Qui devrait être dépisté ?",
+      "a4": "Les contacts proches et les personnes en contact fréquent avec un patient sont dépistés par les équipes des centres de lutte contre la tuberculose."
+    }
+  },
+  "quiz": {
+    "question": "Question",
+    "score": "Score",
+    "explanation": "Explication",
+    "restart": "Recommencer",
+    "home": "Accueil",
+    "result": {
+      "title": "Quiz terminé !",
+      "excellent": "Excellent ! Vous maîtrisez très bien le sujet !",
+      "good": "Bien ! Vous avez de bonnes connaissances.",
+      "average": "Correct. Il reste encore quelques points à revoir.",
+      "needs_improvement": "Il serait bon de relire les informations sur la tuberculose."
+    },
+    "q1": {
+      "question": "Qu'est-ce qui cause la tuberculose ?",
+      "a1": "Un virus",
+      "a2": "Une bactérie appelée Mycobacterium tuberculosis",
+      "a3": "Un champignon",
+      "a4": "Un parasite",
+      "explanation": "La tuberculose est causée par une bactérie appelée Mycobacterium tuberculosis, également connue sous le nom de bacille de Koch."
+    },
+    "q2": {
+      "question": "Comment la tuberculose est-elle transmise ?",
+      "a1": "Par l'air (toux, éternuements)",
+      "a2": "Par contact cutané",
+      "a3": "Par de l'eau contaminée",
+      "a4": "Par des piqûres d'insectes",
+      "explanation": "La tuberculose est transmise par l'air lorsqu'une personne infectée tousse, éternue ou parle, libérant des gouttelettes contenant la bactérie."
+    },
+    "q3": {
+      "question": "Quelle forme de tuberculose est contagieuse ?",
+      "a1": "Tuberculose osseuse",
+      "a2": "Tuberculose rénale",
+      "a3": "Tuberculose pulmonaire",
+      "a4": "Tuberculose ganglionnaire",
+      "explanation": "Seule la tuberculose pulmonaire est contagieuse car elle affecte les poumons et permet une transmission par voie aérienne."
+    },
+    "q4": {
+      "question": "Combien de temps dure généralement le traitement de la tuberculose ?",
+      "a1": "2 semaines",
+      "a2": "6 mois ou plus",
+      "a3": "1 mois",
+      "a4": "1 an",
+      "explanation": "Le traitement de la tuberculose dure généralement 6 mois, parfois plus selon le cas. Il est crucial de le suivre complètement."
+    },
+    "q5": {
+      "question": "Que signifie ITL ?",
+      "a1": "Infection tuberculeuse latente",
+      "a2": "Infection totale longue",
+      "a3": "Intervention thérapeutique locale",
+      "a4": "Immunité limitée à la tuberculose",
+      "explanation": "ITL signifie Infection Tuberculeuse Latente. C'est lorsque la bactérie est présente mais 'dormante', sans symptômes ni contagiosité."
+    },
+    "q6": {
+      "question": "Quand les médicaments contre la tuberculose doivent-ils être pris ?",
+      "a1": "Après les repas",
+      "a2": "Pendant les repas",
+      "a3": "À tout moment",
+      "a4": "À jeun (avant les repas)",
+      "explanation": "Les médicaments contre la tuberculose doivent être pris à jeun, au moins 30 minutes avant les repas ou 2 heures après."
+    },
+    "q7": {
+      "question": "Quel est le symptôme principal de la tuberculose pulmonaire ?",
+      "a1": "Mal de tête",
+      "a2": "Toux persistante",
+      "a3": "Douleur abdominale",
+      "a4": "Éruption cutanée",
+      "explanation": "Le symptôme principal de la tuberculose pulmonaire est une toux persistante qui dure plus de 3 semaines."
+    },
+    "q8": {
+      "question": "Que se passe-t-il si le traitement est arrêté trop tôt ?",
+      "a1": "Rien de spécial",
+      "a2": "Récupération plus rapide",
+      "a3": "Risque de rechute et de résistance",
+      "a4": "Réduction des effets secondaires",
+      "explanation": "Arrêter le traitement trop tôt peut entraîner une rechute de la maladie et le développement d'une résistance aux médicaments."
+    }
+  },
+  "settings": {
+    "language_choice": "Choix de la langue",
+    "language_changed": "Langue changée en",
+    "actions": "Actions",
+    "reset_data": "Réinitialiser les données",
+    "reset_description": "Supprimer toutes les données de l'application",
+    "reset_confirmation": "Êtes-vous sûr de vouloir réinitialiser toutes les données ?",
+    "reset_warning": "Cette action supprimera :\n• Votre posologie\n• Vos prises de médicaments\n• Toutes vos configurations",
+    "reset_success": "Données réinitialisées avec succès",
+    "quit_app": "Quitter l'application",
+    "quit_description": "Fermer MaTuberculose",
+    "quit_confirmation": "Êtes-vous sûr de vouloir quitter MaTuberculose ?"
+  },
+  "common": {
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
+    "reset": "Réinitialiser",
+    "quit": "Quitter"
+  },
+  "notifications": {
+    "fasting_reminder_title": "⏰ Rappel de jeûne",
+    "fasting_reminder_body": "Dans 2h, prenez {medication} {dosage}. Ne mangez ni ne buvez rien maintenant !",
+    "5min_reminder_title": "🔔 Rappel proche",
+    "5min_reminder_body": "Dans 5 minutes : {medication} {dosage} ({tablets} comprimé{plural})",
+    "time_reminder_title": "💊 C'est l'heure !",
+    "time_reminder_body": "Prenez maintenant : {medication} {dosage} ({tablets} comprimé{plural})",
+    "fasting_note": " - À prendre à jeun"
+  },
+  "encouragement": {
+    "regular_taking": [
+      "💊 Chaque prise compte ! Bravo pour ce pas de plus.",
+      "🌟 Votre engagement fait la différence. Continuez comme ça !",
+      "🎯 Bien joué ! Chaque jour, vous bâtissez votre guérison.",
+      "🌱 Un geste essentiel, un futur plus sain. Félicitations !",
+      "💪 Vous prenez soin de vous, et ça se voit. Bravo !",
+      "🏆 Petits gestes, grandes victoires. Superbe !",
+      "✨ Chaque action vous rapproche de la santé. Excellent !"
+    ],
+    "missed_recovery": [
+      "🔄 L'important, c'est de reprendre. Chaque prise compte, même après un oubli !",
+      "🤗 Ce n'est pas grave, l'erreur est humaine. Concentrons-nous sur aujourd'hui !",
+      "💚 Un oubli arrive. Bravo d'avoir repris le traitement ! On continue ensemble.",
+      "🌈 Le chemin est parfois semé d'embûches, mais vous êtes là ! Bien joué de reprendre.",
+      "🚀 Ce petit pas est une grande preuve de votre détermination. On y va !",
+      "💪 On ne lâche rien ! L'essentiel est de persévérer. Bravo pour cette reprise.",
+      "⭐ Gardez le cap ! Un oubli n'arrête pas votre progrès. Bravo pour votre reprise."
+    ]
+  },
+  "catch_up": {
+    "title": "Rattrapage de prise",
+    "button": "Rattraper",
+    "fasting_period": "Période de jeûne requise",
+    "fasting_duration": "2 heures de jeûne",
+    "fasting_rules": "Pendant les 2 prochaines heures :\n• Ne pas manger\n• Ne pas boire\n• Ne pas fumer",
+    "timer_title": "Période de jeûne en cours",
+    "timer_subtitle": "Restez à jeun encore",
+    "ready_title": "✅ Période de jeûne terminée !",
+    "ready_message": "Vous pouvez maintenant prendre votre médicament",
+    "take_now": "Prendre maintenant",
+    "cancel_catchup": "Annuler le rattrapage"
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "app": {
+    "title": "TB&Me",
+    "home": "Início",
+    "medications": "Medicações",
+    "quiz": "Questionário",
+    "information": "Informações",
+    "settings": "Configurações",
+    "description": "Aplicativo dedicado ao acompanhamento do tratamento da tuberculose"
+  },
+  "home": {
+    "welcome": "Bem-vindo!",
+    "medications_today": "medicamento(s) para tomar hoje",
+    "daily_dashboard": "Painel do dia",
+    "no_medications": "Nenhum medicamento configurado",
+    "configure_medications": "Vá para a aba Medicações para configurar sua posologia",
+    "daily_statistics": "Estatísticas do dia",
+    "confirm_taking": "Confirmar a ingestão",
+    "mark_as_taken": "Marcar",
+    "mark_taken": "Marcar\ncomo tomado",
+    "tablets": "comprimido(s)",
+    "current_stock": "Estoque atual",
+    "stock_after": "Estoque após ingestão",
+    "stock": "Estoque",
+    "marked_as_taken": "marcado como tomado",
+    "insufficient_stock": "Estoque insuficiente! Restam apenas",
+    "tablets_remaining": "comprimido(s)",
+    "take_on_empty_stomach": "Tomar em jejum",
+    "status": {
+      "taken": "Tomado",
+      "upcoming": "Próximo",
+      "now": "Agora",
+      "missed": "Perdido"
+    }
+  },
+  "date": {
+    "monday": "Segunda-feira",
+    "tuesday": "Terça-feira",
+    "wednesday": "Quarta-feira",
+    "thursday": "Quinta-feira",
+    "friday": "Sexta-feira",
+    "saturday": "Sábado",
+    "sunday": "Domingo",
+    "january": "Janeiro",
+    "february": "Fevereiro",
+    "march": "Março",
+    "april": "Abril",
+    "may": "Maio",
+    "june": "Junho",
+    "july": "Julho",
+    "august": "Agosto",
+    "september": "Setembro",
+    "october": "Outubro",
+    "november": "Novembro",
+    "december": "Dezembro"
+  },
+  "medications": {
+    "available_title": "Medicamentos disponíveis",
+    "add_button": "Adicionar",
+    "my_posology": "Minha posologia",
+    "no_medication": "Nenhum medicamento adicionado à sua posologia",
+    "fasting": "Em jejum",
+    "tablets": "comprimido(s)",
+    "stock": "Estoque",
+    "delete": "Excluir",
+    "add_dialog_title": "Adicionar",
+    "time_format": "Formato de hora",
+    "time": "Hora",
+    "change": "Alterar",
+    "tablets_count": "Comprimidos",
+    "take_fasting": "Tomar em jejum",
+    "delete_confirmation": "Confirmar exclusão",
+    "delete_question": "Tem certeza de que deseja excluir este medicamento da sua posologia?",
+    "details": {
+    "description": "Descrição",
+    "side_effects": "Efeitos secundários",
+    "advice": "Conselho",
+    "see_documentation": "Ver documentação",
+    "enlarge_hint": "Toque para ampliar",
+    "close": "Fechar"
+  },
+  "pdf": {
+    "documentation_title": "Documentação PDF",
+    "document_available": "Documento PDF disponível",
+    "file": "Arquivo",
+    "view": "Ver",
+    "download": "Baixar",
+    "reading_title": "Lendo documento",
+    "download_web_only": "Download disponível apenas no celular",
+    "storage_permission": "Permissão de armazenamento necessária para download",
+    "downloaded": "PDF baixado",
+    "download_error": "Erro de download",
+    "view_error": "Erro ao abrir PDF",
+    "pdf_render_error": "Erro ao renderizar PDF"
+  },
+  "image": {
+    "not_available": "Imagem não disponível",
+    "tap_to_close": "Toque para fechar"
+  },
+  "time_label": "Hora",
+"drugs": {
+"rifadine": {
+"description": "Antibiótico antituberculose de primeira linha",
+"side_effects": "Urina alaranjada, náuseas, problemas hepáticos",
+"advice": "Tomar em jejum, 1 hora antes ou 2 horas após a refeição" },
+"rifater": {
+"description": "Combinação fixa de rifampicina, isoniazida e pirazinamida",
+"side_effects": "Problemas digestivos, dores de cabeça, fadiga",
+"advice": "Combinação de 3 medicamentos em 1 comprimido" },
+"rifinah": {
+"description": "Combinação de rifampicina e isoniazida",
+"side_effects": "Coloração laranja da urina, náuseas",
+"advice": "Preferencialmente tomar de manhã em jejum" },
+"dexambutol": {
+"description": "Medicamento antituberculose de segunda linha",
+"side_effects": "Distúrbios visuais, neuropatia óptica",
+"advice": "Monitoramento oftalmológico necessário" },
+"myambutol": {
+"description": "Etambutol, medicamento bacteriostático antituberculose",
+"side_effects": "Neurite óptica, problemas de visão",
+"advice": "Controle da visão recomendado" },
+"pirilene": {
+"description": "Pirazinamida, medicamento antituberculose",
+"side_effects": "Problemas hepáticos, artralgia",
+"advice": "Monitoramento hepático necessário" },
+"rimactan": {
+"description": "Rifampicina, antibiótico antituberculose",
+"side_effects": "Coloração laranja das secreções",
+"advice": "Tomar longe das refeições" },
+"rimifon": {
+"description": "Isoniazida, principal medicamento antituberculose",
+"side_effects": "Neuropatia periférica, hepatite",
+"advice": "Suplemento de vitamina B6 recomendado" } }
+  },
+  "information": {
+    "title": "Informações sobre a Tuberculose",
+    "links": {
+      "title": "Links Úteis"
+    },
+    "understanding": {
+      "title": "Entendendo a Tuberculose",
+      "subtitle": "Uma doença infecciosa que requer atenção",
+      "what_is": "O que é tuberculose?",
+      "what_is_content": "A tuberculose é uma doença causada pela bactéria chamada Mycobacterium tuberculosis, que após uma fase latente, torna-se ativa. Esta forma ativa da doença corresponde à multiplicação da bactéria. É acompanhada de sintomas e requer tratamento prolongado com antibióticos específicos.",
+      "transmission": "Como ela é transmitida?",
+      "transmission_content": "A tuberculose é transmitida pelo ar, por uma pessoa cujos pulmões estão afetados quando ela tosse, espirra ou fala. A transmissão requer contatos prolongados e próximos com uma pessoa que tem tuberculose pulmonar contagiosa."
+    },
+    "itl": {
+      "title": "Infecção Tuberculosa Latente (ITL)",
+      "what_is": "O que significa ITL?",
+      "what_is_content": "Na infecção tuberculosa latente, a bactéria é neutralizada, presa graças às defesas do organismo. Esta bactéria pode permanecer 'adormecida'. A pessoa pode nunca desenvolver a doença durante a sua vida.",
+      "vs_active": "ITL vs Tuberculose Ativa",
+      "itl_characteristics": "Infecção Tuberculosa Latente",
+      "itl_char_1": "Os bacilos estão 'adormecidos, neutralizados'",
+      "itl_char_2": "A pessoa não é contagiosa",
+      "itl_char_3": "Nenhum sintoma",
+      "itl_char_4": "Raio X normal",
+      "itl_char_5": "Tratamento preventivo de 3 meses",
+      "active_characteristics": "Tuberculose Ativa",
+      "active_char_1": "Os bacilos estão ativos",
+      "active_char_2": "Contagiosa se pulmonar",
+      "active_char_3": "Presença de sintomas",
+      "active_char_4": "Raio X anormal",
+      "active_char_5": "Tratamento curativo de 6 meses ou mais"
+    },
+    "symptoms": {
+      "title": "Sintomas e Tratamento",
+      "symptoms_list": "Sintomas principais",
+      "symptom_1": "Tosse persistente (mais de 3 semanas)",
+      "symptom_2": "Escarro com sangue",
+      "symptom_3": "Dores no peito",
+      "symptom_4": "Fadiga e fraqueza",
+      "symptom_5": "Perda de peso involuntária",
+      "symptom_6": "Febre e suores noturnos",
+      "symptom_7": "Perda de apetite",
+      "treatment_title": "O Tratamento",
+      "treatment_content": "O tratamento exige tomar vários medicamentos todos os dias, durante vários meses. Eles devem ser tomados em jejum. Na prática, é necessário tomá-los pelo menos meia hora antes de comer.",
+      "important_note": "É muito importante não interromper o tratamento, caso contrário a doença pode voltar."
+    },
+    "prevention": {
+      "title": "Prevenção",
+      "vaccination": "Vacinação BCG",
+      "vaccination_content": "A vacinação BCG continua sendo fortemente recomendada, prioritariamente para crianças menores de cinco anos com fator de risco.",
+      "screening": "Triagem pelos CLAT",
+      "screening_content": "Os Centros de Luta Antituberculose (CLAT) desempenham um papel central na prevenção, organizando investigações e triagens em torno dos casos."
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "q1": "A tuberculose é sempre contagiosa?",
+      "a1": "Não, apenas a tuberculose pulmonar é contagiosa. Quando afeta outras partes do corpo, não é contagiosa.",
+      "q2": "Quanto tempo dura o tratamento?",
+      "a2": "O tratamento geralmente dura 6 meses, às vezes mais dependendo do caso. É crucial segui-lo completamente.",
+      "q3": "Pode-se curar da tuberculose?",
+      "a3": "Sim, a tuberculose é muito tratável hoje na França se o tratamento for seguido corretamente.",
+      "q4": "Quem deve ser rastreado?",
+      "a4": "O entorno próximo e as pessoas em contato frequente com um doente são rastreados pelas equipes do CLAT."
+    }
+  },
+  "quiz": {
+    "question": "Pergunta",
+    "score": "Pontuação",
+    "explanation": "Explicação",
+    "restart": "Reiniciar",
+    "home": "Início",
+    "result": {
+      "title": "Questionário concluído!",
+      "excellent": "Excelente! Você domina muito bem o assunto!",
+      "good": "Bom! Você tem bons conhecimentos.",
+      "average": "Correto. Ainda há alguns pontos a revisar.",
+      "needs_improvement": "Seria bom reler as informações sobre a tuberculose."
+    },
+    "q1": {
+      "question": "O que causa a tuberculose?",
+      "a1": "Um vírus",
+      "a2": "Uma bactéria chamada Mycobacterium tuberculosis",
+      "a3": "Um fungo",
+      "a4": "Um parasita",
+      "explanation": "A tuberculose é causada por uma bactéria chamada Mycobacterium tuberculosis, também conhecida como bacilo de Koch."
+    },
+    "q2": {
+      "question": "Como a tuberculose é transmitida?",
+      "a1": "Por via aérea (tosse, espirros)",
+      "a2": "Por contato com a pele",
+      "a3": "Por água contaminada",
+      "a4": "Por picadas de insetos",
+      "explanation": "A tuberculose é transmitida por via aérea quando uma pessoa infectada tosse, espirra ou fala, liberando gotículas contendo a bactéria."
+    },
+    "q3": {
+      "question": "Qual forma de tuberculose é contagiosa?",
+      "a1": "Tuberculose óssea",
+      "a2": "Tuberculose renal",
+      "a3": "Tuberculose pulmonar",
+      "a4": "Tuberculose ganglionar",
+      "explanation": "Apenas a tuberculose pulmonar é contagiosa, pois afeta os pulmões e permite a transmissão por via aérea."
+    },
+    "q4": {
+      "question": "Quanto tempo geralmente dura o tratamento da tuberculose?",
+      "a1": "2 semanas",
+      "a2": "6 meses ou mais",
+      "a3": "1 mês",
+      "a4": "1 ano",
+      "explanation": "O tratamento da tuberculose geralmente dura 6 meses, às vezes mais dependendo do caso. É crucial segui-lo completamente."
+    },
+    "q5": {
+      "question": "O que significa ITL?",
+      "a1": "Infecção Tuberculosa Latente",
+      "a2": "Infecção Total Longa",
+      "a3": "Intervenção Terapêutica Local",
+      "a4": "Imunidade à Tuberculose Limitada",
+      "explanation": "ITL significa Infecção Tuberculosa Latente. É quando a bactéria está presente, mas 'adormecida', sem sintomas ou contagiosidade."
+    },
+    "q6": {
+      "question": "Quando se deve tomar os medicamentos antituberculose?",
+      "a1": "Após as refeições",
+      "a2": "Durante as refeições",
+      "a3": "A qualquer momento",
+      "a4": "Em jejum (antes das refeições)",
+      "explanation": "Os medicamentos antituberculose devem ser tomados em jejum, pelo menos 30 minutos antes das refeições ou 2 horas depois."
+    },
+    "q7": {
+      "question": "Qual é o principal sintoma da tuberculose pulmonar?",
+      "a1": "Dor de cabeça",
+      "a2": "Tosse persistente",
+      "a3": "Dores abdominais",
+      "a4": "Erupção cutânea",
+      "explanation": "O principal sintoma da tuberculose pulmonar é uma tosse persistente que dura mais de 3 semanas."
+    },
+    "q8": {
+      "question": "O que acontece se o tratamento for interrompido muito cedo?",
+      "a1": "Nada de especial",
+      "a2": "Cura mais rápida",
+      "a3": "Risco de recaída e resistência",
+      "a4": "Diminuição dos efeitos colaterais",
+      "explanation": "Interromper o tratamento muito cedo pode levar a uma recaída da doença e ao desenvolvimento de resistência aos medicamentos."
+    }
+  },
+  "settings": {
+    "language_choice": "Escolha do idioma",
+    "language_changed": "Idioma alterado para",
+    "actions": "Ações",
+    "reset_data": "Redefinir dados",
+    "reset_description": "Excluir todos os dados do aplicativo",
+    "reset_confirmation": "Tem certeza de que deseja redefinir todos os dados?",
+    "reset_warning": "Esta ação excluirá:\n• Sua posologia\n• Suas ingestões de medicamentos\n• Todas as suas configurações",
+    "reset_success": "Dados redefinidos com sucesso",
+    "quit_app": "Sair do aplicativo",
+    "quit_description": "Fechar TB&Me",
+    "quit_confirmation": "Tem certeza de que deseja sair do TB&Me?"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "reset": "Redefinir",
+    "quit": "Sair"
+  },
+  "notifications": {
+    "fasting_reminder_title": "⏰ Lembrete de Jejum",
+    "fasting_reminder_body": "Em 2 horas, tome {medication} {dosage}. Não coma nem beba nada agora!",
+    "5min_reminder_title": "🔔 Lembrete Próximo",
+    "5min_reminder_body": "Em 5 minutos: {medication} {dosage} ({tablets} comprimido{plural})",
+    "time_reminder_title": "💊 É Hora!",
+    "time_reminder_body": "Tome agora: {medication} {dosage} ({tablets} comprimido{plural})",
+    "fasting_note": " - A ser tomado em jejum"
+  }
+}

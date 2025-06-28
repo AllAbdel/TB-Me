@@ -1,0 +1,305 @@
+{
+  "app": {
+    "title": "TB&Me",
+    "home": "Fɔ",
+    "medications": "Kalanw",
+    "quiz": "Sɔɲɔgɔ",
+    "information": "Kalanfɛnw",
+    "settings": "Dɔw",
+    "description": "Pɔgɔwali ka tuberkilɔzi kɛlɛbali"
+  },
+  "home": {
+    "welcome": "I ka kɛ!",
+    "medications_today": "kalanw bi ka dɔgɔtɔ",
+    "daily_dashboard": "Tabali ka Dantigɛli",
+    "no_medications": "A ye kalankɛlɛ tɛ",
+    "configure_medications": "Taa kalankɛlɛ lajɛ fɛ",
+    "daily_statistics": "Tabali ka Donikɛla",
+    "confirm_taking": "Kalan minɛ",
+    "mark_as_taken": "Minɛ",
+    "mark_taken": "Minɛ",
+    "tablets": "kalanw",
+    "current_stock": "Kalanw ka Dantigɛli",
+    "stock_after": "Kalanw ka Dantigɛli Kalan minɛ",
+    "stock": "Dantigɛli",
+    "marked_as_taken": "ka minɛ",
+    "insufficient_stock": "Kalanw tɛ sɔrɔ! O ye",
+    "tablets_remaining": "kalanw ka bɛn",
+    "take_on_empty_stomach": "Minɛ fana kɛ",
+    "status": {
+      "taken": "Minɛ",
+      "upcoming": "Bɛ tɔgɔ",
+      "now": "Kunu",
+      "missed": "Kalanw tɛ"
+    }
+  },
+  "date": {
+    "monday": "Tɛgɛsinna",
+    "tuesday": "Atarata",
+    "wednesday": "Araba",
+    "thursday": "Alamisa",
+    "friday": "Aramata",
+    "saturday": "Sabati",
+    "sunday": "Kari",
+    "january": "Zanwuyekalo",
+    "february": "Fewuruyekalo",
+    "march": "Marisikalo",
+    "april": "Awirilikalo",
+    "may": "Mɛkalo",
+    "june": "Zuwekalo",
+    "july": "Zuyekalo",
+    "august": "Utikalo",
+    "september": "Sɛtanmburukalo",
+    "october": "ɔkutɔburukalo",
+    "november": "Nowanmburukalo",
+    "december": "Desanmburukalo"
+  },
+  "medications": {
+    "available_title": "Kalanw ka Dantigɛli",
+    "add_button": "Taa",
+    "my_posology": "N ka Kalankɛlɛ",
+    "no_medication": "I tɛ kalankɛlɛ taa",
+    "fasting": "Fana kɛ",
+    "tablets": "kalanw",
+    "stock": "Dantigɛli",
+    "delete": "Sira",
+    "add_dialog_title": "Taa",
+    "time_format": "Sigi ka Fɔrmati",
+    "time": "Sigi",
+    "change": "Sɔrɔ",
+    "tablets_count": "Kalanw",
+    "take_fasting": "Minɛ fana kɛ",
+    "delete_confirmation": "Kalan minɛ",
+    "delete_question": "I bɛ kalankɛlɛ lajɛ fɛ?",
+    "details": {
+    "description": "Kalan",
+    "side_effects": "Kɔnɔnw lajɛ",
+    "advice": "Kɔnɔnni",
+    "see_documentation": "Dokumenti lajɛ",
+    "enlarge_hint": "Tɛgɛsin ka bon",
+    "close": "Fɛn"
+  },
+  "pdf": {
+    "documentation_title": "PDF Dokumenti",
+    "document_available": "PDF Dokumenti lajɛ",
+    "file": "Fayili",
+    "view": "La",
+    "download": "Telecharger",
+    "reading_title": "Kalan la",
+    "download_web_only": "Telecharger lajɛ tɛlɛfonin dɔrɔn",
+    "storage_permission": "Dɔw lajɛ ka bon ka telecharger",
+    "downloaded": "PDF telecharger",
+    "download_error": "Telecharger tɛmɛ",
+    "view_error": "PDF la tɛmɛ",
+    "pdf_render_error": "PDF bon tɛmɛ"
+  },
+  "image": {
+    "not_available": "Imaj lajɛ tɛ",
+    "tap_to_close": "Fɛn ka tɛgɛsin"
+  },
+  "time_label": "Tɛmɛ",
+"drugs": {
+"rifadine": {
+"description": "Antibiyotiki tuberkilɔzi duguya la",
+"side_effects": "Pisin wulandɛn, kɔnɔnɔn, fɛn ka kɛ",
+"advice": "Dunbɛn ka taa, san 1 demisen ka daminɛ 2 demisen kɔnɔ" },
+"rifater": {
+"description": "Rifampisin, izoniazid, pirazinamid kelenbe ye",
+"side_effects": "Dun ka kɛ, tɔɔ ka bon, fayasu",
+"advice": "Dawa 3 bɛ ɛrɛmɛ kelen ye" },
+"rifinah": {
+"description": "Rifampisin ni izoniazid kelenbe",
+"side_effects": "Pisin wulandɛn, kɔnɔnɔn",
+"advice": "Tunu bɛ dunbɛn ka taa" },
+"dexambutol": {
+"description": "Tuberkilɔzi duguya filanan la",
+"side_effects": "Nin ka kɛ, nin tɛmɛlɛn ka kɛ",
+"advice": "Nin ka kɛrɛnna" },
+"myambutol": {
+"description": "Etambutol, tuberkilɔzi duguya dɔw ka kɛ",
+"side_effects": "Nin tɛmɛlɛn ka kɛ, nin ka kɛ",
+"advice": "Nin ka kɛrɛnna" },
+"pirilene": {
+"description": "Pirazinamid, tuberkilɔzi duguya",
+"side_effects": "Fɛn ka kɛ, kɔnɔ ka kɛ",
+"advice": "Fɛn ka kɛrɛnna" },
+"rimactan": {
+"description": "Rifampisin, tuberkilɔzi duguya antibiyotiki",
+"side_effects": "Dun ka kɛ",
+"advice": "Dun ka kɛrɛnna" },
+"rimifon": {
+"description": "Isoniazid, tuberkilɔzi duguya dɔw la",
+"side_effects": "Nin ka kɛ, fɛn ka kɛ",
+"advice": "Vitamin B6 ka kɛrɛnna" } }
+  },
+  "information": {
+    "title": "Tuberkilɔzi Kalanfɛnw",
+    "links": {
+      "title": "Kalanw ka Dantigɛli"
+    },
+    "understanding": {
+      "title": "Tuberkilɔzi Kalanfɛnw",
+      "subtitle": "Pɔgɔwali ka kɛlɛbali",
+      "what_is": "Tuberkilɔzi bɛnna?",
+      "what_is_content": "Tuberkilɔzi bɛ pɔgɔwali ye ka kɛlɛbali, o ye Mycobacterium tuberculosis, u bɛ sɔrɔ min na, o bɛ kɛlɛbali. O bɛ sɔrɔ min na, o bɛ kɛlɛbali.",
+      "transmission": "O bɛ sɔrɔ dɔw?",
+      "transmission_content": "Tuberkilɔzi bɛ sɔrɔ min na, o bɛ kɛlɛbali, o ye pɔgɔwali ye ka kɛlɛbali, o bɛ sɔrɔ min na, o bɛ kɛlɛbali."
+    },
+    "itl": {
+      "title": "Tuberkilɔzi Kalanfɛnw (LTBI)",
+      "what_is": "LTBI bɛnna?",
+      "what_is_content": "LTBI bɛ tuberkilɔzi kɛlɛbali ye, o ye pɔgɔwali ye ka kɛlɛbali, o bɛ sɔrɔ min na, o bɛ kɛlɛbali.",
+      "vs_active": "LTBI vs Tuberkilɔzi Kɛlɛbali",
+      "itl_characteristics": "Tuberkilɔzi Kalanfɛnw",
+      "itl_char_1": "Pɔgɔwali bɛ sɔrɔ min na",
+      "itl_char_2": "N tɛ sɔrɔ min na",
+      "itl_char_3": "A tɛ sɔrɔ min na",
+      "itl_char_4": "X-ray bɛ fana kɛ",
+      "itl_char_5": "Kalanfɛnw 3 kalo",
+      "active_characteristics": "Tuberkilɔzi Kɛlɛbali",
+      "active_char_1": "Pɔgɔwali bɛ sɔrɔ min na",
+      "active_char_2": "N bɛ sɔrɔ min na",
+      "active_char_3": "A bɛ sɔrɔ min na",
+      "active_char_4": "X-ray bɛ sɔrɔ min na",
+      "active_char_5": "Kalanfɛnw 6 kalo bɛ sɔrɔ"
+    },
+    "symptoms": {
+      "title": "Sɔrɔw ka Kalanfɛnw",
+      "symptoms_list": "Sɔrɔw ka Dantigɛli",
+      "symptom_1": "Kusu ka kɛlɛbali (3 sɔɲɔgɔw ka dɔgɔtɔ)",
+      "symptom_2": "Ji ka sɔrɔ",
+      "symptom_3": "Kɔrɔkɛla ka sɔrɔ",
+      "symptom_4": "Faya ka sɔrɔ",
+      "symptom_5": "Sɔrɔ ka kɛlɛbali",
+      "symptom_6": "Fɛn ka sɔrɔ",
+      "symptom_7": "Ji ka sɔrɔ",
+      "treatment_title": "Kalanfɛnw",
+      "treatment_content": "Kalanfɛnw bɛ kalankɛlɛ lajɛ fɛ, o bɛ kalo 6 bɛ sɔrɔ. A bɛ fana kɛ.",
+      "important_note": "I tɛ kalankɛlɛ lajɛ fɛ, o bɛ kɛlɛbali."
+    },
+    "prevention": {
+      "title": "Kalanfɛnw",
+      "vaccination": "BCG Kalanfɛnw",
+      "vaccination_content": "BCG Kalanfɛnw bɛ kalankɛlɛ lajɛ fɛ, o bɛ kalo 5 ka sɔrɔ.",
+      "screening": "Tuberkilɔzi Kalanfɛnw",
+      "screening_content": "Tuberkilɔzi Kalanfɛnw bɛ kalankɛlɛ lajɛ fɛ, o bɛ kɛlɛbali."
+    },
+    "faq": {
+      "title": "Sɔɲɔgɔw ka Kalanfɛnw",
+      "q1": "Tuberkilɔzi bɛ sɔrɔ min na?",
+      "a1": "Ayi, tuberkilɔzi bɛ sɔrɔ min na.",
+      "q2": "Kalanfɛnw bɛ kalo sɔrɔ?",
+      "a2": "Kalanfɛnw bɛ kalo 6 bɛ sɔrɔ.",
+      "q3": "Tuberkilɔzi bɛ kɛlɛbali?",
+      "a3": "Owɔ, tuberkilɔzi bɛ kɛlɛbali.",
+      "q4": "An bɛ sɔrɔ min na?",
+      "a4": "N bɛ sɔrɔ min na, o bɛ kɛlɛbali."
+    }
+  },
+  "quiz": {
+    "question": "Sɔɲɔgɔ",
+    "score": "Dantigɛli",
+    "explanation": "Kalanfɛnw",
+    "restart": "Fɔli",
+    "home": "Fɔ",
+    "result": {
+      "title": "Sɔɲɔgɔ bɛ kɛlɛbali!",
+      "excellent": "Ka dantigɛli!",
+      "good": "Ka dantigɛli!",
+      "average": "Ka dantigɛli!",
+      "needs_improvement": "I bɛ kalankɛlɛ lajɛ fɛ."
+    },
+    "q1": {
+      "question": "Tuberkilɔzi bɛ sɔrɔ min na?",
+      "a1": "Pɔgɔwali",
+      "a2": "Mycobacterium tuberculosis",
+      "a3": "Fɔɲɔ",
+      "a4": "Parasite",
+      "explanation": "Tuberkilɔzi bɛ sɔrɔ min na, o ye Mycobacterium tuberculosis."
+    },
+    "q2": {
+      "question": "Tuberkilɔzi bɛ sɔrɔ dɔw?",
+      "a1": "Sigi (kusu, sɔrɔ)",
+      "a2": "Kɔrɔkɛla",
+      "a3": "Ji",
+      "a4": "Kalanw",
+      "explanation": "Tuberkilɔzi bɛ sɔrɔ min na, o bɛ sigi."
+    },
+    "q3": {
+      "question": "Tuberkilɔzi bɛ sɔrɔ min na?",
+      "a1": "Kɔrɔkɛla tuberkilɔzi",
+      "a2": "Ji tuberkilɔzi",
+      "a3": "Kusu tuberkilɔzi",
+      "a4": "Kalanw tuberkilɔzi",
+      "explanation": "Kusu tuberkilɔzi bɛ sɔrɔ min na."
+    },
+    "q4": {
+      "question": "Tuberkilɔzi kalanfɛnw bɛ kalo sɔrɔ?",
+      "a1": "2 sɔɲɔgɔ",
+      "a2": "6 kalo",
+      "a3": "1 kalo",
+      "a4": "1 san",
+      "explanation": "Tuberkilɔzi kalanfɛnw bɛ kalo 6 bɛ sɔrɔ."
+    },
+    "q5": {
+      "question": "LTBI bɛnna?",
+      "a1": "Tuberkilɔzi Kalanfɛnw",
+      "a2": "Kalanfɛnw",
+      "a3": "Kalanfɛnw",
+      "a4": "Kalanfɛnw",
+      "explanation": "LTBI bɛ Tuberkilɔzi Kalanfɛnw."
+    },
+    "q6": {
+      "question": "Tuberkilɔzi kalanw bɛ sigi minɛ?",
+      "a1": "Kalan minɛ",
+      "a2": "Kalan minɛ",
+      "a3": "A bɛ sigi min na",
+      "a4": "Fana kɛ (kalan minɛ)",
+      "explanation": "Tuberkilɔzi kalanw bɛ fana kɛ minɛ."
+    },
+    "q7": {
+      "question": "Kusu tuberkilɔzi bɛ sɔrɔ min na?",
+      "a1": "Tumu",
+      "a2": "Kusu ka kɛlɛbali",
+      "a3": "Kɔrɔkɛla ka sɔrɔ",
+      "a4": "Kalanw ka sɔrɔ",
+      "explanation": "Kusu tuberkilɔzi bɛ kusu ka kɛlɛbali."
+    },
+    "q8": {
+      "question": "Kalanfɛnw bɛ sɔrɔ min na?",
+      "a1": "A tɛ sɔrɔ min na",
+      "a2": "Kalanfɛnw bɛ kɛlɛbali",
+      "a3": "Kalanfɛnw bɛ kɛlɛbali",
+      "a4": "Kalanfɛnw bɛ kɛlɛbali",
+      "explanation": "Kalanfɛnw bɛ sɔrɔ min na, o bɛ kɛlɛbali."
+    }
+  },
+  "settings": {
+    "language_choice": "Kan ka Kɛlɛbali",
+    "language_changed": "Kan ka sɔrɔ",
+    "actions": "Dɔw",
+    "reset_data": "Dantigɛli ka Sira",
+    "reset_description": "A bɛ dantigɛli ka sira",
+    "reset_confirmation": "I bɛ dantigɛli ka sira?",
+    "reset_warning": "A bɛ dantigɛli ka sira: N ka Kalankɛlɛ, N ka Kalan minɛ, N ka Dantigɛli",
+    "reset_success": "Dantigɛli ka sira",
+    "quit_app": "TB&Me ka Sira",
+    "quit_description": "TB&Me ka sira",
+    "quit_confirmation": "I bɛ TB&Me ka sira?"
+  },
+  "common": {
+    "cancel": "Sira",
+    "confirm": "Ka dantigɛli",
+    "reset": "Fɔli",
+    "quit": "Sira"
+  },
+  "notifications": {
+    "fasting_reminder_title": "⏰ Kalan tɛmɛnen",
+    "fasting_reminder_body": "Saa 2 kɔnɔ, ka {medication} {dosage} ye. A yɛrɛmɛn ka dumuni ni sɔmɔn!",
+    "5min_reminder_title": "🔔 Tɛmɛnen kɔnɔ",
+    "5min_reminder_body": "Min 5: {medication} {dosage} ({tablets} kɔnɔ{plural})",
+    "time_reminder_title": "💊 Waati ye!",
+    "time_reminder_body": "Ka {medication} {dosage} ye: ({tablets} kɔnɔ{plural})",
+    "fasting_note": " - Ka dumun la"
+  }
+}

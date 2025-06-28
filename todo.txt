@@ -1,0 +1,7 @@
+- changement du thème global, que 3 couleurs, bleu clair presque gris, bleu qui servira pour faire des dégradé, bleu foncé
+
+- et pour les notification, je n'ai toujours pas de notifs, que ça soit pour l'heure même, pour les 5min avant la prise, ou pour les 2h de prévention quand c'est un médicament à jeun, à régler en priorité et urgeament
+
+- + traduire les messages d'encouragement (et faire en sorte que ça soit traduisible)
+
+- demander à audrey de tester

@@ -1,0 +1,305 @@
+{
+  "app": {
+    "title": "LaMiaTubercolosi",
+    "home": "Home",
+    "medications": "Medicinali",
+    "quiz": "Quiz",
+    "information": "Informazioni",
+    "settings": "Impostazioni",
+    "description": "Applicazione dedicata al monitoraggio del trattamento della tubercolosi"
+  },
+  "home": {
+    "welcome": "Benvenuto!",
+    "medications_today": "medicinale/i da prendere oggi",
+    "daily_dashboard": "Dashboard Giornaliero",
+    "no_medications": "Nessun medicinale configurato",
+    "configure_medications": "Vai alla scheda Medicinali per configurare il tuo dosaggio",
+    "daily_statistics": "Statistiche Giornaliere",
+    "confirm_taking": "Conferma Assunzione",
+    "mark_as_taken": "Segna",
+    "mark_taken": "Segna\ncome assunto",
+    "tablets": "compressa/e",
+    "current_stock": "Scorta Attuale",
+    "stock_after": "Scorta Dopo Assunzione",
+    "stock": "Scorta",
+    "marked_as_taken": "segnato come assunto",
+    "insufficient_stock": "Scorta insufficiente! Solo",
+    "tablets_remaining": "compressa/e rimanente/i",
+    "take_on_empty_stomach": "Assumere a stomaco vuoto",
+    "status": {
+      "taken": "Assunto",
+      "upcoming": "In Arrivo",
+      "now": "Ora",
+      "missed": "Mancato"
+    }
+  },
+  "date": {
+    "monday": "Lunedì",
+    "tuesday": "Martedì",
+    "wednesday": "Mercoledì",
+    "thursday": "Giovedì",
+    "friday": "Venerdì",
+    "saturday": "Sabato",
+    "sunday": "Domenica",
+    "january": "Gennaio",
+    "february": "Febbraio",
+    "march": "Marzo",
+    "april": "Aprile",
+    "may": "Maggio",
+    "june": "Giugno",
+    "july": "Luglio",
+    "august": "Agosto",
+    "september": "Settembre",
+    "october": "Ottobre",
+    "november": "Novembre",
+    "december": "Dicembre"
+  },
+  "medications": {
+    "available_title": "Medicinali Disponibili",
+    "add_button": "Aggiungi",
+    "my_posology": "La Mia Posologia",
+    "no_medication": "Nessun medicinale aggiunto alla tua posologia",
+    "fasting": "Digiuno",
+    "tablets": "compressa/e",
+    "stock": "Scorta",
+    "delete": "Elimina",
+    "add_dialog_title": "Aggiungi",
+    "time_format": "Formato Ora",
+    "time": "Ora",
+    "change": "Modifica",
+    "tablets_count": "Compresse",
+    "take_fasting": "Assumere a stomaco vuoto",
+    "delete_confirmation": "Conferma Eliminazione",
+    "delete_question": "Sei sicuro di voler eliminare questo medicinale dalla tua posologia?",
+    "details": {
+    "description": "Descrizione",
+    "side_effects": "Effetti collaterali",
+    "advice": "Consiglio",
+    "see_documentation": "Vedi documentazione",
+    "enlarge_hint": "Tocca per ingrandire",
+    "close": "Chiudi"
+  },
+  "pdf": {
+    "documentation_title": "Documentazione PDF",
+    "document_available": "Documento PDF disponibile",
+    "file": "File",
+    "view": "Visualizza",
+    "download": "Scarica",
+    "reading_title": "Lettura del documento",
+    "download_web_only": "Scaricamento disponibile solo su mobile",
+    "storage_permission": "Permesso di archiviazione richiesto per il download",
+    "downloaded": "PDF scaricato",
+    "download_error": "Errore di download",
+    "view_error": "Errore nell'apertura del PDF",
+    "pdf_render_error": "Errore nel rendering del PDF"
+  },
+  "image": {
+    "not_available": "Immagine non disponibile",
+    "tap_to_close": "Tocca per chiudere"
+  },
+  "time_label": "Ora",
+"drugs": {
+"rifadine": {
+"description": "Antibiotico antitubercolare di prima linea",
+"side_effects": "Urina arancione, nausea, problemi epatici",
+"advice": "Da prendere a digiuno, 1 ora prima o 2 ore dopo il pasto" },
+"rifater": {
+"description": "Combinazione fissa di rifampicina, isoniazide e pirazinamide",
+"side_effects": "Problemi digestivi, mal di testa, affaticamento",
+"advice": "Combinazione di 3 farmaci in 1 compressa" },
+"rifinah": {
+"description": "Combinazione di rifampicina e isoniazide",
+"side_effects": "Colorazione arancione delle urine, nausea",
+"advice": "Preferibilmente da prendere al mattino a digiuno" },
+"dexambutol": {
+"description": "Farmaco antitubercolare di seconda linea",
+"side_effects": "Disturbi visivi, neuropatia ottica",
+"advice": "Monitoraggio oftalmologico necessario" },
+"myambutol": {
+"description": "Etambutolo, farmaco batteriostatico antitubercolare",
+"side_effects": "Neurite ottica, problemi di vista",
+"advice": "Controllo della vista raccomandato" },
+"pirilene": {
+"description": "Pirazinamide, farmaco antitubercolare",
+"side_effects": "Problemi epatici, artralgie",
+"advice": "Monitoraggio epatico necessario" },
+"rimactan": {
+"description": "Rifampicina, antibiotico antitubercolare",
+"side_effects": "Colorazione arancione delle secrezioni",
+"advice": "Da prendere lontano dai pasti" },
+"rimifon": {
+"description": "Isoniazide, farmaco principale antitubercolare",
+"side_effects": "Neuropatia periferica, epatite",
+"advice": "Integratore di vitamina B6 raccomandato" } }
+  },
+  "information": {
+    "title": "Informazioni sulla Tubercolosi",
+    "links": {
+      "title": "Link Utili"
+    },
+    "understanding": {
+      "title": "Capire la Tubercolosi",
+      "subtitle": "Una malattia infettiva che richiede attenzione",
+      "what_is": "Cos'è la tubercolosi?",
+      "what_is_content": "La tubercolosi è una malattia causata dal batterio chiamato Mycobacterium tuberculosis, che dopo una fase latente, diventa attivo. Questa forma attiva della malattia corrisponde a una moltiplicazione del batterio. È accompagnata da sintomi e richiede un trattamento prolungato con antibiotici specifici.",
+      "transmission": "Come viene trasmessa?",
+      "transmission_content": "La tubercolosi viene trasmessa attraverso l'aria da una persona i cui polmoni sono colpiti quando tossisce, starnutisce o parla. La trasmissione richiede un contatto prolungato e stretto con una persona che ha la tubercolosi polmonare contagiosa."
+    },
+    "itl": {
+      "title": "Infezione Tubercolare Latente (LTBI)",
+      "what_is": "Cosa significa LTBI?",
+      "what_is_content": "Nell'infezione tubercolare latente, il batterio è neutralizzato, intrappolato grazie alle difese del corpo. Questo batterio può rimanere 'dormiente'. La persona potrebbe non sviluppare mai la malattia nella sua vita.",
+      "vs_active": "LTBI vs Tubercolosi Attiva",
+      "itl_characteristics": "Infezione Tubercolare Latente",
+      "itl_char_1": "I bacilli sono 'dormienti, neutralizzati'",
+      "itl_char_2": "La persona non è contagiosa",
+      "itl_char_3": "Nessun sintomo",
+      "itl_char_4": "Raggi X normali",
+      "itl_char_5": "Trattamento preventivo per 3 mesi",
+      "active_characteristics": "Tubercolosi Attiva",
+      "active_char_1": "I bacilli sono attivi",
+      "active_char_2": "Contagiosa se polmonare",
+      "active_char_3": "Presenza di sintomi",
+      "active_char_4": "Raggi X anomali",
+      "active_char_5": "Trattamento curativo per 6 mesi o più"
+    },
+    "symptoms": {
+      "title": "Sintomi e Trattamento",
+      "symptoms_list": "Sintomi Principali",
+      "symptom_1": "Tosse persistente (più di 3 settimane)",
+      "symptom_2": "Sangue nell'espettorato",
+      "symptom_3": "Dolori al petto",
+      "symptom_4": "Fatica e debolezza",
+      "symptom_5": "Perdita di peso non intenzionale",
+      "symptom_6": "Febbre e sudorazioni notturne",
+      "symptom_7": "Perdita di appetito",
+      "treatment_title": "Trattamento",
+      "treatment_content": "Il trattamento richiede l'assunzione di diversi medicinali ogni giorno, per diversi mesi. Devono essere assunti a stomaco vuoto. In pratica, dovrebbero essere assunti almeno mezz'ora prima di mangiare.",
+      "important_note": "È molto importante non interrompere il trattamento, altrimenti la malattia potrebbe tornare."
+    },
+    "prevention": {
+      "title": "Prevenzione",
+      "vaccination": "Vaccinazione BCG",
+      "vaccination_content": "La vaccinazione BCG rimane altamente raccomandata, specialmente per i bambini sotto i cinque anni con fattori di rischio.",
+      "screening": "Screening da parte dei Centri per la Tubercolosi",
+      "screening_content": "I Centri per il Controllo della Tubercolosi svolgono un ruolo centrale nella prevenzione organizzando indagini e screening intorno ai casi."
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "q1": "La tubercolosi è sempre contagiosa?",
+      "a1": "No, solo la tubercolosi polmonare è contagiosa. Quando colpisce altre parti del corpo, non è contagiosa.",
+      "q2": "Quanto dura il trattamento?",
+      "a2": "Il trattamento dura generalmente 6 mesi, a volte di più a seconda del caso. È cruciale seguirlo completamente.",
+      "q3": "La tubercolosi può essere curata?",
+      "a3": "Sì, la tubercolosi è molto trattabile oggi in Francia se il trattamento è seguito correttamente.",
+      "q4": "Chi dovrebbe essere sottoposto a screening?",
+      "a4": "I contatti stretti e le persone in frequente contatto con un paziente sono sottoposti a screening dai team dei Centri per la Tubercolosi."
+    }
+  },
+  "quiz": {
+    "question": "Domanda",
+    "score": "Punteggio",
+    "explanation": "Spiegazione",
+    "restart": "Ricomincia",
+    "home": "Home",
+    "result": {
+      "title": "Quiz completato!",
+      "excellent": "Eccellente! Padroni del soggetto!",
+      "good": "Bene! Hai una buona conoscenza.",
+      "average": "Corretto. Ci sono ancora alcuni punti da rivedere.",
+      "needs_improvement": "Sarebbe bene rileggere le informazioni sulla tubercolosi."
+    },
+    "q1": {
+      "question": "Cosa causa la tubercolosi?",
+      "a1": "Un virus",
+      "a2": "Un batterio chiamato Mycobacterium tuberculosis",
+      "a3": "Un fungo",
+      "a4": "Un parassita",
+      "explanation": "La tubercolosi è causata da un batterio chiamato Mycobacterium tuberculosis, noto anche come bacillo di Koch."
+    },
+    "q2": {
+      "question": "Come viene trasmessa la tubercolosi?",
+      "a1": "Attraverso l'aria (tossendo, starnutendo)",
+      "a2": "Attraverso il contatto della pelle",
+      "a3": "Attraverso l'acqua contaminata",
+      "a4": "Attraverso le punture di insetti",
+      "explanation": "La tubercolosi viene trasmessa attraverso l'aria quando una persona infetta tossisce, starnutisce o parla, rilasciando goccioline contenenti il batterio."
+    },
+    "q3": {
+      "question": "Quale forma di tubercolosi è contagiosa?",
+      "a1": "Tubercolosi ossea",
+      "a2": "Tubercolosi renale",
+      "a3": "Tubercolosi polmonare",
+      "a4": "Tubercolosi dei linfonodi",
+      "explanation": "Solo la tubercolosi polmonare è contagiosa perché colpisce i polmoni e permette la trasmissione aerea."
+    },
+    "q4": {
+      "question": "Quanto dura generalmente il trattamento della tubercolosi?",
+      "a1": "2 settimane",
+      "a2": "6 mesi o più",
+      "a3": "1 mese",
+      "a4": "1 anno",
+      "explanation": "Il trattamento della tubercolosi dura generalmente 6 mesi, a volte di più a seconda del caso. È cruciale seguirlo completamente."
+    },
+    "q5": {
+      "question": "Cosa significa LTBI?",
+      "a1": "Infezione Tubercolare Latente",
+      "a2": "Infezione Totale Lunga",
+      "a3": "Intervento Terapeutico Locale",
+      "a4": "Immunità Limitata alla Tubercolosi",
+      "explanation": "LTBI significa Infezione Tubercolare Latente. È quando il batterio è presente ma 'dormiente', senza sintomi o contagiosità."
+    },
+    "q6": {
+      "question": "Quando devono essere assunti i medicinali per la tubercolosi?",
+      "a1": "Dopo i pasti",
+      "a2": "Durante i pasti",
+      "a3": "In qualsiasi momento",
+      "a4": "A stomaco vuoto (prima dei pasti)",
+      "explanation": "I medicinali per la tubercolosi devono essere assunti a stomaco vuoto, almeno 30 minuti prima dei pasti o 2 ore dopo."
+    },
+    "q7": {
+      "question": "Qual è il sintomo principale della tubercolosi polmonare?",
+      "a1": "Mal di testa",
+      "a2": "Tosse persistente",
+      "a3": "Dolore addominale",
+      "a4": "Eruzione cutanea",
+      "explanation": "Il sintomo principale della tubercolosi polmonare è una tosse persistente che dura più di 3 settimane."
+    },
+    "q8": {
+      "question": "Cosa succede se il trattamento viene interrotto troppo presto?",
+      "a1": "Nulla di speciale",
+      "a2": "Recupero più veloce",
+      "a3": "Rischio di recidiva e resistenza",
+      "a4": "Riduzione degli effetti collaterali",
+      "explanation": "Interrompere il trattamento troppo presto può portare a una recidiva della malattia e allo sviluppo di resistenza ai medicinali."
+    }
+  },
+  "settings": {
+    "language_choice": "Scelta della Lingua",
+    "language_changed": "Lingua cambiata in",
+    "actions": "Azioni",
+    "reset_data": "Reimposta Dati",
+    "reset_description": "Elimina tutti i dati dell'applicazione",
+    "reset_confirmation": "Sei sicuro di voler reimpostare tutti i dati?",
+    "reset_warning": "Questa azione eliminerà:\n• La tua posologia\n• Le tue assunzioni di medicinali\n• Tutte le tue impostazioni",
+    "reset_success": "Dati reimpostati con successo",
+    "quit_app": "Esci dall'applicazione",
+    "quit_description": "Chiudi LaMiaTubercolosi",
+    "quit_confirmation": "Sei sicuro di voler uscire da LaMiaTubercolosi?"
+  },
+  "common": {
+    "cancel": "Annulla",
+    "confirm": "Conferma",
+    "reset": "Reimposta",
+    "quit": "Esci"
+  },
+  "notifications": {
+    "fasting_reminder_title": "⏰ Promemoria digiuno",
+    "fasting_reminder_body": "Tra 2 ore, prendi {medication} {dosage}. Non mangiare o bere nulla ora!",
+    "5min_reminder_title": "🔔 Promemoria imminente",
+    "5min_reminder_body": "Tra 5 minuti: {medication} {dosage} ({tablets} compressa{plural})",
+    "time_reminder_title": "💊 È ora!",
+    "time_reminder_body": "Prendi ora: {medication} {dosage} ({tablets} compressa{plural})",
+    "fasting_note": " - Da prendere a digiuno"
+  }
+}

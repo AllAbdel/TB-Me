@@ -1,0 +1,305 @@
+{
+  "app": {
+    "title": "TB&Me",
+    "home": "Inicio",
+    "medications": "Medicamentos",
+    "quiz": "Cuestionario",
+    "information": "Información",
+    "settings": "Configuraciones",
+    "description": "Aplicación dedicada al seguimiento del tratamiento de la tuberculosis"
+  },
+  "home": {
+    "welcome": "¡Bienvenido!",
+    "medications_today": "medicamento(s) para tomar hoy",
+    "daily_dashboard": "Panel del día",
+    "no_medications": "Ningún medicamento configurado",
+    "configure_medications": "Vaya a la pestaña Medicamentos para configurar su posología",
+    "daily_statistics": "Estadísticas del día",
+    "confirm_taking": "Confirmar la toma",
+    "mark_as_taken": "Marcar",
+    "mark_taken": "Marcar\ncomo tomado",
+    "tablets": "comprimido(s)",
+    "current_stock": "Stock actual",
+    "stock_after": "Stock después de la toma",
+    "stock": "Stock",
+    "marked_as_taken": "marcado como tomado",
+    "insufficient_stock": "¡Stock insuficiente! Solo quedan",
+    "tablets_remaining": "comprimido(s)",
+    "take_on_empty_stomach": "Tomar en ayunas",
+    "status": {
+      "taken": "Tomado",
+      "upcoming": "Próximo",
+      "now": "Ahora",
+      "missed": "Perdido"
+    }
+  },
+  "date": {
+    "monday": "Lunes",
+    "tuesday": "Martes",
+    "wednesday": "Miércoles",
+    "thursday": "Jueves",
+    "friday": "Viernes",
+    "saturday": "Sábado",
+    "sunday": "Domingo",
+    "january": "Enero",
+    "february": "Febrero",
+    "march": "Marzo",
+    "april": "Abril",
+    "may": "Mayo",
+    "june": "Junio",
+    "july": "Julio",
+    "august": "Agosto",
+    "september": "Septiembre",
+    "october": "Octubre",
+    "november": "Noviembre",
+    "december": "Diciembre"
+  },
+  "medications": {
+    "available_title": "Medicamentos disponibles",
+    "add_button": "Añadir",
+    "my_posology": "Mi posología",
+    "no_medication": "Ningún medicamento añadido a su posología",
+    "fasting": "En ayunas",
+    "tablets": "comprimido(s)",
+    "stock": "Stock",
+    "delete": "Eliminar",
+    "add_dialog_title": "Añadir",
+    "time_format": "Formato de hora",
+    "time": "Hora",
+    "change": "Cambiar",
+    "tablets_count": "Comprimidos",
+    "take_fasting": "Tomar en ayunas",
+    "delete_confirmation": "Confirmar eliminación",
+    "delete_question": "¿Está seguro de que desea eliminar este medicamento de su posología?",
+    "details": {
+    "description": "Descripción",
+    "side_effects": "Efectos secundarios",
+    "advice": "Consejo",
+    "see_documentation": "Ver documentación",
+    "enlarge_hint": "Toca para ampliar",
+    "close": "Cerrar"
+  },
+  "pdf": {
+    "documentation_title": "Documentación PDF",
+    "document_available": "Documento PDF disponible",
+    "file": "Archivo",
+    "view": "Ver",
+    "download": "Descargar",
+    "reading_title": "Leyendo documento",
+    "download_web_only": "Descarga disponible solo en móvil",
+    "storage_permission": "Permiso de almacenamiento requerido para descargar",
+    "downloaded": "PDF descargado",
+    "download_error": "Error de descarga",
+    "view_error": "Error al abrir PDF",
+    "pdf_render_error": "Error al renderizar PDF"
+  },
+  "image": {
+    "not_available": "Imagen no disponible",
+    "tap_to_close": "Toca para cerrar"
+  },
+  "time_label": "Hora",
+"drugs": {
+"rifadine": {
+"description": "Antibiótico antituberculoso de primera línea",
+"side_effects": "Orina anaranjada, náuseas, problemas hepáticos",
+"advice": "Tomar en ayunas, 1 hora antes o 2 horas después de la comida" },
+"rifater": {
+"description": "Combinación fija de rifampicina, isoniazida y pirazinamida",
+"side_effects": "Problemas digestivos, dolores de cabeza, fatiga",
+"advice": "Combinación de 3 medicamentos en 1 tableta" },
+"rifinah": {
+"description": "Combinación de rifampicina e isoniazida",
+"side_effects": "Coloración naranja de la orina, náuseas",
+"advice": "Preferiblemente tomar por la mañana en ayunas" },
+"dexambutol": {
+"description": "Medicamento antituberculoso de segunda línea",
+"side_effects": "Trastornos visuales, neuropatía óptica",
+"advice": "Monitoreo oftalmológico necesario" },
+"myambutol": {
+"description": "Etambutol, medicamento bacteriostático antituberculoso",
+"side_effects": "Neuritis óptica, problemas de visión",
+"advice": "Control de la visión recomendado" },
+"pirilene": {
+"description": "Pirazinamida, medicamento antituberculoso",
+"side_effects": "Problemas hepáticos, artralgia",
+"advice": "Monitoreo hepático necesario" },
+"rimactan": {
+"description": "Rifampicina, antibiótico antituberculoso",
+"side_effects": "Coloración naranja de las secreciones",
+"advice": "Tomar lejos de las comidas" },
+"rimifon": {
+"description": "Isoniazida, medicamento principal antituberculoso",
+"side_effects": "Neuropatía periférica, hepatitis",
+"advice": "Suplemento de vitamina B6 recomendado" } }
+  },
+  "information": {
+    "title": "Información sobre la Tuberculosis",
+    "links": {
+      "title": "Enlaces útiles"
+    },
+    "understanding": {
+      "title": "Entendiendo la Tuberculosis",
+      "subtitle": "Una enfermedad infecciosa que requiere atención",
+      "what_is": "¿Qué es la tuberculosis?",
+      "what_is_content": "La tuberculosis es una enfermedad causada por la bacteria llamada Mycobacterium tuberculosis, que después de una fase latente, se vuelve activa. Esta forma activa de la enfermedad corresponde a una multiplicación de la bacteria. Está acompañada de síntomas y requiere un tratamiento prolongado con antibióticos específicos.",
+      "transmission": "¿Cómo se transmite?",
+      "transmission_content": "La tuberculosis se transmite por el aire, por una persona cuyos pulmones están afectados cuando tose, estornuda o habla. La transmisión requiere contactos prolongados y cercanos con una persona que tiene tuberculosis pulmonar contagiosa."
+    },
+    "itl": {
+      "title": "Infección Tuberculosa Latente (ITL)",
+      "what_is": "¿Qué significa ITL?",
+      "what_is_content": "En la infección tuberculosa latente, la bacteria está neutralizada, atrapada gracias a las defensas del organismo. Esta bacteria puede permanecer 'dormida'. La persona puede no desarrollar nunca la enfermedad a lo largo de su vida.",
+      "vs_active": "ITL vs Tuberculosis Activa",
+      "itl_characteristics": "Infección Tuberculosa Latente",
+      "itl_char_1": "Los bacilos están 'dormidos, neutralizados'",
+      "itl_char_2": "La persona no es contagiosa",
+      "itl_char_3": "Ningún síntoma",
+      "itl_char_4": "Radiografía normal",
+      "itl_char_5": "Tratamiento preventivo de 3 meses",
+      "active_characteristics": "Tuberculosis Activa",
+      "active_char_1": "Los bacilos están activos",
+      "active_char_2": "Contagiosa si es pulmonar",
+      "active_char_3": "Presencia de síntomas",
+      "active_char_4": "Radiografía anormal",
+      "active_char_5": "Tratamiento curativo de 6 meses o más"
+    },
+    "symptoms": {
+      "title": "Síntomas y Tratamiento",
+      "symptoms_list": "Síntomas principales",
+      "symptom_1": "Tos persistente (más de 3 semanas)",
+      "symptom_2": "Esputo con sangre",
+      "symptom_3": "Dolores en el pecho",
+      "symptom_4": "Fatiga y debilidad",
+      "symptom_5": "Pérdida de peso involuntaria",
+      "symptom_6": "Fiebre y sudores nocturnos",
+      "symptom_7": "Pérdida de apetito",
+      "treatment_title": "El Tratamiento",
+      "treatment_content": "El tratamiento requiere tomar varios medicamentos todos los días, durante varios meses. Deben tomarse en ayunas. En la práctica, hay que tomarlos al menos media hora antes de comer.",
+      "important_note": "Es muy importante no interrumpir el tratamiento, de lo contrario la enfermedad puede volver."
+    },
+    "prevention": {
+      "title": "Prevención",
+      "vaccination": "Vacunación BCG",
+      "vaccination_content": "La vacunación BCG sigue siendo altamente recomendada, especialmente para niños menores de cinco años con factores de riesgo.",
+      "screening": "Detección por los CLAT",
+      "screening_content": "Los Centros de Lucha Antituberculosa (CLAT) juegan un papel central en la prevención al organizar investigaciones y detecciones alrededor de los casos."
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "q1": "¿La tuberculosis es siempre contagiosa?",
+      "a1": "No, solo la tuberculosis pulmonar es contagiosa. Cuando afecta a otras partes del cuerpo, no es contagiosa.",
+      "q2": "¿Cuánto dura el tratamiento?",
+      "a2": "El tratamiento generalmente dura 6 meses, a veces más dependiendo del caso. Es crucial seguirlo completamente.",
+      "q3": "¿Se puede curar la tuberculosis?",
+      "a3": "Sí, la tuberculosis se trata muy bien hoy en Francia si se sigue correctamente el tratamiento.",
+      "q4": "¿Quién debe ser examinado?",
+      "a4": "El entorno cercano y las personas en contacto frecuente con un enfermo son examinadas por los equipos del CLAT."
+    }
+  },
+  "quiz": {
+    "question": "Pregunta",
+    "score": "Puntuación",
+    "explanation": "Explicación",
+    "restart": "Reiniciar",
+    "home": "Inicio",
+    "result": {
+      "title": "¡Cuestionario completado!",
+      "excellent": "¡Excelente! ¡Dominas muy bien el tema!",
+      "good": "¡Bien! Tienes buenos conocimientos.",
+      "average": "Correcto. Todavía hay algunos puntos por revisar.",
+      "needs_improvement": "Sería bueno releer la información sobre la tuberculosis."
+    },
+    "q1": {
+      "question": "¿Qué causa la tuberculosis?",
+      "a1": "Un virus",
+      "a2": "Una bacteria llamada Mycobacterium tuberculosis",
+      "a3": "Un hongo",
+      "a4": "Un parásito",
+      "explanation": "La tuberculosis es causada por una bacteria llamada Mycobacterium tuberculosis, también conocida como bacilo de Koch."
+    },
+    "q2": {
+      "question": "¿Cómo se transmite la tuberculosis?",
+      "a1": "Por vía aérea (tos, estornudos)",
+      "a2": "Por contacto con la piel",
+      "a3": "Por agua contaminada",
+      "a4": "Por picaduras de insectos",
+      "explanation": "La tuberculosis se transmite por vía aérea cuando una persona infectada tose, estornuda o habla, liberando gotículas que contienen la bacteria."
+    },
+    "q3": {
+      "question": "¿Qué forma de tuberculosis es contagiosa?",
+      "a1": "Tuberculosis ósea",
+      "a2": "Tuberculosis renal",
+      "a3": "Tuberculosis pulmonar",
+      "a4": "Tuberculosis ganglionar",
+      "explanation": "Solo la tuberculosis pulmonar es contagiosa, ya que afecta a los pulmones y permite la transmisión por vía aérea."
+    },
+    "q4": {
+      "question": "¿Cuánto tiempo suele durar el tratamiento de la tuberculosis?",
+      "a1": "2 semanas",
+      "a2": "6 meses o más",
+      "a3": "1 mes",
+      "a4": "1 año",
+      "explanation": "El tratamiento de la tuberculosis suele durar 6 meses, a veces más dependiendo del caso. Es crucial seguirlo completamente."
+    },
+    "q5": {
+      "question": "¿Qué significa ITL?",
+      "a1": "Infección Tuberculosa Latente",
+      "a2": "Infección Total Larga",
+      "a3": "Intervención Terapéutica Local",
+      "a4": "Inmunidad a la Tuberculosis Limitada",
+      "explanation": "ITL significa Infección Tuberculosa Latente. Es cuando la bacteria está presente pero 'dormida', sin síntomas ni contagiosidad."
+    },
+    "q6": {
+      "question": "¿Cuándo se deben tomar los medicamentos antituberculosos?",
+      "a1": "Después de las comidas",
+      "a2": "Durante las comidas",
+      "a3": "En cualquier momento",
+      "a4": "En ayunas (antes de las comidas)",
+      "explanation": "Los medicamentos antituberculosos deben tomarse en ayunas, al menos 30 minutos antes de las comidas o 2 horas después."
+    },
+    "q7": {
+      "question": "¿Cuál es el principal síntoma de la tuberculosis pulmonar?",
+      "a1": "Dolor de cabeza",
+      "a2": "Tos persistente",
+      "a3": "Dolores abdominales",
+      "a4": "Erupción cutánea",
+      "explanation": "El principal síntoma de la tuberculosis pulmonar es una tos persistente que dura más de 3 semanas."
+    },
+    "q8": {
+      "question": "¿Qué pasa si se interrumpe el tratamiento demasiado pronto?",
+      "a1": "Nada en especial",
+      "a2": "Curación más rápida",
+      "a3": "Riesgo de recaída y resistencia",
+      "a4": "Disminución de los efectos secundarios",
+      "explanation": "Interrumpir el tratamiento demasiado pronto puede llevar a una recaída de la enfermedad y al desarrollo de resistencias a los medicamentos."
+    }
+  },
+  "settings": {
+    "language_choice": "Elección del idioma",
+    "language_changed": "Idioma cambiado a",
+    "actions": "Acciones",
+    "reset_data": "Restablecer datos",
+    "reset_description": "Eliminar todos los datos de la aplicación",
+    "reset_confirmation": "¿Está seguro de que desea restablecer todos los datos?",
+    "reset_warning": "Esta acción eliminará:\n• Su posología\n• Sus tomas de medicamentos\n• Todas sus configuraciones",
+    "reset_success": "Datos restablecidos con éxito",
+    "quit_app": "Salir de la aplicación",
+    "quit_description": "Cerrar TB&Me",
+    "quit_confirmation": "¿Está seguro de que desea salir de TB&Me?"
+  },
+  "common": {
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "reset": "Restablecer",
+    "quit": "Salir"
+  },
+  "notifications": {
+    "fasting_reminder_title": "⏰ Recordatorio de ayuno",
+    "fasting_reminder_body": "En 2 horas, tome {medication} {dosage}. ¡No coma ni beba nada ahora!",
+    "5min_reminder_title": "🔔 Recordatorio cercano",
+    "5min_reminder_body": "En 5 minutos: {medication} {dosage} ({tablets} pastilla{plural})",
+    "time_reminder_title": "💊 ¡Es la hora!",
+    "time_reminder_body": "Tome ahora: {medication} {dosage} ({tablets} pastilla{plural})",
+    "fasting_note": " - Tomar en ayunas"
+  }
+}

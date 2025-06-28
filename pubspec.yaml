@@ -1,0 +1,75 @@
+name: my_tuberculose
+description: Application locale pour le suivi du traitement de la tuberculose
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  permission_handler: ^11.0.2
+
+  file_picker: ^10.2.0
+  archive: ^3.4.9
+  xml: ^6.4.2
+  flutter_pdfview: ^1.3.2
+  path_provider: ^2.1.1
+  http: ^1.1.0
+  syncfusion_flutter_pdfviewer: 30.1.37
+  
+  # Base de données locale
+  sqflite: ^2.3.0
+  path: ^1.8.3
+
+
+  url_launcher: ^6.1.7
+
+
+
+  # Notifications locales
+  flutter_local_notifications: ^17.2.2
+  timezone: ^0.9.4
+
+  # Préférences locales
+  shared_preferences: ^2.2.2
+
+  # Icones et UI
+  cupertino_icons: ^1.0.2
+
+  # Internationalisation
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/medics/
+    - assets/docx/
+    - assets/pdf/
+    - assets/translations/
+    - assets/sounds/
+    - assets/flags/berber_flag.png
+
+  # fonts:
+  #   - family: Roboto
+  #     fonts:
+  #       - asset: fonts/Roboto-Regular.ttf
+  #       - asset: fonts/Roboto-Bold.ttf
+  #         weight: 700
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"

@@ -1,0 +1,308 @@
+{
+  "app": {
+    "title": "TB&Me",
+    "home": "Home",
+    "medications": "Medications",
+    "quiz": "Quiz",
+    "information": "Information",
+    "settings": "Settings",
+    "description": "Application dedicated to monitoring tuberculosis treatment"
+  },
+  "home": {
+    "welcome": "Welcome!",
+    "medications_today": "medication(s) to take today",
+    "daily_dashboard": "Daily Dashboard",
+    "no_medications": "No medication configured",
+    "configure_medications": "Go to the Medications tab to configure your dosage",
+    "daily_statistics": "Daily Statistics",
+    "confirm_taking": "Confirm Taking",
+    "mark_as_taken": "Mark",
+    "mark_taken": "Mark\nas taken",
+    "tablets": "tablet(s)",
+    "current_stock": "Current Stock",
+    "stock_after": "Stock After Taking",
+    "stock": "Stock",
+    "marked_as_taken": "marked as taken",
+    "insufficient_stock": "Insufficient stock! Only",
+    "tablets_remaining": "tablet(s) remaining",
+    "take_on_empty_stomach": "Take on empty stomach",
+    "status": {
+      "taken": "Taken",
+      "upcoming": "Upcoming",
+      "now": "Now",
+      "missed": "Missed"
+    }
+  },
+  "date": {
+    "monday": "Monday",
+    "tuesday": "Tuesday",
+    "wednesday": "Wednesday",
+    "thursday": "Thursday",
+    "friday": "Friday",
+    "saturday": "Saturday",
+    "sunday": "Sunday",
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December"
+  },
+  "medications": {
+    "available_title": "Available medications",
+    "add_button": "Add",
+    "my_posology": "My posology",
+    "no_medication": "No medication added to your posology",
+    "fasting": "Fasting",
+    "tablets": "tablet(s)",
+    "stock": "Stock",
+    "delete": "Delete",
+    "add_dialog_title": "Add",
+    "time_format": "Time format",
+    "time": "Time",
+    "change": "Change",
+    "tablets_count": "Tablets",
+    "take_fasting": "Take on empty stomach",
+    "delete_confirmation": "Confirm deletion",
+    "delete_question": "Are you sure you want to remove this medication from your posology?",
+    
+    "details": {
+      "description": "Description",
+      "side_effects": "Side effects",
+      "advice": "Advice",
+      "see_documentation": "View documentation",
+      "enlarge_hint": "Tap to enlarge",
+      "close": "Close"
+    },
+    "pdf": {
+      "documentation_title": "PDF Documentation",
+      "document_available": "PDF document available",
+      "file": "File",
+      "view": "View",
+      "download": "Download",
+      "reading_title": "Reading document",
+      "download_web_only": "Download available on mobile only",
+      "storage_permission": "Storage permission required to download",
+      "downloaded": "PDF downloaded",
+      "download_error": "Download error",
+      "view_error": "Error opening PDF",
+      "pdf_render_error": "Error rendering PDF"
+    },
+    "image": {
+      "not_available": "Image not available",
+      "tap_to_close": "Tap to close"
+    },
+    "time_label": "Time",
+    "drugs": {
+    "rifadine": {
+    "description": "First-line anti-tuberculosis antibiotic",
+    "side_effects": "Orange urine, nausea, liver problems",
+    "advice": "Take on an empty stomach, 1 hour before or 2 hours after a meal" },
+    "rifater": {
+    "description": "Fixed combination of rifampicin, isoniazid, and pyrazinamide",
+    "side_effects": "Digestive issues, headaches, fatigue",
+    "advice": "Combination of 3 medications in 1 tablet" },
+    "rifinah": {
+    "description": "Combination of rifampicin and isoniazid",
+    "side_effects": "Orange coloring of urine, nausea",
+    "advice": "Prefer to take in the morning on an empty stomach" },
+    "dexambutol": {
+    "description": "Second-line anti-tuberculosis medication",
+    "side_effects": "Visual disturbances, optic neuropathy",
+    "advice": "Ophthalmological monitoring necessary" },
+    "myambutol": {
+    "description": "Ethambutol, bacteriostatic anti-tuberculosis medication",
+    "side_effects": "Optic neuritis, vision problems",
+    "advice": "Vision check recommended" },
+    "pirilene": {
+    "description": "Pyrazinamide, anti-tuberculosis medication",
+    "side_effects": "Liver problems, joint pain",
+    "advice": "Liver monitoring necessary" },
+    "rimactan": {
+    "description": "Rifampicin, anti-tuberculosis antibiotic",
+    "side_effects": "Orange coloring of secretions",
+    "advice": "Take away from meals" },
+    "rimifon": {
+    "description": "Isoniazid, major anti-tuberculosis medication",
+    "side_effects": "Peripheral neuropathy, hepatitis",
+    "advice": "Vitamin B6 supplement recommended" 
+    } 
+  }
+  },
+  "information": {
+    "title": "Information on Tuberculosis",
+    "links": {
+      "title": "Useful Links"
+    },
+    "understanding": {
+      "title": "Understanding Tuberculosis",
+      "subtitle": "An infectious disease that requires attention",
+      "what_is": "What is tuberculosis?",
+      "what_is_content": "Tuberculosis is a disease caused by the bacterium called Mycobacterium tuberculosis, which after a latent phase, becomes active. This active form of the disease corresponds to a multiplication of the bacterium. It is accompanied by symptoms and requires prolonged treatment with specific antibiotics.",
+      "transmission": "How is it transmitted?",
+      "transmission_content": "Tuberculosis is transmitted through the air by a person whose lungs are affected when they cough, sneeze, or talk. Transmission requires prolonged and close contact with a person who has contagious pulmonary tuberculosis."
+    },
+    "itl": {
+      "title": "Latent Tuberculosis Infection (LTBI)",
+      "what_is": "What does LTBI mean?",
+      "what_is_content": "In latent tuberculosis infection, the bacterium is neutralized, trapped thanks to the body's defenses. This bacterium can remain 'dormant'. The person may never develop the disease in their lifetime.",
+      "vs_active": "LTBI vs Active Tuberculosis",
+      "itl_characteristics": "Latent Tuberculosis Infection",
+      "itl_char_1": "Bacilli are 'dormant, neutralized'",
+      "itl_char_2": "The person is not contagious",
+      "itl_char_3": "No symptoms",
+      "itl_char_4": "Normal X-ray",
+      "itl_char_5": "Preventive treatment for 3 months",
+      "active_characteristics": "Active Tuberculosis",
+      "active_char_1": "Bacilli are active",
+      "active_char_2": "Contagious if pulmonary",
+      "active_char_3": "Presence of symptoms",
+      "active_char_4": "Abnormal X-ray",
+      "active_char_5": "Curative treatment for 6 months or more"
+    },
+    "symptoms": {
+      "title": "Symptoms and Treatment",
+      "symptoms_list": "Main Symptoms",
+      "symptom_1": "Persistent cough (more than 3 weeks)",
+      "symptom_2": "Blood in sputum",
+      "symptom_3": "Chest pains",
+      "symptom_4": "Fatigue and weakness",
+      "symptom_5": "Unintentional weight loss",
+      "symptom_6": "Fever and night sweats",
+      "symptom_7": "Loss of appetite",
+      "treatment_title": "Treatment",
+      "treatment_content": "Treatment requires taking several medications every day, for several months. They must be taken on an empty stomach. In practice, they should be taken at least half an hour before eating.",
+      "important_note": "It is very important not to stop the treatment, otherwise the disease may return."
+    },
+    "prevention": {
+      "title": "Prevention",
+      "vaccination": "BCG Vaccination",
+      "vaccination_content": "BCG vaccination remains highly recommended, especially for children under five years of age with risk factors.",
+      "screening": "Screening by TB Centers",
+      "screening_content": "Tuberculosis Control Centers play a central role in prevention by organizing investigations and screenings around cases."
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "Is tuberculosis always contagious?",
+      "a1": "No, only pulmonary tuberculosis is contagious. When it affects other parts of the body, it is not contagious.",
+      "q2": "How long does the treatment last?",
+      "a2": "Treatment generally lasts 6 months, sometimes more depending on the case. It is crucial to follow it completely.",
+      "q3": "Can tuberculosis be cured?",
+      "a3": "Yes, tuberculosis is very treatable today in France if the treatment is followed correctly.",
+      "q4": "Who should be screened?",
+      "a4": "Close contacts and people in frequent contact with a patient are screened by the TB Center teams."
+    }
+  },
+  "quiz": {
+    "question": "Question",
+    "score": "Score",
+    "explanation": "Explanation",
+    "restart": "Restart",
+    "home": "Home",
+    "result": {
+      "title": "Quiz completed!",
+      "excellent": "Excellent! You master the subject very well!",
+      "good": "Good! You have good knowledge.",
+      "average": "Correct. There are still a few points to review.",
+      "needs_improvement": "It would be good to reread the information on tuberculosis."
+    },
+    "q1": {
+      "question": "What causes tuberculosis?",
+      "a1": "A virus",
+      "a2": "A bacterium called Mycobacterium tuberculosis",
+      "a3": "A fungus",
+      "a4": "A parasite",
+      "explanation": "Tuberculosis is caused by a bacterium called Mycobacterium tuberculosis, also known as Koch's bacillus."
+    },
+    "q2": {
+      "question": "How is tuberculosis transmitted?",
+      "a1": "Through the air (coughing, sneezing)",
+      "a2": "Through skin contact",
+      "a3": "Through contaminated water",
+      "a4": "Through insect bites",
+      "explanation": "Tuberculosis is transmitted through the air when an infected person coughs, sneezes, or talks, releasing droplets containing the bacterium."
+    },
+    "q3": {
+      "question": "Which form of tuberculosis is contagious?",
+      "a1": "Bone tuberculosis",
+      "a2": "Kidney tuberculosis",
+      "a3": "Pulmonary tuberculosis",
+      "a4": "Ganglion tuberculosis",
+      "explanation": "Only pulmonary tuberculosis is contagious because it affects the lungs and allows airborne transmission."
+    },
+    "q4": {
+      "question": "How long does tuberculosis treatment usually last?",
+      "a1": "2 weeks",
+      "a2": "6 months or more",
+      "a3": "1 month",
+      "a4": "1 year",
+      "explanation": "Tuberculosis treatment generally lasts 6 months, sometimes more depending on the case. It is crucial to follow it completely."
+    },
+    "q5": {
+      "question": "What does LTBI mean?",
+      "a1": "Latent Tuberculosis Infection",
+      "a2": "Long Total Infection",
+      "a3": "Local Therapeutic Intervention",
+      "a4": "Limited Tuberculosis Immunity",
+      "explanation": "LTBI means Latent Tuberculosis Infection. It is when the bacterium is present but 'dormant', without symptoms or contagiousness."
+    },
+    "q6": {
+      "question": "When should tuberculosis medications be taken?",
+      "a1": "After meals",
+      "a2": "During meals",
+      "a3": "Anytime",
+      "a4": "On an empty stomach (before meals)",
+      "explanation": "Tuberculosis medications should be taken on an empty stomach, at least 30 minutes before meals or 2 hours after."
+    },
+    "q7": {
+      "question": "What is the main symptom of pulmonary tuberculosis?",
+      "a1": "Headache",
+      "a2": "Persistent cough",
+      "a3": "Abdominal pain",
+      "a4": "Skin rash",
+      "explanation": "The main symptom of pulmonary tuberculosis is a persistent cough that lasts more than 3 weeks."
+    },
+    "q8": {
+      "question": "What happens if the treatment is stopped too early?",
+      "a1": "Nothing special",
+      "a2": "Faster recovery",
+      "a3": "Risk of relapse and resistance",
+      "a4": "Reduction of side effects",
+      "explanation": "Stopping the treatment too early can lead to a relapse of the disease and the development of resistance to medications."
+    }
+  },
+  "settings": {
+    "language_choice": "Language Choice",
+    "language_changed": "Language changed to",
+    "actions": "Actions",
+    "reset_data": "Reset Data",
+    "reset_description": "Delete all application data",
+    "reset_confirmation": "Are you sure you want to reset all data?",
+    "reset_warning": "This action will delete:\n• Your posology\n• Your medication intakes\n• All your settings",
+    "reset_success": "Data successfully reset",
+    "quit_app": "Quit the application",
+    "quit_description": "Close TB&Me",
+    "quit_confirmation": "Are you sure you want to quit TB&Me?"
+  },
+  "common": {
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "reset": "Reset",
+    "quit": "Quit"
+  },
+  "notifications": {
+    "fasting_reminder_title": "⏰ Fasting Reminder",
+    "fasting_reminder_body": "In 2 hours, take {medication} {dosage}. Do not eat or drink anything now!",
+    "5min_reminder_title": "🔔 Upcoming Reminder",
+    "5min_reminder_body": "In 5 minutes: {medication} {dosage} ({tablets} tablet{plural})",
+    "time_reminder_title": "💊 It's Time!",
+    "time_reminder_body": "Take now: {medication} {dosage} ({tablets} tablet{plural})",
+    "fasting_note": " - To be taken on an empty stomach"
+  }
+}
