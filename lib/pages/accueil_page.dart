@@ -695,6 +695,7 @@ int getTotalMedicamentsAujourdhui() {
             ),
             child: CustomScrollView(
               slivers: [
+                // Thème de l'application
                 SliverAppBar(
                   expandedHeight: 120,
                   floating: false,
@@ -716,19 +717,21 @@ int getTotalMedicamentsAujourdhui() {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            Color(0xFF6C63FF),
-                            Color(0xFF4CAF50),
+                            Color(0xFF1565C0), // Bleu très foncé
+                            Color(0xFF1E88E5), // Bleu foncé
                           ],
                         ),
                       ),
                       child: Container(
-                        decoration: BoxDecoration(
+                        // Le dégradé de fond global :
+                        decoration: const BoxDecoration(
                           gradient: LinearGradient(
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
-                              Colors.transparent,
-                              Colors.white.withOpacity(0.1),
+                              Color(0xFF81D4FA), // Bleu clair
+                              Color(0xFFF8F9FA),
+                              Colors.white,
                             ],
                           ),
                         ),

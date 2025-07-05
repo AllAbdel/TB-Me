@@ -281,8 +281,8 @@ Widget build(BuildContext context) {
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                         colors: [
-                          Color(0xFF6C63FF),
-                          Color(0xFF4CAF50),
+                          Color(0xFF1565C0), // Bleu très foncé
+                          Color(0xFF1E88E5), // Bleu foncé
                         ],
                       ),
                     ),

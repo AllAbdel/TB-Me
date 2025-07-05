@@ -60,8 +60,8 @@ class _InformationsPageState extends State<InformationsPage> {
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
                       colors: [
-                        Color(0xFF6C63FF),
-                        Color(0xFF4CAF50),
+                        Color(0xFF1565C0), // Bleu très foncé
+                        Color(0xFF1E88E5), // Bleu foncé
                       ],
                     ),
                   ),
@@ -84,8 +84,9 @@ class _InformationsPageState extends State<InformationsPage> {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            const Color(0xFF6C63FF).withOpacity(0.9),
-                            const Color(0xFF4CAF50).withOpacity(0.9),
+                            Color(0xFF81D4FA), // Bleu clair
+                          Color(0xFFF8F9FA),
+                          Colors.white,
                           ],
                         ),
                         borderRadius: BorderRadius.circular(20),
@@ -366,10 +367,10 @@ class _InformationsPageState extends State<InformationsPage> {
                     _buildSectionTitle(
                       icon: Icons.link,
                       title: _tr('information.links.title'),
-                      color: Color(0xFF2196F3),
+                      color: const Color(0xFF2196F3),
                     ),
 
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
 
                     Container(
                       decoration: BoxDecoration(
@@ -379,39 +380,39 @@ class _InformationsPageState extends State<InformationsPage> {
                           BoxShadow(
                             color: Colors.black.withOpacity(0.1),
                             blurRadius: 20,
-                            offset: Offset(0, 10),
+                            offset: const Offset(0, 10),
                           ),
                         ],
                       ),
                       child: Column(
                         children: [
                           _buildLinkItem(
-                            _tr('information.links.who.title'),
-                            _tr('information.links.who.description'),
+                            'OMS - Organisation Mondiale de la Santé',
+                            'Fiche d\'information sur la tuberculose',
                             'https://www.who.int/fr/news-room/fact-sheets/detail/tuberculosis',
                             Icons.public,
                             Colors.blue[600]!,
                           ),
                           Divider(height: 1, color: Colors.grey[200]),
                           _buildLinkItem(
-                            _tr('information.links.ministry.title'),
-                            _tr('information.links.ministry.description'),
+                            'Ministère de la Santé - France',
+                            'La tuberculose : informations officielles',
                             'https://sante.gouv.fr/soins-et-maladies/maladies/maladies-et-infections-respiratoires/tuberculose/article/la-tuberculose',
                             Icons.account_balance,
                             Colors.indigo[600]!,
                           ),
                           Divider(height: 1, color: Colors.grey[200]),
                           _buildLinkItem(
-                            _tr('information.links.fight.title'),
-                            _tr('information.links.fight.description'),
+                            'Lutte contre la tuberculose',
+                            'Stratégies et actions en France',
                             'https://sante.gouv.fr/soins-et-maladies/maladies/maladies-et-infections-respiratoires/tuberculose/article/la-lutte-contre-la-tuberculose-en-france',
                             Icons.shield,
                             Colors.green[600]!,
                           ),
                           Divider(height: 1, color: Colors.grey[200]),
                           _buildLinkItem(
-                            _tr('information.links.refugees.title'),
-                            _tr('information.links.refugees.description'),
+                            'Réfugiés.info',
+                            'Information pour les réfugiés',
                             'https://refugies.info/dispositif/67220095683e602dfb9c6eb7',
                             Icons.help_center,
                             Colors.orange[600]!,
