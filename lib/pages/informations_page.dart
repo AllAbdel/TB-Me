@@ -125,7 +125,7 @@ class _InformationsPageState extends State<InformationsPage> {
                                       Text(
                                         _tr('information.understanding.title'),
                                         style: const TextStyle(
-                                          color: Colors.white,
+                                          color: Color.fromARGB(255, 0, 0, 0),
                                           fontSize: 24,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -134,7 +134,7 @@ class _InformationsPageState extends State<InformationsPage> {
                                       Text(
                                         _tr('information.understanding.subtitle'),
                                         style: TextStyle(
-                                          color: Colors.white.withOpacity(0.9),
+                                          color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.9),
                                           fontSize: 14,
                                         ),
                                       ),

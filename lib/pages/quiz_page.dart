@@ -120,8 +120,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         _score++;
       }
     });
-
-    // SUPPRIMÉ : Le timer automatique pour laisser l'utilisateur lire
   }
 
   void _nextQuestion() {
@@ -182,7 +180,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
   Color _getAnswerColor(int answerIndex) {
     if (!_showCorrectAnswer) {
-      return _selectedAnswerIndex == answerIndex ? const Color(0xFF4FC3F7) : const Color.fromARGB(40, 79, 195, 247);
+      return _selectedAnswerIndex == answerIndex 
+        ? const Color(0xFF42A5F5) // Bleu plus foncé si sélectionné
+        : const Color(0xFF81D4FA); // Bleu clair par défaut
     }
     
     if (answerIndex == _questions[_currentQuestionIndex]['correct']) {
@@ -190,7 +190,19 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
     } else if (answerIndex == _selectedAnswerIndex) {
       return const Color(0xFFEF5350);
     }
-    return Colors.grey[300]!;
+    return const Color(0xFF81D4FA); // Bleu clair pour les non-sélectionnées
+  }
+
+  Color _getAnswerTextColor(int answerIndex) {
+    if (!_showCorrectAnswer) {
+      return Colors.black; // Texte noir par défaut
+    }
+    
+    if (answerIndex == _questions[_currentQuestionIndex]['correct'] || 
+        answerIndex == _selectedAnswerIndex) {
+      return Colors.white; // Texte blanc pour les réponses correctes/incorrectes
+    }
+    return Colors.black; // Texte noir pour les autres
   }
 
   IconData _getAnswerIcon(int answerIndex) {
@@ -204,6 +216,18 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       return Icons.cancel;
     }
     return Icons.radio_button_unchecked;
+  }
+
+  Color _getAnswerIconColor(int answerIndex) {
+    if (!_showCorrectAnswer) {
+      return Colors.black; // Icônes noires par défaut
+    }
+    
+    if (answerIndex == _questions[_currentQuestionIndex]['correct'] || 
+        answerIndex == _selectedAnswerIndex) {
+      return Colors.white; // Icônes blanches pour les réponses correctes/incorrectes
+    }
+    return Colors.black; // Icônes noires pour les autres
   }
 
   String _getScoreMessage() {
@@ -234,18 +258,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       builder: (context, child) {
         return Scaffold(
           body: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color(0xFF1E88E5), // Bleu foncé
-                  Color(0xFF42A5F5), // Bleu moyen
-                  Color(0xFF81D4FA), // Bleu clair
-                  Colors.white,      // Blanc
-                ],
-              ),
-            ),
+            // FOND BLANC pour toute la page
+            color: Colors.white,
             child: CustomScrollView(
               slivers: [
                 SliverAppBar(
@@ -311,7 +325,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        color: Colors.white,
+                        color: Color(0xFF1565C0), // Texte bleu foncé
                       ),
                     ),
                     Container(
@@ -359,7 +373,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                         borderRadius: BorderRadius.circular(10),
                         child: LinearProgressIndicator(
                           value: _progressController.value,
-                          backgroundColor: Colors.white.withOpacity(0.3),
+                          backgroundColor: Colors.grey[200],
                           valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF1565C0)),
                           minHeight: 12,
                         ),
@@ -371,18 +385,18 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             ),
           ),
 
-          // Question
+          // Question - FOND BLEU
           Container(
             width: double.infinity,
             margin: const EdgeInsets.only(bottom: 24),
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Colors.white,
-                  Colors.white.withOpacity(0.9),
+                  Color(0xFF42A5F5), // Bleu moyen
+                  Color(0xFF1E88E5), // Bleu foncé
                 ],
               ),
               borderRadius: BorderRadius.circular(20),
@@ -399,14 +413,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
-                    gradient: const LinearGradient(
-                      colors: [Color(0xFF42A5F5), Color(0xFF1E88E5)],
-                    ),
+                    color: Colors.white, // Fond blanc pour l'icône
                     borderRadius: BorderRadius.circular(15),
                   ),
                   child: const Icon(
                     Icons.quiz,
-                    color: Colors.white,
+                    color: Color(0xFF1565C0), // Icône bleue
                     size: 30,
                   ),
                 ),
@@ -416,7 +428,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF1565C0),
+                    color: Colors.white, // Texte blanc sur fond bleu
                     height: 1.4,
                   ),
                   textAlign: TextAlign.center,
@@ -425,7 +437,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             ),
           ),
 
-          // Réponses
+          // Réponses - BULLES BLEU CLAIR
           Column(
             children: List.generate(4, (index) {
               return Container(
@@ -461,13 +473,13 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.4),
+                              color: Colors.white.withOpacity(0.3),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Center(
                               child: Icon(
                                 _getAnswerIcon(index),
-                                color: Colors.white,
+                                color: _getAnswerIconColor(index),
                                 size: 24,
                               ),
                             ),
@@ -476,10 +488,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           Expanded(
                             child: Text(
                               _tr(_questions[_currentQuestionIndex]['answers'][index]),
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w600,
-                                color: Colors.white,
+                                color: _getAnswerTextColor(index), // Texte noir/blanc selon le contexte
                               ),
                             ),
                           ),
@@ -550,7 +562,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  // NOUVEAU BOUTON pour passer à la question suivante
+                  // Bouton pour passer à la question suivante
                   Center(
                     child: Container(
                       decoration: BoxDecoration(
@@ -763,7 +775,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 ),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    // CORRECTION : Revenir en arrière avec popUntil
                     Navigator.of(context).popUntil((route) => route.isFirst);
                   },
                   icon: const Icon(Icons.home, color: Colors.white),
