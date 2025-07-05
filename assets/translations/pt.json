@@ -156,7 +156,24 @@
   "information": {
     "title": "Informações sobre a tuberculose",
     "links": {
-      "title": "Links úteis"
+  "title": "Links Úteis",
+  "error": "Não foi possível abrir o link",
+  "who": {
+    "title": "OMS - Organização Mundial da Saúde",
+    "description": "Folha informativa sobre tuberculose"
+  },
+  "ministry": {
+    "title": "Ministério da Saúde - França",
+    "description": "Tuberculose: informações oficiais"
+  },
+  "fight": {
+    "title": "Luta Contra a Tuberculose",
+    "description": "Estratégias e ações na França"
+  },
+  "refugees": {
+    "title": "Refugiados.info",
+    "description": "Informação para refugiados"
+  }
     },
     "understanding": {
       "title": "Entendendo a tuberculose",

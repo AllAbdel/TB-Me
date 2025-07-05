@@ -156,7 +156,24 @@
   "information": {
     "title": "Vaovao momba ny tuberkulozy",
     "links": {
-      "title": "Rohy ilaina"
+      "title": "Rohy mahafinaritra",
+  "error": "Tsy azo adiverina ny rohy",
+  "who": {
+    "title": "OMS - Firenena Mpiaro ny Fahasalamana",
+    "description": "Firaketana momba ny aretina aretina"
+  },
+  "ministry": {
+    "title": "Ministeran'ny Fahasalamana - Frantsa",
+    "description": "Aretina aretina: vaovao ofisialy"
+  },
+  "fight": {
+    "title": "Ady amin'ny aretina aretina",
+    "description": "Stratejia sy asa tao Frantsa"
+  },
+  "refugees": {
+    "title": "Vaovao ho an'ny mpifindra monina",
+    "description": "Vaovao ho an'ny mpifindra monina"
+  }
     },
     "understanding": {
       "title": "Mahafantatra ny tuberkulozy",

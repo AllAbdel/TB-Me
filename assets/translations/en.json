@@ -156,7 +156,24 @@
   "information": {
     "title": "Information about tuberculosis",
     "links": {
-      "title": "Useful links"
+  "title": "Useful Links",
+  "error": "Unable to open the link",
+  "who": {
+    "title": "WHO - World Health Organization",
+    "description": "Fact sheet on tuberculosis"
+  },
+  "ministry": {
+    "title": "Ministry of Health - France",
+    "description": "Tuberculosis: official information"
+  },
+  "fight": {
+    "title": "Fight Against Tuberculosis",
+    "description": "Strategies and actions in France"
+  },
+  "refugees": {
+    "title": "Refugees.info",
+    "description": "Information for refugees"
+  }
     },
     "understanding": {
       "title": "Understanding tuberculosis",

@@ -156,7 +156,24 @@
   "information": {
     "title": "결핵 정보",
     "links": {
-      "title": "유용한 링크"
+      "title": "유용한 링크",
+  "error": "링크를 열 수 없음",
+  "who": {
+    "title": "WHO - 세계 보건 기구",
+    "description": "결핵에 대한 팩트 시트"
+  },
+  "ministry": {
+    "title": "보건부 - 프랑스",
+    "description": "결핵: 공식 정보"
+  },
+  "fight": {
+    "title": "결핵과의 싸움",
+    "description": "프랑스의 전략 및 행동"
+  },
+  "refugees": {
+    "title": "난민 정보",
+    "description": "난민을 위한 정보"
+  }
     },
     "understanding": {
       "title": "결핵 이해하기",

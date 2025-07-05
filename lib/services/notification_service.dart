@@ -172,7 +172,7 @@ class NotificationService {
       (baseId % 100000) + 1000, // S'assurer que l'ID reste petit
       '💊 C\'est l\'heure !',
       body,
-      tz.TZDateTime.from(scheduledTime.subtract(Duration(hours: 2)), tz.local),
+      tz.TZDateTime.from(scheduledTime.subtract(const Duration(hours: 2)), tz.local),
       notificationDetails,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
@@ -224,7 +224,7 @@ class NotificationService {
       (baseId % 100000) + 3000,
       _tr('notifications.time_reminder_title'),
       body,
-      tz.TZDateTime.from(scheduledTime.subtract(Duration(minutes: 5)), tz.local),
+      tz.TZDateTime.from(scheduledTime.subtract(const Duration(minutes: 5)), tz.local),
       notificationDetails,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,

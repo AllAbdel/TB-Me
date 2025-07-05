@@ -7,7 +7,7 @@ import '../services/notification_service.dart';
 class CatchupTimerPage extends StatefulWidget {
   final Map<String, dynamic> medicament;
 
-  const CatchupTimerPage({Key? key, required this.medicament}) : super(key: key);
+  const CatchupTimerPage({super.key, required this.medicament});
 
   @override
   _CatchupTimerPageState createState() => _CatchupTimerPageState();
@@ -16,7 +16,7 @@ class CatchupTimerPage extends StatefulWidget {
 class _CatchupTimerPageState extends State<CatchupTimerPage> {
   final LanguageProvider _languageProvider = LanguageProvider();
   Timer? _timer;
-  Duration _remainingTime = Duration(hours: 2);
+  Duration _remainingTime = const Duration(hours: 2);
   bool _isCompleted = false;
   DateTime? _endTime;
 
@@ -44,7 +44,7 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
       _calculateRemainingTime();
     } else {
       // Nouveau rattrapage - créer et programmer notification
-      _endTime = DateTime.now().add(Duration(hours: 2));
+      _endTime = DateTime.now().add(const Duration(hours: 2));
       await _programmerNotificationRattrapage();
     }
     
@@ -76,7 +76,7 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
   }
 
   void _startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_endTime != null) {
         _calculateRemainingTime();
         

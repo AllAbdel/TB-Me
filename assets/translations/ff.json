@@ -156,7 +156,24 @@
   "information": {
     "title": "Waawi e tuberkuloosi",
     "links": {
-      "title": "Link(ji) e yahay"
+      "title": "Liens utiles",
+  "error": "Impossible d'ouvrir le lien",
+  "who": {
+    "title": "OMS - Organisation Mondiale de la Santé",
+    "description": "Fiche d'information sur la tuberculose"
+  },
+  "ministry": {
+    "title": "Ministère de la Santé - France",
+    "description": "La tuberculose : informations officielles"
+  },
+  "fight": {
+    "title": "Lutte contre la tuberculose",
+    "description": "Stratégies et actions en France"
+  },
+  "refugees": {
+    "title": "Réfugiés.info",
+    "description": "Information pour les réfugiés"
+  }
     },
     "understanding": {
       "title": "Faham tuberkuloosi",

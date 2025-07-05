@@ -670,11 +670,11 @@ void _effectuerPrise(Map<String, dynamic> medicament) async {
         return minutesA.compareTo(minutesB);
       });
 
-int _getMedicamentsPrisAujourdhui() {
+int getMedicamentsPrisAujourdhui() {
   return medicamentsTriees.where((m) => _getStatutPrise(m) == StatutPrise.pris).length;
 }
 
-int _getTotalMedicamentsAujourdhui() {
+int getTotalMedicamentsAujourdhui() {
   return medicamentsTriees.length;
 }
     return AnimatedBuilder(
@@ -792,7 +792,7 @@ int _getTotalMedicamentsAujourdhui() {
                               ),
                               const SizedBox(height: 4),
                               Text(
-                                '${_getMedicamentsPrisAujourdhui()}/${_getTotalMedicamentsAujourdhui()} ${_tr('home.medications_today')}',
+                                '${getMedicamentsPrisAujourdhui()}/${getTotalMedicamentsAujourdhui()} ${_tr('home.medications_today')}',
                                 style: TextStyle(
                                   color: Colors.white.withOpacity(0.8),
                                   fontSize: 14,
@@ -1195,7 +1195,7 @@ int _getTotalMedicamentsAujourdhui() {
                                 child: ElevatedButton(
                                   onPressed: () => Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => HistoriquePage()),
+                                    MaterialPageRoute(builder: (context) => const HistoriquePage()),
                                   ),
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: Colors.teal,

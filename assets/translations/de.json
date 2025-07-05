@@ -156,7 +156,24 @@
   "information": {
     "title": "Informationen über Tuberkulose",
     "links": {
-      "title": "Nützliche Links"
+      "title": "Nützliche Links",
+  "error": "Link kann nicht geöffnet werden",
+  "who": {
+    "title": "WHO - Weltgesundheitsorganisation",
+    "description": "Informationsblatt über Tuberkulose"
+  },
+  "ministry": {
+    "title": "Gesundheitsministerium - Frankreich",
+    "description": "Tuberkulose: offizielle Informationen"
+  },
+  "fight": {
+    "title": "Kampf gegen Tuberkulose",
+    "description": "Strategien und Maßnahmen in Frankreich"
+  },
+  "refugees": {
+    "title": "Informationen für Flüchtlinge",
+    "description": "Informationen für Flüchtlinge"
+  }
     },
     "understanding": {
       "title": "Tuberkulose verstehen",

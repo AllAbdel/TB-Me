@@ -12,7 +12,7 @@ import 'package:flutter/foundation.dart';
 import '../services/notification_service.dart';
 
 class MedicamentsPage extends StatefulWidget {
-  const MedicamentsPage({Key? key}) : super(key: key);
+  const MedicamentsPage({super.key});
 
   @override
   MedicamentsPageState createState() => MedicamentsPageState();
@@ -165,7 +165,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
             return AlertDialog(
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               title: Container(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Colors.orange[400]!, Colors.orange[600]!],
@@ -176,16 +176,16 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                 ),
                 child: Column(
                   children: [
-                    Icon(Icons.inventory, color: Colors.white, size: 30),
-                    SizedBox(height: 8),
+                    const Icon(Icons.inventory, color: Colors.white, size: 30),
+                    const SizedBox(height: 8),
                     Text(
                     _tr('medications.stock_management.title'),
-                    style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                     ),
                     Text(
                       '${medicament['nom']} ${medicament['dosage']}',
-                      style: TextStyle(color: Colors.white70, fontSize: 14),
+                      style: const TextStyle(color: Colors.white70, fontSize: 14),
                       textAlign: TextAlign.center,
                     ),
                   ],
@@ -194,8 +194,8 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
               content: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(_tr('medications.stock_management.current_stock'), style: TextStyle(fontSize: 16)),
-                  SizedBox(height: 20),
+                  Text(_tr('medications.stock_management.current_stock'), style: const TextStyle(fontSize: 16)),
+                  const SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -205,10 +205,10 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                             setDialogState(() => newStock--);
                           }
                         },
-                        icon: Icon(Icons.remove_circle, color: Colors.red, size: 40),
+                        icon: const Icon(Icons.remove_circle, color: Colors.red, size: 40),
                       ),
                       Container(
-                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                         decoration: BoxDecoration(
                           color: Colors.orange[100],
                           borderRadius: BorderRadius.circular(15),
@@ -216,14 +216,14 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                         ),
                         child: Text(
                           '$newStock',
-                          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                         ),
                       ),
                       IconButton(
                         onPressed: () {
                           setDialogState(() => newStock++);
                         },
-                        icon: Icon(Icons.add_circle, color: Colors.green, size: 40),
+                        icon: const Icon(Icons.add_circle, color: Colors.green, size: 40),
                       ),
                     ],
                   ),
@@ -266,7 +266,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                     backgroundColor: Colors.orange[600],
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                   ),
-                child: Text(_tr('medications.stock_management.confirm'), style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                child: Text(_tr('medications.stock_management.confirm'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                 ),
               ],
             );
@@ -301,14 +301,14 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
       
       // Si l'heure est déjà passée aujourd'hui, programmer pour demain
       if (scheduledTime.isBefore(now)) {
-        scheduledTime = scheduledTime.add(Duration(days: 1));
+        scheduledTime = scheduledTime.add(const Duration(days: 1));
       }
       
       final baseId = medication['id'];
       
       // 1. Notification de jeûne (2h avant, seulement si à jeun)
       if (aJeun) {
-        DateTime fastingTime = scheduledTime.subtract(Duration(hours: 2));
+        DateTime fastingTime = scheduledTime.subtract(const Duration(hours: 2));
         if (fastingTime.isAfter(now)) {
           await NotificationService.showFastingReminder(
             baseId: baseId,
@@ -320,7 +320,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
       }
       
       // 2. Notification 5 minutes avant
-      DateTime fiveMinBefore = scheduledTime.subtract(Duration(minutes: 5));
+      DateTime fiveMinBefore = scheduledTime.subtract(const Duration(minutes: 5));
       if (fiveMinBefore.isAfter(now)) {
         await NotificationService.show5MinReminder(
           baseId: baseId,
@@ -348,7 +348,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
       String confirmMsg = _tr('messages.notifications_scheduled')
         .replaceAll('{medication}', medication['nom'])
         .replaceAll('{time}', medication['heure']);
-      if (aJeun && scheduledTime.subtract(Duration(hours: 2)).isAfter(now)) {
+      if (aJeun && scheduledTime.subtract(const Duration(hours: 2)).isAfter(now)) {
         confirmMsg += _tr('messages.notifications_scheduled_fasting');
       }
       
@@ -356,7 +356,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
         SnackBar(
           content: Text(confirmMsg),
           backgroundColor: Colors.green,
-          duration: Duration(seconds: 3),
+          duration: const Duration(seconds: 3),
         ),
       );
       
@@ -365,7 +365,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
         SnackBar(
           content: Text(_tr('messages.notifications_error').replaceAll('{error}', '$e')),
           backgroundColor: Colors.red,
-          duration: Duration(seconds: 5),
+          duration: const Duration(seconds: 5),
         ),
       );
     }
@@ -452,13 +452,13 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
           SnackBar(
             content: Row(
               children: [
-                Icon(Icons.check_circle, color: Colors.white),
-                SizedBox(width: 8),
+                const Icon(Icons.check_circle, color: Colors.white),
+                const SizedBox(width: 8),
                 Expanded(child: Text('${_tr('medications.pdf.downloaded')}: $fileName')),
               ],
             ),
             backgroundColor: Colors.green,
-            duration: Duration(seconds: 3),
+            duration: const Duration(seconds: 3),
           ),
         );
       }
@@ -516,9 +516,9 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
             return AlertDialog(
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               title: Container(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  gradient: LinearGradient(
+                  gradient: const LinearGradient(
                     colors: [Color(0xFF6C63FF), Color(0xFF4CAF50)],
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
@@ -527,17 +527,17 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                 ),
                 child: Column(
                   children: [
-                    Icon(Icons.medication, color: Colors.white, size: 30),
-                    SizedBox(height: 8),
+                    const Icon(Icons.medication, color: Colors.white, size: 30),
+                    const SizedBox(height: 8),
                     Text(
-                      _tr('medications.add_dialog_title') + ' ${medicament['nom']}',
-                      style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                      '${_tr('medications.add_dialog_title')} ${medicament['nom']}',
+                      style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                       textAlign: TextAlign.center,
                     ),
                   ],
                 ),
               ),
-              content: Container(
+              content: SizedBox(
                 width: double.maxFinite,
                 child: SingleChildScrollView(
                   child: Column(
@@ -545,8 +545,8 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                     children: [
                       // Format d'heure
                       Container(
-                        margin: EdgeInsets.symmetric(vertical: 8),
-                        padding: EdgeInsets.all(16),
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Colors.indigo[50]!, Colors.white],
@@ -559,14 +559,14 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                         child: Row(
                           children: [
                             Icon(Icons.access_time, color: Colors.indigo[600]),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Text(
                               _tr('medications.time_format'),
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                             ),
-                            Spacer(),
+                            const Spacer(),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                               decoration: BoxDecoration(
                                 color: formatDialog24h ? Colors.indigo[100] : Colors.grey[200],
                                 borderRadius: BorderRadius.circular(20),
@@ -590,7 +590,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                               activeColor: Colors.indigo[600],
                             ),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                               decoration: BoxDecoration(
                                 color: !formatDialog24h ? Colors.indigo[100] : Colors.grey[200],
                                 borderRadius: BorderRadius.circular(20),
@@ -609,8 +609,8 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                       ),
                       // Heure de prise
                       Container(
-                        margin: EdgeInsets.symmetric(vertical: 8),
-                        padding: EdgeInsets.all(16),
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Colors.blue[50]!, Colors.white],
@@ -623,11 +623,11 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                         child: Row(
                           children: [
                             Icon(Icons.access_time, color: Colors.blue[700]),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
                               child: Text(
                                 '${_tr('medications.time_label')}: ${_formatTime(heureSelectionnee, formatDialog24h)}',
-                                style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                               ),
                             ),
                             ElevatedButton(
@@ -655,7 +655,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                 backgroundColor: Colors.blue[600],
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
                               ),
-                              child: Text(_tr('medications.change'), style: TextStyle(color: Colors.white)),
+                              child: Text(_tr('medications.change'), style: const TextStyle(color: Colors.white)),
                             ),
                           ],
                         ),
@@ -663,8 +663,8 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
 
                       // Nombre de comprimés
                       Container(
-                        margin: EdgeInsets.symmetric(vertical: 8),
-                        padding: EdgeInsets.all(16),
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Colors.green[50]!, Colors.white],
@@ -677,31 +677,31 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                         child: Row(
                           children: [
                             Icon(Icons.medication_liquid, color: Colors.green[700]),
-                            SizedBox(width: 12),
-                            Text(_tr('medications.tablets_count'), style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-                            Spacer(),
+                            const SizedBox(width: 12),
+                            Text(_tr('medications.tablets_count'), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                            const Spacer(),
                             IconButton(
                               onPressed: () {
                                 if (nombreComprimes > 1) {
                                   setDialogState(() => nombreComprimes--);
                                 }
                               },
-                              icon: Icon(Icons.remove_circle, color: Colors.red),
+                              icon: const Icon(Icons.remove_circle, color: Colors.red),
                             ),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                               decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(10),
                                 border: Border.all(color: Colors.grey[300]!),
                               ),
-                              child: Text('$nombreComprimes', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                              child: Text('$nombreComprimes', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                             ),
                             IconButton(
                               onPressed: () {
                                 setDialogState(() => nombreComprimes++);
                               },
-                              icon: Icon(Icons.add_circle, color: Colors.green),
+                              icon: const Icon(Icons.add_circle, color: Colors.green),
                             ),
                           ],
                         ),
@@ -709,8 +709,8 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
 
                       // Stock
                       Container(
-                        margin: EdgeInsets.symmetric(vertical: 8),
-                        padding: EdgeInsets.all(16),
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Colors.purple[50]!, Colors.white],
@@ -723,30 +723,30 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                         child: Row(
                           children: [
                             Icon(Icons.inventory, color: Colors.purple[700]),
-                            SizedBox(width: 12),
-                            Text(_tr('medications.stock') + ':', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-                            Spacer(),
+                            const SizedBox(width: 12),
+                            Text('${_tr('medications.stock')}:', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                            const Spacer(),
                             IconButton(
                               onPressed: () {
                                 if (stock > 0) {
                                   setDialogState(() => stock--);
                                 }
                               },
-                              icon: Icon(Icons.remove_circle, color: Colors.red),
+                              icon: const Icon(Icons.remove_circle, color: Colors.red),
                             ),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                               decoration: BoxDecoration(
                                 color: _getStockColor(stock),
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              child: Text('$stock', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
+                              child: Text('$stock', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
                             ),
                             IconButton(
                               onPressed: () {
                                 setDialogState(() => stock++);
                               },
-                              icon: Icon(Icons.add_circle, color: Colors.green),
+                              icon: const Icon(Icons.add_circle, color: Colors.green),
                             ),
                           ],
                         ),
@@ -754,8 +754,8 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
 
                       // À jeun
                       Container(
-                        margin: EdgeInsets.symmetric(vertical: 8),
-                        padding: EdgeInsets.all(16),
+                        margin: const EdgeInsets.symmetric(vertical: 8),
+                        padding: const EdgeInsets.all(16),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             colors: [Colors.orange[50]!, Colors.white],
@@ -768,9 +768,9 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                         child: Row(
                           children: [
                             Icon(Icons.no_food, color: Colors.orange[700]),
-                            SizedBox(width: 12),
+                            const SizedBox(width: 12),
                             Expanded(
-                              child: Text(_tr('medications.take_fasting'), style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                              child: Text(_tr('medications.take_fasting'), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                             ),
                             Switch(
                               value: aJeun,
@@ -814,9 +814,9 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.green[600],
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                   ),
-                  child: Text(_tr('medications.add_button'), style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                  child: Text(_tr('medications.add_button'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
                 ),
               ],
             );
@@ -833,7 +833,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
         return AlertDialog(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           title: Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [Colors.red[400]!, Colors.red[600]!],
@@ -844,11 +844,11 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
             ),
             child: Column(
               children: [
-                Icon(Icons.delete_forever, color: Colors.white, size: 30),
-                SizedBox(height: 8),
+                const Icon(Icons.delete_forever, color: Colors.white, size: 30),
+                const SizedBox(height: 8),
                 Text(
                   _tr('medications.delete_confirmation'),
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
               ],
@@ -856,7 +856,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
           ),
           content: Text(
             _tr('medications.delete_question'),
-            style: TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16),
             textAlign: TextAlign.center,
           ),
           actions: [
@@ -916,7 +916,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                 backgroundColor: Colors.red[600],
                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
               ),
-            child: Text(_tr('medications.delete'), style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+            child: Text(_tr('medications.delete'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
             ),
           ],
         );
@@ -930,9 +930,9 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
         return AlertDialog(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           title: Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 colors: [Color(0xFF6C63FF), Color(0xFF4CAF50)],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -954,7 +954,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                         BoxShadow(
                           color: Colors.black.withOpacity(0.1),
                           blurRadius: 5,
-                          offset: Offset(0, 2),
+                          offset: const Offset(0, 2),
                         ),
                       ],
                     ),
@@ -964,35 +964,35 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                         medicament['image'],
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
-                          return Icon(Icons.medication, color: Color(0xFF6C63FF), size: 40);
+                          return const Icon(Icons.medication, color: Color(0xFF6C63FF), size: 40);
                         },
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(_tr('medications.details.enlarge_hint'),
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white70,
                     fontSize: 10,
                     fontStyle: FontStyle.italic,
                   ),
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(
                   medicament['nom'],
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   medicament['dosage'],
-                  style: TextStyle(color: Colors.white70, fontSize: 14),
+                  style: const TextStyle(color: Colors.white70, fontSize: 14),
                   textAlign: TextAlign.center,
                 ),
               ],
             ),
           ),
-          content: Container(
+          content: SizedBox(
             width: double.maxFinite,
             child: SingleChildScrollView(
               child: Column(
@@ -1000,8 +1000,8 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                 children: [
                   // Description
                   Container(
-                    margin: EdgeInsets.only(bottom: 16),
-                    padding: EdgeInsets.all(16),
+                    margin: const EdgeInsets.only(bottom: 16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.blue[50],
                       borderRadius: BorderRadius.circular(12),
@@ -1013,22 +1013,22 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                         Row(
                           children: [
                             Icon(Icons.info, color: Colors.blue[700]),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Text(_tr('medications.details.description'),
                               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.blue[700]),
                             ),
                           ],
                         ),
-                        SizedBox(height: 8),
-                        Text(_tr(medicament['descriptionKey']), style: TextStyle(fontSize: 14)),
+                        const SizedBox(height: 8),
+                        Text(_tr(medicament['descriptionKey']), style: const TextStyle(fontSize: 14)),
                       ],
                     ),
                   ),
                   
                   // Effets secondaires
                   Container(
-                    margin: EdgeInsets.only(bottom: 16),
-                    padding: EdgeInsets.all(16),
+                    margin: const EdgeInsets.only(bottom: 16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.orange[50],
                       borderRadius: BorderRadius.circular(12),
@@ -1040,22 +1040,22 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                         Row(
                           children: [
                             Icon(Icons.warning, color: Colors.orange[700]),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Text(_tr('medications.details.side_effects'),
                               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.orange[700]),
                             ),
                           ],
                         ),
-                        SizedBox(height: 8),
-                        Text(_tr(medicament['effetsSecondairesKey']), style: TextStyle(fontSize: 14)),
+                        const SizedBox(height: 8),
+                        Text(_tr(medicament['effetsSecondairesKey']), style: const TextStyle(fontSize: 14)),
                       ],
                     ),
                   ),
                   
                   // Conseils
                   Container(
-                    margin: EdgeInsets.only(bottom: 16),
-                    padding: EdgeInsets.all(16),
+                    margin: const EdgeInsets.only(bottom: 16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       color: Colors.green[50],
                       borderRadius: BorderRadius.circular(12),
@@ -1067,32 +1067,32 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                         Row(
                           children: [
                             Icon(Icons.lightbulb, color: Colors.green[700]),
-                            SizedBox(width: 8),
+                            const SizedBox(width: 8),
                             Text(_tr('medications.details.advice'),
                               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.green[700]),
                             ),
                           ],
                         ),
-                        SizedBox(height: 8),
-                        Text(_tr(medicament['conseilsKey']), style: TextStyle(fontSize: 14)),
+                        const SizedBox(height: 8),
+                        Text(_tr(medicament['conseilsKey']), style: const TextStyle(fontSize: 14)),
                       ],
                     ),
                   ),
                   
                   // Bouton pour ouvrir le document
-                  Container(
+                  SizedBox(
                     width: double.infinity,
                     child: ElevatedButton.icon(
                       onPressed: () {
                         Navigator.pop(context);
                         _ouvrirDocumentPdf(medicament['pdf'], medicament['nom']);
                       },
-                      icon: Icon(Icons.description, color: Colors.white),
-                      label: Text(_tr('medications.details.see_documentation'), style: TextStyle(color: Colors.white)),
+                      icon: const Icon(Icons.description, color: Colors.white),
+                      label: Text(_tr('medications.details.see_documentation'), style: const TextStyle(color: Colors.white)),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.purple[600],
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                        padding: EdgeInsets.symmetric(vertical: 12),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
                       ),
                     ),
                   ),
@@ -1120,7 +1120,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
           backgroundColor: Colors.transparent,
           child: GestureDetector(
             onTap: () => Navigator.pop(context),
-            child: Container(
+            child: SizedBox(
               width: double.infinity,
               height: double.infinity,
               child: Column(
@@ -1128,15 +1128,15 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                 children: [
                   // Titre
                   Container(
-                    margin: EdgeInsets.only(bottom: 20),
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    margin: const EdgeInsets.only(bottom: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                     decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.7),
                       borderRadius: BorderRadius.circular(25),
                     ),
                     child: Text(
                       nomMedicament,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
@@ -1148,14 +1148,14 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                   // Image agrandie
                   Flexible(
                     child: Container(
-                      margin: EdgeInsets.all(20),
+                      margin: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withOpacity(0.5),
                             blurRadius: 20,
-                            offset: Offset(0, 10),
+                            offset: const Offset(0, 10),
                           ),
                         ],
                       ),
@@ -1175,12 +1175,12 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(
+                                  const Icon(
                                     Icons.medication,
                                     color: Color(0xFF6C63FF),
                                     size: 80,
                                   ),
-                                  SizedBox(height: 16),
+                                  const SizedBox(height: 16),
                                   Text(_tr('medications.image.not_available'),
                                     style: TextStyle(
                                       color: Colors.grey[600],
@@ -1198,8 +1198,8 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                   
                   // Instructions
                   Container(
-                    margin: EdgeInsets.only(top: 20),
-                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    margin: const EdgeInsets.only(top: 20),
+                    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                     decoration: BoxDecoration(
                       color: Colors.black.withOpacity(0.7),
                       borderRadius: BorderRadius.circular(25),
@@ -1207,10 +1207,10 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.touch_app, color: Colors.white, size: 20),
-                        SizedBox(width: 8),
+                        const Icon(Icons.touch_app, color: Colors.white, size: 20),
+                        const SizedBox(width: 8),
                         Text(_tr('medications.image.tap_to_close'),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 14,
                           ),
@@ -1234,7 +1234,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
         return AlertDialog(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
           title: Container(
-            padding: EdgeInsets.all(16),
+            padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [Colors.red[400]!, Colors.red[600]!],
@@ -1245,27 +1245,27 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
             ),
             child: Column(
               children: [
-                Icon(Icons.picture_as_pdf, color: Colors.white, size: 30),
-                SizedBox(height: 8),
+                const Icon(Icons.picture_as_pdf, color: Colors.white, size: 30),
+                const SizedBox(height: 8),
                 Text(_tr('medications.pdf.documentation_title'),
-                  style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                  style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   nomMedicament,
-                  style: TextStyle(color: Colors.white70, fontSize: 14),
+                  style: const TextStyle(color: Colors.white70, fontSize: 14),
                   textAlign: TextAlign.center,
                 ),
               ],
             ),
           ),
-          content: Container(
+          content: SizedBox(
             width: double.maxFinite,
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
                     color: Colors.grey[100],
                     borderRadius: BorderRadius.circular(15),
@@ -1274,7 +1274,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                   child: Column(
                     children: [
                       Icon(Icons.picture_as_pdf, size: 60, color: Colors.red[600]),
-                      SizedBox(height: 16),
+                      const SizedBox(height: 16),
                       Text(_tr('medications.pdf.document_available'),
                         style: TextStyle(
                           fontSize: 16,
@@ -1282,7 +1282,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                           color: Colors.grey[700],
                         ),
                       ),
-                      SizedBox(height: 8),
+                      const SizedBox(height: 8),
                       Text('${_tr('medications.pdf.file')}: ${cheminPdf.split('/').last}',
                         style: TextStyle(
                           fontSize: 14,
@@ -1293,7 +1293,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                     ],
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Row(
                   children: [
                     Expanded(
@@ -1302,28 +1302,28 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                           Navigator.pop(context);
                           _visualiserPdf(cheminPdf, nomMedicament);
                         },
-                        icon: Icon(Icons.visibility, color: Colors.white),
-                        label: Text(_tr('medications.pdf.view'), style: TextStyle(color: Colors.white)),
+                        icon: const Icon(Icons.visibility, color: Colors.white),
+                        label: Text(_tr('medications.pdf.view'), style: const TextStyle(color: Colors.white)),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue[600],
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                          padding: EdgeInsets.symmetric(vertical: 12),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
                         ),
                       ),
                     ),
-                    SizedBox(width: 12),
+                    const SizedBox(width: 12),
                     Expanded(
                       child: ElevatedButton.icon(
                         onPressed: () {
                           Navigator.pop(context);
                           _telechargerPdf(cheminPdf, nomMedicament);
                         },
-                        icon: Icon(Icons.download, color: Colors.white),
-                        label: Text(_tr('medications.pdf.download'), style: TextStyle(color: Colors.white)),
+                        icon: const Icon(Icons.download, color: Colors.white),
+                        label: Text(_tr('medications.pdf.download'), style: const TextStyle(color: Colors.white)),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.green[600],
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-                          padding: EdgeInsets.symmetric(vertical: 12),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
                         ),
                       ),
                     ),
@@ -1386,13 +1386,14 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
     }
   }
 
+  @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: _languageProvider,
       builder: (context, child) {
         return Scaffold(
           body: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -1414,14 +1415,14 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                   flexibleSpace: FlexibleSpaceBar(
                     title: Text(
                       _tr('app.medications'),
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color(0xFF2E3A59),
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
                       ),
                     ),
                     background: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -1436,29 +1437,29 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                 ),
                 SliverToBoxAdapter(
                   child: Padding(
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         // Section Médicaments disponibles
                         Container(
-                          margin: EdgeInsets.only(bottom: 20),
+                          margin: const EdgeInsets.only(bottom: 20),
                           child: Row(
                             children: [
                               Container(
-                                padding: EdgeInsets.all(12),
+                                padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
-                                  gradient: LinearGradient(
+                                  gradient: const LinearGradient(
                                     colors: [Color(0xFF6C63FF), Color(0xFF4CAF50)],
                                   ),
                                   borderRadius: BorderRadius.circular(15),
                                 ),
-                                child: Icon(Icons.local_pharmacy, color: Colors.white, size: 24),
+                                child: const Icon(Icons.local_pharmacy, color: Colors.white, size: 24),
                               ),
-                              SizedBox(width: 12),
+                              const SizedBox(width: 12),
                               Text(
                                 _tr('medications.available_title'),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF2E3A59),
@@ -1477,7 +1478,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                               BoxShadow(
                                 color: Colors.black.withOpacity(0.1),
                                 blurRadius: 20,
-                                offset: Offset(0, 10),
+                                offset: const Offset(0, 10),
                               ),
                             ],
                           ),
@@ -1489,7 +1490,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                   int stock = snapshot.data ?? 0;
                                   
                                   return Container(
-                                    margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                                     decoration: BoxDecoration(
                                       gradient: LinearGradient(
                                         colors: [Colors.grey[50]!, Colors.white],
@@ -1500,19 +1501,19 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                       border: Border.all(color: Colors.grey[200]!, width: 1),
                                     ),
                                     child: ListTile(
-                                      contentPadding: EdgeInsets.all(16),
+                                      contentPadding: const EdgeInsets.all(16),
                                       onTap: () => _voirDetailsMedicament(medicament),
                                       leading: Container(
                                         width: 50,
                                         height: 50,
                                         decoration: BoxDecoration(
                                           gradient: LinearGradient(
-                                            colors: [Color(0xFF6C63FF).withOpacity(0.1), Color(0xFF4CAF50).withOpacity(0.1)],
+                                            colors: [const Color(0xFF6C63FF).withOpacity(0.1), const Color(0xFF4CAF50).withOpacity(0.1)],
                                           ),
                                           borderRadius: BorderRadius.circular(12),
-                                          border: Border.all(color: Color(0xFF6C63FF).withOpacity(0.3)),
+                                          border: Border.all(color: const Color(0xFF6C63FF).withOpacity(0.3)),
                                         ),
-                                        child: Icon(
+                                        child: const Icon(
                                           Icons.medication,
                                           color: Color(0xFF6C63FF),
                                           size: 24,
@@ -1520,7 +1521,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                       ),
                                       title: Text(
                                         medicament['nom'],
-                                        style: TextStyle(
+                                        style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16,
                                           color: Color(0xFF2E3A59),
@@ -1537,12 +1538,12 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                               fontWeight: FontWeight.w500,
                                             ),
                                           ),
-                                          SizedBox(height: 4),
+                                          const SizedBox(height: 4),
                                           // Affichage du stock
                                           Row(
                                             children: [
                                               Icon(Icons.inventory, size: 16, color: _getStockColor(stock)),
-                                              SizedBox(width: 4),
+                                              const SizedBox(width: 4),
                                               Text(
                                                 '${_tr('medications.stock')}: $stock',
                                                 style: TextStyle(
@@ -1553,7 +1554,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                               ),
                                             ],
                                           ),
-                                          SizedBox(height: 4),
+                                          const SizedBox(height: 4),
                                           Text(
                                             _tr(medicament['descriptionKey']),
                                             style: TextStyle(
@@ -1573,26 +1574,26 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                             style: ElevatedButton.styleFrom(
                                               backgroundColor: Colors.orange[600],
                                               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                                              padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                                             ),
                                             child: Text(
                                               _tr('medications.stock'),
-                                              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 11),
+                                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 11),
                                             ),
                                           ),
-                                          SizedBox(width: 8),
+                                          const SizedBox(width: 8),
                                           ElevatedButton(
                                             onPressed: () => _ajouterMedicament(medicament),
                                             style: ElevatedButton.styleFrom(
-                                              backgroundColor: Color(0xFF6C63FF),
+                                              backgroundColor: const Color(0xFF6C63FF),
                                               shape: RoundedRectangleBorder(
                                                 borderRadius: BorderRadius.circular(10),
                                               ),
-                                              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                                             ),
                                             child: Text(
                                               _tr('medications.add_button'),
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 12,
@@ -1608,26 +1609,26 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                             }).toList(),
                           ),
                         ),
-                        SizedBox(height: 40),
+                        const SizedBox(height: 40),
                         // Section Ma posologie - Code corrigé
                         Container(
-                          margin: EdgeInsets.only(bottom: 20),
+                          margin: const EdgeInsets.only(bottom: 20),
                           child: Row(
                             children: [
                               Container(
-                                padding: EdgeInsets.all(12),
+                                padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
-                                  gradient: LinearGradient(
+                                  gradient: const LinearGradient(
                                     colors: [Color(0xFF4CAF50), Color(0xFF6C63FF)],
                                   ),
                                   borderRadius: BorderRadius.circular(15),
                                 ),
-                                child: Icon(Icons.schedule, color: Colors.white, size: 24),
+                                child: const Icon(Icons.schedule, color: Colors.white, size: 24),
                               ),
-                              SizedBox(width: 12),
+                              const SizedBox(width: 12),
                               Text(
                                 _tr('medications.my_posology'),
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 22,
                                   fontWeight: FontWeight.bold,
                                   color: Color(0xFF2E3A59),
@@ -1640,7 +1641,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                         // Liste de la posologie avec seulement le bouton supprimer
                         if (maPosologie.isEmpty)
                           Container(
-                            padding: EdgeInsets.all(40),
+                            padding: const EdgeInsets.all(40),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(20),
@@ -1648,7 +1649,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.1),
                                   blurRadius: 20,
-                                  offset: Offset(0, 10),
+                                  offset: const Offset(0, 10),
                                 ),
                               ],
                             ),
@@ -1659,7 +1660,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                   size: 60,
                                   color: Colors.grey[400],
                                 ),
-                                SizedBox(height: 16),
+                                const SizedBox(height: 16),
                                 Text(
                                   _tr('medications.no_medication'),
                                   style: TextStyle(
@@ -1681,36 +1682,36 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.1),
                                   blurRadius: 20,
-                                  offset: Offset(0, 10),
+                                  offset: const Offset(0, 10),
                                 ),
                               ],
                             ),
                             child: Column(
                               children: maPosologie.map((medicament) {
                                 return Container(
-                                  margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                  margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
-                                      colors: [Color(0xFF4CAF50).withOpacity(0.1), Colors.white],
+                                      colors: [const Color(0xFF4CAF50).withOpacity(0.1), Colors.white],
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
                                     ),
                                     borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(color: Color(0xFF4CAF50).withOpacity(0.3)),
+                                    border: Border.all(color: const Color(0xFF4CAF50).withOpacity(0.3)),
                                   ),
                                   child: ListTile(
-                                    contentPadding: EdgeInsets.all(16),
+                                    contentPadding: const EdgeInsets.all(16),
                                     leading: Container(
                                       width: 50,
                                       height: 50,
                                       decoration: BoxDecoration(
                                         gradient: LinearGradient(
-                                          colors: [Color(0xFF4CAF50).withOpacity(0.2), Color(0xFF4CAF50).withOpacity(0.1)],
+                                          colors: [const Color(0xFF4CAF50).withOpacity(0.2), const Color(0xFF4CAF50).withOpacity(0.1)],
                                         ),
                                         borderRadius: BorderRadius.circular(12),
-                                        border: Border.all(color: Color(0xFF4CAF50).withOpacity(0.5)),
+                                        border: Border.all(color: const Color(0xFF4CAF50).withOpacity(0.5)),
                                       ),
-                                      child: Icon(
+                                      child: const Icon(
                                         Icons.medication,
                                         color: Color(0xFF4CAF50),
                                         size: 24,
@@ -1721,7 +1722,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                         Expanded(
                                           child: Text(
                                             '${medicament['nom']} ${medicament['dosage']}',
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 16,
                                               color: Color(0xFF2E3A59),
@@ -1730,7 +1731,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                         ),
                                         if (medicament['aJeun'] == true)
                                           Container(
-                                            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                                             decoration: BoxDecoration(
                                               color: Colors.orange[100],
                                               borderRadius: BorderRadius.circular(8),
@@ -1750,11 +1751,11 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                     subtitle: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        SizedBox(height: 8),
+                                        const SizedBox(height: 8),
                                         Row(
                                           children: [
                                             Icon(Icons.access_time, size: 16, color: Colors.blue[600]),
-                                            SizedBox(width: 4),
+                                            const SizedBox(width: 4),
                                             Text(
                                               medicament['heure'],
                                               style: TextStyle(
@@ -1762,9 +1763,9 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                                 fontWeight: FontWeight.w600,
                                               ),
                                             ),
-                                            SizedBox(width: 16),
+                                            const SizedBox(width: 16),
                                             Icon(Icons.medication_liquid, size: 16, color: Colors.green[600]),
-                                            SizedBox(width: 4),
+                                            const SizedBox(width: 4),
                                             Text(
                                               '${medicament['nombreComprimes']} ${_tr('medications.tablets')}',
                                               style: TextStyle(
@@ -1774,11 +1775,11 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                             ),
                                           ],
                                         ),
-                                        SizedBox(height: 4),
+                                        const SizedBox(height: 4),
                                         Row(
                                           children: [
                                             Icon(Icons.inventory, size: 16, color: _getStockColor(medicament['stock'])),
-                                            SizedBox(width: 4),
+                                            const SizedBox(width: 4),
                                             Text(
                                               '${_tr('medications.stock')}: ${medicament['stock']}',
                                               style: TextStyle(
@@ -1796,11 +1797,11 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: Colors.red[600],
                                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                                        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                                       ),
                                       child: Text(
                                         _tr('medications.delete'),
-                                        style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
+                                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
                                       ),
                                     ),
                                   ),

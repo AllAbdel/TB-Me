@@ -156,7 +156,24 @@
   "information": {
     "title": "Macluumaadka ku saabsan tuberculosis",
     "links": {
-      "title": "Link-yada caawimaad ah"
+      "title": "Xiriirinta Ku Saabsan",
+  "error": "Ma awoodo inuu furan karo xiriirka",
+  "who": {
+    "title": "WHO - Shirweynaha Caafimaadka Dunida",
+    "description": "Warbixin ku saabsan Jajab Cudurrada"
+  },
+  "ministry": {
+    "title": "Wasaarada Caafimaadka - Faransiiska",
+    "description": "Jajab Cudurrada: Macluumaadka Rasmiya"
+  },
+  "fight": {
+    "title": "Dagaalka Jajab Cudurrada",
+    "description": "Istiraatiijiyada iyo Falalka Faransiiska"
+  },
+  "refugees": {
+    "title": "Macluumaadka Qaxootiga",
+    "description": "Macluumaadka Qaxootiga"
+  }
     },
     "understanding": {
       "title": "Fahamka tuberculosis",

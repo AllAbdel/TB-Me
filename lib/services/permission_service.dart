@@ -99,7 +99,7 @@ class PermissionService {
             children: [
               Text(
                 _tr('permissions.required_message'),
-                style: TextStyle(fontSize: 16),
+                style: const TextStyle(fontSize: 16),
                 textAlign: TextAlign.center,
                 ),
               const SizedBox(height: 12),

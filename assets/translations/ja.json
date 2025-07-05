@@ -156,7 +156,24 @@
   "information": {
     "title": "結核についての情報",
     "links": {
-      "title": "役立つリンク"
+      "title": "役立つリンク",
+  "error": "リンクを開くことができません",
+  "who": {
+    "title": "WHO - 世界保健機関",
+    "description": "結核に関する事実シート"
+  },
+  "ministry": {
+    "title": "保健省 - フランス",
+    "description": "結核：公式情報"
+  },
+  "fight": {
+    "title": "結核との戦い",
+    "description": "フランスの戦略と行動"
+  },
+  "refugees": {
+    "title": "難民情報",
+    "description": "難民のための情報"
+  }
     },
     "understanding": {
       "title": "結核を理解する",

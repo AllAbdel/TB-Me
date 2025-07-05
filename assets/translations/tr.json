@@ -156,7 +156,24 @@
   "information": {
     "title": "Tüberküloz Hakkında Bilgi",
     "links": {
-      "title": "Faydalı Bağlantılar"
+      "title": "Faydalı Bağlantılar",
+  "error": "Bağlantı açılamıyor",
+  "who": {
+    "title": "DSÖ - Dünya Sağlık Örgütü",
+    "description": "Tüberküloz hakkında bilgi sayfası"
+  },
+  "ministry": {
+    "title": "Sağlık Bakanlığı - Fransa",
+    "description": "Tüberküloz: resmi bilgiler"
+  },
+  "fight": {
+    "title": "Tüberkülozla Mücadele",
+    "description": "Fransa'daki stratejiler ve eylemler"
+  },
+  "refugees": {
+    "title": "Mülteciler için bilgi",
+    "description": "Mülteciler için bilgi"
+  }
     },
     "understanding": {
       "title": "Tüberkülozu Anlama",

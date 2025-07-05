@@ -156,7 +156,24 @@
   "information": {
     "title": "TB kalankɛla",
     "links": {
-      "title": "Kalankɛla furu"
+      "title": "Kalankɛla furu",
+      "error": "Ka kɛ furu",
+  "who": {
+    "title": "OMS - Dɔnni furu ka kɛ",
+    "description": "TB kalankɛla"
+  },
+  "ministry": {
+    "title": "Ministère de la Santé - Faransi",
+    "description": "TB: kalankɛla furu"
+  },
+  "fight": {
+    "title": "TB furakɛla",
+    "description": "Stratégies et actions en Faransi"
+  },
+  "refugees": {
+    "title": "Réfugiés.info",
+    "description": "Kalankɛla furu"
+  }
     },
     "understanding": {
       "title": "Ka TB kɛ",

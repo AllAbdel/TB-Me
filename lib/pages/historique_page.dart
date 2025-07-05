@@ -306,9 +306,9 @@ List<String> dayNames = [
                   )
                 : Row(
                     children: [
-                      _buildStatChip('${_tr('history.taken_count').replaceAll('{count}', taken.toString())}', Colors.green),
+                      _buildStatChip(_tr('history.taken_count').replaceAll('{count}', taken.toString()), Colors.green),
                       const SizedBox(width: 8),
-                      if (missed > 0) _buildStatChip('${_tr('history.missed_count').replaceAll('{count}', missed.toString())}', Colors.red),
+                      if (missed > 0) _buildStatChip(_tr('history.missed_count').replaceAll('{count}', missed.toString()), Colors.red),
                     ]
                   ),
           ),

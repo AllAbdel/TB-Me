@@ -366,10 +366,10 @@ class _InformationsPageState extends State<InformationsPage> {
                     _buildSectionTitle(
                       icon: Icons.link,
                       title: _tr('information.links.title'),
-                      color: const Color(0xFF2196F3),
+                      color: Color(0xFF2196F3),
                     ),
 
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16),
 
                     Container(
                       decoration: BoxDecoration(
@@ -379,39 +379,39 @@ class _InformationsPageState extends State<InformationsPage> {
                           BoxShadow(
                             color: Colors.black.withOpacity(0.1),
                             blurRadius: 20,
-                            offset: const Offset(0, 10),
+                            offset: Offset(0, 10),
                           ),
                         ],
                       ),
                       child: Column(
                         children: [
                           _buildLinkItem(
-                            'OMS - Organisation Mondiale de la Santé',
-                            'Fiche d\'information sur la tuberculose',
+                            _tr('information.links.who.title'),
+                            _tr('information.links.who.description'),
                             'https://www.who.int/fr/news-room/fact-sheets/detail/tuberculosis',
                             Icons.public,
                             Colors.blue[600]!,
                           ),
                           Divider(height: 1, color: Colors.grey[200]),
                           _buildLinkItem(
-                            'Ministère de la Santé - France',
-                            'La tuberculose : informations officielles',
+                            _tr('information.links.ministry.title'),
+                            _tr('information.links.ministry.description'),
                             'https://sante.gouv.fr/soins-et-maladies/maladies/maladies-et-infections-respiratoires/tuberculose/article/la-tuberculose',
                             Icons.account_balance,
                             Colors.indigo[600]!,
                           ),
                           Divider(height: 1, color: Colors.grey[200]),
                           _buildLinkItem(
-                            'Lutte contre la tuberculose',
-                            'Stratégies et actions en France',
+                            _tr('information.links.fight.title'),
+                            _tr('information.links.fight.description'),
                             'https://sante.gouv.fr/soins-et-maladies/maladies/maladies-et-infections-respiratoires/tuberculose/article/la-lutte-contre-la-tuberculose-en-france',
                             Icons.shield,
                             Colors.green[600]!,
                           ),
                           Divider(height: 1, color: Colors.grey[200]),
                           _buildLinkItem(
-                            'Réfugiés.info',
-                            'Information pour les réfugiés',
+                            _tr('information.links.refugees.title'),
+                            _tr('information.links.refugees.description'),
                             'https://refugies.info/dispositif/67220095683e602dfb9c6eb7',
                             Icons.help_center,
                             Colors.orange[600]!,

@@ -121,10 +121,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
       }
     });
 
-    // Attendre 3 secondes avant de passer à la question suivante
-    Future.delayed(const Duration(seconds: 3), () {
-      _nextQuestion();
-    });
+    // SUPPRIMÉ : Le timer automatique pour laisser l'utilisateur lire
   }
 
   void _nextQuestion() {
@@ -185,15 +182,15 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
   Color _getAnswerColor(int answerIndex) {
     if (!_showCorrectAnswer) {
-      return _selectedAnswerIndex == answerIndex ? const Color(0xFF6C63FF) : const Color.fromARGB(22, 0, 0, 0);
+      return _selectedAnswerIndex == answerIndex ? const Color(0xFF4FC3F7) : const Color.fromARGB(40, 79, 195, 247);
     }
     
     if (answerIndex == _questions[_currentQuestionIndex]['correct']) {
-      return Colors.green;
+      return const Color(0xFF66BB6A);
     } else if (answerIndex == _selectedAnswerIndex) {
-      return Colors.red;
+      return const Color(0xFFEF5350);
     }
-    return Colors.grey[200]!;
+    return Colors.grey[300]!;
   }
 
   IconData _getAnswerIcon(int answerIndex) {
@@ -224,10 +221,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
 
   Color _getScoreColor() {
     double percentage = (_score / _questions.length) * 100;
-    if (percentage >= 80) return Colors.green;
-    if (percentage >= 60) return Colors.blue;
-    if (percentage >= 40) return Colors.orange;
-    return Colors.red;
+    if (percentage >= 80) return const Color(0xFF66BB6A);
+    if (percentage >= 60) return const Color(0xFF42A5F5);
+    if (percentage >= 40) return const Color(0xFFFF9800);
+    return const Color(0xFFEF5350);
   }
 
   @override
@@ -242,9 +239,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color.fromARGB(255, 86, 152, 200),
-                  Color.fromARGB(255, 100, 159, 217),
-                  Color.fromARGB(255, 95, 167, 181),
+                  Color(0xFF1E88E5), // Bleu foncé
+                  Color(0xFF42A5F5), // Bleu moyen
+                  Color(0xFF81D4FA), // Bleu clair
+                  Colors.white,      // Blanc
                 ],
               ),
             ),
@@ -256,11 +254,12 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                   pinned: true,
                   elevation: 0,
                   backgroundColor: Colors.transparent,
+                  iconTheme: const IconThemeData(color: Colors.white),
                   flexibleSpace: FlexibleSpaceBar(
                     title: Text(
                       _tr('app.quiz'),
                       style: const TextStyle(
-                        color: Color(0xFF2E3A59),
+                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
                       ),
@@ -271,8 +270,8 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            Color.fromARGB(255, 117, 228, 238),
-                            Color.fromARGB(255, 76, 175, 172),
+                            Color(0xFF1565C0), // Bleu très foncé
+                            Color(0xFF1E88E5), // Bleu foncé
                           ],
                         ),
                       ),
@@ -312,16 +311,23 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        color: Color(0xFF2E3A59),
+                        color: Colors.white,
                       ),
                     ),
                     Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
-                          colors: [Color(0xFF6C63FF), Color(0xFF4CAF50)],
+                          colors: [Color(0xFF1565C0), Color(0xFF1976D2)],
                         ),
                         borderRadius: BorderRadius.circular(15),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.2),
+                            blurRadius: 8,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
                       ),
                       child: Text(
                         '${_tr('quiz.score')}: $_score',
@@ -338,11 +344,26 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 AnimatedBuilder(
                   animation: _progressController,
                   builder: (context, child) {
-                    return LinearProgressIndicator(
-                      value: _progressController.value,
-                      backgroundColor: Colors.grey[300],
-                      valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF6C63FF)),
-                      minHeight: 8,
+                    return Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.1),
+                            blurRadius: 4,
+                            offset: const Offset(0, 2),
+                          ),
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: LinearProgressIndicator(
+                          value: _progressController.value,
+                          backgroundColor: Colors.white.withOpacity(0.3),
+                          valueColor: const AlwaysStoppedAnimation<Color>(Color(0xFF1565C0)),
+                          minHeight: 12,
+                        ),
+                      ),
                     );
                   },
                 ),
@@ -360,15 +381,14 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  const Color(0xFF6C63FF).withOpacity(0.1),
                   Colors.white,
+                  Colors.white.withOpacity(0.9),
                 ],
               ),
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: const Color(0xFF6C63FF).withOpacity(0.3)),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: Colors.black.withOpacity(0.15),
                   blurRadius: 20,
                   offset: const Offset(0, 10),
                 ),
@@ -376,10 +396,19 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             ),
             child: Column(
               children: [
-                const Icon(
-                  Icons.quiz,
-                  color: Color(0xFF6C63FF),
-                  size: 40,
+                Container(
+                  padding: const EdgeInsets.all(12),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFF42A5F5), Color(0xFF1E88E5)],
+                    ),
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: const Icon(
+                    Icons.quiz,
+                    color: Colors.white,
+                    size: 30,
+                  ),
                 ),
                 const SizedBox(height: 16),
                 Text(
@@ -387,7 +416,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF2E3A59),
+                    color: Color(0xFF1565C0),
                     height: 1.4,
                   ),
                   textAlign: TextAlign.center,
@@ -404,8 +433,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 margin: const EdgeInsets.only(bottom: 12),
                 child: Material(
                   color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(15),
                   child: InkWell(
-                    onTap: () => _selectAnswer(index),
+                    onTap: _answerSelected ? null : () => _selectAnswer(index),
                     borderRadius: BorderRadius.circular(15),
                     child: AnimatedContainer(
                       duration: const Duration(milliseconds: 300),
@@ -419,9 +449,9 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                         ),
                         boxShadow: [
                           BoxShadow(
-                            color: _getAnswerColor(index).withOpacity(0.2),
-                            blurRadius: 8,
-                            offset: const Offset(0, 4),
+                            color: _getAnswerColor(index).withOpacity(0.3),
+                            blurRadius: 12,
+                            offset: const Offset(0, 6),
                           ),
                         ],
                       ),
@@ -431,7 +461,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                             width: 40,
                             height: 40,
                             decoration: BoxDecoration(
-                              color: Colors.white.withOpacity(0.3),
+                              color: Colors.white.withOpacity(0.4),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: Center(
@@ -462,7 +492,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             }),
           ),
 
-          // Explication (si réponse sélectionnée)
+          // Explication + Bouton suivant
           if (_showCorrectAnswer) ...[
             const SizedBox(height: 24),
             Container(
@@ -470,26 +500,42 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               padding: const EdgeInsets.all(20),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
-                  colors: [Colors.blue[50]!, Colors.white],
+                  colors: [const Color(0xFF42A5F5).withOpacity(0.1), Colors.white],
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ),
                 borderRadius: BorderRadius.circular(15),
-                border: Border.all(color: Colors.blue[200]!),
+                border: Border.all(color: const Color(0xFF42A5F5).withOpacity(0.3)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 15,
+                    offset: const Offset(0, 8),
+                  ),
+                ],
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
                     children: [
-                      Icon(Icons.lightbulb, color: Colors.blue[600], size: 24),
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [Color(0xFF42A5F5), Color(0xFF1E88E5)],
+                          ),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: const Icon(Icons.lightbulb, color: Colors.white, size: 20),
+                      ),
                       const SizedBox(width: 12),
                       Text(
                         _tr('quiz.explanation'),
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue[700],
+                          color: Color(0xFF1565C0),
                         ),
                       ),
                     ],
@@ -501,6 +547,50 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                       fontSize: 14,
                       color: Color(0xFF455A64),
                       height: 1.5,
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  // NOUVEAU BOUTON pour passer à la question suivante
+                  Center(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [Color(0xFF42A5F5), Color(0xFF1E88E5)],
+                        ),
+                        borderRadius: BorderRadius.circular(25),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFF1E88E5).withOpacity(0.4),
+                            blurRadius: 15,
+                            offset: const Offset(0, 8),
+                          ),
+                        ],
+                      ),
+                      child: Material(
+                        color: Colors.transparent,
+                        borderRadius: BorderRadius.circular(25),
+                        child: InkWell(
+                          onTap: _nextQuestion,
+                          borderRadius: BorderRadius.circular(25),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                const Icon(Icons.play_arrow, color: Colors.white, size: 24),
+                                const SizedBox(width: 8),
+                                Container(
+                                  width: 2,
+                                  height: 20,
+                                  color: Colors.white.withOpacity(0.7),
+                                ),
+                                const SizedBox(width: 8),
+                                const Icon(Icons.skip_next, color: Colors.white, size: 24),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ],
@@ -529,15 +619,14 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                scoreColor.withOpacity(0.1),
                 Colors.white,
+                Colors.white.withOpacity(0.9),
               ],
             ),
             borderRadius: BorderRadius.circular(20),
-            border: Border.all(color: scoreColor.withOpacity(0.3)),
             boxShadow: [
               BoxShadow(
-                color: Colors.black.withOpacity(0.1),
+                color: Colors.black.withOpacity(0.15),
                 blurRadius: 20,
                 offset: const Offset(0, 10),
               ),
@@ -545,12 +634,21 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
           ),
           child: Column(
             children: [
-              Icon(
-                percentage >= 80 ? Icons.emoji_events : 
-                percentage >= 60 ? Icons.thumb_up : 
-                percentage >= 40 ? Icons.school : Icons.refresh,
-                color: scoreColor,
-                size: 60,
+              Container(
+                padding: const EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [scoreColor.withOpacity(0.2), scoreColor.withOpacity(0.1)],
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Icon(
+                  percentage >= 80 ? Icons.emoji_events : 
+                  percentage >= 60 ? Icons.thumb_up : 
+                  percentage >= 40 ? Icons.school : Icons.refresh,
+                  color: scoreColor,
+                  size: 60,
+                ),
               ),
               const SizedBox(height: 16),
               Text(
@@ -558,7 +656,7 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
                 style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
-                  color: Color(0xFF2E3A59),
+                  color: Color(0xFF1565C0),
                 ),
               ),
               const SizedBox(height: 8),
@@ -575,25 +673,28 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
               Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: scoreColor.withOpacity(0.1),
+                  gradient: LinearGradient(
+                    colors: [const Color(0xFF42A5F5).withOpacity(0.1), Colors.white],
+                  ),
                   borderRadius: BorderRadius.circular(15),
+                  border: Border.all(color: const Color(0xFF42A5F5).withOpacity(0.3)),
                 ),
                 child: Column(
                   children: [
                     Text(
                       '$_score / ${_questions.length}',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 36,
                         fontWeight: FontWeight.bold,
-                        color: scoreColor,
+                        color: Color(0xFF1565C0),
                       ),
                     ),
                     Text(
                       '$percentage%',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w600,
-                        color: scoreColor,
+                        color: Color(0xFF1976D2),
                       ),
                     ),
                   ],
@@ -609,45 +710,77 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         Row(
           children: [
             Expanded(
-              child: ElevatedButton.icon(
-                onPressed: _restartQuiz,
-                icon: const Icon(Icons.refresh, color: Colors.white),
-                label: Text(
-                  _tr('quiz.restart'),
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF42A5F5), Color(0xFF1E88E5)],
                   ),
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFF1E88E5).withOpacity(0.4),
+                      blurRadius: 15,
+                      offset: const Offset(0, 8),
+                    ),
+                  ],
                 ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF6C63FF),
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
+                child: ElevatedButton.icon(
+                  onPressed: _restartQuiz,
+                  icon: const Icon(Icons.refresh, color: Colors.white),
+                  label: Text(
+                    _tr('quiz.restart'),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                   ),
                 ),
               ),
             ),
             const SizedBox(width: 16),
             Expanded(
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  // Retour à l'accueil ou navigation
-                  Navigator.of(context).pop();
-                },
-                icon: const Icon(Icons.home, color: Colors.white),
-                label: Text(
-                  _tr('quiz.home'),
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: const LinearGradient(
+                    colors: [Color(0xFF66BB6A), Color(0xFF4CAF50)],
                   ),
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      color: const Color(0xFF4CAF50).withOpacity(0.4),
+                      blurRadius: 15,
+                      offset: const Offset(0, 8),
+                    ),
+                  ],
                 ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF4CAF50),
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
+                child: ElevatedButton.icon(
+                  onPressed: () {
+                    // CORRECTION : Revenir en arrière avec popUntil
+                    Navigator.of(context).popUntil((route) => route.isFirst);
+                  },
+                  icon: const Icon(Icons.home, color: Colors.white),
+                  label: Text(
+                    _tr('quiz.home'),
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    shadowColor: Colors.transparent,
+                    padding: const EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
                   ),
                 ),
               ),

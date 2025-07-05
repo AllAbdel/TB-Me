@@ -156,7 +156,24 @@
   "information": {
     "title": "关于结核病的信息",
     "links": {
-      "title": "有用的链接"
+      "title": "有用链接",
+  "error": "无法打开链接",
+  "who": {
+    "title": "世界卫生组织",
+    "description": "关于结核病的事实说明"
+  },
+  "ministry": {
+    "title": "法国卫生部",
+    "description": "结核病：官方信息"
+  },
+  "fight": {
+    "title": "抗击结核病",
+    "description": "法国的策略和行动"
+  },
+  "refugees": {
+    "title": "难民信息",
+    "description": "难民信息"
+  }
     },
     "understanding": {
       "title": "了解结核病",

@@ -21,7 +21,7 @@ void main() async {
   // Initialiser les notifications
   await NotificationService.initialize();
   
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -32,9 +32,43 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'TB&Me',
       theme: ThemeData(
+        // Thème bleu principal
         primarySwatch: Colors.blue,
+        primaryColor: const Color(0xFF1565C0),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFF1565C0),
+          brightness: Brightness.light,
+        ),
+        // AppBar theme
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF1565C0),
+          foregroundColor: Colors.white,
+          elevation: 4,
+          titleTextStyle: TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        // ElevatedButton theme
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF42A5F5),
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+        ),
+        // Card theme
+        cardTheme: const CardThemeData(
+          elevation: 8,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+          ),
+        ),
       ),
-      home: PermissionWrapper(),
+      home: const PermissionWrapper(),
       supportedLocales: const [
         Locale('fr', ''), Locale('en', ''), Locale('ar', ''),
         Locale('pt', ''), Locale('es', ''), Locale('ru', ''),
@@ -110,8 +144,10 @@ class _PermissionWrapperState extends State<PermissionWrapper> {
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
               colors: [
-                Color.fromARGB(255, 121, 246, 109),
-                Color.fromARGB(255, 105, 235, 235),
+                Color(0xFF1565C0), // Bleu très foncé
+                Color(0xFF1E88E5), // Bleu foncé
+                Color(0xFF42A5F5), // Bleu moyen
+                Color(0xFF81D4FA), // Bleu clair
               ],
             ),
           ),
@@ -120,50 +156,104 @@ class _PermissionWrapperState extends State<PermissionWrapper> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  width: 120,
-                  height: 120,
+                  width: 140,
+                  height: 140,
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
-                    borderRadius: BorderRadius.circular(60),
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.white.withOpacity(0.3),
+                        Colors.white.withOpacity(0.1),
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(70),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.2),
+                        blurRadius: 20,
+                        offset: const Offset(0, 10),
+                      ),
+                    ],
                   ),
                   child: const Icon(
                     Icons.medical_services, 
-                    size: 60, 
+                    size: 70, 
                     color: Colors.white
                   ),
                 ),
-                const SizedBox(height: 30),
-                const Text(
-                  'TB',
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                const SizedBox(height: 40),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.white.withOpacity(0.2),
+                        Colors.white.withOpacity(0.1),
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(25),
+                    border: Border.all(
+                      color: Colors.white.withOpacity(0.3),
+                      width: 2,
+                    ),
+                  ),
+                  child: Column(
+                    children: [
+                      const Text(
+                        'TB&Me',
+                        style: TextStyle(
+                          fontSize: 32,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          letterSpacing: 2,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        'Suivi de traitement',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white.withOpacity(0.9),
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 10),
-                Text(
-                  'Suivi de traitement',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white.withOpacity(0.8),
+                const SizedBox(height: 60),
+                Container(
+                  padding: const EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.white.withOpacity(0.2),
+                        Colors.white.withOpacity(0.1),
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                  child: const SizedBox(
+                    width: 40,
+                    height: 40,
+                    child: CircularProgressIndicator(
+                      color: Colors.white,
+                      strokeWidth: 4,
+                    ),
                   ),
                 ),
-                const SizedBox(height: 50),
-                const SizedBox(
-                  width: 40,
-                  height: 40,
-                  child: CircularProgressIndicator(
-                    color: Colors.white,
-                    strokeWidth: 3,
+                const SizedBox(height: 24),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  'Initialisation...',
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.9), 
-                    fontSize: 16
+                  child: Text(
+                    'Initialisation...',
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.9), 
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ],
@@ -173,7 +263,7 @@ class _PermissionWrapperState extends State<PermissionWrapper> {
       );
     }
     
-    return MainPage();
+    return const MainPage();
   }
 }
 
@@ -204,9 +294,9 @@ class _MainPageState extends State<MainPage> {
     _pages = [
       AccueilPage(key: _accueilKey),
       MedicamentsPage(key: _medicamentsKey),
-      QuizPage(),
-      InformationsPage(),
-      ParametresPage(),
+      const QuizPage(),
+      const InformationsPage(),
+      const ParametresPage(),
     ];
   }
 
@@ -241,21 +331,22 @@ class _MainPageState extends State<MainPage> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color.fromARGB(255, 121, 246, 109),
-                  Color.fromARGB(255, 105, 235, 235),
+                  Color(0xFF1565C0), // Bleu très foncé
+                  Color(0xFF1E88E5), // Bleu foncé
+                  Color(0xFF42A5F5), // Bleu moyen
                 ],
               ),
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.1),
+                  color: const Color(0xFF1565C0).withOpacity(0.3),
                   blurRadius: 20,
-                  offset: const Offset(0, -5),
+                  offset: const Offset(0, -8),
                 ),
               ],
             ),
             child: ClipRRect(
-              borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(25)),
               child: BottomNavigationBar(
                 currentIndex: _currentIndex,
                 onTap: _onTabTapped,
@@ -268,55 +359,155 @@ class _MainPageState extends State<MainPage> {
                 unselectedFontSize: 10,
                 items: [
                   BottomNavigationBarItem(
-                    icon: Container(
-                      padding: const EdgeInsets.all(8),
+                    icon: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: _currentIndex == 0 ? Colors.white.withOpacity(0.2) : Colors.transparent,
-                        borderRadius: BorderRadius.circular(12),
+                        gradient: _currentIndex == 0 
+                          ? LinearGradient(
+                              colors: [
+                                Colors.white.withOpacity(0.3),
+                                Colors.white.withOpacity(0.1),
+                              ],
+                            )
+                          : null,
+                        borderRadius: BorderRadius.circular(15),
+                        border: _currentIndex == 0 
+                          ? Border.all(color: Colors.white.withOpacity(0.4), width: 2)
+                          : null,
+                        boxShadow: _currentIndex == 0 
+                          ? [
+                              BoxShadow(
+                                color: Colors.white.withOpacity(0.2),
+                                blurRadius: 10,
+                                offset: const Offset(0, 4),
+                              ),
+                            ]
+                          : null,
                       ),
                       child: const Icon(Icons.home, size: 24),
                     ),
                     label: _tr('app.home'),
                   ),
                   BottomNavigationBarItem(
-                    icon: Container(
-                      padding: const EdgeInsets.all(8),
+                    icon: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: _currentIndex == 1 ? Colors.white.withOpacity(0.2) : Colors.transparent,
-                        borderRadius: BorderRadius.circular(12),
+                        gradient: _currentIndex == 1 
+                          ? LinearGradient(
+                              colors: [
+                                Colors.white.withOpacity(0.3),
+                                Colors.white.withOpacity(0.1),
+                              ],
+                            )
+                          : null,
+                        borderRadius: BorderRadius.circular(15),
+                        border: _currentIndex == 1 
+                          ? Border.all(color: Colors.white.withOpacity(0.4), width: 2)
+                          : null,
+                        boxShadow: _currentIndex == 1 
+                          ? [
+                              BoxShadow(
+                                color: Colors.white.withOpacity(0.2),
+                                blurRadius: 10,
+                                offset: const Offset(0, 4),
+                              ),
+                            ]
+                          : null,
                       ),
                       child: const Icon(Icons.medication, size: 24),
                     ),
                     label: _tr('app.medications'),
                   ),
                   BottomNavigationBarItem(
-                    icon: Container(
-                      padding: const EdgeInsets.all(8),
+                    icon: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: _currentIndex == 2 ? Colors.white.withOpacity(0.2) : Colors.transparent,
-                        borderRadius: BorderRadius.circular(12),
+                        gradient: _currentIndex == 2 
+                          ? LinearGradient(
+                              colors: [
+                                Colors.white.withOpacity(0.3),
+                                Colors.white.withOpacity(0.1),
+                              ],
+                            )
+                          : null,
+                        borderRadius: BorderRadius.circular(15),
+                        border: _currentIndex == 2 
+                          ? Border.all(color: Colors.white.withOpacity(0.4), width: 2)
+                          : null,
+                        boxShadow: _currentIndex == 2 
+                          ? [
+                              BoxShadow(
+                                color: Colors.white.withOpacity(0.2),
+                                blurRadius: 10,
+                                offset: const Offset(0, 4),
+                              ),
+                            ]
+                          : null,
                       ),
                       child: const Icon(Icons.quiz, size: 24),
                     ),
                     label: _tr('app.quiz'),
                   ),
                   BottomNavigationBarItem(
-                    icon: Container(
-                      padding: const EdgeInsets.all(8),
+                    icon: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: _currentIndex == 3 ? Colors.white.withOpacity(0.2) : Colors.transparent,
-                        borderRadius: BorderRadius.circular(12),
+                        gradient: _currentIndex == 3 
+                          ? LinearGradient(
+                              colors: [
+                                Colors.white.withOpacity(0.3),
+                                Colors.white.withOpacity(0.1),
+                              ],
+                            )
+                          : null,
+                        borderRadius: BorderRadius.circular(15),
+                        border: _currentIndex == 3 
+                          ? Border.all(color: Colors.white.withOpacity(0.4), width: 2)
+                          : null,
+                        boxShadow: _currentIndex == 3 
+                          ? [
+                              BoxShadow(
+                                color: Colors.white.withOpacity(0.2),
+                                blurRadius: 10,
+                                offset: const Offset(0, 4),
+                              ),
+                            ]
+                          : null,
                       ),
                       child: const Icon(Icons.info, size: 24),
                     ),
                     label: _tr('app.information'),
                   ),
                   BottomNavigationBarItem(
-                    icon: Container(
-                      padding: const EdgeInsets.all(8),
+                    icon: AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                        color: _currentIndex == 4 ? Colors.white.withOpacity(0.2) : Colors.transparent,
-                        borderRadius: BorderRadius.circular(12),
+                        gradient: _currentIndex == 4 
+                          ? LinearGradient(
+                              colors: [
+                                Colors.white.withOpacity(0.3),
+                                Colors.white.withOpacity(0.1),
+                              ],
+                            )
+                          : null,
+                        borderRadius: BorderRadius.circular(15),
+                        border: _currentIndex == 4 
+                          ? Border.all(color: Colors.white.withOpacity(0.4), width: 2)
+                          : null,
+                        boxShadow: _currentIndex == 4 
+                          ? [
+                              BoxShadow(
+                                color: Colors.white.withOpacity(0.2),
+                                blurRadius: 10,
+                                offset: const Offset(0, 4),
+                              ),
+                            ]
+                          : null,
                       ),
                       child: const Icon(Icons.settings, size: 24),
                     ),

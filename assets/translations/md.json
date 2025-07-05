@@ -156,7 +156,24 @@
   "information": {
     "title": "Informații despre tuberculoză",
     "links": {
-      "title": "Link-uri utile"
+      "title": "Link-uri utile",
+  "error": "Nu se poate deschide link-ul",
+  "who": {
+    "title": "OMS - Organizația Mondială a Sănătății",
+    "description": "Fișă informativă despre tuberculoză"
+  },
+  "ministry": {
+    "title": "Ministerul Sănătății - Franța",
+    "description": "Tuberculoza: informații oficiale"
+  },
+  "fight": {
+    "title": "Lupta împotriva tuberculozei",
+    "description": "Strategii și acțiuni în Franța"
+  },
+  "refugees": {
+    "title": "Informații pentru refugiați",
+    "description": "Informații pentru refugiați"
+  }
     },
     "understanding": {
       "title": "Înțelegerea tuberculozei",

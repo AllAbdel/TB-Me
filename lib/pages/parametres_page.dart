@@ -443,7 +443,7 @@ Widget build(BuildContext context) {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          child: Text("TB&Me"),
+                          child: const Text("TB&Me"),
                         ),
                       ),
                       const SizedBox(height: 16),
