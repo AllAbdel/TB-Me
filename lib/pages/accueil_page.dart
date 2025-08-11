@@ -755,8 +755,8 @@ int getTotalMedicamentsAujourdhui() {
                           end: Alignment.bottomRight,
                           colors: [
                             Color(0xFF81D4FA), // Bleu clair
-                          Color(0xFFF8F9FA),
-                          Colors.white,
+                          Color.fromARGB(255, 0, 0, 0),
+                          const Color.fromARGB(255, 0, 0, 0),
                           ],
                         ),
                             borderRadius: BorderRadius.circular(20),
