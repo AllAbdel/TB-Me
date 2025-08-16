@@ -701,7 +701,7 @@ int getTotalMedicamentsAujourdhui() {
                   floating: false,
                   pinned: true,
                   elevation: 0,
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: const Color.fromARGB(0, 255, 255, 255),
                   flexibleSpace: FlexibleSpaceBar(
                     title: Text(
                       _tr('app.home'),
@@ -755,8 +755,8 @@ int getTotalMedicamentsAujourdhui() {
                           end: Alignment.bottomRight,
                           colors: [
                             Color(0xFF81D4FA), // Bleu clair
-                          Color.fromARGB(255, 0, 0, 0),
-                          const Color.fromARGB(255, 0, 0, 0),
+                          Color.fromARGB(255, 255, 10, 10),
+                          const Color.fromARGB(255, 255, 3, 3),
                           ],
                         ),
                             borderRadius: BorderRadius.circular(20),
@@ -778,7 +778,7 @@ int getTotalMedicamentsAujourdhui() {
                                   Text(
                                     _tr('home.welcome'),
                                     style: const TextStyle(
-                                      color: Color.fromARGB(255, 0, 0, 0),
+                                      color: Color.fromARGB(255, 255, 255, 255),
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -798,7 +798,7 @@ int getTotalMedicamentsAujourdhui() {
                               Text(
                                 '${getMedicamentsPrisAujourdhui()}/${getTotalMedicamentsAujourdhui()} ${_tr('home.medications_today')}',
                                 style: TextStyle(
-                                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.8),
+                                  color: const Color.fromARGB(255, 252, 252, 252).withOpacity(0.8),
                                   fontSize: 14,
                                 ),
                               ),
@@ -817,11 +817,11 @@ int getTotalMedicamentsAujourdhui() {
                                 padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
                                   gradient: const LinearGradient(
-                                    colors: [Color(0xFF6C63FF), Color(0xFF4CAF50)],
+                                    colors: [Color.fromARGB(255, 120, 235, 255), Color.fromARGB(255, 159, 236, 255)],
                                   ),
                                   borderRadius: BorderRadius.circular(15),
                                 ),
-                                child: const Icon(Icons.today, color: Color.fromARGB(255, 0, 0, 0), size: 24),
+                                child: const Icon(Icons.today, color: Color.fromARGB(255, 255, 255, 255), size: 24),
                               ),
                               const SizedBox(width: 12),
                               Text(
