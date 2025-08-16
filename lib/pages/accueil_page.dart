@@ -687,8 +687,8 @@ int getTotalMedicamentsAujourdhui() {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color(0xFF1565C0), // Bleu très foncé
-                  Color(0xFF1E88E5), // Bleu foncé
+                  Color.fromARGB(255, 186, 21, 192), // Bleu très foncé
+                  Color.fromARGB(255, 196, 30, 229), // Bleu foncé
                   Colors.white,
                 ],
               ),
@@ -717,8 +717,8 @@ int getTotalMedicamentsAujourdhui() {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            Color(0xFF1565C0), // Bleu très foncé
-                            Color(0xFF1E88E5), // Bleu foncé
+                            Color.fromARGB(255, 255, 255, 255), 
+                            Color.fromARGB(255, 255, 255, 255), 
                           ],
                         ),
                       ),
@@ -755,8 +755,8 @@ int getTotalMedicamentsAujourdhui() {
                           end: Alignment.bottomRight,
                           colors: [
                             Color(0xFF81D4FA), // Bleu clair
-                          Color.fromARGB(255, 255, 10, 10),
-                          const Color.fromARGB(255, 255, 3, 3),
+                          Color.fromARGB(255, 129, 212, 250),
+                          const Color.fromARGB(255, 255, 255, 255),
                           ],
                         ),
                             borderRadius: BorderRadius.circular(20),
