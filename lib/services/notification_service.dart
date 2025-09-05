@@ -16,55 +16,104 @@ class NotificationService {
     return _languageProvider.translate(key);
   }
   
-  static Future<void> initialize() async {
-  print('🔔 Initialisation des notifications...'); // Debug
   
+static Future<void> initialize() async {
+  print('🔔 Initialisation des notifications...');
+
   tz.initializeTimeZones();
-  print('🌐 Fuseaux horaires initialisés'); // Debug
-  
+  print('🌐 Fuseaux horaires initialisés');
+
+  // ===== NOUVEAU : Création des canaux de notification =====
+  const AndroidNotificationChannel channel5Min = AndroidNotificationChannel(
+    '5min_reminders',
+    'Rappels 5 minutes',
+    description: 'Rappels 5 minutes avant la prise',
+    importance: Importance.high,
+    playSound: true,
+    sound: RawResourceAndroidNotificationSound('notification_sound'), // Son personnalisé
+  );
+
+  const AndroidNotificationChannel channelTime = AndroidNotificationChannel(
+    'time_reminders',
+    'Rappels de prise',
+    description: 'Rappels à l\'heure exacte de prise',
+    importance: Importance.max,
+    playSound: true,
+    sound: RawResourceAndroidNotificationSound('notification_sound'), // Son personnalisé
+  );
+
+  const AndroidNotificationChannel channelFasting = AndroidNotificationChannel(
+    'fasting_reminders',
+    'Rappels de jeûne',
+    description: 'Rappels 2h avant pour les médicaments à jeun',
+    importance: Importance.high,
+    playSound: true,
+    sound: RawResourceAndroidNotificationSound('notification_sound'), // Son personnalisé
+  );
+
+  await _notifications.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+      ?.createNotificationChannel(channel5Min);
+  await _notifications.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+      ?.createNotificationChannel(channelTime);
+  await _notifications.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+      ?.createNotificationChannel(channelFasting);
+  // ===== FIN NOUVEAU =====
+
   const AndroidInitializationSettings androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
   const DarwinInitializationSettings iosSettings = DarwinInitializationSettings(
     requestAlertPermission: true,
     requestBadgePermission: true,
     requestSoundPermission: true,
   );
-  
+
   const InitializationSettings settings = InitializationSettings(
     android: androidSettings,
     iOS: iosSettings,
   );
-  
+
   try {
     bool? initialized = await _notifications.initialize(
       settings,
       onDidReceiveNotificationResponse: _onNotificationTapped,
     );
-    print('✅ Notifications initialisées: $initialized'); // Debug
+    print('✅ Notifications initialisées: $initialized');
   } catch (e) {
-    print('❌ Erreur initialisation notifications: $e'); // Debug
+    print('❌ Erreur initialisation notifications: $e');
   }
-  
+
   await _requestPermissions();
-  print('🔔 Permissions demandées'); // Debug
-}  
-  static Future<void> _requestPermissions() async {
-    if (Platform.isAndroid) {
-      await Permission.notification.request();
-      if (await Permission.scheduleExactAlarm.isDenied) {
-        await Permission.scheduleExactAlarm.request();
-      }
+  print('🔔 Permissions demandées');
+}
+  
+
+static Future<void> _requestPermissions() async {
+  if (Platform.isAndroid) {
+    // Demander la permission de notification
+    await Permission.notification.request();
+
+    // Demander la permission pour les alarmes exactes
+    if (await Permission.scheduleExactAlarm.isDenied) {
+      await Permission.scheduleExactAlarm.request();
     }
-    
-    if (Platform.isIOS) {
-      await _notifications
-          .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
-          ?.requestPermissions(
-            alert: true,
-            badge: true,
-            sound: true,
-          );
+
+    // Demander la permission de stockage
+    PermissionStatus storageStatus = await Permission.storage.request();
+    if (storageStatus.isDenied) {
+      await Permission.manageExternalStorage.request();
     }
   }
+
+  if (Platform.isIOS) {
+    await _notifications
+        .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
+        ?.requestPermissions(
+          alert: true,
+          badge: true,
+          sound: true,
+        );
+  }
+}
+
   static Future<void> showSimpleTestNotification() async {
   const AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
     'test_channel',
@@ -240,16 +289,21 @@ class NotificationService {
     required DateTime scheduledTime,
   }) async {
     AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
-      'time_reminders',
-      'Rappels de prise',
-      channelDescription: 'Rappels à l\'heure exacte de prise',
+      '5min_reminders', // ID du canal
+      'Rappels 5 minutes', // Nom du canal
+      channelDescription: 'Rappels 5 minutes avant la prise', // Description
       importance: Importance.max,
       priority: Priority.max,
       enableVibration: true,
-      vibrationPattern: Int64List.fromList([0, 1000, 500, 1000, 500, 1000]),
+      vibrationPattern: Int64List.fromList([0, 300, 100, 300]),
       playSound: true,
+      sound: RawResourceAndroidNotificationSound('notification_sound'), // Ajoute un son personnalisé
       enableLights: true,
+      ledColor: Colors.blue,
+      ledOnMs: 1000,
+      ledOffMs: 500,
     );
+
     
     const DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
       presentAlert: true,

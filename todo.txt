@@ -1,3 +1,5 @@
-- changement du thème global, que 3 couleurs, bleu clair presque gris, bleu qui servira pour faire des dégradé, bleu foncé
+- Refaire les notifications
 
-- demander à audrey de tester
+- Refaire le rattrapage
+
+- Attente de retour du CLAT

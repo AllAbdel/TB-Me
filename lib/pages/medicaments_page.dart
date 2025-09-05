@@ -431,21 +431,17 @@ List<Map<String, dynamic>> _regrouperPosologie() {
     }
 
     try {
-      PermissionStatus storageStatus;
       if (Platform.isAndroid) {
-        storageStatus = await Permission.storage.status;
-        if (storageStatus.isDenied) {
-          storageStatus = await Permission.storage.request();
-        }
-        
+        // Demander la permission de stockage
+        PermissionStatus storageStatus = await Permission.storage.request();
         if (storageStatus.isDenied) {
           storageStatus = await Permission.manageExternalStorage.request();
         }
-        
+
         if (storageStatus.isDenied) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(_tr('medications.pdf.storage_permission')),
+              content: Text(_tr('medications.pdf.storage_permission_denied')),
               backgroundColor: Colors.orange,
               action: SnackBarAction(
                 label: 'Paramètres',
@@ -456,6 +452,7 @@ List<Map<String, dynamic>> _regrouperPosologie() {
           return;
         }
       }
+
 
       final ByteData bytes = await DefaultAssetBundle.of(context).load(cheminPdf);
       final Uint8List list = bytes.buffer.asUint8List();

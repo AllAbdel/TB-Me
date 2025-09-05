@@ -62,6 +62,10 @@ flutter:
     - assets/sounds/
     - assets/flags/berber_flag.png
 
+flutter:
+  assets:
+    - assets/
+    - android/app/src/main/res/raw/notification_sound.mp3
   # fonts:
   #   - family: Roboto
   #     fonts:
