@@ -32,7 +32,32 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
   final random = (seconds % 100000); // Garder seulement les 5 derniers chiffres
   return random;
 }
+List<Map<String, dynamic>> _regrouperPosologie() {
+  Map<String, Map<String, dynamic>> medicamentsGroupes = {};
 
+  for (var medicament in maPosologie) {
+    String key = '${medicament['nom']}_${medicament['dosage']}';
+
+    if (!medicamentsGroupes.containsKey(key)) {
+      medicamentsGroupes[key] = {
+        'nom': medicament['nom'],
+        'dosage': medicament['dosage'],
+        'image': medicament['image'],
+        'stock': medicament['stock'],
+        'aJeun': medicament['aJeun'] ?? false,
+        'horaires': [],
+      };
+    }
+
+    medicamentsGroupes[key]!['horaires'].add({
+      'heure': medicament['heure'],
+      'nombreComprimes': medicament['nombreComprimes'],
+      'id': medicament['id'],
+    });
+  }
+
+  return medicamentsGroupes.values.toList();
+}
   List<Map<String, dynamic>> medicamentsDisponibles = [
     {
       'nom': 'Rifadine',
@@ -507,7 +532,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
       builder: (BuildContext context) {
         TimeOfDay heureSelectionnee = TimeOfDay.now();
         int nombreComprimes = 1;
-        bool aJeun = false;
+        bool aJeun = true;
         int stock = stockInitial;
         bool formatDialog24h = true;
 
@@ -1503,22 +1528,32 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                     child: ListTile(
                                       contentPadding: const EdgeInsets.all(16),
                                       onTap: () => _voirDetailsMedicament(medicament),
-                                      leading: Container(
-                                        width: 50,
-                                        height: 50,
-                                        decoration: BoxDecoration(
-                                          gradient: LinearGradient(
-                                            colors: [const Color(0xFF6C63FF).withOpacity(0.1), const Color(0xFF4CAF50).withOpacity(0.1)],
+                                      leading: GestureDetector(
+                                        onTap: () => _agrandirImage(medicament['image'], medicament['nom']),
+                                        child: Container(
+                                          width: 50,
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(12),
+                                            border: Border.all(color: const Color(0xFF6C63FF).withOpacity(0.3)),
                                           ),
-                                          borderRadius: BorderRadius.circular(12),
-                                          border: Border.all(color: const Color(0xFF6C63FF).withOpacity(0.3)),
-                                        ),
-                                        child: const Icon(
-                                          Icons.medication,
-                                          color: Color(0xFF6C63FF),
-                                          size: 24,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.circular(10),
+                                            child: Image.asset(
+                                              medicament['image'],
+                                              fit: BoxFit.cover,
+                                              errorBuilder: (context, error, stackTrace) {
+                                                return const Icon(
+                                                  Icons.medication,
+                                                  color: Color(0xFF6C63FF),
+                                                  size: 24,
+                                                );
+                                              },
+                                            ),
+                                          ),
                                         ),
                                       ),
+
                                       title: Text(
                                         medicament['nom'],
                                         style: const TextStyle(
@@ -1687,7 +1722,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                               ],
                             ),
                             child: Column(
-                              children: maPosologie.map((medicament) {
+                              children: _regrouperPosologie().map((medicamentGroupe) {
                                 return Container(
                                   margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                                   decoration: BoxDecoration(
@@ -1699,111 +1734,132 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                     borderRadius: BorderRadius.circular(15),
                                     border: Border.all(color: const Color(0xFF4CAF50).withOpacity(0.3)),
                                   ),
-                                  child: ListTile(
-                                    contentPadding: const EdgeInsets.all(16),
-                                    leading: Container(
-                                      width: 50,
-                                      height: 50,
-                                      decoration: BoxDecoration(
-                                        gradient: LinearGradient(
-                                          colors: [const Color(0xFF4CAF50).withOpacity(0.2), const Color(0xFF4CAF50).withOpacity(0.1)],
-                                        ),
-                                        borderRadius: BorderRadius.circular(12),
-                                        border: Border.all(color: const Color(0xFF4CAF50).withOpacity(0.5)),
-                                      ),
-                                      child: const Icon(
-                                        Icons.medication,
-                                        color: Color(0xFF4CAF50),
-                                        size: 24,
-                                      ),
-                                    ),
-                                    title: Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            '${medicament['nom']} ${medicament['dosage']}',
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16,
-                                              color: Color(0xFF2E3A59),
-                                            ),
-                                          ),
-                                        ),
-                                        if (medicament['aJeun'] == true)
-                                          Container(
-                                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                  child: Column(
+                                    children: [
+                                      ListTile(
+                                        contentPadding: const EdgeInsets.all(16),
+                                        leading: GestureDetector(
+                                          onTap: () => _agrandirImage(medicamentGroupe['image'], medicamentGroupe['nom']),
+                                          child: Container(
+                                            width: 50,
+                                            height: 50,
                                             decoration: BoxDecoration(
-                                              color: Colors.orange[100],
-                                              borderRadius: BorderRadius.circular(8),
-                                              border: Border.all(color: Colors.orange[300]!),
+                                              borderRadius: BorderRadius.circular(12),
+                                              border: Border.all(color: const Color(0xFF4CAF50).withOpacity(0.5)),
                                             ),
-                                            child: Text(
-                                              _tr('medications.fasting'),
-                                              style: TextStyle(
-                                                color: Colors.orange[700],
-                                                fontSize: 10,
-                                                fontWeight: FontWeight.bold,
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(10),
+                                              child: Image.asset(
+                                                medicamentGroupe['image'],
+                                                fit: BoxFit.cover,
+                                                errorBuilder: (context, error, stackTrace) {
+                                                  return const Icon(
+                                                    Icons.medication,
+                                                    color: Color(0xFF4CAF50),
+                                                    size: 24,
+                                                  );
+                                                },
                                               ),
                                             ),
                                           ),
-                                      ],
-                                    ),
-                                    subtitle: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        const SizedBox(height: 8),
-                                        Row(
+                                        ),
+                                        title: Row(
                                           children: [
-                                            Icon(Icons.access_time, size: 16, color: Colors.blue[600]),
-                                            const SizedBox(width: 4),
-                                            Text(
-                                              medicament['heure'],
-                                              style: TextStyle(
-                                                color: Colors.blue[600],
-                                                fontWeight: FontWeight.w600,
+                                            Expanded(
+                                              child: Text(
+                                                '${medicamentGroupe['nom']} ${medicamentGroupe['dosage']}',
+                                                style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 16,
+                                                  color: Color(0xFF2E3A59),
+                                                ),
                                               ),
                                             ),
-                                            const SizedBox(width: 16),
-                                            Icon(Icons.medication_liquid, size: 16, color: Colors.green[600]),
-                                            const SizedBox(width: 4),
-                                            Text(
-                                              '${medicament['nombreComprimes']} ${_tr('medications.tablets')}',
-                                              style: TextStyle(
-                                                color: Colors.green[600],
-                                                fontWeight: FontWeight.w600,
+                                            if (medicamentGroupe['aJeun'] == true)
+                                              Container(
+                                                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                                decoration: BoxDecoration(
+                                                  color: Colors.orange[100],
+                                                  borderRadius: BorderRadius.circular(8),
+                                                  border: Border.all(color: Colors.orange[300]!),
+                                                ),
+                                                child: Text(
+                                                  _tr('medications.fasting'),
+                                                  style: TextStyle(
+                                                    color: Colors.orange[700],
+                                                    fontSize: 10,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
                                               ),
+                                          ],
+                                        ),
+                                        subtitle: Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            const SizedBox(height: 8),
+                                            // Liste des horaires
+                                            Column(
+                                              children: medicamentGroupe['horaires'].map<Widget>((horaire) {
+                                                return Padding(
+                                                  padding: const EdgeInsets.symmetric(vertical: 4),
+                                                  child: Row(
+                                                    children: [
+                                                      Icon(Icons.access_time, size: 16, color: Colors.blue[600]),
+                                                      const SizedBox(width: 4),
+                                                      Text(
+                                                        horaire['heure'],
+                                                        style: TextStyle(
+                                                          color: Colors.blue[600],
+                                                          fontWeight: FontWeight.w600,
+                                                        ),
+                                                      ),
+                                                      const SizedBox(width: 16),
+                                                      Icon(Icons.medication_liquid, size: 16, color: Colors.green[600]),
+                                                      const SizedBox(width: 4),
+                                                      Text(
+                                                        '${horaire['nombreComprimes']} ${_tr('medications.tablets')}',
+                                                        style: TextStyle(
+                                                          color: Colors.green[600],
+                                                          fontWeight: FontWeight.w600,
+                                                        ),
+                                                      ),
+                                                      const Spacer(),
+                                                      ElevatedButton(
+                                                        onPressed: () => _supprimerMedicament(horaire['id']),
+                                                        style: ElevatedButton.styleFrom(
+                                                          backgroundColor: Colors.red[600],
+                                                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                                                          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                                                        ),
+                                                        child: Text(
+                                                          _tr('medications.delete'),
+                                                          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 10),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                );
+                                              }).toList(),
+                                            ),
+                                            const SizedBox(height: 4),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.inventory, size: 16, color: _getStockColor(medicamentGroupe['stock'])),
+                                                const SizedBox(width: 4),
+                                                Text(
+                                                  '${_tr('medications.stock')}: ${medicamentGroupe['stock']}',
+                                                  style: TextStyle(
+                                                    color: _getStockColor(medicamentGroupe['stock']),
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
-                                        const SizedBox(height: 4),
-                                        Row(
-                                          children: [
-                                            Icon(Icons.inventory, size: 16, color: _getStockColor(medicament['stock'])),
-                                            const SizedBox(width: 4),
-                                            Text(
-                                              '${_tr('medications.stock')}: ${medicament['stock']}',
-                                              style: TextStyle(
-                                                color: _getStockColor(medicament['stock']),
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                    // SEULEMENT le bouton supprimer
-                                    trailing: ElevatedButton(
-                                      onPressed: () => _supprimerMedicament(medicament['id']),
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.red[600],
-                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                                        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                                       ),
-                                      child: Text(
-                                        _tr('medications.delete'),
-                                        style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
-                                      ),
-                                    ),
+                                    ],
                                   ),
                                 );
                               }).toList(),
