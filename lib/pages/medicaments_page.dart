@@ -1177,7 +1177,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                 children: [
                                   const Icon(
                                     Icons.medication,
-                                    color: Color.fromARGB(255, 255, 255, 255),
+                                    color: Color(0xFF6C63FF),
                                     size: 80,
                                   ),
                                   const SizedBox(height: 16),
@@ -1416,7 +1416,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                     title: Text(
                       _tr('app.medications'),
                       style: const TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: Color(0xFF2E3A59),
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
                       ),
