@@ -270,7 +270,7 @@ Widget build(BuildContext context) {
                   title: Text(
                     _tr('app.settings'),
                     style: const TextStyle(
-                      color: Color(0xFF2E3A59),
+                      color: Color.fromARGB(255, 255, 255, 255),
                       fontWeight: FontWeight.bold,
                       fontSize: 24,
                     ),

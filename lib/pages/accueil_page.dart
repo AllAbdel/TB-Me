@@ -687,8 +687,8 @@ int getTotalMedicamentsAujourdhui() {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color.fromARGB(255, 186, 21, 192), // Bleu très foncé
-                  Color.fromARGB(255, 196, 30, 229), // Bleu foncé
+                  Color.fromARGB(255, 247, 247, 247), // Bleu très foncé
+                  Color.fromARGB(255, 255, 255, 255), // Bleu foncé
                   Colors.white,
                 ],
               ),
@@ -706,7 +706,7 @@ int getTotalMedicamentsAujourdhui() {
                     title: Text(
                       _tr('app.home'),
                       style: const TextStyle(
-                        color: Color(0xFF2E3A59),
+                        color: Color.fromARGB(255, 255, 255, 255),
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
                       ),
@@ -717,7 +717,7 @@ int getTotalMedicamentsAujourdhui() {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            Color.fromARGB(255, 255, 255, 255), 
+                            Color.fromARGB(255, 15, 4, 4), 
                             Color.fromARGB(255, 255, 255, 255), 
                           ],
                         ),
@@ -729,9 +729,9 @@ int getTotalMedicamentsAujourdhui() {
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
-                              Color(0xFF81D4FA), // Bleu clair
-                              Color(0xFFF8F9FA),
-                              Colors.white,
+                              Color(0xFF1565C0), // Bleu très foncé
+                              Color(0xFF1E88E5), // Bleu foncé
+                              Color(0xFF1E88E5), // Bleu foncé
                             ],
                           ),
                         ),
@@ -762,7 +762,7 @@ int getTotalMedicamentsAujourdhui() {
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
+                                color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.1),
                                 blurRadius: 20,
                                 offset: const Offset(0, 10),
                               ),
@@ -778,7 +778,7 @@ int getTotalMedicamentsAujourdhui() {
                                   Text(
                                     _tr('home.welcome'),
                                     style: const TextStyle(
-                                      color: Color.fromARGB(255, 255, 255, 255),
+                                      color: Color.fromARGB(255, 0, 0, 0),
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -789,7 +789,7 @@ int getTotalMedicamentsAujourdhui() {
                               Text(
                                 _getFormattedDate(maintenant),
                                 style: TextStyle(
-                                  color: Colors.white.withOpacity(0.9),
+                                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.9),
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -798,7 +798,7 @@ int getTotalMedicamentsAujourdhui() {
                               Text(
                                 '${getMedicamentsPrisAujourdhui()}/${getTotalMedicamentsAujourdhui()} ${_tr('home.medications_today')}',
                                 style: TextStyle(
-                                  color: const Color.fromARGB(255, 252, 252, 252).withOpacity(0.8),
+                                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.8),
                                   fontSize: 14,
                                 ),
                               ),
