@@ -687,8 +687,8 @@ int getTotalMedicamentsAujourdhui() {
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
                 colors: [
-                  Color(0xFF1565C0), // Bleu très foncé
-                  Color(0xFF1E88E5), // Bleu foncé
+                  Color.fromARGB(255, 247, 247, 247), // Bleu très foncé
+                  Color.fromARGB(255, 255, 255, 255), // Bleu foncé
                   Colors.white,
                 ],
               ),
@@ -701,12 +701,12 @@ int getTotalMedicamentsAujourdhui() {
                   floating: false,
                   pinned: true,
                   elevation: 0,
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: const Color.fromARGB(0, 255, 255, 255),
                   flexibleSpace: FlexibleSpaceBar(
                     title: Text(
                       _tr('app.home'),
                       style: const TextStyle(
-                        color: Color(0xFF2E3A59),
+                        color: Color.fromARGB(255, 255, 255, 255),
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
                       ),
@@ -717,8 +717,8 @@ int getTotalMedicamentsAujourdhui() {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                           colors: [
-                            Color(0xFF1565C0), // Bleu très foncé
-                            Color(0xFF1E88E5), // Bleu foncé
+                            Color.fromARGB(255, 15, 4, 4), 
+                            Color.fromARGB(255, 255, 255, 255), 
                           ],
                         ),
                       ),
@@ -729,9 +729,9 @@ int getTotalMedicamentsAujourdhui() {
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
-                              Color(0xFF81D4FA), // Bleu clair
-                              Color(0xFFF8F9FA),
-                              Colors.white,
+                              Color(0xFF1565C0), // Bleu très foncé
+                              Color(0xFF1E88E5), // Bleu foncé
+                              Color(0xFF1E88E5), // Bleu foncé
                             ],
                           ),
                         ),
@@ -755,14 +755,14 @@ int getTotalMedicamentsAujourdhui() {
                           end: Alignment.bottomRight,
                           colors: [
                             Color(0xFF81D4FA), // Bleu clair
-                          Color.fromARGB(255, 0, 0, 0),
-                          const Color.fromARGB(255, 0, 0, 0),
+                          Color.fromARGB(255, 129, 212, 250),
+                          const Color.fromARGB(255, 255, 255, 255),
                           ],
                         ),
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
+                                color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.1),
                                 blurRadius: 20,
                                 offset: const Offset(0, 10),
                               ),
@@ -789,7 +789,7 @@ int getTotalMedicamentsAujourdhui() {
                               Text(
                                 _getFormattedDate(maintenant),
                                 style: TextStyle(
-                                  color: Colors.white.withOpacity(0.9),
+                                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.9),
                                   fontSize: 16,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -817,11 +817,11 @@ int getTotalMedicamentsAujourdhui() {
                                 padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
                                   gradient: const LinearGradient(
-                                    colors: [Color(0xFF6C63FF), Color(0xFF4CAF50)],
+                                    colors: [Color.fromARGB(255, 120, 235, 255), Color.fromARGB(255, 159, 236, 255)],
                                   ),
                                   borderRadius: BorderRadius.circular(15),
                                 ),
-                                child: const Icon(Icons.today, color: Color.fromARGB(255, 0, 0, 0), size: 24),
+                                child: const Icon(Icons.today, color: Color.fromARGB(255, 255, 255, 255), size: 24),
                               ),
                               const SizedBox(width: 12),
                               Text(

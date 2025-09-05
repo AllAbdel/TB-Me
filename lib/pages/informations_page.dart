@@ -49,7 +49,7 @@ class _InformationsPageState extends State<InformationsPage> {
                 title: Text(
                   _tr('information.title'),
                   style: const TextStyle(
-                    color: Color(0xFF2E3A59),
+                    color: Color.fromARGB(255, 255, 255, 255),
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
@@ -113,7 +113,7 @@ class _InformationsPageState extends State<InformationsPage> {
                                   ),
                                   child: const Icon(
                                     Icons.coronavirus,
-                                    color: Colors.white,
+                                    color: Color(0xFF1565C0),
                                     size: 32,
                                   ),
                                 ),
@@ -676,4 +676,3 @@ class _InformationsPageState extends State<InformationsPage> {
     );
   }
 }
-

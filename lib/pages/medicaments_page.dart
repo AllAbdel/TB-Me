@@ -1177,7 +1177,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                 children: [
                                   const Icon(
                                     Icons.medication,
-                                    color: Color(0xFF6C63FF),
+                                    color: Color.fromARGB(255, 255, 255, 255),
                                     size: 80,
                                   ),
                                   const SizedBox(height: 16),
@@ -1416,7 +1416,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                     title: Text(
                       _tr('app.medications'),
                       style: const TextStyle(
-                        color: Color(0xFF2E3A59),
+                        color: Color.fromARGB(255, 255, 255, 255),
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
                       ),
@@ -1450,7 +1450,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                 padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
                                   gradient: const LinearGradient(
-                                    colors: [Color(0xFF6C63FF), Color(0xFF4CAF50)],
+                                    colors: [Color.fromARGB(255, 120, 235, 255), Color.fromARGB(255, 159, 236, 255)],
                                   ),
                                   borderRadius: BorderRadius.circular(15),
                                 ),
@@ -1619,7 +1619,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                 padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
                                   gradient: const LinearGradient(
-                                    colors: [Color(0xFF4CAF50), Color(0xFF6C63FF)],
+                                    colors: [Color.fromARGB(255, 120, 235, 255), Color.fromARGB(255, 159, 236, 255)],
                                   ),
                                   borderRadius: BorderRadius.circular(15),
                                 ),
