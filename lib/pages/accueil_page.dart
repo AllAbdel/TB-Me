@@ -347,7 +347,6 @@ void _agrandirImage(String imagePath, String nomMedicament) {
                     ),
                   ),
                 ),
-                
                 // Instructions
                 Container(
                   margin: const EdgeInsets.only(top: 20),
@@ -356,14 +355,14 @@ void _agrandirImage(String imagePath, String nomMedicament) {
                     color: Colors.black.withOpacity(0.7),
                     borderRadius: BorderRadius.circular(25),
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(Icons.touch_app, color: Colors.white, size: 20),
-                      SizedBox(width: 8),
+                      const Icon(Icons.touch_app, color: Colors.white, size: 20),
+                      const SizedBox(width: 8),
                       Text(
-                        'Toucher pour fermer',
-                        style: TextStyle(
+                        _tr('messages.touch_to_close'),
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 14,
                         ),
@@ -371,6 +370,7 @@ void _agrandirImage(String imagePath, String nomMedicament) {
                     ],
                   ),
                 ),
+
               ],
             ),
           ),
@@ -651,6 +651,19 @@ void _effectuerPrise(Map<String, dynamic> medicament) async {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
     );
+
+    // NOUVEAU : Afficher un message d'encouragement pour la prise régulière
+    Future.delayed(const Duration(milliseconds: 500), () {
+      final encouragements = _languageProvider.getEncouragementList('encouragement.regular_taking');
+      final message = CatchupService.getRandomEncouragement(encouragements);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(message),
+          backgroundColor: Colors.green[700],
+          duration: const Duration(seconds: 4),
+        ),
+      );
+    });
   }
 
   Future<void> _savePosologie() async {
@@ -1188,7 +1201,7 @@ int getTotalMedicamentsAujourdhui() {
                                 padding: const EdgeInsets.all(12),
                                 decoration: BoxDecoration(
                                   gradient: const LinearGradient(
-                                    colors: [Colors.teal, Colors.cyan],
+                                    colors: [Color.fromARGB(255, 112, 55, 158), Colors.cyan],
                                   ),
                                   borderRadius: BorderRadius.circular(15),
                                 ),
@@ -1202,7 +1215,7 @@ int getTotalMedicamentsAujourdhui() {
                                     MaterialPageRoute(builder: (context) => const HistoriquePage()),
                                   ),
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.teal,
+                                    backgroundColor: [Color.fromARGB(255, 67, 154, 180)][0],
                                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                                     padding: const EdgeInsets.symmetric(vertical: 15),
                                   ),

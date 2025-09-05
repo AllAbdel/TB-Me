@@ -88,8 +88,8 @@ class NotificationService {
   
   await _notifications.show(
     999,
-    'TEST SIMPLE',
-    'Si vous voyez ceci, les notifications fonctionnent !',
+    _tr('notifications.test_simple'),
+    '🔔',
     notificationDetails,
   );
 }
@@ -166,11 +166,11 @@ class NotificationService {
       iOS: iosDetails,
     );
     
-    String body = '⏰ Dans 2h, prenez $medicamentNom $dosage. Ne mangez ni ne buvez rien maintenant !';
+    String body = _tr('notifications.fasting_reminder_body');
     
     await _notifications.zonedSchedule(
       (baseId % 100000) + 1000, // S'assurer que l'ID reste petit
-      '💊 C\'est l\'heure !',
+      _tr('notifrications.time_reminder_title'),
       body,
       tz.TZDateTime.from(scheduledTime.subtract(const Duration(hours: 2)), tz.local),
       notificationDetails,

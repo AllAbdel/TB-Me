@@ -474,7 +474,7 @@ Widget build(BuildContext context) {
                             ),
                             const SizedBox(height: 4),
                             Text(
-                              'Version 1.0.0',
+                              'Version 1.1.0',
                               style: TextStyle(
                                 fontSize: 14,
                                 color: Colors.grey[600],

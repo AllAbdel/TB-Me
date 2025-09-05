@@ -1585,7 +1585,7 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
                                           ElevatedButton(
                                             onPressed: () => _ajouterMedicament(medicament),
                                             style: ElevatedButton.styleFrom(
-                                              backgroundColor: const Color(0xFF6C63FF),
+                                              backgroundColor: const Color.fromARGB(255, 99, 255, 203),
                                               shape: RoundedRectangleBorder(
                                                 borderRadius: BorderRadius.circular(10),
                                               ),
