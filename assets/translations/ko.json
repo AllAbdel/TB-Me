@@ -2,34 +2,38 @@
   "app": {
     "title": "TB&Me",
     "home": "홈",
-    "medications": "약물",
+    "mangement": "내 약 복용",
+    "medications": "약",
     "quiz": "퀴즈",
     "information": "정보",
     "settings": "설정",
+    "history": "기록",
+    "calendar": "달력",
     "description": "결핵 치료 추적을 위한 전용 애플리케이션"
   },
   "home": {
     "welcome": "환영합니다!",
-    "medications_today": "오늘 복용할 약물",
+    "medications_today": "오늘 복용해야 할 약",
     "daily_dashboard": "일일 대시보드",
-    "no_medications": "설정된 약물 없음",
-    "configure_medications": "복용량을 설정하려면 약물 탭으로 이동하세요",
+    "no_medications": "설정된 약 없음",
+    "configure_medications": "복용량을 설정하려면 약 탭으로 이동하세요",
     "daily_statistics": "일일 통계",
     "confirm_taking": "복용 확인",
     "mark_as_taken": "표시",
-    "mark_taken": "복용으로 표시",
-    "tablets": "정",
+    "mark_taken": "복용으로\n표시",
+    "tablets": "알약",
     "current_stock": "현재 재고",
     "stock_after": "복용 후 재고",
     "stock": "재고",
     "marked_as_taken": "복용으로 표시됨",
-    "insufficient_stock": "재고 부족!仅剩",
-    "tablets_remaining": "정 남음",
+    "insufficient_stock": "재고 부족! 남은 알약: ",
+    "tablets_remaining": "알약",
     "take_on_empty_stomach": "공복에 복용",
     "status": {
-      "taken": "복용됨",
+      "taken": "복용함",
       "upcoming": "예정",
       "now": "지금",
+      "late": "지연",
       "missed": "누락"
     }
   },
@@ -61,40 +65,52 @@
     "saturday_short": "토",
     "sunday_short": "일"
   },
+  "calendar": {
+    "title": "달력",
+    "event_title": "이벤트 제목",
+    "event_description": "설명",
+    "choose_time": "시간 선택",
+    "notification": "알림",
+    "add": "추가",
+    "events_today": "오늘 이벤트",
+    "no_events_today": "오늘 이벤트 없음",
+    "all_events": "모든 이벤트",
+    "no_events": "이벤트 없음"
+  },
   "medications": {
-    "available_title": "사용 가능한 약물",
+    "available_title": "사용 가능한 약",
     "add_button": "추가",
-    "my_posology": "나의 처방",
-    "no_medication": "처방에 추가된 약물 없음",
+    "my_posology": "내 복용량",
+    "no_medication": "복용량에 추가된 약 없음",
     "fasting": "공복",
-    "tablets": "정",
+    "tablets": "알약",
     "stock": "재고",
     "delete": "삭제",
     "add_dialog_title": "추가",
     "time_format": "시간 형식",
     "time": "시간",
-    "change": "수정",
-    "tablets_count": "정 수",
+    "change": "변경",
+    "tablets_count": "알약 수",
     "take_fasting": "공복에 복용",
     "delete_confirmation": "삭제 확인",
-    "delete_question": "이 약물을 처방에서 삭제하시겠습니까?",
+    "delete_question": "이 약을 복용량에서 삭제하시겠습니까?",
     "details": {
       "description": "설명",
       "side_effects": "부작용",
       "advice": "조언",
       "see_documentation": "문서 보기",
-      "enlarge_hint": "확대하려면 누르세요",
+      "enlarge_hint": "확대하려면 탭하세요",
       "close": "닫기"
     },
     "pdf": {
       "documentation_title": "PDF 문서",
-      "document_available": "사용 가능한 PDF 문서",
+      "document_available": "PDF 문서 사용 가능",
       "file": "파일",
       "view": "보기",
       "download": "다운로드",
       "reading_title": "문서 읽기",
       "download_web_only": "다운로드는 모바일에서만 가능",
-      "storage_permission": "다운로드에는 저장 권한이 필요합니다",
+      "storage_permission": "다운로드에는 저장소 권한이 필요함",
       "downloaded": "PDF 다운로드됨",
       "download_error": "다운로드 오류",
       "view_error": "PDF 열기 오류",
@@ -102,54 +118,54 @@
     },
     "image": {
       "not_available": "이미지 사용 불가",
-      "tap_to_close": "닫으려면 누르세요"
+      "tap_to_close": "닫으려면 탭하세요"
     },
     "time_label": "시간",
     "drugs": {
       "rifadine": {
-        "description": "1선 결핵 치료용 항생제",
-        "side_effects": "오렌지색 소변, 메스꺼움, 간 장애",
-        "advice": "공복에, 식사 1시간 전 또는 2시간 후에 복용"
+        "description": "1선 결핵 치료 항생제",
+        "side_effects": "오렌지색 소변, 메스꺼움, 간 기능 장애",
+        "advice": "공복에 복용, 식사 1시간 전 또는 2시간 후"
       },
       "rifater": {
-        "description": "리팜피신, 이소니아지드 및 피라지남암의 고정 조합",
+        "description": "리팜피신, 이소니아지드, 피라진아마이드 고정 조합",
         "side_effects": "소화 장애, 두통, 피로",
-        "advice": "1정에 3가지 약물의 조합"
+        "advice": "3가지 약을 1알에 조합"
       },
       "rifinah": {
-        "description": "리팜피신 및 이소니아지드 조합",
-        "side_effects": "소변의 오렌지색 변색, 메스꺼움",
-        "advice": "가능하면 아침 공복에 복용"
+        "description": "리팜피신과 이소니아지드 조합",
+        "side_effects": "소변 오렌지색, 메스꺼움",
+        "advice": "아침 공복에 복용하는 것이 좋음"
       },
       "dexambutol": {
         "description": "2선 결핵 치료제",
-        "side_effects": "시각 장애, 광신경 병증",
+        "side_effects": "시력 장애, 시신경 병증",
         "advice": "안과적 모니터링 필요"
       },
       "myambutol": {
-        "description": "에탐부톨, 정균성 결핵 치료제",
-        "side_effects": "광신경염, 시각 장애",
+        "description": "에탐부톨, 결핵 박테리아 정균제",
+        "side_effects": "시신경염, 시력 장애",
         "advice": "시력 검사 권장"
       },
       "pirilene": {
-        "description": "피라지남암, 결핵 치료제",
-        "side_effects": "간 장애, 관절통",
+        "description": "피라진아마이드, 결핵 치료제",
+        "side_effects": "간 기능 장애, 관절통",
         "advice": "간 기능 모니터링 필요"
       },
       "rimactan": {
-        "description": "리팜피신, 결핵 치료용 항생제",
-        "side_effects": "분비물의 오렌지색 변색",
-        "advice": "식사와 떨어져 복용"
+        "description": "리팜피신, 결핵 치료 항생제",
+        "side_effects": "분비물 오렌지색",
+        "advice": "식사와 멀리 복용"
       },
       "rimifon": {
         "description": "이소니아지드, 주요 결핵 치료제",
         "side_effects": "말초 신경 병증, 간염",
-        "advice": "비타민 B6 보충제 권장"
+        "advice": "비타민 B6 보충 권장"
       }
     },
     "stock_management": {
       "title": "재고 관리",
-      "current_stock": "현재 재고: {stock} 정",
+      "current_stock": "현재 재고: {stock} 알약",
       "confirm": "확인"
     }
   },
@@ -157,81 +173,71 @@
     "title": "결핵 정보",
     "links": {
       "title": "유용한 링크",
-  "error": "링크를 열 수 없음",
-  "who": {
-    "title": "WHO - 세계 보건 기구",
-    "description": "결핵에 대한 팩트 시트"
-  },
-  "ministry": {
-    "title": "보건부 - 프랑스",
-    "description": "결핵: 공식 정보"
-  },
-  "fight": {
-    "title": "결핵과의 싸움",
-    "description": "프랑스의 전략 및 행동"
-  },
-  "refugees": {
-    "title": "난민 정보",
-    "description": "난민을 위한 정보"
-  }
+      "error": "링크를 열 수 없음"
     },
     "understanding": {
       "title": "결핵 이해하기",
-      "subtitle": "주의가 필요한 전염병",
+      "subtitle": "주의가 필요한 감염병",
       "what_is": "결핵이란?",
-      "what_is_content": "결핵은 Mycobacterium tuberculosis라는 세균에 의해 발생하는 질병으로, 잠복기를 거친 후 활성화됩니다. 이 활성화된 형태는 세균이 증식하는 것을 특징으로 하며, 증상을 동반하고 특정 항생제로 장기간 치료가 필요합니다.",
-      "transmission": "어떻게 전파되나요?",
-      "transmission_content": "결핵은 폐에 감염된 사람이 기침, 재채기 또는 말을 할 때 공기를 통해 전파됩니다. 전파를 위해서는 전염성 폐결핵 환자와 장기간 밀접한 접촉이 필요합니다."
+      "what_is_content": "결핵은 Mycobacterium tuberculosis라는 세균에 의해 발생하는 질병으로, 잠복기를 거친 후 활성화됩니다. 이 활성화된 형태는 세균의 증식을 동반하며, 증상이 나타나고 특정 항생제에 의한 장기간 치료가 필요합니다.\n\n결핵은 주로 폐에 영향을 미치며, 이를 폐결핵이라고 합니다. 폐에 영향을 미칠 때만 전염됩니다. 또한 림프절, 신장, 뇌, 뼈 등 신체의 다른 부분에도 영향을 미칠 수 있습니다. 이러한 경우에는 전염되지 않습니다. 때로는 여러 장기를 동시에 영향을 미칠 수도 있습니다.\n\n그러나 이 질병은 예방할 수 있으며, 적절히 치료하면 완치될 수 있습니다.",
+      "transmission": "결핵은 어떻게 전염되나요?",
+      "transmission_content": "결핵은 공기를 통해 전염되며, 폐에 영향을 받은 환자가 기침, 재채기, 또는 말을 할 때 전염됩니다. 전염을 위해서는 폐결핵 환자와 장기간 밀접한 접촉이 필요합니다. 예를 들어, 같은 주거 공간에서 생활하거나 같은 차량으로 여행할 때 전염될 수 있습니다.\n\n결핵이 폐 이외의 신체 부위에 영향을 미칠 때는 전염되지 않습니다.\n\n모든 결핵 환자와 접촉한 사람이 반드시 감염되거나 병에 걸리는 것은 아닙니다.\n\n폐결핵은 독감이나 홍역보다 전염성이 낮습니다.",
+      "how_occurs": "결핵은 어떻게 발생하나요?",
+      "how_occurs_content": "결핵은 결핵균이 몸 안에서 '각성'할 때 발생합니다.\n\n사실, 사람이 세균을 흡입하면 몸 안에서 잠들어 있으며 질병을 일으키지 않습니다. 세균은 휴면 상태, 비활성화, 잠든 상태로 남아 있습니다. 이를 잠복결핵감염(LTBI)라고 합니다. 잠복결핵감염을 가진 사람은 병에 걸리지 않습니다. 어떤 증상도 없으며 전염되지 않습니다.\n\n세균은 감염된 사람의 평생 동안 몸 안에 남아 있을 수 있으며, 면역 체계가 감염을 통제하기 때문에 아무 일도 하지 않을 수 있습니다.\n\n그러나 감염된 10명 중 1명은 잠복기 후 세균이 '각성'하여 활성화되고 증식합니다. 그러면 그 사람은 병에 걸립니다.\n\n각성은 주로 전염 후 2년 이내에 발생하거나, 질병(예: 에이즈)에 의한 면역 억제, 특정 면역 억제제, 영양실조 상태, 또는 나이(노인과 매우 어린 아이들은 면역 체계가 약함)에 의해 발생합니다.\n\n임상적 및 방사선학적 징후가 없는 경우, 잠복결핵감염은 결핵균 검사(IDR) 또는 인터페론 감마 방출 검사(IGRA)와 같은 면역학적 검사를 통해 진단할 수 있습니다."
     },
     "itl": {
-      "title": "잠복 결핵 감염(ITL)",
-      "what_is": "ITL이란 무엇인가요?",
-      "what_is_content": "잠복 결핵 감염에서는 신체의 방어 기작에 의해 세균이 중화되고 갇혀 있습니다. 이 세균은 '휴면' 상태로 남아 있을 수 있습니다. 사람은 평생 동안 이 질병을 발전시키지 않을 수도 있습니다.",
-      "vs_active": "ITL vs 활성 결핵",
-      "itl_characteristics": "잠복 결핵 감염",
-      "itl_char_1": "간균이 '휴면, 중화' 상태",
-      "itl_char_2": "사람은 전염성이 없음",
+      "title": "잠복결핵감염(LTBI)",
+      "vs_active": "LTBI vs 활성 결핵",
+      "itl_characteristics": "잠복결핵감염",
+      "itl_char_1": "간균이 '잠들어 있고, 중화됨'",
+      "itl_char_2": "환자가 전염되지 않음",
       "itl_char_3": "증상 없음",
-      "itl_char_4": "정상적인 엑스레이",
+      "itl_char_4": "X레이 정상",
       "itl_char_5": "3개월 예방 치료",
       "active_characteristics": "활성 결핵",
-      "active_char_1": "간균이 활성 상태",
-      "active_char_2": "폐결핵인 경우 전염성 있음",
+      "active_char_1": "간균이 활성화됨",
+      "active_char_2": "폐결핵인 경우 전염됨",
       "active_char_3": "증상 존재",
-      "active_char_4": "비정상적인 엑스레이",
+      "active_char_4": "X레이 비정상",
       "active_char_5": "6개월 이상 치료"
     },
     "symptoms": {
       "title": "증상 및 치료",
+      "what_are_symptoms": "결핵의 증상은 무엇인가요?",
+      "what_are_symptoms_content": "증상은 영향을 받은 신체 부위에 따라 다릅니다. 그러나 모든 경우에 질병은 열, 야간 과도한 발한, 극심한 피로, 식욕 부진 및 체중 감소와 같은 증상을 유발할 수 있습니다.\n\n폐결핵의 경우 기침이 나타납니다.\n\n이러한 증상이 몇 주 동안 지속되면 결핵을 의심하고 의사를 방문해야 합니다.",
       "symptoms_list": "주요 증상",
       "symptom_1": "지속적인 기침(3주 이상)",
       "symptom_2": "가래에 피",
       "symptom_3": "가슴 통증",
-      "symptom_4": "피로 및 약점",
+      "symptom_4": "피로와 약함",
       "symptom_5": "의도하지 않은 체중 감소",
-      "symptom_6": "열 및 야간 발한",
-      "symptom_7": "식욕 감소",
+      "symptom_6": "열과 야간 발한",
+      "symptom_7": "식욕 부진",
+      "how_to_treat": "결핵은 어떻게 치료하나요?",
+      "how_to_treat_content": "프랑스에서는 현재 결핵이 매우 잘 치료됩니다. 치료는 매일 여러 약을 최소 6개월 동안 복용해야 합니다. 공복에 복용해야 합니다. 실제로 하루에 한 번, 한 번에, 식사 30분 전에 복용해야 합니다. 식사 후 2시간 후에 복용할 수도 있습니다.\n\n치료는 혈액 검사와 같은 정기적인 모니터링을 동반합니다.\n\n치료 초기, 병원에서 치료를 시작할 때 폐결핵 환자는 다른 사람에게 전염되지 않도록 격리됩니다(단독실, 마스크 등).\n\n치료를 중단하지 않는 것이 매우 중요합니다. 그렇지 않으면 질병이 재발할 수 있으며, 약물 내성이 발생하여 약물이 무효화될 수 있습니다.\n\n사회 보장은 치료 비용의 100%를 지원합니다.",
       "treatment_title": "치료",
-      "treatment_content": "치료에는 여러 달 동안 매일 여러 약물을 복용해야 합니다. 이들은 공복에 복용해야 합니다. 실제로, 이들은 먹기 최소 30분 전에 복용해야 합니다.",
+      "treatment_content": "치료는 매일 여러 약을 몇 달 동안 복용해야 합니다. 공복에 복용해야 합니다. 실제로 식사 30분 전에 복용해야 합니다.",
       "important_note": "치료를 중단하지 않는 것이 매우 중요합니다. 그렇지 않으면 질병이 재발할 수 있습니다."
     },
     "prevention": {
       "title": "예방",
-      "vaccination": "BCG 백신 접종",
-      "vaccination_content": "BCG 백신 접종은 특히 위험 요인이 있는 5세 미만 어린이에게 강력히 권장됩니다.",
-      "screening": "결핵 퇴치 센터에 의한 검진",
-      "screening_content": "결핵 퇴치 센터는 사례 주변에서 조사 및 검진을 조직하여 예방에서 중심적인 역할을 합니다."
+      "how_to_prevent": "결핵을 어떻게 예방하나요?",
+      "how_to_prevent_content": "예방은 위험에 노출된 어린이를 대상으로 한 조기 및 표적 BCG 접종과 결핵 방지 센터(CLAT)에 의한 검사를 통해 이루어집니다. 이는 전염성 결핵 환자 주변과 가장 많이 노출된 인구에서 검사를 실시합니다.\n\n비록 프랑스에서는 2007년부터 BCG 접종이 의무화되지 않지만, 여전히 강력히 권장됩니다. 특히 5세 미만의 어린이에게 환경이나 가족력(결핵 가족력 또는 결핵이 매우 흔한 국가와 관련)이 있는 경우 우선적으로 권장됩니다.\n\n접종은 생후 1개월부터 가능하며, 가능하면 2개월에 실시하는 것이 좋습니다. 이는 결핵의 심각한 형태, 특히 결핵성 뇌막염으로부터 보호합니다.\n\nCLAT는 결핵 예방에서 중심적인 역할을 합니다. 전염성 결핵 환자가 진단되면, 보건 당국에 의해 통보된 CLAT는 환자와 밀접한 접촉이 있던 사람을 찾기 위한 조사를 실시합니다. 이러한 사람들은 의료 상담, 흉부 X선, 면역학적 검사(결핵균 검사 또는 IGRA 검사)를 포함한 검사를 받을 수 있습니다.\n\n잠복결핵감염이 발견되면, CLAT는 활성 결핵으로 진행되는 것을 방지하기 위한 예방 치료를 제안합니다.\n\n또한, CLAT는 결핵이 흔한 국가에서 온 사람들과 같이 더 많이 노출된 인구를 대상으로 표적 검사를 조직하여 질병을 가능한 한 일찍 발견합니다.",
+      "vaccination": "BCG 접종",
+      "vaccination_content": "BCG 접종은 여전히 강력히 권장되며, 특히 위험 요인이 있는 5세 미만 어린이에게 권장됩니다.",
+      "screening": "결핵 방지 센터에 의한 검사",
+      "screening_content": "결핵 방지 센터는 예방에서 중심적인 역할을 하며, 환자 주변에서 조사 및 검사를 조직합니다."
     },
     "faq": {
       "title": "자주 묻는 질문",
-      "q1": "결핵은 항상 전염성이 있나요?",
-      "a1": "아니요, 폐결핵만 전염성이 있습니다. 신체의 다른 부위에 영향을 미칠 때는 전염성이 없습니다.",
-      "q2": "치료 기간은 얼마나 되나요?",
-      "a2": "치료 기간은 일반적으로 6개월이며, 경우에 따라 더 길 수 있습니다. 완전히 따르는 것이 중요합니다.",
+      "q1": "결핵은 항상 전염되나요?",
+      "a1": "아니요, 폐결핵만 전염됩니다. 다른 신체 부위에 영향을 미칠 때는 전염되지 않습니다.",
+      "q2": "치료는 얼마나 걸리나요?",
+      "a2": "치료는 일반적으로 6개월, 때로는 더 오래 걸립니다. 완료하는 것이 매우 중요합니다.",
       "q3": "결핵은 치료될 수 있나요?",
-      "a3": "네, 결핵은 오늘날 프랑스에서 치료가 잘 됩니다. 단, 치료를 정확히 따라야 합니다.",
-      "q4": "누가 검진을 받아야 하나요?",
-      "a4": "밀접한 접촉자 및 환자와 자주 접촉하는 사람들은 결핵 퇴치 센터 팀에 의해 검진을 받습니다."
+      "a3": "네, 프랑스에서는 현재 적절히 치료하면 결핵이 매우 잘 치료됩니다.",
+      "q4": "누가 검사를 받아야 하나요?",
+      "a4": "밀접 접촉자 및 환자와 자주 접촉하는 사람은 결핵 방지 센터 팀에 의해 검사를 받습니다."
     }
   },
   "quiz": {
@@ -241,59 +247,59 @@
     "restart": "다시 시작",
     "home": "홈",
     "result": {
-      "title": "퀴즈 종료!",
+      "title": "퀴즈 완료!",
       "excellent": "훌륭합니다! 주제를 매우 잘 이해하고 계십니다!",
-      "good": "잘 하셨습니다! 좋은 지식을 가지고 계십니다.",
-      "average": "괜찮습니다. 아직 몇 가지 점을 복습해야 합니다.",
+      "good": "좋습니다! 좋은 지식을 가지고 계십니다.",
+      "average": "보통입니다. 아직 복습할 부분이 있습니다.",
       "needs_improvement": "결핵에 대한 정보를 다시 읽어보시는 것이 좋겠습니다."
     },
     "q1": {
       "question": "결핵의 원인은 무엇인가요?",
       "a1": "바이러스",
       "a2": "Mycobacterium tuberculosis라는 세균",
-      "a3": "진균",
+      "a3": "곰팡이",
       "a4": "기생충",
-      "explanation": "결핵은 Mycobacterium tuberculosis라는 세균, 즉 코흐 간균에 의해 발생합니다."
+      "explanation": "결핵은 Mycobacterium tuberculosis라는 세균, 즉 코흐균에 의해 발생합니다."
     },
     "q2": {
-      "question": "결핵은 어떻게 전파되나요?",
+      "question": "결핵은 어떻게 전염되나요?",
       "a1": "공기를 통해(기침, 재채기)",
       "a2": "피부 접촉을 통해",
       "a3": "오염된 물을 통해",
-      "a4": "곤충에 물림을 통해",
-      "explanation": "결핵은 감염된 사람이 기침, 재채기 또는 말을 할 때 세균을 함유한 작은 물방을 공기 중으로 방출하여 전파됩니다."
+      "a4": "곤충에 물려",
+      "explanation": "결핵은 감염된 사람이 기침, 재채기, 또는 말을 할 때 세균이 포함된 미세 입자를 공기 중으로 방출하여 전염됩니다."
     },
     "q3": {
-      "question": "어떤 형태의 결핵이 전염성이 있나요?",
-      "a1": "골 결핵",
-      "a2": "신장 결핵",
+      "question": "어떤 형태의 결핵이 전염되나요?",
+      "a1": "골결핵",
+      "a2": "신장결핵",
       "a3": "폐결핵",
-      "a4": "림프절 결핵",
-      "explanation": "폐결핵만 전염성이 있습니다. 왜냐하면 폐를 공격하여 공기 중 전파를 가능하게 하기 때문입니다."
+      "a4": "림프절결핵",
+      "explanation": "폐결핵만 전염됩니다. 폐에 영향을 미치기 때문에 공기를 통해 전염됩니다."
     },
     "q4": {
-      "question": "결핵 치료 기간은 일반적으로 얼마나 되나요?",
+      "question": "결핵 치료는 일반적으로 얼마나 걸리나요?",
       "a1": "2주",
       "a2": "6개월 이상",
       "a3": "1개월",
       "a4": "1년",
-      "explanation": "결핵 치료 기간은 일반적으로 6개월이며, 경우에 따라 더 길 수 있습니다. 완전히 따르는 것이 중요합니다."
+      "explanation": "결핵 치료는 일반적으로 6개월, 때로는 더 오래 걸립니다. 완료하는 것이 매우 중요합니다."
     },
     "q5": {
-      "question": "ITL이란 무엇인가요?",
-      "a1": "잠복 결핵 감염",
-      "a2": "장기 감염",
+      "question": "LTBI는 무엇을 의미하나요?",
+      "a1": "잠복결핵감염",
+      "a2": "장기간 총감염",
       "a3": "국소 치료 개입",
       "a4": "결핵에 대한 제한된 면역",
-      "explanation": "ITL은 잠복 결핵 감염을 의미합니다. 이는 세균이 존재하지만 '휴면' 상태이며, 증상이나 전염성이 없는 경우를 말합니다."
+      "explanation": "LTBI는 잠복결핵감염을 의미합니다. 세균이 존재하지만 '잠들어' 있으며, 증상이나 전염성이 없습니다."
     },
     "q6": {
-      "question": "결핵 약물은 언제 복용해야 하나요?",
+      "question": "결핵 약은 언제 복용해야 하나요?",
       "a1": "식사 후",
       "a2": "식사 중",
-      "a3": "아무 때나",
+      "a3": "언제든지",
       "a4": "공복에(식사 전)",
-      "explanation": "결핵 약물은 공복에, 즉 식사 최소 30분 전 또는 2시간 후에 복용해야 합니다."
+      "explanation": "결핵 약은 공복에 복용해야 하며, 식사 30분 전 또는 2시간 후에 복용해야 합니다."
     },
     "q7": {
       "question": "폐결핵의 주요 증상은 무엇인가요?",
@@ -301,11 +307,11 @@
       "a2": "지속적인 기침",
       "a3": "복통",
       "a4": "피부 발진",
-      "explanation": "폐결핵의 주요 증상은 3주 이상 지속되는 지속적인 기침입니다."
+      "explanation": "폐결핵의 주요 증상은 3주 이상 지속되는 기침입니다."
     },
     "q8": {
       "question": "치료를 너무 일찍 중단하면 어떻게 되나요?",
-      "a1": "아무 일도 없음",
+      "a1": "아무 일도 일어나지 않음",
       "a2": "더 빠른 회복",
       "a3": "재발 및 내성 위험",
       "a4": "부작용 감소",
@@ -314,16 +320,16 @@
   },
   "settings": {
     "language_choice": "언어 선택",
-    "language_changed": "언어가 다음과 같이 변경되었습니다.",
+    "language_changed": "언어가 변경됨: ",
     "actions": "작업",
     "reset_data": "데이터 재설정",
     "reset_description": "애플리케이션의 모든 데이터 삭제",
     "reset_confirmation": "모든 데이터를 재설정하시겠습니까?",
-    "reset_warning": "이 작업은 다음을 삭제합니다:\n• 당신의 처방\n• 당신의 약물 복용\n• 당신의 모든 설정",
-    "reset_success": "데이터가 성공적으로 재설정되었습니다.",
+    "reset_warning": "이 작업은 다음을 삭제합니다:\n• 복용량\n• 약 복용 기록\n• 모든 설정",
+    "reset_success": "데이터가 성공적으로 재설정됨",
     "quit_app": "애플리케이션 종료",
-    "quit_description": "내 결핵 종료",
-    "quit_confirmation": "내 결핵을 종료하시겠습니까?"
+    "quit_description": "TB&Me 닫기",
+    "quit_confirmation": "TB&Me를 종료하시겠습니까?"
   },
   "common": {
     "cancel": "취소",
@@ -335,13 +341,15 @@
   },
   "notifications": {
     "fasting_reminder_title": "⏰ 금식 알림",
-    "fasting_reminder_body": "2시간 후, {medication} {dosage}을 복용하세요. 지금 아무것도 먹거나 마시지 마세요!",
-    "5min_reminder_title": "🔔 곧 알림",
-    "5min_reminder_body": "5분 후: {medication} {dosage} ({tablets} 정)",
+    "fasting_reminder_body": "2시간 후 {medication} {dosage}을 복용하세요. 지금 아무것도 먹거나 마시지 마세요!",
+    "30min_reminder_title": "⏰ 알림",
+    "30min_reminder_body": "30분 후: {medication} {dosage} ({tablets}알)",
+    "5min_reminder_title": "🔔 임박 알림",
+    "5min_reminder_body": "5분 후: {medication} {dosage} ({tablets}알)",
     "time_reminder_title": "💊 시간입니다!",
-    "time_reminder_body": "지금 복용하세요: {medication} {dosage} ({tablets} 정)",
+    "time_reminder_body": "지금 복용하세요: {medication} {dosage} ({tablets}알)",
     "fasting_note": " - 공복에 복용",
-    "permissions_help": "이 권한은 기기 설정에서 활성화할 수 있습니다.",
+    "permissions_help": "이 권한을 기기 설정에서 활성화할 수 있습니다.",
     "test_simple": "🔔 간단한 테스트",
     "test_sent_immediately": "테스트 알림이 즉시 전송됨"
   },
@@ -350,56 +358,63 @@
     "exact_alarms": "정확한 알람",
     "storage": "저장소",
     "required_title": "필요한 권한",
-    "required_message": "애플리케이션이 정상적으로 작동하려면 다음 권한이 필요합니다:"
+    "required_message": "애플리케이션이 올바르게 작동하려면 다음 권한이 필요합니다:"
   },
   "encouragement": {
     "regular_taking": [
-      "💊 모든 복용이 중요합니다. 한 걸음 더 내딛은 것을 축하합니다.",
-      "🌟 당신의 헌신이 변화를 만듭니다. 계속 그렇게 하세요!",
-      "🎯 잘 하셨습니다! 매일 당신의 회복을 쌓고 있습니다.",
-      "🌱 필수적인 행동, 더 건강한 미래. 축하합니다!",
-      "💪 당신은 자신을 돌보고, 그것이 보여집니다. 잘 하셨습니다!",
+      "💊 모든 복용이 중요합니다! 한 걸음 더 나아가신 것을 축하드립니다.",
+      "🌟 당신의 헌신이 차이를 만듭니다. 계속 그렇게 하세요!",
+      "🎯 잘하셨습니다! 매일 건강을 쌓아나가고 계십니다.",
+      "🌱 중요한 행동, 더 건강한 미래. 축하드립니다!",
+      "💪 당신을 돌보시니 보입니다. 잘하셨습니다!",
       "🏆 작은 행동, 큰 승리. 훌륭합니다!",
-      "✨ 모든 행동이 건강에 가까워집니다. 훌륭합니다!"
+      "✨ 모든 행동이 건강에 가까워지도록 합니다. 훌륭합니다!"
     ],
     "missed_recovery": [
-      "🔄 중요한 것은 다시 시작하는 것입니다. 잊어버린 후에도 모든 복용이 중요합니다!",
+      "🔄 중요한 것은 다시 시작하는 것입니다. 잊어버리더라도 모든 복용이 중요합니다!",
       "🤗 괜찮습니다, 실수는 인간입니다. 오늘에 집중합시다!",
-      "💚 잊어버리는 일이 있습니다. 치료를 다시 시작한 것을 축하합니다! 함께 계속합시다.",
-      "🌈 길은 때때로 장애물이 있지만, 당신은 여기에 있습니다! 다시 시작한 것을 잘 했습니다.",
-      "🚀 이 작은 걸음이 당신의 결심의 큰 증거입니다. 가자!",
-      "💪 포기하지 마세요! 중요한 것은 계속하는 것입니다. 다시 시작한 것을 축하합니다.",
-      "⭐ 길을 유지하세요! 잊어버림이 당신의 진전을 막지 않습니다. 다시 시작한 것을 축하합니다."
+      "💚 잊어버리는 일이 생깁니다. 치료를 다시 시작하신 것을 축하드립니다! 함께 계속합시다.",
+      "🌈 길은 때때로 장애물이 있지만, 당신은 여기에 있습니다! 다시 시작하신 것을 잘하셨습니다.",
+      "🚀 이 작은 걸음이 당신의 결단력의 큰 증거입니다. 갑시다!",
+      "💪 포기하지 마세요! 중요한 것은 인내하는 것입니다. 다시 시작하신 것을 축하드립니다.",
+      "⭐ 방향을 유지하세요! 잊어버림이 당신의 진전을 막지는 않습니다. 다시 시작하신 것을 축하드립니다."
     ]
   },
   "catch_up": {
-    "title": "복용 따라잡기",
-    "button": "따라잡기",
+    "title": "복용 놓친 약 복용",
+    "button": "복용",
     "fasting_period": "필요한 금식 기간",
     "fasting_duration": "2시간 금식",
-    "fasting_rules": "다음 2시간 동안:\n• 먹지 않기\n• 마시지 않기\n• 담배 피우지 않기",
+    "fasting_rules": "다음 2시간 동안:\n• 아무것도 먹지 마세요\n• 아무것도 마시지 마세요\n• 담배 피우지 마세요",
     "timer_title": "금식 기간 진행 중",
-    "timer_subtitle": "더 금식해야 함",
+    "timer_subtitle": "금식을 계속하세요",
     "ready_title": "✅ 금식 기간 종료!",
-    "ready_message": "이제 약을 복용할 수 있습니다",
+    "ready_message": "이제 약을 복용하실 수 있습니다",
     "take_now": "지금 복용",
-    "cancel_catchup": "따라잡기 취소"
+    "cancel_catchup": "복용 취소",
+    "confirm_fasting": "금식 확인",
+    "confirm_fasting_message": "최소 2시간 동안 금식하셨습니까?",
+    "ready_to_take": "이제 약을 복용하실 수 있습니다.",
+    "wait_time": "남은 시간",
+    "choose_time": "시간 선택",
+    "success_title": "잘하셨습니다!",
+    "select_last_meal_time": "마지막 식사/음료/담배 시간"
   },
   "messages": {
-    "medication_added_success": "약물이 성공적으로 추가되었습니다",
-    "medication_deleted_success": "약물이 성공적으로 삭제되었습니다",
-    "stock_updated": "재고 업데이트됨: {stock} 정",
-    "notifications_scheduled": "{medication}에 대한 알림이 {time}에 예약되었습니다",
-    "notifications_scheduled_fasting": " (2시간 전에 금식 알림과 함께)",
+    "medication_added_success": "약이 성공적으로 추가됨",
+    "medication_deleted_success": "약이 성공적으로 삭제됨",
+    "stock_updated": "재고 업데이트됨: {stock}알",
+    "notifications_scheduled": "{medication}에 대한 알림이 {time}에 예약됨",
+    "notifications_scheduled_fasting": " (2시간 전 금식 알림)",
     "notifications_error": "알림 오류: {error}",
-    "no_medications_posology": "처방에 약물 없음",
-    "test_scheduled": "{medication}에 대한 테스트가 1분 후 예약되었습니다",
-    "view_photos_title": "📸 약물 사진",
+    "no_medications_posology": "복용량에 약 없음",
+    "test_scheduled": "{medication}에 대한 테스트가 1분 후에 예약됨",
+    "view_photos_title": "📸 약 사진",
     "close_dialog": "닫기",
     "image_not_available": "이미지 사용 불가",
-    "touch_to_close": "닫으려면 터치",
-    "touch_to_enlarge": "확대하려면 터치",
-    "medication_not_found": "오류: 약물을 찾을 수 없음",
+    "touch_to_close": "닫으려면 탭하세요",
+    "touch_to_enlarge": "확대하려면 탭하세요",
+    "medication_not_found": "오류: 약을 찾을 수 없음",
     "link_open_error": "링크를 열 수 없음: {url}",
     "error": "오류: {error}"
   },
@@ -408,12 +423,13 @@
     "week_of": "주",
     "before_installation": "설치 전",
     "upcoming": "예정",
-    "taken_count": "✅ {count} 복용됨",
-    "missed_count": "❌ {count} 누락됨",
-    "details_title": "세부 사항",
-    "no_data": "이 날짜에 대한 데이터 없음",
+    "taken_count": "✅ {count} 복용함",
+    "missed_count": "❌ {count} 놓침",
+    "details_title": "세부 정보",
+    "no_data": "이 날에 대한 데이터 없음",
     "unknown_medication": "알 수 없음",
+    "scheduled_at": "예정 시간",
     "taken_at": "복용 시간",
-    "missed": "누락됨"
+    "missed": "놓침"
   }
 }

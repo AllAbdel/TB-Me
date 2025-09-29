@@ -2,34 +2,38 @@
   "app": {
     "title": "TB&Me",
     "home": "Home",
-    "medications": "Medicinali",
+    "mangement": "Le mie assunzioni di farmaci",
+    "medications": "Farmaci",
     "quiz": "Quiz",
-    "information": "Informazione",
+    "information": "Informazioni",
     "settings": "Impostazioni",
-    "description": "Applicazione dedicata al monitoraggio del trattamento della tubercolosi"
+    "history": "Cronologia",
+    "calendar": "Calendario",
+    "description": "App dedicata al monitoraggio del trattamento della tubercolosi"
   },
   "home": {
     "welcome": "Benvenuto!",
-    "medications_today": "medicinale(i) da prendere oggi",
-    "daily_dashboard": "Dashboard giornaliero",
-    "no_medications": "Nessun medicinale configurato",
-    "configure_medications": "Vai alla scheda Medicinali per configurare il tuo dosaggio",
+    "medications_today": "farmaco(i) da prendere oggi",
+    "daily_dashboard": "Pannello di controllo giornaliero",
+    "no_medications": "Nessun farmaco configurato",
+    "configure_medications": "Vai alla sezione Farmaci per configurare il tuo dosaggio",
     "daily_statistics": "Statistiche giornaliere",
-    "confirm_taking": "Conferma l'assunzione",
+    "confirm_taking": "Conferma l’assunzione",
     "mark_as_taken": "Segna",
     "mark_taken": "Segna\ncome preso",
     "tablets": "compressa(e)",
     "current_stock": "Scorta attuale",
-    "stock_after": "Scorta dopo l'assunzione",
+    "stock_after": "Scorta dopo l’assunzione",
     "stock": "Scorta",
     "marked_as_taken": "segnato come preso",
     "insufficient_stock": "Scorta insufficiente! Solo",
     "tablets_remaining": "compressa(e) rimanente(i)",
-    "take_on_empty_stomach": "Prendere a stomaco vuoto",
+    "take_on_empty_stomach": "Da prendere a digiuno",
     "status": {
       "taken": "Preso",
       "upcoming": "In arrivo",
       "now": "Ora",
+      "late": "In ritardo",
       "missed": "Mancato"
     }
   },
@@ -61,29 +65,41 @@
     "saturday_short": "Sab",
     "sunday_short": "Dom"
   },
+  "calendar": {
+    "title": "Calendario",
+    "event_title": "Titolo dell’evento",
+    "event_description": "Descrizione",
+    "choose_time": "Scegli l’ora",
+    "notification": "Notifica",
+    "add": "Aggiungi",
+    "events_today": "Eventi di oggi",
+    "no_events_today": "Nessun evento oggi",
+    "all_events": "Tutti gli eventi",
+    "no_events": "Nessun evento"
+  },
   "medications": {
-    "available_title": "Medicinali disponibili",
+    "available_title": "Farmaci disponibili",
     "add_button": "Aggiungi",
     "my_posology": "La mia posologia",
-    "no_medication": "Nessun medicinale aggiunto alla tua posologia",
-    "fasting": "A stomaco vuoto",
+    "no_medication": "Nessun farmaco aggiunto alla tua posologia",
+    "fasting": "A digiuno",
     "tablets": "compressa(e)",
     "stock": "Scorta",
     "delete": "Elimina",
     "add_dialog_title": "Aggiungi",
-    "time_format": "Formato dell'ora",
+    "time_format": "Formato dell’ora",
     "time": "Ora",
     "change": "Modifica",
     "tablets_count": "Compresse",
-    "take_fasting": "Prendere a stomaco vuoto",
-    "delete_confirmation": "Conferma l'eliminazione",
-    "delete_question": "Sei sicuro di voler eliminare questo medicinale dalla tua posologia?",
+    "take_fasting": "Da prendere a digiuno",
+    "delete_confirmation": "Conferma l’eliminazione",
+    "delete_question": "Sei sicuro di voler eliminare questo farmaco dalla tua posologia?",
     "details": {
       "description": "Descrizione",
       "side_effects": "Effetti collaterali",
       "advice": "Consiglio",
       "see_documentation": "Vedi documentazione",
-      "enlarge_hint": "Premere per ingrandire",
+      "enlarge_hint": "Tocca per ingrandire",
       "close": "Chiudi"
     },
     "pdf": {
@@ -97,7 +113,7 @@
       "storage_permission": "Permesso di archiviazione richiesto per il download",
       "downloaded": "PDF scaricato",
       "download_error": "Errore di download",
-      "view_error": "Errore durante l'apertura del PDF",
+      "view_error": "Errore nell’apertura del PDF",
       "pdf_render_error": "Errore di rendering del PDF"
     },
     "image": {
@@ -109,17 +125,17 @@
       "rifadine": {
         "description": "Antibiotico antitubercolare di prima linea",
         "side_effects": "Urina arancione, nausea, disturbi epatici",
-        "advice": "Da prendere a stomaco vuoto, 1 ora prima o 2 ore dopo il pasto"
+        "advice": "Da prendere a digiuno, 1 ora prima o 2 ore dopo il pasto"
       },
       "rifater": {
         "description": "Combinazione fissa di rifampicina, isoniazide e pirazinamide",
-        "side_effects": "Disturbi digestivi, mal di testa, affaticamento",
-        "advice": "Combinazione di 3 medicinali in 1 compressa"
+        "side_effects": "Disturbi digestivi, mal di testa, stanchezza",
+        "advice": "Combinazione di 3 farmaci in 1 compressa"
       },
       "rifinah": {
         "description": "Associazione di rifampicina e isoniazide",
         "side_effects": "Colorazione arancione delle urine, nausea",
-        "advice": "Da prendere al mattino a stomaco vuoto preferibilmente"
+        "advice": "Da prendere al mattino a digiuno preferibilmente"
       },
       "dexambutol": {
         "description": "Antitubercolare di seconda linea",
@@ -128,8 +144,8 @@
       },
       "myambutol": {
         "description": "Etambutolo, antitubercolare batteriostatico",
-        "side_effects": "Neurite ottica, disturbi della vista",
-        "advice": "Controllo della vista raccomandato"
+        "side_effects": "Neurite ottica, disturbi della visione",
+        "advice": "Controllo della visione raccomandato"
       },
       "pirilene": {
         "description": "Pirazinamide, antitubercolare",
@@ -157,36 +173,20 @@
     "title": "Informazioni sulla tubercolosi",
     "links": {
       "title": "Link utili",
-  "error": "Impossibile aprire il link",
-  "who": {
-    "title": "OMS - Organizzazione Mondiale della Sanità",
-    "description": "Scheda informativa sulla tubercolosi"
-  },
-  "ministry": {
-    "title": "Ministero della Salute - Francia",
-    "description": "Tubercolosi: informazioni ufficiali"
-  },
-  "fight": {
-    "title": "Lotta contro la tubercolosi",
-    "description": "Strategie e azioni in Francia"
-  },
-  "refugees": {
-    "title": "Informazioni per i rifugiati",
-    "description": "Informazioni per i rifugiati"
-  }
+      "error": "Impossibile aprire il link"
     },
     "understanding": {
       "title": "Capire la tubercolosi",
       "subtitle": "Una malattia infettiva che richiede attenzione",
-      "what_is": "Cos'è la tubercolosi?",
-      "what_is_content": "La tubercolosi è una malattia causata dal batterio chiamato Mycobacterium tuberculosis, che dopo una fase latente, diventa attivo. Questa forma attiva della malattia corrisponde a una moltiplicazione del batterio. È accompagnata da sintomi e richiede un trattamento prolungato con antibiotici specifici.",
-      "transmission": "Come viene trasmessa?",
-      "transmission_content": "La tubercolosi è trasmessa per via aerea da una persona i cui polmoni sono colpiti quando tossisce, starnutisce o parla. La trasmissione richiede un contatto prolungato e stretto con una persona che ha una tubercolosi polmonare contagiosa."
+      "what_is": "Che cos’è la tubercolosi?",
+      "what_is_content": "La tubercolosi è una malattia causata dal batterio chiamato Mycobacterium tuberculosis, che dopo una fase latente diventa attivo. Questa forma attiva della malattia corrisponde a una moltiplicazione del batterio. È accompagnata da sintomi e richiede un trattamento prolungato con antibiotici specifici.\n\nColpisce più spesso i polmoni, si parla allora di tubercolosi polmonare. La malattia è contagiosa solo quando i polmoni sono colpiti. Può colpire anche altre parti del corpo, come i linfonodi, i reni, il cervello, le ossa, ecc. In questi casi, la malattia non è contagiosa. A volte può colpire più organi.\n\nMa si può evitare questa malattia, e si può guarire se ci si cura correttamente.",
+      "transmission": "Come si trasmette la tubercolosi?",
+      "transmission_content": "La tubercolosi si trasmette per via aerea, da una persona con i polmoni colpiti quando tossisce, starnutisce o parla. La trasmissione richiede contatti prolungati e ravvicinati con una persona che ha una tubercolosi polmonare contagiosa, ad esempio quando si vive nella stessa abitazione della persona contagiosa o si viaggia insieme in un veicolo.\n\nQuando la tubercolosi colpisce altre parti del corpo oltre ai polmoni, non è contagiosa.\n\nNon tutte le persone in contatto con un caso di tubercolosi saranno necessariamente infettate, né tanto meno malate.\n\nLa tubercolosi polmonare è meno contagiosa di malattie come l’influenza o il morbillo.",
+      "how_occurs": "Come si sviluppa la tubercolosi?",
+      "how_occurs_content": "La tubercolosi si sviluppa quando i batteri della tubercolosi si 'risvegliano' nel corpo.\n\nInfatti, quando una persona respira i batteri, rimangono dormienti nel corpo, senza provocare malattia. Rimangono in uno stato di riposo, inattivi, dormienti. Questo è ciò che viene chiamato infezione tubercolare latente (ITL). La persona contagiata, portatrice di un’infezione tubercolare latente, non è malata. Non presenta alcun sintomo e non è contagiosa.\n\nIl batterio può rimanere nel corpo per tutta la vita della persona infetta senza fare nulla, perché il suo sistema immunitario permette di contenere l’infezione.\n\nMa per 1 persona infetta su 10, i batteri si 'risvegliano' dopo la fase latente e diventano attivi moltiplicandosi. La persona diventa allora malata.\n\nIl risveglio avviene più spesso nei due anni successivi alla trasmissione o quando c’è un’immunodepressione legata a una malattia (come l’AIDS), a certi farmaci immunosoppressori, a uno stato di malnutrizione o all’età (le persone anziane e i bambini molto piccoli hanno un sistema immunitario debole).\n\nIn assenza di qualsiasi segno clinico e radiologico, la diagnosi di infezione tubercolare latente può essere fatta grazie a test immunologici come il test tuberculinico (IDR alla tubercolina) o i test di rilascio di interferone gamma (test IGRA)."
     },
     "itl": {
       "title": "Infezione tubercolare latente (ITL)",
-      "what_is": "Cosa significa ITL?",
-      "what_is_content": "Nell'infezione tubercolare latente, il batterio è neutralizzato, intrappolato grazie alle difese dell'organismo. Questo batterio può rimanere 'dormiente'. La persona potrebbe non sviluppare mai la malattia nella sua vita.",
       "vs_active": "ITL vs Tubercolosi attiva",
       "itl_characteristics": "Infezione tubercolare latente",
       "itl_char_1": "I bacilli sono 'dormienti, neutralizzati'",
@@ -203,20 +203,26 @@
     },
     "symptoms": {
       "title": "Sintomi e trattamento",
+      "what_are_symptoms": "Quali sono i sintomi della tubercolosi?",
+      "what_are_symptoms_content": "I sintomi variano a seconda della parte del corpo colpita. Ma in tutti i casi, la malattia può provocare i seguenti segni: febbre, sudorazione intensa notturna, grande stanchezza e perdita di appetito e di peso.\n\nIn caso di tubercolosi polmonare, è presente una tosse.\n\nLa persistenza di questi segni per diverse settimane deve far pensare alla tubercolosi e deve indurre a consultare un medico.",
       "symptoms_list": "Principali sintomi",
       "symptom_1": "Tosse persistente (più di 3 settimane)",
-      "symptom_2": "Sangue nell'espettorato",
+      "symptom_2": "Sangue nell’espettorato",
       "symptom_3": "Dolori toracici",
       "symptom_4": "Fatica e debolezza",
-      "symptom_5": "Perdita di peso non intenzionale",
+      "symptom_5": "Perte di peso non intenzionale",
       "symptom_6": "Febbre e sudorazioni notturne",
-      "symptom_7": "Perdita di appetito",
+      "symptom_7": "Perte di appetito",
+      "how_to_treat": "Come si cura la tubercolosi?",
+      "how_to_treat_content": "In Francia, la tubercolosi si cura molto bene oggi. Il trattamento richiede di prendere diversi farmaci ogni giorno, per almeno sei mesi. Devono essere presi a digiuno. In pratica, vanno presi una volta al giorno, in un’unica soluzione, almeno mezz’ora prima di mangiare. Si può anche aspettare 2 ore dopo un pasto per prenderli.\n\nIl trattamento si accompagna a una sorveglianza regolare come la realizzazione di esami del sangue.\n\nAll’inizio del trattamento, iniziato in ospedale, la persona che ha una tubercolosi polmonare contagiosa è isolata (stanza singola, mascherina…) per evitare di contagiare gli altri.\n\nÈ molto importante non interrompere il trattamento, altrimenti la malattia può tornare, e per evitare la comparsa di una resistenza ai farmaci che sarebbero allora inefficaci.\n\nLa Sicurezza Sociale copre il 100% del trattamento.",
       "treatment_title": "Trattamento",
-      "treatment_content": "Il trattamento richiede l'assunzione di diversi medicinali ogni giorno, per diversi mesi. Devono essere presi a stomaco vuoto. In pratica, devono essere presi almeno mezz'ora prima di mangiare.",
+      "treatment_content": "Il trattamento richiede l’assunzione di diversi farmaci ogni giorno, per diversi mesi. Devono essere presi a digiuno. In pratica, devono essere presi almeno mezz’ora prima di mangiare.",
       "important_note": "È molto importante non interrompere il trattamento, altrimenti la malattia potrebbe tornare."
     },
     "prevention": {
       "title": "Prevenzione",
+      "how_to_prevent": "Come prevenire la tubercolosi?",
+      "how_to_prevent_content": "La prevenzione passa attraverso una vaccinazione BCG precoce e mirata per i bambini a rischio, nonché attraverso uno screening assicurato dai Centri di Lotta Antitubercolare (CLAT), sia intorno ai casi di tubercolosi contagiosa che nelle popolazioni più esposte.\n\nSebbene la vaccinazione BCG non sia più obbligatoria in Francia dal 2007, rimane fortemente raccomandata, in particolare per i bambini sotto i cinque anni che presentano un fattore di rischio legato al loro ambiente o ai loro cari (in particolare un antecedente familiare di tubercolosi o legami con un paese dove la tubercolosi è molto frequente).\n\nLa vaccinazione è raccomandata a partire dall’età di 1 mese, preferibilmente durante il 2° mese. Protegge dalle forme gravi di tubercolosi, in particolare le meningiti tubercolari.\n\nI CLAT svolgono un ruolo centrale nella prevenzione della tubercolosi. Quando viene diagnosticato un caso di tubercolosi contagiosa, il CLAT, informato dalle autorità sanitarie, conduce un’indagine per rintracciare le persone che sono state in stretto contatto con il malato. Queste persone possono quindi beneficiare di uno screening, che comprende una visita medica, una radiografia del torace e un test immunologico (come il test tuberculinico o il test IGRA).\n\nIn caso di rilevamento di un’infezione tubercolare latente, il CLAT propone un trattamento preventivo per evitare che evolva verso una tubercolosi attiva.\n\nInoltre, il CLAT organizza anche uno screening mirato in alcune popolazioni più esposte, come le persone provenienti da paesi dove la tubercolosi è frequente, al fine di rilevare la malattia il prima possibile.",
       "vaccination": "Vaccinazione BCG",
       "vaccination_content": "La vaccinazione BCG rimane fortemente raccomandata, soprattutto per i bambini sotto i cinque anni con fattori di rischio.",
       "screening": "Screening da parte dei centri di lotta contro la tubercolosi",
@@ -228,7 +234,7 @@
       "a1": "No, solo la tubercolosi polmonare è contagiosa. Quando colpisce altre parti del corpo, non è contagiosa.",
       "q2": "Quanto dura il trattamento?",
       "a2": "Il trattamento dura generalmente 6 mesi, a volte di più a seconda del caso. È cruciale seguirlo completamente.",
-      "q3": "La tubercolosi può essere curata?",
+      "q3": "La tubercolosi può essere guarita?",
       "a3": "Sì, la tubercolosi è molto trattabile oggi in Francia se il trattamento è seguito correttamente.",
       "q4": "Chi dovrebbe essere sottoposto a screening?",
       "a4": "I contatti stretti e le persone in contatto frequente con un paziente sono sottoposti a screening dai team dei centri di lotta contro la tubercolosi."
@@ -238,17 +244,17 @@
     "question": "Domanda",
     "score": "Punteggio",
     "explanation": "Spiegazione",
-    "restart": "Ricominciare",
+    "restart": "Ricomincia",
     "home": "Home",
     "result": {
-      "title": "Quiz completato!",
-      "excellent": "Eccellente! Padroni del soggetto!",
-      "good": "Bene! Hai buone conoscenze.",
+      "title": "Quiz terminato!",
+      "excellent": "Eccellente! Padroni dell’argomento!",
+      "good": "Bene! Avete buone conoscenze.",
       "average": "Corretto. Ci sono ancora alcuni punti da rivedere.",
       "needs_improvement": "Sarebbe bene rileggere le informazioni sulla tubercolosi."
     },
     "q1": {
-      "question": "Cosa causa la tubercolosi?",
+      "question": "Che cosa causa la tubercolosi?",
       "a1": "Un virus",
       "a2": "Un batterio chiamato Mycobacterium tuberculosis",
       "a3": "Un fungo",
@@ -256,19 +262,19 @@
       "explanation": "La tubercolosi è causata da un batterio chiamato Mycobacterium tuberculosis, noto anche come bacillo di Koch."
     },
     "q2": {
-      "question": "Come viene trasmessa la tubercolosi?",
+      "question": "Come si trasmette la tubercolosi?",
       "a1": "Per via aerea (tosse, starnuti)",
       "a2": "Per contatto cutaneo",
       "a3": "Attraverso acqua contaminata",
       "a4": "Attraverso punture di insetti",
-      "explanation": "La tubercolosi è trasmessa per via aerea quando una persona infetta tossisce, starnutisce o parla, rilasciando goccioline contenenti il batterio."
+      "explanation": "La tubercolosi si trasmette per via aerea quando una persona infetta tossisce, starnutisce o parla, rilasciando goccioline contenenti il batterio."
     },
     "q3": {
       "question": "Quale forma di tubercolosi è contagiosa?",
       "a1": "Tubercolosi ossea",
       "a2": "Tubercolosi renale",
       "a3": "Tubercolosi polmonare",
-      "a4": "Tubercolosi ganglionare",
+      "a4": "Tubercolosi linfonodale",
       "explanation": "Solo la tubercolosi polmonare è contagiosa perché colpisce i polmoni e permette una trasmissione per via aerea."
     },
     "q4": {
@@ -280,7 +286,7 @@
       "explanation": "Il trattamento della tubercolosi dura generalmente 6 mesi, a volte di più a seconda del caso. È cruciale seguirlo completamente."
     },
     "q5": {
-      "question": "Cosa significa ITL?",
+      "question": "Che cosa significa ITL?",
       "a1": "Infezione tubercolare latente",
       "a2": "Infezione totale lunga",
       "a3": "Intervento terapeutico locale",
@@ -288,12 +294,12 @@
       "explanation": "ITL significa Infezione Tubercolare Latente. È quando il batterio è presente ma 'dormiente', senza sintomi né contagiosità."
     },
     "q6": {
-      "question": "Quando devono essere presi i medicinali contro la tubercolosi?",
+      "question": "Quando vanno presi i farmaci contro la tubercolosi?",
       "a1": "Dopo i pasti",
       "a2": "Durante i pasti",
       "a3": "In qualsiasi momento",
-      "a4": "A stomaco vuoto (prima dei pasti)",
-      "explanation": "I medicinali contro la tubercolosi devono essere presi a stomaco vuoto, almeno 30 minuti prima dei pasti o 2 ore dopo."
+      "a4": "A digiuno (prima dei pasti)",
+      "explanation": "I farmaci contro la tubercolosi vanno presi a digiuno, almeno 30 minuti prima dei pasti o 2 ore dopo."
     },
     "q7": {
       "question": "Qual è il sintomo principale della tubercolosi polmonare?",
@@ -304,12 +310,12 @@
       "explanation": "Il sintomo principale della tubercolosi polmonare è una tosse persistente che dura più di 3 settimane."
     },
     "q8": {
-      "question": "Cosa succede se il trattamento viene interrotto troppo presto?",
+      "question": "Che cosa succede se il trattamento viene interrotto troppo presto?",
       "a1": "Niente di speciale",
       "a2": "Recupero più rapido",
       "a3": "Rischio di recidiva e resistenza",
       "a4": "Riduzione degli effetti collaterali",
-      "explanation": "Interrompere il trattamento troppo presto può portare a una recidiva della malattia e allo sviluppo di una resistenza ai medicinali."
+      "explanation": "Interrompere il trattamento troppo presto può portare a una recidiva della malattia e allo sviluppo di una resistenza ai farmaci."
     }
   },
   "settings": {
@@ -317,13 +323,13 @@
     "language_changed": "Lingua cambiata in",
     "actions": "Azioni",
     "reset_data": "Reimposta i dati",
-    "reset_description": "Elimina tutti i dati dell'applicazione",
+    "reset_description": "Elimina tutti i dati dell’applicazione",
     "reset_confirmation": "Sei sicuro di voler reimpostare tutti i dati?",
-    "reset_warning": "Questa azione eliminerà:\n• La tua posologia\n• Le tue assunzioni di medicinali\n• Tutte le tue configurazioni",
+    "reset_warning": "Questa azione eliminerà:\n• La tua posologia\n• Le tue assunzioni di farmaci\n• Tutte le tue configurazioni",
     "reset_success": "Dati reimpostati con successo",
-    "quit_app": "Esci dall'applicazione",
-    "quit_description": "Chiudi MaTubercolosi",
-    "quit_confirmation": "Sei sicuro di voler uscire da MaTubercolosi?"
+    "quit_app": "Esci dall’applicazione",
+    "quit_description": "Chiudi TB&Me",
+    "quit_confirmation": "Sei sicuro di voler uscire da TB&Me?"
   },
   "common": {
     "cancel": "Annulla",
@@ -334,86 +340,96 @@
     "later": "Più tardi"
   },
   "notifications": {
-    "fasting_reminder_title": "⏰ Promemoria di digiuno",
+    "fasting_reminder_title": "⏰ Promemoria digiuno",
     "fasting_reminder_body": "Tra 2 ore, prendi {medication} {dosage}. Non mangiare né bere nulla ora!",
+    "30min_reminder_title": "⏰ Promemoria",
+    "30min_reminder_body": "Tra 30 minuti: {medication} {dosage} ({tablets} compressa{e})",
     "5min_reminder_title": "🔔 Promemoria vicino",
     "5min_reminder_body": "Tra 5 minuti: {medication} {dosage} ({tablets} compressa{e})",
-    "time_reminder_title": "💊 È ora!",
+    "time_reminder_title": "💊 È l’ora!",
     "time_reminder_body": "Prendi ora: {medication} {dosage} ({tablets} compressa{e})",
-    "fasting_note": " - Da prendere a stomaco vuoto",
+    "fasting_note": " - Da prendere a digiuno",
     "permissions_help": "Puoi attivare queste autorizzazioni nelle impostazioni del dispositivo.",
-    "test_simple": "🔔 Test Semplice",
+    "test_simple": "🔔 Test semplice",
     "test_sent_immediately": "Notifica di test inviata immediatamente"
   },
   "permissions": {
     "notifications": "Notifiche",
-    "exact_alarms": "Allarmi esatti",
+    "exact_alarms": "Allarmi precisi",
     "storage": "Archiviazione",
     "required_title": "Autorizzazioni richieste",
-    "required_message": "L'applicazione ha bisogno delle seguenti autorizzazioni per funzionare correttamente:"
+    "required_message": "L’applicazione ha bisogno delle seguenti autorizzazioni per funzionare correttamente:"
   },
   "encouragement": {
     "regular_taking": [
       "💊 Ogni assunzione conta! Bravo per questo passo in più.",
       "🌟 Il tuo impegno fa la differenza. Continua così!",
-      "🎯 Ben fatto! Ogni giorno, costruisci la tua guarigione.",
-      "🌱 Un gesto essenziale, un futuro più sano. Congratulazioni!",
+      "🎯 Ben fatto! Ogni giorno costruisci la tua guarigione.",
+      "🌱 Un gesto essenziale, un futuro più sano. Complimenti!",
       "💪 Ti prendi cura di te, e si vede. Bravo!",
       "🏆 Piccoli gesti, grandi vittorie. Superbo!",
       "✨ Ogni azione ti avvicina alla salute. Eccellente!"
     ],
     "missed_recovery": [
-      "🔄 L'importante è riprendere. Ogni assunzione conta, anche dopo una dimenticanza!",
-      "🤗 Non è grave, l'errore è umano. Concentriamoci su oggi!",
+      "🔄 L’importante è riprendere. Ogni assunzione conta, anche dopo una dimenticanza!",
+      "🤗 Non è grave, l’errore è umano. Concentriamoci su oggi!",
       "💚 Una dimenticanza capita. Bravo per aver ripreso il trattamento! Continuiamo insieme.",
-      "🌈 Il cammino è a volte pieno di ostacoli, ma tu sei qui! Ben fatto per aver ripreso.",
+      "🌈 Il percorso è a volte pieno di ostacoli, ma tu ci sei! Ben fatto per aver ripreso.",
       "🚀 Questo piccolo passo è una grande prova della tua determinazione. Andiamo!",
-      "💪 Non molliamo! L'essenziale è perseverare. Bravo per questa ripresa.",
-      "⭐ Mantieni la rotta! Una dimenticanza non ferma il tuo progresso. Bravo per la tua ripresa."
+      "💪 Non molliamo! L’essenziale è perseverare. Bravo per questa ripresa.",
+      "⭐ Mantieni la rotta! Una dimenticanza non ferma il tuo progresso. Bravo per la ripresa."
     ]
   },
   "catch_up": {
-    "title": "Recupero dell'assunzione",
+    "title": "Recupero assunzione",
     "button": "Recupera",
     "fasting_period": "Periodo di digiuno richiesto",
     "fasting_duration": "2 ore di digiuno",
     "fasting_rules": "Per le prossime 2 ore:\n• Non mangiare\n• Non bere\n• Non fumare",
     "timer_title": "Periodo di digiuno in corso",
-    "timer_subtitle": "Resta a digiuno ancora",
+    "timer_subtitle": "Rimani a digiuno ancora",
     "ready_title": "✅ Periodo di digiuno terminato!",
-    "ready_message": "Ora puoi prendere il tuo medicinale",
+    "ready_message": "Ora puoi prendere il tuo farmaco",
     "take_now": "Prendi ora",
-    "cancel_catchup": "Annulla il recupero"
+    "cancel_catchup": "Annulla il recupero",
+    "confirm_fasting": "Conferma il digiuno",
+    "confirm_fasting_message": "Confermi di essere a digiuno da almeno 2 ore?",
+    "ready_to_take": "Ora puoi prendere il tuo farmaco.",
+    "wait_time": "Tempo rimanente",
+    "choose_time": "Scegli l’ora",
+    "success_title": "Bravo!",
+    "select_last_meal_time": "Ora dell’ultimo pasto/bevanda/sigaretta"
   },
   "messages": {
-    "medication_added_success": "Medicinale aggiunto con successo",
-    "medication_deleted_success": "Medicinale eliminato con successo",
+    "medication_added_success": "Farmaco aggiunto con successo",
+    "medication_deleted_success": "Farmaco eliminato con successo",
     "stock_updated": "Scorta aggiornata: {stock} compresse",
     "notifications_scheduled": "Notifiche programmate per {medication} alle {time}",
     "notifications_scheduled_fasting": " (con promemoria di digiuno 2 ore prima)",
     "notifications_error": "Errore notifiche: {error}",
-    "no_medications_posology": "Nessun medicinale nella tua posologia",
+    "no_medications_posology": "Nessun farmaco nella tua posologia",
     "test_scheduled": "Test programmato tra 1 minuto per {medication}",
-    "view_photos_title": "📸 Foto dei medicinali",
+    "view_photos_title": "📸 Foto dei farmaci",
     "close_dialog": "Chiudi",
     "image_not_available": "Immagine non disponibile",
     "touch_to_close": "Tocca per chiudere",
     "touch_to_enlarge": "Tocca per ingrandire",
-    "medication_not_found": "Errore: medicinale non trovato",
+    "medication_not_found": "Errore: farmaco non trovato",
     "link_open_error": "Impossibile aprire il link: {url}",
     "error": "Errore: {error}"
   },
   "history": {
     "title": "📊 Cronologia",
     "week_of": "Settimana del",
-    "before_installation": "Prima dell'installazione",
+    "before_installation": "Prima dell’installazione",
     "upcoming": "In arrivo",
     "taken_count": "✅ {count} preso",
-    "missed_count": "❌ {count} mancati",
+    "missed_count": "❌ {count} perso",
     "details_title": "Dettagli del",
     "no_data": "Nessun dato per questo giorno",
     "unknown_medication": "Sconosciuto",
+    "scheduled_at": "Programmato alle",
     "taken_at": "Preso alle",
-    "missed": "Mancato"
+    "missed": "Perso"
   }
 }

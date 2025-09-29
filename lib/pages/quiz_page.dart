@@ -801,7 +801,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         ),
         const CreditsWidget(),
         const SizedBox(height: 20),
-        const SizedBox(height: 100),
     ],
     );
   }

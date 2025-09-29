@@ -2,25 +2,28 @@
   "app": {
     "title": "TB&Me",
     "home": "Inicio",
+    "mangement": "Mis tomas de medicamentos",
     "medications": "Medicamentos",
     "quiz": "Cuestionario",
     "information": "Información",
-    "settings": "Configuraciones",
+    "settings": "Ajustes",
+    "history": "Historial",
+    "calendar": "Calendario",
     "description": "Aplicación dedicada al seguimiento del tratamiento de la tuberculosis"
   },
   "home": {
     "welcome": "¡Bienvenido!",
     "medications_today": "medicamento(s) para tomar hoy",
-    "daily_dashboard": "Panel diario",
+    "daily_dashboard": "Tablero diario",
     "no_medications": "Ningún medicamento configurado",
-    "configure_medications": "Vaya a la pestaña Medicamentos para configurar su dosificación",
+    "configure_medications": "Ve a la pestaña Medicamentos para configurar tu dosificación",
     "daily_statistics": "Estadísticas diarias",
-    "confirm_taking": "Confirmar ingesta",
+    "confirm_taking": "Confirmar toma",
     "mark_as_taken": "Marcar",
-    "mark_taken": "Marcar como tomado",
+    "mark_taken": "Marcar\ncomo tomado",
     "tablets": "comprimido(s)",
     "current_stock": "Stock actual",
-    "stock_after": "Stock después de la ingesta",
+    "stock_after": "Stock después de la toma",
     "stock": "Stock",
     "marked_as_taken": "marcado como tomado",
     "insufficient_stock": "¡Stock insuficiente! Solo",
@@ -28,8 +31,9 @@
     "take_on_empty_stomach": "Tomar en ayunas",
     "status": {
       "taken": "Tomado",
-      "upcoming": "Próximos",
+      "upcoming": "Próximo",
       "now": "Ahora",
+      "late": "Tarde",
       "missed": "Perdido"
     }
   },
@@ -61,29 +65,41 @@
     "saturday_short": "Sáb",
     "sunday_short": "Dom"
   },
+  "calendar": {
+    "title": "Calendario",
+    "event_title": "Título del evento",
+    "event_description": "Descripción",
+    "choose_time": "Elegir hora",
+    "notification": "Notificación",
+    "add": "Añadir",
+    "events_today": "Eventos de hoy",
+    "no_events_today": "No hay eventos hoy",
+    "all_events": "Todos los eventos",
+    "no_events": "No hay eventos"
+  },
   "medications": {
     "available_title": "Medicamentos disponibles",
     "add_button": "Añadir",
     "my_posology": "Mi posología",
-    "no_medication": "Ningún medicamento añadido a su posología",
-    "fasting": "Ayuno",
+    "no_medication": "Ningún medicamento añadido a tu posología",
+    "fasting": "En ayunas",
     "tablets": "comprimido(s)",
     "stock": "Stock",
     "delete": "Eliminar",
     "add_dialog_title": "Añadir",
     "time_format": "Formato de hora",
     "time": "Hora",
-    "change": "Modificar",
+    "change": "Cambiar",
     "tablets_count": "Comprimidos",
     "take_fasting": "Tomar en ayunas",
     "delete_confirmation": "Confirmar eliminación",
-    "delete_question": "¿Está seguro de que desea eliminar este medicamento de su posología?",
+    "delete_question": "¿Estás seguro de que quieres eliminar este medicamento de tu posología?",
     "details": {
       "description": "Descripción",
       "side_effects": "Efectos secundarios",
       "advice": "Consejo",
       "see_documentation": "Ver documentación",
-      "enlarge_hint": "Pulse para ampliar",
+      "enlarge_hint": "Toca para ampliar",
       "close": "Cerrar"
     },
     "pdf": {
@@ -102,39 +118,39 @@
     },
     "image": {
       "not_available": "Imagen no disponible",
-      "tap_to_close": "Toque para cerrar"
+      "tap_to_close": "Toca para cerrar"
     },
     "time_label": "Hora",
     "drugs": {
       "rifadine": {
         "description": "Antibiótico antituberculoso de primera línea",
-        "side_effects": "Orina anaranjada, náuseas, problemas hepáticos",
+        "side_effects": "Orina anaranjada, náuseas, trastornos hepáticos",
         "advice": "Tomar en ayunas, 1 hora antes o 2 horas después de la comida"
       },
       "rifater": {
         "description": "Combinación fija de rifampicina, isoniazida y pirazinamida",
-        "side_effects": "Trastornos digestivos, dolores de cabeza, fatiga",
+        "side_effects": "Trastornos digestivos, dolor de cabeza, fatiga",
         "advice": "Combinación de 3 medicamentos en 1 comprimido"
       },
       "rifinah": {
         "description": "Asociación de rifampicina e isoniazida",
         "side_effects": "Coloración anaranjada de la orina, náuseas",
-        "advice": "Tomar por la mañana en ayunas preferiblemente"
+        "advice": "Tomar por la mañana en ayunas, preferiblemente"
       },
       "dexambutol": {
         "description": "Antituberculoso de segunda línea",
         "side_effects": "Trastornos visuales, neuropatía óptica",
-        "advice": "Monitoreo oftalmológico necesario"
+        "advice": "Se requiere seguimiento oftalmológico"
       },
       "myambutol": {
         "description": "Etambutol, antituberculoso bacteriostático",
-        "side_effects": "Neuritis óptica, problemas de visión",
-        "advice": "Control de la visión recomendado"
+        "side_effects": "Neuritis óptica, trastornos de la visión",
+        "advice": "Se recomienda control de la visión"
       },
       "pirilene": {
         "description": "Pirazinamida, antituberculoso",
-        "side_effects": "Problemas hepáticos, artralgia",
-        "advice": "Monitoreo hepático necesario"
+        "side_effects": "Trastornos hepáticos, artralgias",
+        "advice": "Se requiere seguimiento hepático"
       },
       "rimactan": {
         "description": "Rifampicina, antibiótico antituberculoso",
@@ -144,7 +160,7 @@
       "rimifon": {
         "description": "Isoniazida, antituberculoso mayor",
         "side_effects": "Neuropatía periférica, hepatitis",
-        "advice": "Suplemento de vitamina B6 recomendado"
+        "advice": "Se recomienda suplemento de vitamina B6"
       }
     },
     "stock_management": {
@@ -156,40 +172,24 @@
   "information": {
     "title": "Información sobre la tuberculosis",
     "links": {
-  "title": "Enlaces Útiles",
-  "error": "No se puede abrir el enlace",
-  "who": {
-    "title": "OMS - Organización Mundial de la Salud",
-    "description": "Hoja informativa sobre tuberculosis"
-  },
-  "ministry": {
-    "title": "Ministerio de Salud - Francia",
-    "description": "Tuberculosis: información oficial"
-  },
-  "fight": {
-    "title": "Lucha Contra la Tuberculosis",
-    "description": "Estrategias y acciones en Francia"
-  },
-  "refugees": {
-    "title": "Refugiados.info",
-    "description": "Información para refugiados"
-  }
+      "title": "Enlaces útiles",
+      "error": "No se puede abrir el enlace"
     },
     "understanding": {
       "title": "Entendiendo la tuberculosis",
       "subtitle": "Una enfermedad infecciosa que requiere atención",
       "what_is": "¿Qué es la tuberculosis?",
-      "what_is_content": "La tuberculosis es una enfermedad causada por la bacteria llamada Mycobacterium tuberculosis, que después de una fase latente, se vuelve activa. Esta forma activa de la enfermedad corresponde a una multiplicación de la bacteria. Está acompañada de síntomas y requiere un tratamiento prolongado con antibióticos específicos.",
-      "transmission": "¿Cómo se transmite?",
-      "transmission_content": "La tuberculosis se transmite por el aire por una persona cuyos pulmones están afectados cuando tose, estornuda o habla. La transmisión requiere un contacto prolongado y cercano con una persona que tiene tuberculosis pulmonar contagiosa."
+      "what_is_content": "La tuberculosis es una enfermedad causada por una bacteria llamada Mycobacterium tuberculosis, que, después de una fase latente, se vuelve activa. Esta forma activa de la enfermedad corresponde a una multiplicación de la bacteria. Va acompañada de síntomas y requiere un tratamiento prolongado con antibióticos específicos.\n\nAfecta con mayor frecuencia a los pulmones, en cuyo caso se denomina tuberculosis pulmonar. La enfermedad es contagiosa solo cuando los pulmones están afectados. También puede afectar a otras partes del cuerpo, como los ganglios linfáticos, los riñones, el cerebro, los huesos, etc. En estos casos, la enfermedad no es contagiosa. A veces puede afectar a varios órganos.\n\nPero esta enfermedad se puede evitar, y se puede curar si se trata correctamente.",
+      "transmission": "¿Cómo se transmite la tuberculosis?",
+      "transmission_content": "La tuberculosis se transmite por el aire, por una persona cuyos pulmones están afectados cuando tose, estornuda o habla. La transmisión requiere contactos prolongados y cercanos con una persona que tiene tuberculosis pulmonar contagiosa, por ejemplo, cuando se vive en la misma vivienda que la persona contagiosa o se viaja juntos en un vehículo.\n\nCuando la tuberculosis afecta a otras partes del cuerpo que no son los pulmones, no es contagiosa.\n\nNo todas las personas en contacto con un caso de tuberculosis se infectarán necesariamente, y mucho menos enfermarán.\n\nLa tuberculosis pulmonar es menos contagiosa que enfermedades como la gripe o el sarampión.",
+      "how_occurs": "¿Cómo ocurre la tuberculosis?",
+      "how_occurs_content": "La tuberculosis ocurre cuando las bacterias de la tuberculosis 'despiertan' en el cuerpo.\n\nDe hecho, cuando una persona respira las bacterias, permanecen dormidas en el cuerpo, sin causar enfermedad. Permanecen en estado de reposo, inactivas, dormidas. Esto se llama infección tuberculosa latente (ITL). La persona infectada, portadora de una infección tuberculosa latente, no está enferma. No presenta ningún síntoma y no es contagiosa.\n\nLa bacteria puede permanecer en el cuerpo durante toda la vida de la persona infectada sin hacer nada, ya que su sistema inmunológico puede contener la infección.\n\nPero para 1 de cada 10 personas infectadas, las bacterias 'despiertan' después de la fase latente y se vuelven activas multiplicándose. La persona entonces enferma.\n\nEl despertar ocurre con mayor frecuencia dentro de los dos años siguientes a la transmisión o cuando hay inmunodepresión relacionada con una enfermedad (como el SIDA), ciertos medicamentos inmunosupresores, un estado de desnutrición o la edad (las personas mayores y los niños muy pequeños tienen un sistema inmunológico débil).\n\nEn ausencia de cualquier signo clínico y radiológico, el diagnóstico de la infección tuberculosa latente puede realizarse mediante pruebas inmunológicas, como la prueba tuberculínica (IDR a la tuberculina) o las pruebas de liberación de interferón gamma (prueba IGRA)."
     },
     "itl": {
       "title": "Infección Tuberculosa Latente (ITL)",
-      "what_is": "¿Qué significa ITL?",
-      "what_is_content": "En la infección tuberculosa latente, la bacteria está neutralizada, atrapada gracias a las defensas del organismo. Esta bacteria puede permanecer 'latente'. La persona puede nunca desarrollar la enfermedad en su vida.",
       "vs_active": "ITL vs Tuberculosis activa",
       "itl_characteristics": "Infección Tuberculosa Latente",
-      "itl_char_1": "Los bacilos están 'latentes, neutralizados'",
+      "itl_char_1": "Los bacilos están 'dormidos, neutralizados'",
       "itl_char_2": "La persona no es contagiosa",
       "itl_char_3": "Ningún síntoma",
       "itl_char_4": "Radiografía normal",
@@ -203,6 +203,8 @@
     },
     "symptoms": {
       "title": "Síntomas y tratamiento",
+      "what_are_symptoms": "¿Cuáles son los síntomas de la tuberculosis?",
+      "what_are_symptoms_content": "Los síntomas varían según la parte del cuerpo afectada. Pero en todos los casos, la enfermedad puede causar los siguientes signos: fiebre, sudoración nocturna intensa, gran fatiga y pérdida de apetito y peso.\n\nEn caso de tuberculosis pulmonar, hay presencia de tos.\n\nLa persistencia de estos signos durante varias semanas debe hacer pensar en tuberculosis y debe llevar a consultar a un médico.",
       "symptoms_list": "Principales síntomas",
       "symptom_1": "Tos persistente (más de 3 semanas)",
       "symptom_2": "Sangre en el esputo",
@@ -211,27 +213,31 @@
       "symptom_5": "Pérdida de peso no intencional",
       "symptom_6": "Fiebre y sudores nocturnos",
       "symptom_7": "Pérdida de apetito",
+      "how_to_treat": "¿Cómo se trata la tuberculosis?",
+      "how_to_treat_content": "En Francia, la tuberculosis se trata muy bien hoy en día. El tratamiento requiere tomar varios medicamentos todos los días, durante al menos seis meses. Deben tomarse en ayunas. En la práctica, deben tomarse una vez al día, de una sola vez, al menos media hora antes de comer. También se puede esperar 2 horas después de una comida para tomarlos.\n\nEl tratamiento va acompañado de un seguimiento regular, como la realización de análisis de sangre.\n\nAl inicio del tratamiento, iniciado en el hospital, la persona con tuberculosis pulmonar contagiosa es aislada (habitación individual, mascarilla, etc.) para evitar contagiar a otros.\n\nEs muy importante no interrumpir el tratamiento, de lo contrario la enfermedad puede volver, y para evitar el desarrollo de resistencia a los medicamentos, que entonces serían ineficaces.\n\nLa seguridad social cubre el 100% del tratamiento.",
       "treatment_title": "Tratamiento",
-      "treatment_content": "El tratamiento requiere la ingesta de varios medicamentos cada día, durante varios meses. Deben tomarse en ayunas. En la práctica, deben tomarse al menos media hora antes de comer.",
-      "important_note": "Es muy importante no detener el tratamiento, de lo contrario la enfermedad podría regresar."
+      "treatment_content": "El tratamiento requiere tomar varios medicamentos todos los días durante varios meses. Deben tomarse en ayunas. En la práctica, deben tomarse al menos media hora antes de comer.",
+      "important_note": "Es muy importante no interrumpir el tratamiento, de lo contrario la enfermedad podría volver."
     },
     "prevention": {
       "title": "Prevención",
+      "how_to_prevent": "¿Cómo prevenir la tuberculosis?",
+      "how_to_prevent_content": "La prevención pasa por una vacunación temprana y dirigida con BCG para niños en riesgo, así como por un cribado realizado por los Centros de Lucha Antituberculosa (CLAT), tanto en torno a casos de tuberculosis contagiosa como en las poblaciones más expuestas.\n\nAunque la vacunación con BCG ya no es obligatoria en Francia desde 2007, sigue siendo muy recomendada, especialmente para niños menores de cinco años con factores de riesgo relacionados con su entorno o allegados (en particular, antecedentes familiares de tuberculosis o vínculos con un país donde la tuberculosis es muy frecuente).\n\nLa vacunación se recomienda a partir de los 1 mes de edad, preferiblemente durante el 2º mes. Protege contra las formas graves de tuberculosis, en particular las meningitis tuberculosas.\n\nLos CLAT desempeñan un papel central en la prevención de la tuberculosis. Cuando se diagnostica un caso de tuberculosis contagiosa, el CLAT, informado por las autoridades sanitarias, realiza una investigación para encontrar a las personas que han estado en contacto cercano con el enfermo. Estas personas pueden entonces beneficiarse de un cribado, que incluye una consulta médica, una radiografía de tórax y una prueba inmunológica (como la prueba tuberculínica o la prueba IGRA).\n\nEn caso de detección de una infección tuberculosa latente, el CLAT ofrece un tratamiento preventivo para evitar que evolucione hacia una tuberculosis activa.\n\nAdemás, el CLAT también organiza cribados dirigidos en ciertas poblaciones más expuestas, como personas procedentes de países donde la tuberculosis es frecuente, con el fin de detectar la enfermedad lo antes posible.",
       "vaccination": "Vacunación BCG",
-      "vaccination_content": "La vacunación BCG sigue siendo fuertemente recomendada, especialmente para niños menores de cinco años con factores de riesgo.",
-      "screening": "Detección por centros de lucha contra la tuberculosis",
-      "screening_content": "Los centros de lucha contra la tuberculosis juegan un papel central en la prevención al organizar encuestas y detecciones alrededor de los casos."
+      "vaccination_content": "La vacunación con BCG sigue siendo muy recomendada, especialmente para niños menores de cinco años con factores de riesgo.",
+      "screening": "Cribado por los centros de lucha contra la tuberculosis",
+      "screening_content": "Los centros de lucha contra la tuberculosis desempeñan un papel central en la prevención, organizando investigaciones y cribados en torno a los casos."
     },
     "faq": {
       "title": "Preguntas frecuentes",
       "q1": "¿La tuberculosis es siempre contagiosa?",
       "a1": "No, solo la tuberculosis pulmonar es contagiosa. Cuando afecta a otras partes del cuerpo, no es contagiosa.",
       "q2": "¿Cuánto dura el tratamiento?",
-      "a2": "El tratamiento generalmente dura 6 meses, a veces más dependiendo del caso. Es crucial seguirlo completamente.",
-      "q3": "¿La tuberculosis puede ser curada?",
-      "a3": "Sí, la tuberculosis es muy tratable hoy en Francia si el tratamiento se sigue correctamente.",
-      "q4": "¿Quién debería ser examinado?",
-      "a4": "Los contactos cercanos y las personas en contacto frecuente con un paciente son examinados por los equipos de los centros de lucha contra la tuberculosis."
+      "a2": "El tratamiento suele durar 6 meses, a veces más dependiendo del caso. Es crucial seguirlo completamente.",
+      "q3": "¿Puede curarse la tuberculosis?",
+      "a3": "Sí, la tuberculosis es muy tratable hoy en día en Francia si se sigue el tratamiento correctamente.",
+      "q4": "¿Quién debería ser cribado?",
+      "a4": "Los contactos cercanos y las personas en contacto frecuente con un paciente son cribados por los equipos de los centros de lucha contra la tuberculosis."
     }
   },
   "quiz": {
@@ -242,9 +248,9 @@
     "home": "Inicio",
     "result": {
       "title": "¡Cuestionario completado!",
-      "excellent": "¡Excelente! ¡Tienes un muy buen entendimiento del tema!",
+      "excellent": "¡Excelente! ¡Dominas muy bien el tema!",
       "good": "¡Bien! Tienes buenos conocimientos.",
-      "average": "Correcto. Todavía hay algunos puntos por revisar.",
+      "average": "Regular. Todavía hay algunos puntos que repasar.",
       "needs_improvement": "Sería bueno releer la información sobre la tuberculosis."
     },
     "q1": {
@@ -261,7 +267,7 @@
       "a2": "Por contacto cutáneo",
       "a3": "Por agua contaminada",
       "a4": "Por picaduras de insectos",
-      "explanation": "La tuberculosis se transmite por el aire cuando una persona infectada tose, estornuda o habla, liberando gotículas que contienen la bacteria."
+      "explanation": "La tuberculosis se transmite por el aire cuando una persona infectada tose, estornuda o habla, liberando gotitas que contienen la bacteria."
     },
     "q3": {
       "question": "¿Qué forma de tuberculosis es contagiosa?",
@@ -272,7 +278,7 @@
       "explanation": "Solo la tuberculosis pulmonar es contagiosa porque afecta a los pulmones y permite la transmisión por vía aérea."
     },
     "q4": {
-      "question": "¿Cuánto tiempo suele durar el tratamiento de la tuberculosis?",
+      "question": "¿Cuánto dura generalmente el tratamiento de la tuberculosis?",
       "a1": "2 semanas",
       "a2": "6 meses o más",
       "a3": "1 mes",
@@ -285,7 +291,7 @@
       "a2": "Infección Total Larga",
       "a3": "Intervención Terapéutica Local",
       "a4": "Inmunidad Limitada a la Tuberculosis",
-      "explanation": "ITL significa Infección Tuberculosa Latente. Es cuando la bacteria está presente pero 'latente', sin síntomas ni contagiosidad."
+      "explanation": "ITL significa Infección Tuberculosa Latente. Es cuando la bacteria está presente pero 'dormida', sin síntomas ni contagio."
     },
     "q6": {
       "question": "¿Cuándo deben tomarse los medicamentos contra la tuberculosis?",
@@ -304,12 +310,12 @@
       "explanation": "El síntoma principal de la tuberculosis pulmonar es una tos persistente que dura más de 3 semanas."
     },
     "q8": {
-      "question": "¿Qué sucede si el tratamiento se detiene demasiado pronto?",
+      "question": "¿Qué pasa si se interrumpe el tratamiento demasiado pronto?",
       "a1": "Nada especial",
       "a2": "Recuperación más rápida",
       "a3": "Riesgo de recaída y resistencia",
-      "a4": "Reducción de efectos secundarios",
-      "explanation": "Detener el tratamiento demasiado pronto puede llevar a una recaída de la enfermedad y al desarrollo de resistencia a los medicamentos."
+      "a4": "Reducción de los efectos secundarios",
+      "explanation": "Interrumpir el tratamiento demasiado pronto puede provocar una recaída de la enfermedad y el desarrollo de resistencia a los medicamentos."
     }
   },
   "settings": {
@@ -318,12 +324,12 @@
     "actions": "Acciones",
     "reset_data": "Restablecer datos",
     "reset_description": "Eliminar todos los datos de la aplicación",
-    "reset_confirmation": "¿Está seguro de que desea restablecer todos los datos?",
-    "reset_warning": "Esta acción eliminará:\n• Su posología\n• Sus ingestas de medicamentos\n• Todas sus configuraciones",
+    "reset_confirmation": "¿Estás seguro de que quieres restablecer todos los datos?",
+    "reset_warning": "Esta acción eliminará:\n• Tu posología\n• Tus tomas de medicamentos\n• Todas tus configuraciones",
     "reset_success": "Datos restablecidos con éxito",
     "quit_app": "Salir de la aplicación",
     "quit_description": "Cerrar TB&Me",
-    "quit_confirmation": "¿Está seguro de que desea salir de TB&Me?"
+    "quit_confirmation": "¿Estás seguro de que quieres salir de TB&Me?"
   },
   "common": {
     "cancel": "Cancelar",
@@ -335,13 +341,15 @@
   },
   "notifications": {
     "fasting_reminder_title": "⏰ Recordatorio de ayuno",
-    "fasting_reminder_body": "En 2 horas, tome {medication} {dosage}. ¡No coma ni beba nada ahora!",
-    "5min_reminder_title": "🔔 Recordatorio próximo",
+    "fasting_reminder_body": "En 2 horas, toma {medication} {dosage}. ¡No comas ni bebas nada ahora!",
+    "30min_reminder_title": "⏰ Recordatorio",
+    "30min_reminder_body": "En 30 minutos: {medication} {dosage} ({tablets} comprimido(s))",
+    "5min_reminder_title": "🔔 Recordatorio cercano",
     "5min_reminder_body": "En 5 minutos: {medication} {dosage} ({tablets} comprimido(s))",
     "time_reminder_title": "💊 ¡Es la hora!",
-    "time_reminder_body": "Tome ahora: {medication} {dosage} ({tablets} comprimido(s))",
+    "time_reminder_body": "Toma ahora: {medication} {dosage} ({tablets} comprimido(s))",
     "fasting_note": " - Tomar en ayunas",
-    "permissions_help": "Puede activar estos permisos en la configuración del dispositivo.",
+    "permissions_help": "Puedes activar estos permisos en la configuración del dispositivo.",
     "test_simple": "🔔 Prueba simple",
     "test_sent_immediately": "Notificación de prueba enviada inmediatamente"
   },
@@ -354,36 +362,43 @@
   },
   "encouragement": {
     "regular_taking": [
-      "💊 ¡Cada ingesta cuenta! Felicitaciones por este paso adelante.",
-      "🌟 Su compromiso marca la diferencia. ¡Siga así!",
-      "🎯 ¡Bien hecho! Cada día, construye su recuperación.",
-      "🌱 Un gesto esencial, un futuro más saludable. ¡Felicitaciones!",
-      "💪 Usted se cuida, y se nota. ¡Felicitaciones!",
-      "🏆 Pequeños gestos, grandes victorias. ¡Sobresaliente!",
-      "✨ Cada acción lo acerca a la salud. ¡Excelente!"
+      "💊 ¡Cada toma cuenta! Felicidades por este paso.",
+      "🌟 Tu compromiso marca la diferencia. ¡Sigue así!",
+      "🎯 ¡Bien hecho! Cada día, construyes tu recuperación.",
+      "🌱 Un gesto esencial, un futuro más saludable. ¡Felicidades!",
+      "💪 Te cuidas, y se nota. ¡Felicidades!",
+      "🏆 Pequeños gestos, grandes victorias. ¡Excelente!",
+      "✨ Cada acción te acerca a la salud. ¡Excelente!"
     ],
     "missed_recovery": [
-      "🔄 Lo importante es retomar. Cada ingesta cuenta, ¡incluso después de un olvido!",
-      "🤗 No hay problema, el error es humano. ¡Enfoquémonos en hoy!",
-      "💚 Un olvido ocurre. Felicitaciones por retomar el tratamiento. ¡Continuamos juntos!",
-      "🌈 El camino a veces está lleno de obstáculos, pero usted está aquí. ¡Bien hecho por retomar!",
-      "🚀 Este pequeño paso es una gran prueba de su determinación. ¡Vamos!",
-      "💪 ¡No nos rendimos! Lo esencial es perseverar. Felicitaciones por esta reanudación.",
-      "⭐ Mantenga el rumbo. Un olvido no detiene su progreso. Felicitaciones por su reanudación."
+      "🔄 Lo importante es retomar. Cada toma cuenta, ¡incluso después de un olvido!",
+      "🤗 No pasa nada, el error es humano. ¡Enfoquémonos en hoy!",
+      "💚 Un olvido ocurre. ¡Felicidades por retomar el tratamiento! Seguimos juntos.",
+      "🌈 El camino a veces está lleno de obstáculos, ¡pero tú estás aquí! Bien hecho por retomar.",
+      "🚀 Este pequeño paso es una gran prueba de tu determinación. ¡Vamos!",
+      "💪 ¡No te rindas! Lo esencial es perseverar. Felicidades por esta reanudación.",
+      "⭐ Mantén el rumbo. Un olvido no detiene tu progreso. Felicidades por retomar."
     ]
   },
   "catch_up": {
-    "title": "Recuperación de ingesta",
+    "title": "Recuperación de toma",
     "button": "Recuperar",
     "fasting_period": "Período de ayuno requerido",
     "fasting_duration": "2 horas de ayuno",
-    "fasting_rules": "Durante las próximas 2 horas:\n• No coma\n• No beba\n• No fume",
+    "fasting_rules": "Durante las próximas 2 horas:\n• No comas\n• No bebas\n• No fumes",
     "timer_title": "Período de ayuno en curso",
-    "timer_subtitle": "Permanezca en ayunas por",
+    "timer_subtitle": "Mantente en ayunas por",
     "ready_title": "✅ ¡Período de ayuno completado!",
-    "ready_message": "Ahora puede tomar su medicamento",
+    "ready_message": "Ahora puedes tomar tu medicamento",
     "take_now": "Tomar ahora",
-    "cancel_catchup": "Cancelar recuperación"
+    "cancel_catchup": "Cancelar recuperación",
+    "confirm_fasting": "Confirmar ayuno",
+    "confirm_fasting_message": "¿Confirmas que has estado en ayunas durante al menos 2 horas?",
+    "ready_to_take": "Ahora puedes tomar tu medicamento.",
+    "wait_time": "Tiempo restante",
+    "choose_time": "Elegir hora",
+    "success_title": "¡Felicidades!",
+    "select_last_meal_time": "Hora de la última comida/bebida/cigarrillo"
   },
   "messages": {
     "medication_added_success": "Medicamento añadido con éxito",
@@ -391,16 +406,16 @@
     "stock_updated": "Stock actualizado: {stock} comprimidos",
     "notifications_scheduled": "Notificaciones programadas para {medication} a las {time}",
     "notifications_scheduled_fasting": " (con recordatorio de ayuno 2 horas antes)",
-    "notifications_error": "Error de notificaciones: {error}",
-    "no_medications_posology": "Ningún medicamento en su posología",
+    "notifications_error": "Error de notificación: {error}",
+    "no_medications_posology": "Ningún medicamento en tu posología",
     "test_scheduled": "Prueba programada en 1 minuto para {medication}",
     "view_photos_title": "📸 Fotos de los medicamentos",
     "close_dialog": "Cerrar",
     "image_not_available": "Imagen no disponible",
-    "touch_to_close": "Toque para cerrar",
-    "touch_to_enlarge": "Toque para ampliar",
+    "touch_to_close": "Toca para cerrar",
+    "touch_to_enlarge": "Toca para ampliar",
     "medication_not_found": "Error: medicamento no encontrado",
-    "link_open_error": "No se pudo abrir el enlace: {url}",
+    "link_open_error": "No se puede abrir el enlace: {url}",
     "error": "Error: {error}"
   },
   "history": {
@@ -413,6 +428,7 @@
     "details_title": "Detalles del",
     "no_data": "No hay datos para este día",
     "unknown_medication": "Desconocido",
+    "scheduled_at": "Programado a las",
     "taken_at": "Tomado a las",
     "missed": "Perdido"
   }

@@ -8,6 +8,7 @@ import 'package:timezone/timezone.dart' as tz;
 import '../services/notification_service.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../widgets/credits_widget.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 class CalendrierPage extends StatefulWidget {
   const CalendrierPage({Key? key}) : super(key: key);
@@ -65,6 +66,7 @@ class _CalendrierPageState extends State<CalendrierPage> {
   @override
   void initState() {
     super.initState();
+    initializeDateFormatting('fr_FR', null); // Initialise le formatage français
     _loadEvents();
   }
 
@@ -213,7 +215,6 @@ class _CalendrierPageState extends State<CalendrierPage> {
                       },
                       eventLoader: _getEventsForDay,
                       calendarFormat: CalendarFormat.month,
-                      locale: _languageProvider.currentLanguage,
                       headerStyle: HeaderStyle(
                         formatButtonVisible: false,
                         titleCentered: true,

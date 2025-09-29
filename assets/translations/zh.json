@@ -2,34 +2,38 @@
   "app": {
     "title": "TB&Me",
     "home": "主页",
+    "mangement": "我的用药记录",
     "medications": "药物",
-    "quiz": "测验",
+    "quiz": "问答",
     "information": "信息",
     "settings": "设置",
-    "description": "专用于结核病治疗跟踪的应用程序"
+    "history": "历史",
+    "calendar": "日历",
+    "description": "专为结核病治疗跟踪设计的应用程序"
   },
   "home": {
     "welcome": "欢迎！",
-    "medications_today": "今天需要服用的药物",
+    "medications_today": "今日需要服用的药物",
     "daily_dashboard": "每日仪表盘",
-    "no_medications": "未配置药物",
-    "configure_medications": "转到药物选项卡以配置您的剂量",
+    "no_medications": "未配置任何药物",
+    "configure_medications": "前往“药物”选项卡配置您的剂量",
     "daily_statistics": "每日统计",
     "confirm_taking": "确认服用",
     "mark_as_taken": "标记",
-    "mark_taken": "标记为已服用",
+    "mark_taken": "标记\n为已服用",
     "tablets": "片",
     "current_stock": "当前库存",
     "stock_after": "服用后库存",
     "stock": "库存",
-    "marked_as_taken": "标记为已服用",
+    "marked_as_taken": "已标记为已服用",
     "insufficient_stock": "库存不足！仅剩",
     "tablets_remaining": "片",
     "take_on_empty_stomach": "空腹服用",
     "status": {
       "taken": "已服用",
-      "upcoming": "即将服用",
+      "upcoming": "即将到来",
       "now": "现在",
+      "late": "延迟",
       "missed": "错过"
     }
   },
@@ -53,19 +57,31 @@
     "october": "十月",
     "november": "十一月",
     "december": "十二月",
-    "monday_short": "周一",
-    "tuesday_short": "周二",
-    "wednesday_short": "周三",
-    "thursday_short": "周四",
-    "friday_short": "周五",
-    "saturday_short": "周六",
-    "sunday_short": "周日"
+    "monday_short": "一",
+    "tuesday_short": "二",
+    "wednesday_short": "三",
+    "thursday_short": "四",
+    "friday_short": "五",
+    "saturday_short": "六",
+    "sunday_short": "日"
+  },
+  "calendar": {
+    "title": "日历",
+    "event_title": "事件标题",
+    "event_description": "描述",
+    "choose_time": "选择时间",
+    "notification": "通知",
+    "add": "添加",
+    "events_today": "今日事件",
+    "no_events_today": "今日无事件",
+    "all_events": "所有事件",
+    "no_events": "无事件"
   },
   "medications": {
     "available_title": "可用药物",
     "add_button": "添加",
     "my_posology": "我的处方",
-    "no_medication": "未添加任何药物到您的处方",
+    "no_medication": "您的处方中未添加任何药物",
     "fasting": "空腹",
     "tablets": "片",
     "stock": "库存",
@@ -77,7 +93,7 @@
     "tablets_count": "片数",
     "take_fasting": "空腹服用",
     "delete_confirmation": "确认删除",
-    "delete_question": "您确定要从您的处方中删除此药物吗？",
+    "delete_question": "您确定要从处方中删除此药物吗？",
     "details": {
       "description": "描述",
       "side_effects": "副作用",
@@ -93,7 +109,7 @@
       "view": "查看",
       "download": "下载",
       "reading_title": "文档阅读",
-      "download_web_only": "仅在移动设备上可下载",
+      "download_web_only": "仅移动设备支持下载",
       "storage_permission": "下载需要存储权限",
       "downloaded": "PDF 已下载",
       "download_error": "下载错误",
@@ -101,137 +117,127 @@
       "pdf_render_error": "PDF 渲染错误"
     },
     "image": {
-      "not_available": "图像不可用",
+      "not_available": "图片不可用",
       "tap_to_close": "点击关闭"
     },
     "time_label": "时间",
     "drugs": {
       "rifadine": {
-        "description": "一线抗结核抗生素",
-        "side_effects": "橙色尿液，恶心，肝脏问题",
-        "advice": "空腹服用，饭前1小时或饭后2小时"
+        "description": "一线抗结核药物",
+        "side_effects": "尿液呈橙色、恶心、肝功能异常",
+        "advice": "空腹服用，餐前1小时或餐后2小时"
       },
       "rifater": {
         "description": "利福平、异烟肼和吡嗪酰胺的固定组合",
-        "side_effects": "消化系统紊乱，头痛，疲劳",
-        "advice": "3种药物组合在1片中"
+        "side_effects": "消化不良、头痛、疲劳",
+        "advice": "三种药物合并为一片"
       },
       "rifinah": {
         "description": "利福平和异烟肼的组合",
-        "side_effects": "橙色尿液，恶心",
+        "side_effects": "尿液呈橙色、恶心",
         "advice": "最好在早晨空腹服用"
       },
       "dexambutol": {
         "description": "二线抗结核药物",
-        "side_effects": "视觉障碍，视神经病变",
+        "side_effects": "视觉障碍、视神经病变",
         "advice": "需要眼科监测"
       },
       "myambutol": {
-        "description": "乙胺丁醇，抑菌抗结核药物",
-        "side_effects": "视神经炎，视力问题",
-        "advice": "建议检查视力"
+        "description": "乙胺丁醇，抗结核菌静菌剂",
+        "side_effects": "视神经炎、视力障碍",
+        "advice": "建议进行视力检查"
       },
       "pirilene": {
         "description": "吡嗪酰胺，抗结核药物",
-        "side_effects": "肝脏问题，关节痛",
-        "advice": "需要肝脏监测"
+        "side_effects": "肝功能障碍、关节痛",
+        "advice": "需要肝功能监测"
       },
       "rimactan": {
         "description": "利福平，抗结核抗生素",
-        "side_effects": "分泌物橙色",
+        "side_effects": "分泌物呈橙色",
         "advice": "远离餐食服用"
       },
       "rimifon": {
         "description": "异烟肼，主要抗结核药物",
-        "side_effects": "周围神经病变，肝炎",
+        "side_effects": "周围神经病变、肝炎",
         "advice": "建议补充维生素B6"
       }
     },
     "stock_management": {
-      "title": "管理库存",
+      "title": "库存管理",
       "current_stock": "当前库存：{stock} 片",
       "confirm": "确认"
     }
   },
   "information": {
-    "title": "关于结核病的信息",
+    "title": "结核病信息",
     "links": {
       "title": "有用链接",
-  "error": "无法打开链接",
-  "who": {
-    "title": "世界卫生组织",
-    "description": "关于结核病的事实说明"
-  },
-  "ministry": {
-    "title": "法国卫生部",
-    "description": "结核病：官方信息"
-  },
-  "fight": {
-    "title": "抗击结核病",
-    "description": "法国的策略和行动"
-  },
-  "refugees": {
-    "title": "难民信息",
-    "description": "难民信息"
-  }
+      "error": "无法打开链接"
     },
     "understanding": {
       "title": "了解结核病",
       "subtitle": "一种需要关注的传染病",
       "what_is": "什么是结核病？",
-      "what_is_content": "结核病是由称为结核分枝杆菌的细菌引起的疾病，在潜伏期后变为活动期。这种疾病的活动形式对应于细菌的繁殖。它伴有症状，需要用特定的抗生素进行长期治疗。",
-      "transmission": "它是如何传播的？",
-      "transmission_content": "结核病通过空气由肺部受影响的人在咳嗽、打喷嚏或说话时传播。传播需要与患有传染性肺结核的人长时间密切接触。"
+      "what_is_content": "结核病是由结核分枝杆菌（Mycobacterium tuberculosis）引起的疾病，在潜伏期后变为活动性。这种活动性形式对应于细菌的繁殖，伴有症状，需要长期使用特定抗生素治疗。\n\n它最常影响肺部，称为肺结核。只有当肺部受到影响时，这种疾病才具有传染性。它也可以影响身体的其他部位，如淋巴结、肾脏、大脑、骨骼等。在这些情况下，疾病不具有传染性。有时它可能影响多个器官。\n\n但可以通过正确治疗来避免这种疾病，并且可以治愈。",
+      "transmission": "结核病如何传播？",
+      "transmission_content": "结核病通过空气传播，由肺部受到影响的人在咳嗽、打喷嚏或说话时传播。传播需要与患有传染性肺结核的人长时间密切接触，例如与传染者住在同一住所或一起乘坐车辆。\n\n当结核病影响肺部以外的身体其他部位时，它不具有传染性。\n\n并非所有与结核病患者接触的人都会被感染，更不用说生病了。\n\n肺结核的传染性不如流感或麻疹。",
+      "how_occurs": "结核病如何发生？",
+      "how_occurs_content": "结核病发生在结核细菌在体内“苏醒”时。\n\n当一个人吸入细菌时，它们在体内保持休眠状态，不引起疾病。它们保持静止、非活动、休眠状态。这被称为潜伏结核感染（LTBI）。被感染者，携带潜伏结核感染的人，不会生病。他们没有任何症状，也不具有传染性。\n\n细菌可以在被感染者体内终生保持休眠状态，因为其免疫系统能够控制感染。\n\n但对于10个被感染者中有1人，细菌在潜伏期后“苏醒”，变得活跃并繁殖。该人随后会生病。\n\n“苏醒”通常发生在传播后的两年内，或者当免疫抑制与疾病（如艾滋病）、某些免疫抑制药物、营养不良状态或年龄（老年人和非常幼小的儿童免疫系统较弱）有关时。\n\n在没有任何临床和放射学迹象的情况下，可以通过免疫学测试（如结核菌素试验（IDR）或γ-干扰素释放试验（IGRA））来诊断潜伏结核感染。"
     },
     "itl": {
       "title": "潜伏结核感染（LTBI）",
-      "what_is": "LTBI是什么意思？",
-      "what_is_content": "在潜伏结核感染中，细菌被中和，通过机体的防御机制被困住。这种细菌可以保持“休眠”状态。人可能一生都不会患病。",
-      "vs_active": "LTBI与活动性结核病",
+      "vs_active": "LTBI 与 活动性结核",
       "itl_characteristics": "潜伏结核感染",
-      "itl_char_1": "杆菌处于“休眠、中和”状态",
-      "itl_char_2": "人不具有传染性",
+      "itl_char_1": "细菌“休眠、被中和”",
+      "itl_char_2": "患者不具有传染性",
       "itl_char_3": "无症状",
       "itl_char_4": "X光正常",
       "itl_char_5": "预防性治疗3个月",
-      "active_characteristics": "活动性结核病",
-      "active_char_1": "杆菌活跃",
-      "active_char_2": "如果是肺部感染则具有传染性",
+      "active_characteristics": "活动性结核",
+      "active_char_1": "细菌活跃",
+      "active_char_2": "如果是肺结核，具有传染性",
       "active_char_3": "有症状",
       "active_char_4": "X光异常",
-      "active_char_5": "治疗性治疗6个月或更长"
+      "active_char_5": "治疗6个月或更长时间"
     },
     "symptoms": {
       "title": "症状和治疗",
+      "what_are_symptoms": "结核病的症状是什么？",
+      "what_are_symptoms_content": "症状因受影响的身体部位而异。但在所有情况下，疾病可能会引起以下症状：发热、夜间大量出汗、极度疲劳、食欲不振和体重减轻。\n\n如果是肺结核，则会出现咳嗽。\n\n如果这些症状持续数周，应考虑是否患有结核病，并应就医。",
       "symptoms_list": "主要症状",
-      "symptom_1": "持续性咳嗽（超过3周）",
+      "symptom_1": "持续咳嗽（超过3周）",
       "symptom_2": "痰中带血",
       "symptom_3": "胸痛",
       "symptom_4": "疲劳和虚弱",
       "symptom_5": "非故意体重减轻",
       "symptom_6": "发热和夜间盗汗",
       "symptom_7": "食欲不振",
+      "how_to_treat": "如何治疗结核病？",
+      "how_to_treat_content": "在法国，结核病目前治疗效果很好。治疗需要每天服用多种药物，至少六个月。它们必须空腹服用。实际上，每天服用一次，一次性服用，至少在进食前半小时服用。也可以在餐后2小时服用。\n\n治疗期间需要定期监测，如进行血液检查。\n\n在治疗开始时，在医院开始治疗时，患有传染性肺结核的患者会被隔离（单间、戴口罩等），以避免传染他人。\n\n非常重要的是不要中断治疗，否则疾病可能会复发，并避免出现对药物的耐药性，否则药物将无效。\n\n社会保险承担100%的治疗费用。",
       "treatment_title": "治疗",
-      "treatment_content": "治疗需要每天服用多种药物，持续数月。它们必须空腹服用。实际上，它们应该在吃饭前至少半小时服用。",
-      "important_note": "非常重要的是不要停止治疗，否则疾病可能会复发。"
+      "treatment_content": "治疗需要每天服用多种药物，持续数月。它们必须空腹服用。实际上，它们应在进食前至少半小时服用。",
+      "important_note": "非常重要的是不要中断治疗，否则疾病可能会复发。"
     },
     "prevention": {
       "title": "预防",
+      "how_to_prevent": "如何预防结核病？",
+      "how_to_prevent_content": "预防包括为高风险儿童进行早期和有针对性的卡介苗接种，以及由结核病防治中心（CLAT）进行的筛查，包括在传染性结核病患者周围和高风险人群中进行筛查。\n\n虽然卡介苗在法国自2007年以来不再是强制性的，但仍然强烈推荐，特别是对于5岁以下有风险因素的儿童（如环境或亲属有结核病史，或与结核病高发国家有联系）。\n\n建议从1个月大开始接种，最好在2个月时进行。它可以预防严重形式的结核病，特别是结核性脑膜炎。\n\n结核病防治中心在预防结核病方面发挥着核心作用。当诊断出传染性结核病病例时，卫生当局会通知结核病防治中心，并进行调查，以找到与患者密切接触的人。这些人可以接受筛查，包括医学咨询、胸部X光检查和免疫学测试（如结核菌素试验或IGRA测试）。\n\n如果筛查出潜伏结核感染，结核病防治中心将提供预防性治疗，以避免其发展为活动性结核病。\n\n此外，结核病防治中心还在高风险人群（如来自结核病高发国家的人）中组织有针对性的筛查，以尽早发现疾病。",
       "vaccination": "卡介苗接种",
-      "vaccination_content": "卡介苗接种仍然强烈推荐，特别是对于具有风险因素的五岁以下儿童。",
-      "screening": "通过结核病控制中心进行筛查",
-      "screening_content": "结核病控制中心在预防中起着核心作用，通过组织围绕病例的调查和筛查。"
+      "vaccination_content": "卡介苗接种仍然强烈推荐，特别是对于5岁以下有风险因素的儿童。",
+      "screening": "结核病防治中心的筛查",
+      "screening_content": "结核病防治中心在预防中发挥核心作用，通过组织调查和筛查来围绕病例进行预防。"
     },
     "faq": {
       "title": "常见问题",
       "q1": "结核病总是具有传染性吗？",
-      "a1": "不是，只有肺结核具有传染性。当它影响身体的其他部位时，它不具有传染性。",
+      "a1": "不是，只有肺结核具有传染性。当它影响身体的其他部位时，不具有传染性。",
       "q2": "治疗需要多长时间？",
-      "a2": "治疗通常需要6个月，有时根据情况更长。完全遵循治疗非常重要。",
+      "a2": "治疗通常需要6个月，有时更长，具体取决于病情。必须完全遵循治疗。",
       "q3": "结核病可以治愈吗？",
-      "a3": "是的，如果治疗正确遵循，结核病在今天的法国是可以很好治疗的。",
+      "a3": "是的，如果正确遵循治疗，结核病在法国现在可以很好地治愈。",
       "q4": "谁应该接受筛查？",
-      "a4": "密切接触者和经常与患者接触的人由结核病控制中心的团队进行筛查。"
+      "a4": "与患者密切接触的人和经常接触患者的人将由结核病防治中心的团队进行筛查。"
     }
   },
   "quiz": {
@@ -241,19 +247,19 @@
     "restart": "重新开始",
     "home": "主页",
     "result": {
-      "title": "测验完成！",
-      "excellent": "优秀！您对这个主题掌握得非常好！",
-      "good": "不错！您有很好的知识。",
-      "average": "正确。仍有一些点需要复习。",
-      "needs_improvement": "最好重新阅读关于结核病的信息。"
+      "title": "问答结束！",
+      "excellent": "优秀！您非常了解这个主题！",
+      "good": "良好！您的知识很扎实。",
+      "average": "一般。还有一些知识点需要复习。",
+      "needs_improvement": "建议重新阅读有关结核病的信息。"
     },
     "q1": {
-      "question": "什么引起结核病？",
+      "question": "什么导致结核病？",
       "a1": "病毒",
       "a2": "一种称为结核分枝杆菌的细菌",
       "a3": "真菌",
       "a4": "寄生虫",
-      "explanation": "结核病是由一种称为结核分枝杆菌的细菌引起的，也称为科赫杆菌。"
+      "explanation": "结核病是由一种称为结核分枝杆菌（也称为科赫杆菌）的细菌引起的。"
     },
     "q2": {
       "question": "结核病如何传播？",
@@ -261,15 +267,15 @@
       "a2": "通过皮肤接触",
       "a3": "通过受污染的水",
       "a4": "通过昆虫叮咬",
-      "explanation": "结核病通过空气传播，当感染者咳嗽、打喷嚏或说话时，释放出含有细菌的飞沫。"
+      "explanation": "结核病通过空气传播，当被感染者咳嗽、打喷嚏或说话时，释放出含有细菌的飞沫。"
     },
     "q3": {
       "question": "哪种形式的结核病具有传染性？",
       "a1": "骨结核",
       "a2": "肾结核",
       "a3": "肺结核",
-      "a4": "淋巴结结核",
-      "explanation": "只有肺结核具有传染性，因为它影响肺部并允许通过空气传播。"
+      "a4": "淋巴结核",
+      "explanation": "只有肺结核具有传染性，因为它影响肺部，并通过空气传播。"
     },
     "q4": {
       "question": "结核病的治疗通常需要多长时间？",
@@ -277,39 +283,39 @@
       "a2": "6个月或更长",
       "a3": "1个月",
       "a4": "1年",
-      "explanation": "结核病的治疗通常需要6个月，有时根据情况更长。完全遵循治疗非常重要。"
+      "explanation": "结核病的治疗通常需要6个月，有时更长，具体取决于病情。必须完全遵循治疗。"
     },
     "q5": {
-      "question": "LTBI是什么意思？",
+      "question": "ITL是什么意思？",
       "a1": "潜伏结核感染",
       "a2": "长期全面感染",
       "a3": "局部治疗干预",
       "a4": "对结核病的有限免疫力",
-      "explanation": "LTBI代表潜伏结核感染。这是指细菌存在但“休眠”，没有症状或传染性。"
+      "explanation": "ITL代表潜伏结核感染。这是指细菌存在但“休眠”，没有症状或传染性。"
     },
     "q6": {
-      "question": "什么时候应该服用抗结核药物？",
-      "a1": "饭后",
-      "a2": "饭时",
-      "a3": "任何时候",
-      "a4": "空腹（饭前）",
-      "explanation": "抗结核药物应在空腹时服用，至少在饭前30分钟或饭后2小时。"
+      "question": "结核病药物应何时服用？",
+      "a1": "餐后",
+      "a2": "餐间",
+      "a3": "任何时间",
+      "a4": "空腹（餐前）",
+      "explanation": "结核病药物应空腹服用，至少在餐前30分钟或餐后2小时。"
     },
     "q7": {
       "question": "肺结核的主要症状是什么？",
       "a1": "头痛",
-      "a2": "持续性咳嗽",
+      "a2": "持续咳嗽",
       "a3": "腹痛",
       "a4": "皮疹",
-      "explanation": "肺结核的主要症状是持续性咳嗽，持续时间超过3周。"
+      "explanation": "肺结核的主要症状是持续咳嗽超过3周。"
     },
     "q8": {
-      "question": "如果治疗过早停止会发生什么？",
+      "question": "如果过早停止治疗会发生什么？",
       "a1": "没什么特别的",
       "a2": "更快康复",
       "a3": "复发和耐药风险",
       "a4": "减少副作用",
-      "explanation": "过早停止治疗可能导致疾病复发和耐药性的发展。"
+      "explanation": "过早停止治疗可能导致疾病复发和产生耐药性。"
     }
   },
   "settings": {
@@ -317,9 +323,9 @@
     "language_changed": "语言已更改为",
     "actions": "操作",
     "reset_data": "重置数据",
-    "reset_description": "删除应用程序的所有数据",
+    "reset_description": "删除应用程序中的所有数据",
     "reset_confirmation": "您确定要重置所有数据吗？",
-    "reset_warning": "此操作将删除：\n• 您的处方\n• 您的药物服用记录\n• 您的所有设置",
+    "reset_warning": "此操作将删除：\n• 您的处方\n• 您的用药记录\n• 您的所有配置",
     "reset_success": "数据已成功重置",
     "quit_app": "退出应用程序",
     "quit_description": "关闭TB&Me",
@@ -334,8 +340,10 @@
     "later": "稍后"
   },
   "notifications": {
-    "fasting_reminder_title": "⏰ 禁食提醒",
-    "fasting_reminder_body": "2小时后，服用{medication} {dosage}。现在不要吃或喝任何东西！",
+    "fasting_reminder_title": "⏰ 空腹提醒",
+    "fasting_reminder_body": "2小时后，请服用{medication} {dosage}。现在不要吃喝任何东西！",
+    "30min_reminder_title": "⏰ 提醒",
+    "30min_reminder_body": "30分钟后：{medication} {dosage} ({tablets} 片)",
     "5min_reminder_title": "🔔 即将提醒",
     "5min_reminder_body": "5分钟后：{medication} {dosage} ({tablets} 片)",
     "time_reminder_title": "💊 时间到了！",
@@ -343,60 +351,67 @@
     "fasting_note": " - 空腹服用",
     "permissions_help": "您可以在设备设置中启用这些权限。",
     "test_simple": "🔔 简单测试",
-    "test_sent_immediately": "测试通知已立即发送"
+    "test_sent_immediately": "测试通知立即发送"
   },
   "permissions": {
     "notifications": "通知",
     "exact_alarms": "精确闹钟",
     "storage": "存储",
     "required_title": "所需权限",
-    "required_message": "应用程序需要以下权限才能正常工作："
+    "required_message": "应用程序需要以下权限才能正常运行："
   },
   "encouragement": {
     "regular_taking": [
-      "💊 每次服用都很重要！恭喜您又迈进了一步。",
-      "🌟 您的承诺很重要。继续保持！",
-      "🎯 做得好！每一天，您都在建设自己的康复。",
+      "💊 每一次服药都很重要！为您的进步点赞。",
+      "🌟 您的努力改变了结果。继续保持！",
+      "🎯 做得好！每一天，您都在建设自己的健康。",
       "🌱 一个重要的举动，一个更健康的未来。恭喜！",
-      "💪 您照顾自己，这很明显。恭喜！",
-      "🏆 小举动，大胜利。太棒了！",
+      "💪 您照顾自己，效果显而易见。干得好！",
+      "🏆 小小的举动，巨大的胜利。太棒了！",
       "✨ 每一个行动都让您更接近健康。优秀！"
     ],
     "missed_recovery": [
-      "🔄 重要的是重新开始。每次服用都很重要，即使错过了！",
-      "🤗 没关系，人非圣贤，孰能无过。让我们专注于今天！",
-      "💚 遗漏会发生。恭喜您恢复治疗！我们继续一起。",
-      "🌈 路上有时会有障碍，但您在这里！恢复得好。",
-      "🚀 这一小步是您决心的一个很好的证明。我们走吧！",
-      "💪 我们不放弃！重要的是坚持。恭喜您恢复。",
-      "⭐ 保持航向！遗漏不会阻止您的进步。恭喜您恢复。"
+      "🔄 重要的是重新开始。每一次服药都很重要，即使遗漏过！",
+      "🤗 没关系，人都会犯错。让我们专注于今天！",
+      "💚 遗漏是难免的。恭喜您重新开始治疗！我们一起继续。",
+      "🌈 道路上可能会有坎坷，但您仍在前行！做得好，重新开始。",
+      "🚀 这一小步是您决心的巨大证明。我们继续！",
+      "💪 我们不放弃！重要的是坚持。恭喜您重新开始。",
+      "⭐ 保持方向！一次遗漏不会阻止您的进步。恭喜您重新开始。"
     ]
   },
   "catch_up": {
-    "title": "补服",
+    "title": "补服药物",
     "button": "补服",
-    "fasting_period": "需要禁食期",
-    "fasting_duration": "2小时禁食",
-    "fasting_rules": "在接下来的2小时内：\n• 不要吃东西\n• 不要喝东西\n• 不要吸烟",
-    "timer_title": "禁食期进行中",
-    "timer_subtitle": "继续禁食",
-    "ready_title": "✅ 禁食期结束！",
-    "ready_message": "您现在可以服用您的药物",
+    "fasting_period": "需要空腹期",
+    "fasting_duration": "2小时空腹",
+    "fasting_rules": "在接下来的2小时内：\n• 不要进食\n• 不要饮水\n• 不要吸烟",
+    "timer_title": "空腹期进行中",
+    "timer_subtitle": "请继续空腹",
+    "ready_title": "✅ 空腹期结束！",
+    "ready_message": "您现在可以服用药物",
     "take_now": "现在服用",
-    "cancel_catchup": "取消补服"
+    "cancel_catchup": "取消补服",
+    "confirm_fasting": "确认空腹",
+    "confirm_fasting_message": "您确认已经空腹至少2小时了吗？",
+    "ready_to_take": "您现在可以服用药物了。",
+    "wait_time": "剩余时间",
+    "choose_time": "选择时间",
+    "success_title": "恭喜！",
+    "select_last_meal_time": "上次进食/饮水/吸烟的时间"
   },
   "messages": {
     "medication_added_success": "药物添加成功",
     "medication_deleted_success": "药物删除成功",
     "stock_updated": "库存已更新：{stock} 片",
     "notifications_scheduled": "已为{medication}在{time}安排通知",
-    "notifications_scheduled_fasting": "（提前2小时禁食提醒）",
+    "notifications_scheduled_fasting": "（提前2小时空腹提醒）",
     "notifications_error": "通知错误：{error}",
     "no_medications_posology": "您的处方中没有药物",
     "test_scheduled": "已为{medication}安排1分钟后的测试",
     "view_photos_title": "📸 药物照片",
     "close_dialog": "关闭",
-    "image_not_available": "图像不可用",
+    "image_not_available": "图片不可用",
     "touch_to_close": "点击关闭",
     "touch_to_enlarge": "点击放大",
     "medication_not_found": "错误：未找到药物",
@@ -408,11 +423,12 @@
     "week_of": "周",
     "before_installation": "安装前",
     "upcoming": "即将到来",
-    "taken_count": "✅ {count} 已服用",
-    "missed_count": "❌ {count} 未服用",
+    "taken_count": "✅ 已服用 {count}",
+    "missed_count": "❌ 未服用 {count}",
     "details_title": "详情",
-    "no_data": "当天没有数据",
+    "no_data": "当天无数据",
     "unknown_medication": "未知",
+    "scheduled_at": "计划于",
     "taken_at": "服用于",
     "missed": "未服用"
   }

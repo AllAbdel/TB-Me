@@ -2,11 +2,14 @@
   "app": {
     "title": "TB&Me",
     "home": "Startseite",
+    "mangement": "Meine Medikamenteneinnahme",
     "medications": "Medikamente",
     "quiz": "Quiz",
     "information": "Informationen",
     "settings": "Einstellungen",
-    "description": "Anwendung zur Überwachung der Tuberkulose-Behandlung"
+    "history": "Verlauf",
+    "calendar": "Kalender",
+    "description": "App zur Überwachung der Tuberkulose-Behandlung"
   },
   "home": {
     "welcome": "Willkommen!",
@@ -17,20 +20,21 @@
     "daily_statistics": "Tägliche Statistiken",
     "confirm_taking": "Einnahme bestätigen",
     "mark_as_taken": "Markieren",
-    "mark_taken": "Markieren\nals eingenommen",
+    "mark_taken": "Als eingenommen\nmarkieren",
     "tablets": "Tablette(n)",
     "current_stock": "Aktueller Bestand",
     "stock_after": "Bestand nach Einnahme",
     "stock": "Bestand",
     "marked_as_taken": "als eingenommen markiert",
-    "insufficient_stock": "Unzureichender Bestand! Nur",
+    "insufficient_stock": "Unzureichender Bestand! Nur noch",
     "tablets_remaining": "Tablette(n) übrig",
     "take_on_empty_stomach": "Auf nüchternen Magen einnehmen",
     "status": {
       "taken": "Eingenommen",
       "upcoming": "Bevorstehend",
       "now": "Jetzt",
-      "missed": "Versäumt"
+      "late": "Verspätet",
+      "missed": "Verpasst"
     }
   },
   "date": {
@@ -61,11 +65,23 @@
     "saturday_short": "Sa",
     "sunday_short": "So"
   },
+  "calendar": {
+    "title": "Kalender",
+    "event_title": "Ereignistitel",
+    "event_description": "Beschreibung",
+    "choose_time": "Zeit auswählen",
+    "notification": "Benachrichtigung",
+    "add": "Hinzufügen",
+    "events_today": "Heutige Ereignisse",
+    "no_events_today": "Heute keine Ereignisse",
+    "all_events": "Alle Ereignisse",
+    "no_events": "Keine Ereignisse"
+  },
   "medications": {
     "available_title": "Verfügbare Medikamente",
     "add_button": "Hinzufügen",
     "my_posology": "Meine Dosierung",
-    "no_medication": "Keine Medikamente zu Ihrer Dosierung hinzugefügt",
+    "no_medication": "Keine Medikamente in Ihrer Dosierung",
     "fasting": "Auf nüchternen Magen",
     "tablets": "Tablette(n)",
     "stock": "Bestand",
@@ -83,7 +99,7 @@
       "side_effects": "Nebenwirkungen",
       "advice": "Ratschlag",
       "see_documentation": "Dokumentation anzeigen",
-      "enlarge_hint": "Zum Vergrößern tippen",
+      "enlarge_hint": "Zum Vergrößern antippen",
       "close": "Schließen"
     },
     "pdf": {
@@ -93,58 +109,58 @@
       "view": "Anzeigen",
       "download": "Herunterladen",
       "reading_title": "Dokument lesen",
-      "download_web_only": "Download nur auf Mobilgeräten verfügbar",
+      "download_web_only": "Download nur auf dem Handy verfügbar",
       "storage_permission": "Speicherberechtigung für Download erforderlich",
       "downloaded": "PDF heruntergeladen",
       "download_error": "Download-Fehler",
       "view_error": "Fehler beim Öffnen der PDF",
-      "pdf_render_error": "PDF-Rendering-Fehler"
+      "pdf_render_error": "PDF-Render-Fehler"
     },
     "image": {
       "not_available": "Bild nicht verfügbar",
-      "tap_to_close": "Zum Schließen tippen"
+      "tap_to_close": "Zum Schließen antippen"
     },
     "time_label": "Zeit",
     "drugs": {
       "rifadine": {
-        "description": "Erstlinien-Antibiotikum gegen Tuberkulose",
+        "description": "Antibiotikum der ersten Wahl gegen Tuberkulose",
         "side_effects": "Orangefarbener Urin, Übelkeit, Leberprobleme",
         "advice": "Auf nüchternen Magen einnehmen, 1 Stunde vor oder 2 Stunden nach dem Essen"
       },
       "rifater": {
         "description": "Feste Kombination aus Rifampicin, Isoniazid und Pyrazinamid",
-        "side_effects": "Verdauungsprobleme, Kopfschmerzen, Müdigkeit",
-        "advice": "Kombination von 3 Medikamenten in 1 Tablette"
+        "side_effects": "Verdauungsstörungen, Kopfschmerzen, Müdigkeit",
+        "advice": "Kombination aus 3 Medikamenten in 1 Tablette"
       },
       "rifinah": {
         "description": "Kombination aus Rifampicin und Isoniazid",
-        "side_effects": "Orangefarbener Urin, Übelkeit",
+        "side_effects": "Orangefärbung des Urins, Übelkeit",
         "advice": "Morgens auf nüchternen Magen einnehmen"
       },
       "dexambutol": {
-        "description": "Zweitlinien-Medikament gegen Tuberkulose",
+        "description": "Antituberkulotikum der zweiten Wahl",
         "side_effects": "Sehstörungen, optische Neuropathie",
         "advice": "Augenärztliche Überwachung erforderlich"
       },
       "myambutol": {
-        "description": "Ethambutol, bakteriostatisches Medikament gegen Tuberkulose",
-        "side_effects": "Optische Neuritis, Sehstörungen",
-        "advice": "Sehtests werden empfohlen"
+        "description": "Ethambutol, bakteriostatisches Antituberkulotikum",
+        "side_effects": "Optikusneuritis, Sehstörungen",
+        "advice": "Regelmäßige Sehkontrolle empfohlen"
       },
       "pirilene": {
-        "description": "Pyrazinamid, Medikament gegen Tuberkulose",
-        "side_effects": "Leberprobleme, Gelenkschmerzen",
+        "description": "Pyrazinamid, Antituberkulotikum",
+        "side_effects": "Leberprobleme, Arthralgien",
         "advice": "Leberüberwachung erforderlich"
       },
       "rimactan": {
-        "description": "Rifampicin, Antibiotikum gegen Tuberkulose",
-        "side_effects": "Orangefarbene Sekrete",
+        "description": "Rifampicin, antibiotisches Antituberkulotikum",
+        "side_effects": "Orangefärbung der Sekrete",
         "advice": "Mit Abstand zu den Mahlzeiten einnehmen"
       },
       "rimifon": {
-        "description": "Isoniazid, Hauptmedikament gegen Tuberkulose",
+        "description": "Isoniazid, wichtiges Antituberkulotikum",
         "side_effects": "Periphere Neuropathie, Hepatitis",
-        "advice": "Vitamin B6 Supplement wird empfohlen"
+        "advice": "Vitamin B6 Supplementierung empfohlen"
       }
     },
     "stock_management": {
@@ -157,94 +173,84 @@
     "title": "Informationen über Tuberkulose",
     "links": {
       "title": "Nützliche Links",
-  "error": "Link kann nicht geöffnet werden",
-  "who": {
-    "title": "WHO - Weltgesundheitsorganisation",
-    "description": "Informationsblatt über Tuberkulose"
-  },
-  "ministry": {
-    "title": "Gesundheitsministerium - Frankreich",
-    "description": "Tuberkulose: offizielle Informationen"
-  },
-  "fight": {
-    "title": "Kampf gegen Tuberkulose",
-    "description": "Strategien und Maßnahmen in Frankreich"
-  },
-  "refugees": {
-    "title": "Informationen für Flüchtlinge",
-    "description": "Informationen für Flüchtlinge"
-  }
+      "error": "Link kann nicht geöffnet werden"
     },
     "understanding": {
       "title": "Tuberkulose verstehen",
       "subtitle": "Eine Infektionskrankheit, die Aufmerksamkeit erfordert",
       "what_is": "Was ist Tuberkulose?",
-      "what_is_content": "Tuberkulose ist eine Krankheit, die durch das Bakterium Mycobacterium tuberculosis verursacht wird, das nach einer latenten Phase aktiv wird. Diese aktive Form der Krankheit entspricht einer Vermehrung des Bakteriums. Sie geht mit Symptomen einher und erfordert eine längere Behandlung mit speziellen Antibiotika.",
-      "transmission": "Wie wird sie übertragen?",
-      "transmission_content": "Tuberkulose wird über die Luft durch eine Person übertragen, deren Lunge betroffen ist, wenn sie hustet, niest oder spricht. Die Übertragung erfordert einen längeren und engen Kontakt mit einer Person, die eine ansteckende Lungentuberkulose hat."
+      "what_is_content": "Tuberkulose ist eine Krankheit, die durch das Bakterium Mycobacterium tuberculosis verursacht wird, das nach einer Latenzphase aktiv wird. Diese aktive Form der Krankheit entspricht einer Vermehrung des Bakteriums. Sie geht mit Symptomen einher und erfordert eine längere Behandlung mit spezifischen Antibiotika.\n\nAm häufigsten betrifft sie die Lunge, dann spricht man von Lungentuberkulose. Die Krankheit ist nur ansteckend, wenn die Lunge betroffen ist. Sie kann auch andere Körperteile wie Lymphknoten, Nieren, Gehirn, Knochen usw. befallen. In diesen Fällen ist die Krankheit nicht ansteckend. Manchmal können mehrere Organe betroffen sein.\n\nAber man kann dieser Krankheit vorbeugen, und man kann sie heilen, wenn man sich richtig behandelt.",
+      "transmission": "Wie wird Tuberkulose übertragen?",
+      "transmission_content": "Tuberkulose wird über die Luft übertragen, wenn eine Person mit Lungentuberkulose hustet, niest oder spricht. Die Übertragung erfordert engen und längeren Kontakt mit einer Person, die an ansteckender Lungentuberkulose leidet, zum Beispiel wenn man im selben Haushalt wie die ansteckende Person lebt oder gemeinsam in einem Fahrzeug reist.\n\nWenn die Tuberkulose andere Körperteile als die Lunge befällt, ist sie nicht ansteckend.\n\nNicht alle Personen, die mit einem Tuberkulosefall in Kontakt kommen, werden infiziert oder erkranken.\n\nLungentuberkulose ist weniger ansteckend als Krankheiten wie Grippe oder Masern.",
+      "how_occurs": "Wie entsteht Tuberkulose?",
+      "how_occurs_content": "Tuberkulose entsteht, wenn die Tuberkulosebakterien im Körper 'aufwachen'.\n\nWenn eine Person die Bakterien einatmet, bleiben sie im Körper schlafend, ohne Krankheit zu verursachen. Sie bleiben in einem Ruhezustand, inaktiv, schlafend. Dies wird als latente Tuberkuloseinfektion (LTBI) bezeichnet. Die infizierte Person, die eine latente Tuberkuloseinfektion trägt, ist nicht krank. Sie zeigt keine Symptome und ist nicht ansteckend.\n\nDas Bakterium kann im Körper der infizierten Person ein Leben lang bleiben, ohne etwas zu tun, da ihr Immunsystem die Infektion kontrollieren kann.\n\nAber bei 1 von 10 infizierten Personen 'wachen' die Bakterien nach der Latenzphase auf und werden aktiv, indem sie sich vermehren. Die Person wird dann krank.\n\nDas Aufwachen erfolgt meist innerhalb der zwei Jahre nach der Übertragung oder wenn eine Immunsuppression aufgrund einer Krankheit (wie AIDS), bestimmter immunsuppressiver Medikamente, eines Ernährungsmangels oder des Alters (ältere Menschen und sehr junge Kinder haben ein schwaches Immunsystem) vorliegt.\n\nOhne klinische oder radiologische Anzeichen kann die Diagnose einer latenten Tuberkuloseinfektion durch immunologische Tests wie den Tuberkulin-Hauttest (THT) oder Interferon-Gamma-Freisetzungstests (IGRA) gestellt werden."
     },
     "itl": {
-      "title": "Latente Tuberkuloseinfektion (LTI)",
-      "what_is": "Was bedeutet LTI?",
-      "what_is_content": "Bei der latenten Tuberkuloseinfektion wird das Bakterium durch die Abwehrkräfte des Körpers neutralisiert und eingeschlossen. Dieses Bakterium kann 'ruhend' bleiben. Die Person kann die Krankheit nie in ihrem Leben entwickeln.",
-      "vs_active": "LTI vs aktive Tuberkulose",
+      "title": "Latente Tuberkuloseinfektion (LTBI)",
+      "vs_active": "LTBI vs Aktive Tuberkulose",
       "itl_characteristics": "Latente Tuberkuloseinfektion",
-      "itl_char_1": "Die Bazillen sind 'ruhend, neutralisiert'",
+      "itl_char_1": "Die Bazillen sind 'schlafend, neutralisiert'",
       "itl_char_2": "Die Person ist nicht ansteckend",
       "itl_char_3": "Keine Symptome",
       "itl_char_4": "Normales Röntgenbild",
       "itl_char_5": "Präventive Behandlung für 3 Monate",
       "active_characteristics": "Aktive Tuberkulose",
       "active_char_1": "Die Bazillen sind aktiv",
-      "active_char_2": "Ansteckend, wenn Lunge betroffen",
+      "active_char_2": "Ansteckend, wenn die Lunge betroffen ist",
       "active_char_3": "Symptome vorhanden",
       "active_char_4": "Abnormales Röntgenbild",
       "active_char_5": "Heilende Behandlung für 6 Monate oder länger"
     },
     "symptoms": {
       "title": "Symptome und Behandlung",
+      "what_are_symptoms": "Was sind die Symptome von Tuberkulose?",
+      "what_are_symptoms_content": "Die Symptome variieren je nach betroffenem Körperteil. Aber in jedem Fall kann die Krankheit folgende Anzeichen verursachen: Fieber, nächtliches Schwitzen, starke Müdigkeit und Appetit- und Gewichtsverlust.\n\nBei Lungentuberkulose besteht Husten.\n\nWenn diese Anzeichen über mehrere Wochen anhalten, sollte man an Tuberkulose denken und einen Arzt aufsuchen.",
       "symptoms_list": "Hauptsymptome",
-      "symptom_1": "Anhaltender Husten (länger als 3 Wochen)",
+      "symptom_1": "Anhaltender Husten (mehr als 3 Wochen)",
       "symptom_2": "Blut im Auswurf",
       "symptom_3": "Brustschmerzen",
       "symptom_4": "Müdigkeit und Schwäche",
       "symptom_5": "Unbeabsichtigter Gewichtsverlust",
       "symptom_6": "Fieber und Nachtschweiß",
-      "symptom_7": "Appetitlosigkeit",
+      "symptom_7": "Appetitverlust",
+      "how_to_treat": "Wie wird Tuberkulose behandelt?",
+      "how_to_treat_content": "Heute wird Tuberkulose in Frankreich sehr gut behandelt. Die Behandlung erfordert die tägliche Einnahme mehrerer Medikamente über mindestens sechs Monate. Sie müssen auf nüchternen Magen eingenommen werden. In der Praxis sollten sie einmal täglich, mindestens eine halbe Stunde vor dem Essen oder zwei Stunden nach dem Essen eingenommen werden.\n\nDie Behandlung wird von regelmäßigen Kontrollen wie Blutuntersuchungen begleitet.\n\nZu Beginn der Behandlung, die im Krankenhaus begonnen wird, wird die Person mit ansteckender Lungentuberkulose isoliert (Einzelzimmer, Maske usw.), um andere nicht anzustecken.\n\nEs ist sehr wichtig, die Behandlung nicht abzubrechen, da die Krankheit sonst zurückkehren und eine Resistenz gegen die Medikamente entstehen kann, die dann unwirksam wären.\n\nDie Sozialversicherung übernimmt 100% der Behandlungskosten.",
       "treatment_title": "Behandlung",
-      "treatment_content": "Die Behandlung erfordert die tägliche Einnahme mehrerer Medikamente über mehrere Monate. Sie sollten auf nüchternen Magen eingenommen werden. Praktisch gesehen sollten sie mindestens eine halbe Stunde vor dem Essen eingenommen werden.",
+      "treatment_content": "Die Behandlung erfordert die tägliche Einnahme mehrerer Medikamente über mehrere Monate. Sie müssen auf nüchternen Magen eingenommen werden. In der Praxis sollten sie mindestens eine halbe Stunde vor dem Essen eingenommen werden.",
       "important_note": "Es ist sehr wichtig, die Behandlung nicht abzubrechen, da die Krankheit sonst zurückkehren könnte."
     },
     "prevention": {
       "title": "Prävention",
+      "how_to_prevent": "Wie kann man Tuberkulose vorbeugen?",
+      "how_to_prevent_content": "Die Prävention erfolgt durch eine frühzeitige und gezielte BCG-Impfung für Risikokinder sowie durch Screenings, die von den Zentren zur Bekämpfung der Tuberkulose (CLAT) sowohl um Fälle von ansteckender Tuberkulose als auch in den am stärksten exponierten Bevölkerungsgruppen durchgeführt werden.\n\nObwohl die BCG-Impfung in Frankreich seit 2007 nicht mehr obligatorisch ist, wird sie weiterhin dringend empfohlen, insbesondere für Kinder unter fünf Jahren mit Risikofaktoren in ihrer Umgebung oder bei ihren Angehörigen (insbesondere bei Tuberkulose in der Familienanamnese oder bei Verbindungen zu einem Land, in dem Tuberkulose sehr häufig ist).\n\nDie Impfung wird ab einem Alter von 1 Monat empfohlen, vorzugsweise im 2. Monat. Sie schützt vor schweren Formen der Tuberkulose, insbesondere tuberkulöser Meningitis.\n\nDie CLAT spielen eine zentrale Rolle bei der Prävention von Tuberkulose. Wenn ein Fall von ansteckender Tuberkulose diagnostiziert wird, führt die CLAT, informiert von den Gesundheitsbehörden, eine Untersuchung durch, um die Personen zu identifizieren, die engen Kontakt mit dem Patienten hatten. Diese Personen können dann ein Screening erhalten, das eine ärztliche Untersuchung, eine Röntgenaufnahme der Brust und einen immunologischen Test (wie den Tuberkulin-Test oder den IGRA-Test) umfasst.\n\nBei der Diagnose einer latenten Tuberkuloseinfektion bietet die CLAT eine präventive Behandlung an, um zu verhindern, dass sie sich zu einer aktiven Tuberkulose entwickelt.\n\nDarüber hinaus organisiert die CLAT auch gezielte Screenings in bestimmten stärker exponierten Bevölkerungsgruppen, wie z. B. Personen aus Ländern, in denen Tuberkulose häufig auftritt, um die Krankheit so früh wie möglich zu erkennen.",
       "vaccination": "BCG-Impfung",
-      "vaccination_content": "Die BCG-Impfung wird weiterhin stark empfohlen, insbesondere für Kinder unter fünf Jahren mit Risikofaktoren.",
+      "vaccination_content": "Die BCG-Impfung wird weiterhin dringend empfohlen, insbesondere für Kinder unter fünf Jahren mit Risikofaktoren.",
       "screening": "Screening durch Tuberkulose-Bekämpfungszentren",
-      "screening_content": "Die Tuberkulose-Bekämpfungszentren spielen eine zentrale Rolle bei der Prävention, indem sie Untersuchungen und Screenings um die Fälle herum organisieren."
+      "screening_content": "Die Zentren zur Bekämpfung der Tuberkulose spielen eine zentrale Rolle bei der Prävention, indem sie Untersuchungen und Screenings um Fälle von Tuberkulose herum organisieren."
     },
     "faq": {
       "title": "Häufig gestellte Fragen",
       "q1": "Ist Tuberkulose immer ansteckend?",
-      "a1": "Nein, nur Lungentuberkulose ist ansteckend. Wenn sie andere Körperteile betrifft, ist sie nicht ansteckend.",
+      "a1": "Nein, nur Lungentuberkulose ist ansteckend. Wenn sie andere Körperteile befällt, ist sie nicht ansteckend.",
       "q2": "Wie lange dauert die Behandlung?",
       "a2": "Die Behandlung dauert in der Regel 6 Monate, manchmal länger, je nach Fall. Es ist entscheidend, sie vollständig durchzuführen.",
       "q3": "Kann Tuberkulose geheilt werden?",
       "a3": "Ja, Tuberkulose ist heute in Frankreich sehr gut behandelbar, wenn die Behandlung korrekt durchgeführt wird.",
       "q4": "Wer sollte gescreent werden?",
-      "a4": "Enge Kontakte und Personen, die häufigen Kontakt mit einem Patienten haben, werden von den Teams der Tuberkulose-Bekämpfungszentren gescreent."
+      "a4": "Enge Kontaktpersonen und Personen, die häufigen Kontakt mit einem Patienten haben, werden von den Teams der Tuberkulose-Bekämpfungszentren gescreent."
     }
   },
   "quiz": {
     "question": "Frage",
     "score": "Punkte",
     "explanation": "Erklärung",
-    "restart": "Neustart",
+    "restart": "Neu starten",
     "home": "Startseite",
     "result": {
       "title": "Quiz beendet!",
-      "excellent": "Hervorragend! Sie beherrschen das Thema sehr gut!",
+      "excellent": "Ausgezeichnet! Sie beherrschen das Thema sehr gut!",
       "good": "Gut! Sie haben gute Kenntnisse.",
-      "average": "Durchschnittlich. Es bleiben noch einige Punkte zu überprüfen.",
+      "average": "Akzeptabel. Es gibt noch einige Punkte zu überarbeiten.",
       "needs_improvement": "Es wäre gut, die Informationen über Tuberkulose noch einmal zu lesen."
     },
     "q1": {
@@ -253,7 +259,7 @@
       "a2": "Ein Bakterium namens Mycobacterium tuberculosis",
       "a3": "Ein Pilz",
       "a4": "Ein Parasit",
-      "explanation": "Tuberkulose wird durch ein Bakterium namens Mycobacterium tuberculosis verursacht, auch bekannt als Koch-Bazillus."
+      "explanation": "Tuberkulose wird durch ein Bakterium namens Mycobacterium tuberculosis verursacht, das auch als Koch-Bazillus bekannt ist."
     },
     "q2": {
       "question": "Wie wird Tuberkulose übertragen?",
@@ -261,7 +267,7 @@
       "a2": "Durch Hautkontakt",
       "a3": "Durch kontaminiertes Wasser",
       "a4": "Durch Insektenstiche",
-      "explanation": "Tuberkulose wird durch die Luft übertragen, wenn eine infizierte Person hustet, niest oder spricht und dabei Tröpfchen mit dem Bakterium freisetzt."
+      "explanation": "Tuberkulose wird über die Luft übertragen, wenn eine infizierte Person hustet, niest oder spricht und dabei Tröpfchen freisetzt, die das Bakterium enthalten."
     },
     "q3": {
       "question": "Welche Form der Tuberkulose ist ansteckend?",
@@ -269,10 +275,10 @@
       "a2": "Nierentuberkulose",
       "a3": "Lungentuberkulose",
       "a4": "Lymphknotentuberkulose",
-      "explanation": "Nur Lungentuberkulose ist ansteckend, da sie die Lunge betrifft und eine Übertragung über die Luft ermöglicht."
+      "explanation": "Nur Lungentuberkulose ist ansteckend, da sie die Lunge befällt und eine Übertragung über die Luft ermöglicht."
     },
     "q4": {
-      "question": "Wie lange dauert die Behandlung von Tuberkulose in der Regel?",
+      "question": "Wie lange dauert die Tuberkulosebehandlung in der Regel?",
       "a1": "2 Wochen",
       "a2": "6 Monate oder länger",
       "a3": "1 Monat",
@@ -280,20 +286,20 @@
       "explanation": "Die Behandlung von Tuberkulose dauert in der Regel 6 Monate, manchmal länger, je nach Fall. Es ist entscheidend, sie vollständig durchzuführen."
     },
     "q5": {
-      "question": "Was bedeutet LTI?",
+      "question": "Was bedeutet LTBI?",
       "a1": "Latente Tuberkuloseinfektion",
-      "a2": "Lange totale Infektion",
+      "a2": "Lange Gesamtinfektion",
       "a3": "Lokale therapeutische Intervention",
       "a4": "Begrenzte Immunität gegen Tuberkulose",
-      "explanation": "LTI bedeutet latente Tuberkuloseinfektion. Dies ist der Fall, wenn das Bakterium vorhanden, aber 'ruhend' ist, ohne Symptome oder Ansteckungsgefahr."
+      "explanation": "LTBI steht für Latente Tuberkuloseinfektion. Das ist, wenn das Bakterium vorhanden, aber 'schlafend' ist, ohne Symptome oder Ansteckungsfähigkeit."
     },
     "q6": {
-      "question": "Wann sollten Tuberkulose-Medikamente eingenommen werden?",
+      "question": "Wann sollten Tuberkulosemedikamente eingenommen werden?",
       "a1": "Nach den Mahlzeiten",
       "a2": "Während der Mahlzeiten",
-      "a3": "Zu jeder Zeit",
+      "a3": "Jederzeit",
       "a4": "Auf nüchternen Magen (vor den Mahlzeiten)",
-      "explanation": "Tuberkulose-Medikamente sollten auf nüchternen Magen eingenommen werden, mindestens 30 Minuten vor den Mahlzeiten oder 2 Stunden danach."
+      "explanation": "Tuberkulosemedikamente sollten auf nüchternen Magen eingenommen werden, mindestens 30 Minuten vor den Mahlzeiten oder 2 Stunden danach."
     },
     "q7": {
       "question": "Was ist das Hauptsymptom von Lungentuberkulose?",
@@ -301,7 +307,7 @@
       "a2": "Anhaltender Husten",
       "a3": "Bauchschmerzen",
       "a4": "Hautausschlag",
-      "explanation": "Das Hauptsymptom von Lungentuberkulose ist ein anhaltender Husten, der länger als 3 Wochen dauert."
+      "explanation": "Das Hauptsymptom von Lungentuberkulose ist ein anhaltender Husten, der länger als 3 Wochen andauert."
     },
     "q8": {
       "question": "Was passiert, wenn die Behandlung zu früh abgebrochen wird?",
@@ -309,7 +315,7 @@
       "a2": "Schnellere Erholung",
       "a3": "Risiko eines Rückfalls und von Resistenzen",
       "a4": "Reduzierung der Nebenwirkungen",
-      "explanation": "Ein zu früher Abbruch der Behandlung kann zu einem Rückfall der Krankheit und der Entwicklung von Resistenzen gegen die Medikamente führen."
+      "explanation": "Wenn die Behandlung zu früh abgebrochen wird, kann es zu einem Rückfall der Krankheit und zur Entwicklung von Resistenzen gegen die Medikamente kommen."
     }
   },
   "settings": {
@@ -321,99 +327,109 @@
     "reset_confirmation": "Möchten Sie wirklich alle Daten zurücksetzen?",
     "reset_warning": "Diese Aktion löscht:\n• Ihre Dosierung\n• Ihre Medikamenteneinnahmen\n• Alle Ihre Einstellungen",
     "reset_success": "Daten erfolgreich zurückgesetzt",
-    "quit_app": "App verlassen",
+    "quit_app": "App beenden",
     "quit_description": "TB&Me schließen",
-    "quit_confirmation": "Möchten Sie TB&Me wirklich verlassen?"
+    "quit_confirmation": "Möchten Sie TB&Me wirklich beenden?"
   },
   "common": {
     "cancel": "Abbrechen",
     "confirm": "Bestätigen",
     "reset": "Zurücksetzen",
-    "quit": "Verlassen",
+    "quit": "Beenden",
     "close": "Schließen",
     "later": "Später"
   },
   "notifications": {
-    "fasting_reminder_title": "⏰ Fasten-Erinnerung",
-    "fasting_reminder_body": "In 2 Stunden nehmen Sie {medication} {dosage}. Essen oder trinken Sie jetzt nichts!",
-    "5min_reminder_title": "🔔 Erinnerung in 5 Minuten",
+    "fasting_reminder_title": "⏰ Fastenerinnerung",
+    "fasting_reminder_body": "In 2 Stunden: {medication} {dosage} einnehmen. Essen oder trinken Sie jetzt nichts!",
+    "30min_reminder_title": "⏰ Erinnerung",
+    "30min_reminder_body": "In 30 Minuten: {medication} {dosage} ({tablets} Tablette(n))",
+    "5min_reminder_title": "🔔 Erinnerung in Kürze",
     "5min_reminder_body": "In 5 Minuten: {medication} {dosage} ({tablets} Tablette(n))",
     "time_reminder_title": "💊 Es ist Zeit!",
-    "time_reminder_body": "Nehmen Sie jetzt: {medication} {dosage} ({tablets} Tablette(n))",
+    "time_reminder_body": "Jetzt einnehmen: {medication} {dosage} ({tablets} Tablette(n))",
     "fasting_note": " - Auf nüchternen Magen einnehmen",
     "permissions_help": "Sie können diese Berechtigungen in den Geräteeinstellungen aktivieren.",
-    "test_simple": "🔔 Einfacher Test",
+    "test_simple": "🔔 Testbenachrichtigung",
     "test_sent_immediately": "Testbenachrichtigung sofort gesendet"
   },
   "permissions": {
     "notifications": "Benachrichtigungen",
-    "exact_alarms": "Exakte Alarme",
+    "exact_alarms": "Genau Alarme",
     "storage": "Speicher",
     "required_title": "Erforderliche Berechtigungen",
-    "required_message": "Die App benötigt die folgenden Berechtigungen, um korrekt zu funktionieren:"
+    "required_message": "Die App benötigt die folgenden Berechtigungen, um ordnungsgemäß zu funktionieren:"
   },
   "encouragement": {
     "regular_taking": [
-      "💊 Jede Einnahme zählt! Weiter so.",
+      "💊 Jede Einnahme zählt! Gut gemacht für diesen weiteren Schritt.",
       "🌟 Ihr Engagement macht den Unterschied. Machen Sie weiter so!",
-      "🎯 Gut gemacht! Jeden Tag bauen Sie Ihre Genesung auf.",
-      "🌱 Ein wesentlicher Schritt zu einer gesünderen Zukunft. Weiter so!",
-      "💪 Sie kümmern sich um sich selbst, und das zeigt sich. Weiter so!",
-      "🏆 Kleine Schritte, große Siege. Hervorragend!",
-      "✨ Jede Aktion bringt Sie der Gesundheit näher. Hervorragend!"
+      "🎯 Gut gemacht! Jeden Tag bauen Sie Ihre Heilung auf.",
+      "🌱 Eine wesentliche Geste, eine gesündere Zukunft. Herzlichen Glückwunsch!",
+      "💪 Sie kümmern sich um sich selbst, und das sieht man. Gut gemacht!",
+      "🏆 Kleine Gesten, große Siege. Großartig!",
+      "✨ Jede Handlung bringt Sie der Gesundheit näher. Hervorragend!"
     ],
     "missed_recovery": [
-      "🔄 Wichtig ist, dass Sie weitermachen. Jede Einnahme zählt, auch nach einem Versäumnis!",
-      "🤗 Kein Problem, Fehler sind menschlich. Konzentrieren wir uns auf heute!",
-      "💚 Ein Versäumnis passiert. Gut, dass Sie die Behandlung wieder aufgenommen haben! Wir machen weiter zusammen.",
-      "🌈 Der Weg ist manchmal mit Hindernissen gepflastert, aber Sie sind da! Gut gemacht, dass Sie weitermachen.",
-      "🚀 Dieser kleine Schritt ist ein großer Beweis für Ihre Entschlossenheit. Weiter so!",
-      "💪 Geben Sie nicht auf! Wichtig ist, dass Sie weitermachen. Gut gemacht, dass Sie wieder eingestiegen sind.",
-      "⭐ Bleiben Sie auf Kurs! Ein Versäumnis stoppt Ihren Fortschritt nicht. Gut gemacht, dass Sie wieder eingestiegen sind."
+      "🔄 Wichtig ist, wieder aufzunehmen. Jede Einnahme zählt, auch nach einem Verpassen!",
+      "🤗 Das ist nicht schlimm, Irren ist menschlich. Konzentrieren wir uns auf heute!",
+      "💚 Ein Verpassen kommt vor. Gut gemacht, dass Sie die Behandlung wieder aufgenommen haben! Wir machen weiter zusammen.",
+      "🌈 Der Weg ist manchmal mit Hindernissen gesäumt, aber Sie sind da! Gut gemacht, dass Sie wieder aufgenommen haben.",
+      "🚀 Dieser kleine Schritt ist ein großer Beweis für Ihre Entschlossenheit. Los geht's!",
+      "💪 Geben Sie nicht auf! Wichtig ist, durchzuhalten. Gut gemacht, dass Sie wieder aufgenommen haben.",
+      "⭐ Bleiben Sie auf Kurs! Ein Verpassen stoppt Ihren Fortschritt nicht. Gut gemacht, dass Sie wieder aufgenommen haben."
     ]
   },
   "catch_up": {
-    "title": "Einnahme nachholen",
+    "title": "Nachholen der Einnahme",
     "button": "Nachholen",
     "fasting_period": "Erforderliche Fastenzeit",
     "fasting_duration": "2 Stunden Fasten",
-    "fasting_rules": "Für die nächsten 2 Stunden:\n• Nicht essen\n• Nicht trinken\n• Nicht rauchen",
+    "fasting_rules": "Während der nächsten 2 Stunden:\n• Nicht essen\n• Nicht trinken\n• Nicht rauchen",
     "timer_title": "Fastenzeit läuft",
-    "timer_subtitle": "Bleiben Sie noch",
+    "timer_subtitle": "Bleiben Sie noch nüchtern",
     "ready_title": "✅ Fastenzeit beendet!",
     "ready_message": "Sie können jetzt Ihr Medikament einnehmen",
     "take_now": "Jetzt einnehmen",
-    "cancel_catchup": "Nachholen abbrechen"
+    "cancel_catchup": "Nachholen abbrechen",
+    "confirm_fasting": "Fasten bestätigen",
+    "confirm_fasting_message": "Bestätigen Sie, dass Sie mindestens 2 Stunden gefastet haben?",
+    "ready_to_take": "Sie können Ihr Medikament jetzt einnehmen.",
+    "wait_time": "Verbleibende Zeit",
+    "choose_time": "Zeit auswählen",
+    "success_title": "Gut gemacht!",
+    "select_last_meal_time": "Uhrzeit der letzten Mahlzeit/Getränk/Zigarette"
   },
   "messages": {
     "medication_added_success": "Medikament erfolgreich hinzugefügt",
     "medication_deleted_success": "Medikament erfolgreich gelöscht",
     "stock_updated": "Bestand aktualisiert: {stock} Tabletten",
     "notifications_scheduled": "Benachrichtigungen für {medication} um {time} geplant",
-    "notifications_scheduled_fasting": " (mit Fasten-Erinnerung 2 Stunden vorher)",
+    "notifications_scheduled_fasting": " (mit Fastenerinnerung 2 Stunden vorher)",
     "notifications_error": "Benachrichtigungsfehler: {error}",
     "no_medications_posology": "Keine Medikamente in Ihrer Dosierung",
     "test_scheduled": "Test in 1 Minute für {medication} geplant",
     "view_photos_title": "📸 Fotos der Medikamente",
     "close_dialog": "Schließen",
     "image_not_available": "Bild nicht verfügbar",
-    "touch_to_close": "Zum Schließen tippen",
-    "touch_to_enlarge": "Zum Vergrößern tippen",
+    "touch_to_close": "Zum Schließen antippen",
+    "touch_to_enlarge": "Zum Vergrößern antippen",
     "medication_not_found": "Fehler: Medikament nicht gefunden",
     "link_open_error": "Link kann nicht geöffnet werden: {url}",
     "error": "Fehler: {error}"
   },
   "history": {
     "title": "📊 Verlauf",
-    "week_of": "Woche des",
+    "week_of": "Woche vom",
     "before_installation": "Vor der Installation",
     "upcoming": "Bevorstehend",
     "taken_count": "✅ {count} eingenommen",
-    "missed_count": "❌ {count} versäumt",
-    "details_title": "Details des",
+    "missed_count": "❌ {count} verpasst",
+    "details_title": "Details vom",
     "no_data": "Keine Daten für diesen Tag",
     "unknown_medication": "Unbekannt",
+    "scheduled_at": "Geplant um",
     "taken_at": "Eingenommen um",
-    "missed": "Versäumt"
+    "missed": "Verpasst"
   }
 }

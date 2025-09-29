@@ -2,25 +2,28 @@
   "app": {
     "title": "TB&Me",
     "home": "Home",
+    "mangement": "My Medication Intake",
     "medications": "Medications",
     "quiz": "Quiz",
     "information": "Information",
     "settings": "Settings",
+    "history": "History",
+    "calendar": "Calendar",
     "description": "Application dedicated to monitoring tuberculosis treatment"
   },
   "home": {
     "welcome": "Welcome!",
     "medications_today": "medication(s) to take today",
-    "daily_dashboard": "Daily dashboard",
+    "daily_dashboard": "Daily Dashboard",
     "no_medications": "No medication configured",
     "configure_medications": "Go to the Medications tab to configure your dosage",
-    "daily_statistics": "Daily statistics",
-    "confirm_taking": "Confirm intake",
+    "daily_statistics": "Daily Statistics",
+    "confirm_taking": "Confirm Intake",
     "mark_as_taken": "Mark",
-    "mark_taken": "Mark as taken",
+    "mark_taken": "Mark\nas taken",
     "tablets": "tablet(s)",
-    "current_stock": "Current stock",
-    "stock_after": "Stock after intake",
+    "current_stock": "Current Stock",
+    "stock_after": "Stock After Intake",
     "stock": "Stock",
     "marked_as_taken": "marked as taken",
     "insufficient_stock": "Insufficient stock! Only",
@@ -30,6 +33,7 @@
       "taken": "Taken",
       "upcoming": "Upcoming",
       "now": "Now",
+      "late": "Late",
       "missed": "Missed"
     }
   },
@@ -61,79 +65,91 @@
     "saturday_short": "Sat",
     "sunday_short": "Sun"
   },
+  "calendar": {
+    "title": "Calendar",
+    "event_title": "Event Title",
+    "event_description": "Description",
+    "choose_time": "Choose Time",
+    "notification": "Notification",
+    "add": "Add",
+    "events_today": "Today's Events",
+    "no_events_today": "No events today",
+    "all_events": "All Events",
+    "no_events": "No events"
+  },
   "medications": {
-    "available_title": "Available medications",
+    "available_title": "Available Medications",
     "add_button": "Add",
-    "my_posology": "My posology",
+    "my_posology": "My Posology",
     "no_medication": "No medication added to your posology",
     "fasting": "Fasting",
     "tablets": "tablet(s)",
     "stock": "Stock",
     "delete": "Delete",
     "add_dialog_title": "Add",
-    "time_format": "Time format",
+    "time_format": "Time Format",
     "time": "Time",
-    "change": "Modify",
+    "change": "Change",
     "tablets_count": "Tablets",
     "take_fasting": "Take on an empty stomach",
-    "delete_confirmation": "Confirm deletion",
+    "delete_confirmation": "Confirm Deletion",
     "delete_question": "Are you sure you want to delete this medication from your posology?",
     "details": {
       "description": "Description",
-      "side_effects": "Side effects",
+      "side_effects": "Side Effects",
       "advice": "Advice",
-      "see_documentation": "See documentation",
-      "enlarge_hint": "Press to enlarge",
+      "see_documentation": "See Documentation",
+      "enlarge_hint": "Tap to enlarge",
       "close": "Close"
     },
     "pdf": {
       "documentation_title": "PDF Documentation",
-      "document_available": "PDF document available",
+      "document_available": "PDF Document Available",
       "file": "File",
       "view": "View",
       "download": "Download",
-      "reading_title": "Document reading",
+      "reading_title": "Document Reading",
       "download_web_only": "Download available only on mobile",
       "storage_permission": "Storage permission required for download",
-      "downloaded": "PDF downloaded",
-      "download_error": "Download error",
-      "view_error": "Error opening PDF",
-      "pdf_render_error": "PDF rendering error"
+      "downloaded": "PDF Downloaded",
+      "download_error": "Download Error",
+      "view_error": "Error Opening PDF",
+      "pdf_render_error": "PDF Rendering Error"
     },
     "image": {
-      "not_available": "Image not available",
-      "tap_to_close": "Tap to close"
+      "not_available": "Image Not Available",
+      "tap_to_close": "Tap to Close"
     },
     "time_label": "Time",
     "drugs": {
       "rifadine": {
         "description": "First-line antituberculosis antibiotic",
-        "side_effects": "Orange urine, nausea, liver problems",
+        "side_effects": "Orange urine, nausea, liver disorders",
         "advice": "Take on an empty stomach, 1 hour before or 2 hours after a meal"
       },
       "rifater": {
         "description": "Fixed combination of rifampicin, isoniazid, and pyrazinamide",
-        "side_effects": "Digestive disorders, headaches, fatigue",
-        "advice": "Combination of 3 medications in 1 tablet"
+        "side_effects": "Digestive disorders, headache, fatigue",
+        "advice": "Combination of 3 drugs in 1 tablet"
       },
       "rifinah": {
-        "description": "Rifampicin and isoniazid combination",
+        "description": "Combination of rifampicin and isoniazid",
         "side_effects": "Orange urine, nausea",
         "advice": "Prefer to take in the morning on an empty stomach"
       },
       "dexambutol": {
-        "description": "Second-line antituberculosis",
+        "description": "Second-line antituberculosis drug",
         "side_effects": "Visual disturbances, optic neuropathy",
         "advice": "Ophthalmological monitoring required"
       },
       "myambutol": {
-        "description": "Ethambutol, bacteriostatic antituberculosis",
-        "side_effects": "Optic neuritis, vision problems",
+        "description": "Ethambutol, bacteriostatic antituberculosis drug",
+        "side_effects": "Optic neuritis, vision disorders",
         "advice": "Vision check recommended"
       },
       "pirilene": {
-        "description": "Pyrazinamide, antituberculosis",
-        "side_effects": "Liver problems, arthralgia",
+        "description": "Pyrazinamide, antituberculosis drug",
+        "side_effects": "Liver disorders, arthralgia",
         "advice": "Liver monitoring required"
       },
       "rimactan": {
@@ -142,51 +158,35 @@
         "advice": "Take away from meals"
       },
       "rimifon": {
-        "description": "Isoniazid, major antituberculosis",
+        "description": "Isoniazid, major antituberculosis drug",
         "side_effects": "Peripheral neuropathy, hepatitis",
         "advice": "Vitamin B6 supplement recommended"
       }
     },
     "stock_management": {
-      "title": "Manage stock",
-      "current_stock": "Current stock: {stock} tablets",
+      "title": "Manage Stock",
+      "current_stock": "Current Stock: {stock} tablets",
       "confirm": "Confirm"
     }
   },
   "information": {
-    "title": "Information about tuberculosis",
+    "title": "Information about Tuberculosis",
     "links": {
-  "title": "Useful Links",
-  "error": "Unable to open the link",
-  "who": {
-    "title": "WHO - World Health Organization",
-    "description": "Fact sheet on tuberculosis"
-  },
-  "ministry": {
-    "title": "Ministry of Health - France",
-    "description": "Tuberculosis: official information"
-  },
-  "fight": {
-    "title": "Fight Against Tuberculosis",
-    "description": "Strategies and actions in France"
-  },
-  "refugees": {
-    "title": "Refugees.info",
-    "description": "Information for refugees"
-  }
+      "title": "Useful Links",
+      "error": "Unable to open the link"
     },
     "understanding": {
-      "title": "Understanding tuberculosis",
+      "title": "Understanding Tuberculosis",
       "subtitle": "An infectious disease that requires attention",
       "what_is": "What is tuberculosis?",
-      "what_is_content": "Tuberculosis is a disease caused by the bacterium called Mycobacterium tuberculosis, which after a latent phase, becomes active. This active form of the disease corresponds to a multiplication of the bacterium. It is accompanied by symptoms and requires prolonged treatment with specific antibiotics.",
-      "transmission": "How is it transmitted?",
-      "transmission_content": "Tuberculosis is transmitted through the air by a person whose lungs are affected when they cough, sneeze, or speak. Transmission requires prolonged and close contact with a person who has contagious pulmonary tuberculosis."
+      "what_is_content": "Tuberculosis is a disease caused by a bacterium called Mycobacterium tuberculosis, which, after a latent phase, becomes active. This active form of the disease corresponds to a multiplication of the bacterium. It is accompanied by symptoms and requires prolonged treatment with specific antibiotics.\n\nIt most often affects the lungs, in which case it is called pulmonary tuberculosis. The disease is contagious only when the lungs are affected. It can also affect other parts of the body, such as lymph nodes, kidneys, brain, bones, etc. In these cases, the disease is not contagious. It can sometimes affect several organs.\n\nBut this disease can be avoided, and it can be cured if treated correctly.",
+      "transmission": "How is tuberculosis transmitted?",
+      "transmission_content": "Tuberculosis is transmitted through the air by a person whose lungs are affected when they cough, sneeze, or talk. Transmission requires prolonged and close contact with a person who has contagious pulmonary tuberculosis, for example when living in the same household as the contagious person or traveling together in a vehicle.\n\nWhen tuberculosis affects parts of the body other than the lungs, it is not contagious.\n\nNot all people in contact with a case of tuberculosis will necessarily be infected, let alone become ill.\n\nPulmonary tuberculosis is less contagious than diseases like the flu or measles.",
+      "how_occurs": "How does tuberculosis occur?",
+      "how_occurs_content": "Tuberculosis occurs when the tuberculosis bacteria 'wake up' in the body.\n\nIndeed, when a person breathes in the bacteria, they remain dormant in the body, without causing disease. They remain in a state of rest, inactive, dormant. This is called latent tuberculosis infection (LTBI). The infected person, carrier of a latent tuberculosis infection, is not sick. They show no symptoms and are not contagious.\n\nThe bacteria can remain in the body for the entire life of the infected person without doing anything, as their immune system can contain the infection.\n\nBut for 1 in 10 infected people, the bacteria 'wake up' after the latent phase and become active by multiplying. The person then becomes ill.\n\nThe awakening most often occurs within two years of transmission or when there is immunosuppression related to a disease (such as AIDS), certain immunosuppressive drugs, a state of malnutrition, or age (the elderly and very young children have a weak immune system).\n\nIn the absence of any clinical and radiological signs, the diagnosis of latent tuberculosis infection can be made using immunological tests such as the tuberculin skin test (TST) or interferon-gamma release assays (IGRA)."
     },
     "itl": {
       "title": "Latent Tuberculosis Infection (LTBI)",
-      "what_is": "What does LTBI mean?",
-      "what_is_content": "In latent tuberculosis infection, the bacterium is neutralized, trapped thanks to the body's defenses. This bacterium can remain 'dormant'. The person may never develop the disease in their lifetime.",
       "vs_active": "LTBI vs Active Tuberculosis",
       "itl_characteristics": "Latent Tuberculosis Infection",
       "itl_char_1": "Bacilli are 'dormant, neutralized'",
@@ -202,8 +202,10 @@
       "active_char_5": "Curative treatment for 6 months or more"
     },
     "symptoms": {
-      "title": "Symptoms and treatment",
-      "symptoms_list": "Main symptoms",
+      "title": "Symptoms and Treatment",
+      "what_are_symptoms": "What are the symptoms of tuberculosis?",
+      "what_are_symptoms_content": "Symptoms vary depending on which part of the body is affected. But in all cases, the disease can cause the following signs: fever, intense night sweats, great fatigue, and loss of appetite and weight.\n\nIn the case of pulmonary tuberculosis, there is a cough.\n\nThe persistence of these signs for several weeks should suggest tuberculosis and should prompt a visit to the doctor.",
+      "symptoms_list": "Main Symptoms",
       "symptom_1": "Persistent cough (more than 3 weeks)",
       "symptom_2": "Blood in sputum",
       "symptom_3": "Chest pain",
@@ -211,27 +213,31 @@
       "symptom_5": "Unintentional weight loss",
       "symptom_6": "Fever and night sweats",
       "symptom_7": "Loss of appetite",
+      "how_to_treat": "How is tuberculosis treated?",
+      "how_to_treat_content": "In France, tuberculosis is very treatable today. Treatment requires taking several drugs every day for at least six months. They must be taken on an empty stomach. In practice, they should be taken once a day, all at once, at least half an hour before eating. You can also wait 2 hours after a meal to take them.\n\nTreatment is accompanied by regular monitoring such as blood tests.\n\nAt the start of treatment, started in the hospital, the person with contagious pulmonary tuberculosis is isolated (single room, mask, etc.) to avoid infecting others.\n\nIt is very important not to stop treatment, otherwise the disease may return, and to avoid the development of drug resistance, which would then be ineffective.\n\nSocial security covers 100% of the treatment.",
       "treatment_title": "Treatment",
-      "treatment_content": "Treatment requires taking several medications every day for several months. They must be taken on an empty stomach. In practice, they should be taken at least half an hour before eating.",
-      "important_note": "It is very important not to stop the treatment, otherwise the disease could return."
+      "treatment_content": "Treatment requires taking several drugs every day for several months. They must be taken on an empty stomach. In practice, they should be taken at least half an hour before eating.",
+      "important_note": "It is very important not to stop treatment, otherwise the disease could return."
     },
     "prevention": {
       "title": "Prevention",
+      "how_to_prevent": "How to prevent tuberculosis?",
+      "how_to_prevent_content": "Prevention involves early and targeted BCG vaccination for at-risk children, as well as screening provided by Tuberculosis Control Centers (CLAT), both around cases of contagious tuberculosis and in the most exposed populations.\n\nAlthough BCG vaccination is no longer mandatory in France since 2007, it remains strongly recommended, especially for children under five years of age with risk factors related to their environment or close contacts (particularly a family history of tuberculosis or links with a country where tuberculosis is very common).\n\nVaccination is recommended from the age of 1 month, preferably during the 2nd month. It protects against severe forms of tuberculosis, particularly tuberculous meningitis.\n\nCLATs play a central role in the prevention of tuberculosis. When a case of contagious tuberculosis is diagnosed, the CLAT, informed by the health authorities, conducts an investigation to find people who have been in close contact with the patient. These people can then benefit from screening, including a medical consultation, chest X-ray, and immunological test (such as the tuberculin test or IGRA).\n\nIn the event of detection of latent tuberculosis infection, the CLAT offers preventive treatment to prevent it from progressing to active tuberculosis.\n\nIn addition, the CLAT also organizes targeted screening in certain more exposed populations, such as people from countries where tuberculosis is common, in order to detect the disease as early as possible.",
       "vaccination": "BCG Vaccination",
-      "vaccination_content": "BCG vaccination remains strongly recommended, especially for children under five years old with risk factors.",
+      "vaccination_content": "BCG vaccination remains strongly recommended, especially for children under five years of age with risk factors.",
       "screening": "Screening by tuberculosis control centers",
-      "screening_content": "Tuberculosis control centers play a central role in prevention by organizing surveys and screenings around cases."
+      "screening_content": "Tuberculosis control centers play a central role in prevention by organizing investigations and screenings around cases."
     },
     "faq": {
       "title": "Frequently Asked Questions",
       "q1": "Is tuberculosis always contagious?",
       "a1": "No, only pulmonary tuberculosis is contagious. When it affects other parts of the body, it is not contagious.",
-      "q2": "How long does the treatment last?",
+      "q2": "How long does treatment last?",
       "a2": "Treatment usually lasts 6 months, sometimes more depending on the case. It is crucial to follow it completely.",
       "q3": "Can tuberculosis be cured?",
       "a3": "Yes, tuberculosis is very treatable today in France if the treatment is followed correctly.",
       "q4": "Who should be screened?",
-      "a4": "Close contacts and people in frequent contact with a patient are screened by the tuberculosis control center teams."
+      "a4": "Close contacts and people in frequent contact with a patient are screened by tuberculosis control center teams."
     }
   },
   "quiz": {
@@ -242,9 +248,9 @@
     "home": "Home",
     "result": {
       "title": "Quiz completed!",
-      "excellent": "Excellent! You have a very good understanding of the subject!",
+      "excellent": "Excellent! You master the subject very well!",
       "good": "Good! You have good knowledge.",
-      "average": "Correct. There are still a few points to review.",
+      "average": "Average. There are still a few points to review.",
       "needs_improvement": "It would be good to reread the information about tuberculosis."
     },
     "q1": {
@@ -261,7 +267,7 @@
       "a2": "Through skin contact",
       "a3": "Through contaminated water",
       "a4": "Through insect bites",
-      "explanation": "Tuberculosis is transmitted through the air when an infected person coughs, sneezes, or speaks, releasing droplets containing the bacterium."
+      "explanation": "Tuberculosis is transmitted through the air when an infected person coughs, sneezes, or talks, releasing droplets containing the bacterium."
     },
     "q3": {
       "question": "Which form of tuberculosis is contagious?",
@@ -291,7 +297,7 @@
       "question": "When should tuberculosis medications be taken?",
       "a1": "After meals",
       "a2": "During meals",
-      "a3": "Anytime",
+      "a3": "At any time",
       "a4": "On an empty stomach (before meals)",
       "explanation": "Tuberculosis medications should be taken on an empty stomach, at least 30 minutes before meals or 2 hours after."
     },
@@ -301,7 +307,7 @@
       "a2": "Persistent cough",
       "a3": "Abdominal pain",
       "a4": "Skin rash",
-      "explanation": "The main symptom of pulmonary tuberculosis is a persistent cough that lasts more than 3 weeks."
+      "explanation": "The main symptom of pulmonary tuberculosis is a persistent cough lasting more than 3 weeks."
     },
     "q8": {
       "question": "What happens if treatment is stopped too early?",
@@ -313,15 +319,15 @@
     }
   },
   "settings": {
-    "language_choice": "Language choice",
+    "language_choice": "Language Choice",
     "language_changed": "Language changed to",
     "actions": "Actions",
-    "reset_data": "Reset data",
+    "reset_data": "Reset Data",
     "reset_description": "Delete all application data",
     "reset_confirmation": "Are you sure you want to reset all data?",
     "reset_warning": "This action will delete:\n• Your posology\n• Your medication intakes\n• All your settings",
     "reset_success": "Data successfully reset",
-    "quit_app": "Quit the application",
+    "quit_app": "Quit Application",
     "quit_description": "Close TB&Me",
     "quit_confirmation": "Are you sure you want to quit TB&Me?"
   },
@@ -334,56 +340,65 @@
     "later": "Later"
   },
   "notifications": {
-    "fasting_reminder_title": "⏰ Fasting reminder",
+    "fasting_reminder_title": "⏰ Fasting Reminder",
     "fasting_reminder_body": "In 2 hours, take {medication} {dosage}. Do not eat or drink anything now!",
-    "5min_reminder_title": "🔔 Upcoming reminder",
+    "30min_reminder_title": "⏰ Reminder",
+    "30min_reminder_body": "In 30 minutes: {medication} {dosage} ({tablets} tablet(s))",
+    "5min_reminder_title": "🔔 Close Reminder",
     "5min_reminder_body": "In 5 minutes: {medication} {dosage} ({tablets} tablet(s))",
-    "time_reminder_title": "💊 It's time!",
+    "time_reminder_title": "💊 It's Time!",
     "time_reminder_body": "Take now: {medication} {dosage} ({tablets} tablet(s))",
-    "fasting_note": " - To be taken on an empty stomach",
-    "permissions_help": "You can enable these permissions in the device settings.",
-    "test_simple": "🔔 Simple test",
+    "fasting_note": " - Take on an empty stomach",
+    "permissions_help": "You can enable these permissions in your device settings.",
+    "test_simple": "🔔 Simple Test",
     "test_sent_immediately": "Test notification sent immediately"
   },
   "permissions": {
     "notifications": "Notifications",
-    "exact_alarms": "Exact alarms",
+    "exact_alarms": "Exact Alarms",
     "storage": "Storage",
-    "required_title": "Required permissions",
+    "required_title": "Required Permissions",
     "required_message": "The application needs the following permissions to function properly:"
   },
   "encouragement": {
     "regular_taking": [
-      "💊 Every intake counts! Bravo for this step forward.",
+      "💊 Every intake counts! Congratulations on this step.",
       "🌟 Your commitment makes the difference. Keep it up!",
       "🎯 Well done! Every day, you build your recovery.",
       "🌱 An essential gesture, a healthier future. Congratulations!",
-      "💪 You take care of yourself, and it shows. Bravo!",
-      "🏆 Small gestures, big victories. Superb!",
+      "💪 You take care of yourself, and it shows. Congratulations!",
+      "🏆 Small steps, big victories. Superb!",
       "✨ Every action brings you closer to health. Excellent!"
     ],
     "missed_recovery": [
-      "🔄 The important thing is to start again. Every intake counts, even after a miss!",
+      "🔄 The important thing is to resume. Every intake counts, even after a miss!",
       "🤗 It's okay, mistakes are human. Let's focus on today!",
-      "💚 A miss happens. Bravo for resuming the treatment! We continue together.",
-      "🌈 The path is sometimes strewn with obstacles, but you are there! Well done for resuming.",
-      "🚀 This small step is great proof of your determination. Let's go!",
-      "💪 Don't give up! The essential thing is to persevere. Bravo for this recovery.",
-      "⭐ Keep the course! A miss does not stop your progress. Bravo for your recovery."
+      "💚 A miss happens. Congratulations on resuming treatment! We continue together.",
+      "🌈 The path is sometimes strewn with obstacles, but you are here! Well done for resuming.",
+      "🚀 This small step is a great proof of your determination. Let's go!",
+      "💪 Don't give up! The essential thing is to persevere. Congratulations on this resumption.",
+      "⭐ Keep the course! A miss does not stop your progress. Congratulations on your resumption."
     ]
   },
   "catch_up": {
-    "title": "Catch-up intake",
-    "button": "Catch up",
-    "fasting_period": "Required fasting period",
+    "title": "Catch-up Intake",
+    "button": "Catch Up",
+    "fasting_period": "Required Fasting Period",
     "fasting_duration": "2 hours of fasting",
     "fasting_rules": "For the next 2 hours:\n• Do not eat\n• Do not drink\n• Do not smoke",
-    "timer_title": "Fasting period in progress",
+    "timer_title": "Fasting Period in Progress",
     "timer_subtitle": "Remain fasting for",
-    "ready_title": "✅ Fasting period completed!",
+    "ready_title": "✅ Fasting Period Completed!",
     "ready_message": "You can now take your medication",
-    "take_now": "Take now",
-    "cancel_catchup": "Cancel catch-up"
+    "take_now": "Take Now",
+    "cancel_catchup": "Cancel Catch-up",
+    "confirm_fasting": "Confirm Fasting",
+    "confirm_fasting_message": "Do you confirm that you have been fasting for at least 2 hours?",
+    "ready_to_take": "You can take your medication now.",
+    "wait_time": "Remaining Time",
+    "choose_time": "Choose Time",
+    "success_title": "Congratulations!",
+    "select_last_meal_time": "Time of last meal/drink/cigarette"
   },
   "messages": {
     "medication_added_success": "Medication added successfully",
@@ -394,13 +409,13 @@
     "notifications_error": "Notification error: {error}",
     "no_medications_posology": "No medication in your posology",
     "test_scheduled": "Test scheduled in 1 minute for {medication}",
-    "view_photos_title": "📸 Medication photos",
+    "view_photos_title": "📸 Medication Photos",
     "close_dialog": "Close",
     "image_not_available": "Image not available",
-    "touch_to_close": "Touch to close",
-    "touch_to_enlarge": "Touch to enlarge",
+    "touch_to_close": "Tap to close",
+    "touch_to_enlarge": "Tap to enlarge",
     "medication_not_found": "Error: medication not found",
-    "link_open_error": "Unable to open link: {url}",
+    "link_open_error": "Unable to open the link: {url}",
     "error": "Error: {error}"
   },
   "history": {
@@ -413,6 +428,7 @@
     "details_title": "Details of",
     "no_data": "No data for this day",
     "unknown_medication": "Unknown",
+    "scheduled_at": "Scheduled at",
     "taken_at": "Taken at",
     "missed": "Missed"
   }

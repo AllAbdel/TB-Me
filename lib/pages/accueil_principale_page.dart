@@ -257,8 +257,6 @@ class _AccueilPrincipalePageState extends State<AccueilPrincipalePage> {
                     ),
                     textAlign: TextAlign.center,
                   ),
-                  const CreditsWidget(),
-                  const SizedBox(height: 20),
                 ],
               ),
             ),

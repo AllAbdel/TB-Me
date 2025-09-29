@@ -2,34 +2,38 @@
   "app": {
     "title": "TB&Me",
     "home": "Ana Sayfa",
+    "mangement": "İlaç Alımlarım",
     "medications": "İlaçlar",
     "quiz": "Test",
     "information": "Bilgi",
     "settings": "Ayarlar",
-    "description": "Tüberküloz tedavisinin takibi için özel uygulama"
+    "history": "Geçmiş",
+    "calendar": "Takvim",
+    "description": "Verem tedavisinin takibi için özel uygulama"
   },
   "home": {
     "welcome": "Hoş geldiniz!",
     "medications_today": "bugün alınacak ilaç(lar)",
-    "daily_dashboard": "Günlük Gösterge Paneli",
-    "no_medications": "Yapılandırılmış ilaç yok",
+    "daily_dashboard": "Günlük kontrol paneli",
+    "no_medications": "Hiç ilaç yapılandırılmamış",
     "configure_medications": "Dozajınızı yapılandırmak için İlaçlar sekmesine gidin",
-    "daily_statistics": "Günlük İstatistikler",
-    "confirm_taking": "Alımı Onayla",
+    "daily_statistics": "Günlük istatistikler",
+    "confirm_taking": "Alımı onayla",
     "mark_as_taken": "İşaretle",
-    "mark_taken": "İşaretle\nalındı olarak",
+    "mark_taken": "Alındı\nolarak işaretle",
     "tablets": "tablet(ler)",
-    "current_stock": "Mevcut Stok",
-    "stock_after": "Alımdan Sonra Stok",
+    "current_stock": "Mevcut stok",
+    "stock_after": "Alımdan sonraki stok",
     "stock": "Stok",
     "marked_as_taken": "alındı olarak işaretlendi",
-    "insufficient_stock": "Yetersiz Stok! Sadece",
+    "insufficient_stock": "Yetersiz stok! Sadece",
     "tablets_remaining": "tablet(ler) kaldı",
-    "take_on_empty_stomach": "Aç Karnına Alın",
+    "take_on_empty_stomach": "Aç karnına alın",
     "status": {
       "taken": "Alındı",
       "upcoming": "Yaklaşan",
       "now": "Şimdi",
+      "late": "Geç",
       "missed": "Kaçırıldı"
     }
   },
@@ -61,79 +65,91 @@
     "saturday_short": "Cmt",
     "sunday_short": "Paz"
   },
+  "calendar": {
+    "title": "Takvim",
+    "event_title": "Etkinlik başlığı",
+    "event_description": "Açıklama",
+    "choose_time": "Saati seçin",
+    "notification": "Bildirim",
+    "add": "Ekle",
+    "events_today": "Bugünkü etkinlikler",
+    "no_events_today": "Bugün etkinlik yok",
+    "all_events": "Tüm etkinlikler",
+    "no_events": "Etkinlik yok"
+  },
   "medications": {
-    "available_title": "Mevcut İlaçlar",
+    "available_title": "Mevcut ilaçlar",
     "add_button": "Ekle",
-    "my_posology": "Pozolojim",
-    "no_medication": "Pozolojinize ilaç eklenmedi",
-    "fasting": "Aç Karnına",
+    "my_posology": "Dozajim",
+    "no_medication": "Dozajinize hiç ilaç eklenmemiş",
+    "fasting": "Aç karnına",
     "tablets": "tablet(ler)",
     "stock": "Stok",
     "delete": "Sil",
     "add_dialog_title": "Ekle",
-    "time_format": "Saat Formatı",
+    "time_format": "Saat formatı",
     "time": "Saat",
     "change": "Değiştir",
     "tablets_count": "Tabletler",
-    "take_fasting": "Aç Karnına Alın",
-    "delete_confirmation": "Silmeyi Onayla",
-    "delete_question": "Pozolojinizden bu ilacı silmek istediğinizden emin misiniz?",
+    "take_fasting": "Aç karnına alın",
+    "delete_confirmation": "Silmeyi onayla",
+    "delete_question": "Bu ilacı dozajınızdan silmek istediğinizden emin misiniz?",
     "details": {
       "description": "Açıklama",
-      "side_effects": "Yan Etkiler",
-      "advice": "Tavsiye",
-      "see_documentation": "Dokümantasyonu Görüntüle",
+      "side_effects": "Yan etkiler",
+      "advice": "Öneri",
+      "see_documentation": "Dokümantasyonu görüntüle",
       "enlarge_hint": "Büyütmek için dokunun",
       "close": "Kapat"
     },
     "pdf": {
       "documentation_title": "PDF Dokümantasyonu",
-      "document_available": "PDF Dokümanı Mevcut",
+      "document_available": "PDF belgesi mevcut",
       "file": "Dosya",
       "view": "Görüntüle",
       "download": "İndir",
-      "reading_title": "Dokümanı Okuma",
+      "reading_title": "Belge okuma",
       "download_web_only": "İndirme sadece mobilde mevcut",
       "storage_permission": "İndirme için depolama izni gerekiyor",
-      "downloaded": "PDF İndirildi",
-      "download_error": "İndirme Hatası",
-      "view_error": "PDF Açarken Hata",
-      "pdf_render_error": "PDF Oluşturma Hatası"
+      "downloaded": "PDF indirildi",
+      "download_error": "İndirme hatası",
+      "view_error": "PDF açılırken hata oluştu",
+      "pdf_render_error": "PDF render hatası"
     },
     "image": {
-      "not_available": "Resim Mevcut Değil",
+      "not_available": "Resim mevcut değil",
       "tap_to_close": "Kapatmak için dokunun"
     },
     "time_label": "Saat",
     "drugs": {
       "rifadine": {
         "description": "Birinci basamak tüberküloz karşıtı antibiyotik",
-        "side_effects": "Turuncu idrar, mide bulantısı, karaciğer sorunları",
-        "advice": "Aç karnına alın, yemekten 1 saat önce veya 2 saat sonra"
+        "side_effects": "Turuncu idrar, mide bulantısı, karaciğer bozuklukları",
+        "advice": "Aç karnına, yemekten 1 saat önce veya 2 saat sonra alın"
       },
       "rifater": {
         "description": "Rifampisin, izoniazid ve pirazinamid sabit kombinasyonu",
         "side_effects": "Sindirim bozuklukları, baş ağrısı, yorgunluk",
-        "advice": "3 ilacın bir tablet içinde kombinasyonu"
+        "advice": "3 ilacın 1 tablet içinde kombinasyonu"
       },
       "rifinah": {
         "description": "Rifampisin ve izoniazid kombinasyonu",
         "side_effects": "İdrarda turuncu renk, mide bulantısı",
-        "advice": "Tercihen sabah aç karnına alın"
+        "advice": "Tercihen sabahları aç karnına alın"
       },
       "dexambutol": {
-        "description": "İkinci basamak tüberküloz karşıtı",
+        "description": "İkinci basamak tüberküloz karşıtı ilaç",
         "side_effects": "Görme bozuklukları, optik nöropati",
         "advice": "Göz muayenesi gereklidir"
       },
       "myambutol": {
-        "description": "Etambutol, bakteriyostatik tüberküloz karşıtı",
+        "description": "Etambutol, bakteriyostatik tüberküloz karşıtı ilaç",
         "side_effects": "Optik nörit, görme bozuklukları",
         "advice": "Görme kontrolü önerilir"
       },
       "pirilene": {
-        "description": "Pirazinamid, tüberküloz karşıtı",
-        "side_effects": "Karaciğer sorunları, artralji",
+        "description": "Pirazinamid, tüberküloz karşıtı ilaç",
+        "side_effects": "Karaciğer bozuklukları, artralji",
         "advice": "Karaciğer takibi gereklidir"
       },
       "rimactan": {
@@ -142,150 +158,140 @@
         "advice": "Yemeklerden uzak alın"
       },
       "rimifon": {
-        "description": "İsoniazid, ana tüberküloz karşıtı",
+        "description": "İsoniazid, ana tüberküloz karşıtı ilaç",
         "side_effects": "Periferik nöropati, hepatit",
         "advice": "B6 vitamini takviyesi önerilir"
       }
     },
     "stock_management": {
-      "title": "Stok Yönetimi",
-      "current_stock": "Mevcut Stok: {stock} tablet",
+      "title": "Stok yönetimi",
+      "current_stock": "Mevcut stok: {stock} tablet",
       "confirm": "Onayla"
     }
   },
   "information": {
-    "title": "Tüberküloz Hakkında Bilgi",
+    "title": "Verem hastalığı hakkında bilgi",
     "links": {
-      "title": "Faydalı Bağlantılar",
-  "error": "Bağlantı açılamıyor",
-  "who": {
-    "title": "DSÖ - Dünya Sağlık Örgütü",
-    "description": "Tüberküloz hakkında bilgi sayfası"
-  },
-  "ministry": {
-    "title": "Sağlık Bakanlığı - Fransa",
-    "description": "Tüberküloz: resmi bilgiler"
-  },
-  "fight": {
-    "title": "Tüberkülozla Mücadele",
-    "description": "Fransa'daki stratejiler ve eylemler"
-  },
-  "refugees": {
-    "title": "Mülteciler için bilgi",
-    "description": "Mülteciler için bilgi"
-  }
+      "title": "Faydalı bağlantılar",
+      "error": "Bağlantı açılamadı"
     },
     "understanding": {
-      "title": "Tüberkülozu Anlama",
+      "title": "Verem hastalığını anlamak",
       "subtitle": "Dikkat gerektiren bulaşıcı bir hastalık",
-      "what_is": "Tüberküloz nedir?",
-      "what_is_content": "Tüberküloz, Mycobacterium tuberculosis adı verilen bir bakteri tarafından neden olan, latent bir fazdan sonra aktif hale gelen bir hastalıktır. Bu aktif hastalık formu, bakterinin çoğalmasıyla ilişkilidir. Belirtiler eşliğinde gelir ve özel antibiyotiklerle uzun süreli tedavi gerektirir.",
-      "transmission": "Nasıl bulaşır?",
-      "transmission_content": "Tüberküloz, akciğerleri etkilenmiş bir kişi öksürdüğünde, hapşırdığında veya konuştuğunda havadan bulaşır. Bulaşma için, bulaşıcı akciğer tüberkülozu olan bir kişi ile uzun süreli ve yakın temas gereklidir."
+      "what_is": "Verem hastalığı nedir?",
+      "what_is_content": "Verem, Mycobacterium tuberculosis adı verilen bir bakteri tarafından neden olan ve latent bir fazdan sonra aktif hale gelen bir hastalıktır. Bu aktif hastalık formu, bakterinin çoğalmasıyla eş zamanlıdır. Belirtiler eşliğinde görülür ve uzun süreli spesifik antibiyotik tedavisi gerektirir.\n\nGenellikle akciğerleri etkiler, bu durumda tüberküloz pulmoner olarak adlandırılır. Hastalık sadece akciğerler etkilendiğinde bulaşıcıdır. Ayrıca vücudun diğer kısımlarını da etkileyebilir, örneğin lenf düğümleri, böbrekler, beyin, kemikler vb. Bu durumlarda hastalık bulaşıcı değildir. Bazen birkaç organı etkileyebilir.\n\nAncak bu hastalıktan kaçınmak mümkündür ve doğru tedavi edilirse iyileşmek mümkündür.",
+      "transmission": "Verem hastalığı nasıl bulaşır?",
+      "transmission_content": "Verem, akciğerleri etkileyen bir kişinin öksürmesi, hapşırması veya konuşması sırasında havadan bulaşır. Bulaşma, bulaşıcı pulmoner tüberkülozlu bir kişi ile uzun süreli ve yakın temas gerektirir, örneğin aynı konutta yaşama veya bir araçta birlikte seyahat etme.\n\nVerem, akciğerlerin dışındaki vücut kısımlarını etkilediğinde bulaşıcı değildir.\n\nVerem vakası ile temas halinde olan tüm kişiler otomatik olarak enfekte veya hasta olmayacaktır.\n\nPulmoner tüberküloz, grip veya kızamık gibi hastalıklardan daha az bulaşıcıdır.",
+      "how_occurs": "Verem hastalığı nasıl ortaya çıkar?",
+      "how_occurs_content": "Verem hastalığı, vücutta tüberküloz bakterilerinin 'uyanması' ile ortaya çıkar.\n\nGerçekten de, bir kişi bakterileri soluduğunda, bakteriler vücutta uyku halinde kalır ve hastalığa neden olmaz. Dinlenme halinde, inaktif, uyku halinde kalırlar. Buna latent tüberküloz enfeksiyonu (LTBI) denir. Enfekte kişi, latent tüberküloz enfeksiyonu taşıyıcısı, hasta değildir. Hiçbir semptom göstermez ve bulaşıcı değildir.\n\nBakteri, enfekte kişinin tüm yaşamı boyunca vücutta hiçbir şey yapmadan kalabilir, çünkü bağışıklık sistemi enfeksiyonu kontrol altında tutabilir.\n\nAncak enfekte 10 kişiden 1'inde, bakteriler latent fazdan sonra 'uyanır' ve çoğalarak aktif hale gelir. Kişi o zaman hastalanır.\n\nUyanma genellikle bulaşmadan sonraki iki yıl içinde veya bağışıklık baskılanması olan bir hastalık (örneğin AIDS), bazı immünsüpresif ilaçlar, malnütrisyon durumu veya yaş (yaşlılar ve çok küçük çocukların bağışıklık sistemi zayıftır) nedeniyle olur.\n\nHerhangi bir klinik ve radyolojik belirti olmaması durumunda, latent tüberküloz enfeksiyonunun tanısı, tüberkülin testi (PPD) veya interferon-gama salınım testi (IGRA testi) gibi immünolojik testlerle konulabilir."
     },
     "itl": {
       "title": "Latent Tüberküloz Enfeksiyonu (LTBI)",
-      "what_is": "LTBI ne anlama gelir?",
-      "what_is_content": "Latent tüberküloz enfeksiyonunda, bakteri vücudun savunmaları sayesinde nötralize edilir ve hapsedilir. Bu bakteri 'uyku halinde' kalabilir. Kişi hayatında hiçbir zaman hastalığı geliştirmeyebilir.",
       "vs_active": "LTBI vs Aktif Tüberküloz",
       "itl_characteristics": "Latent Tüberküloz Enfeksiyonu",
-      "itl_char_1": "Basiller 'uyku halinde, nötralize edilmiş'",
+      "itl_char_1": "Basil 'uyuyan, nötralize edilmiş'",
       "itl_char_2": "Kişi bulaştırıcı değil",
-      "itl_char_3": "Hiçbir belirti yok",
+      "itl_char_3": "Hiçbir semptom yok",
       "itl_char_4": "Normal röntgen",
       "itl_char_5": "3 aylık önleyici tedavi",
       "active_characteristics": "Aktif Tüberküloz",
-      "active_char_1": "Basiller aktif",
-      "active_char_2": "Akciğer ise bulaşıcı",
-      "active_char_3": "Belirtilerin varlığı",
+      "active_char_1": "Basil aktif",
+      "active_char_2": "Pulmoner ise bulaştırıcı",
+      "active_char_3": "Semptomların varlığı",
       "active_char_4": "Anormal röntgen",
       "active_char_5": "6 ay veya daha uzun süreli tedavi"
     },
     "symptoms": {
-      "title": "Belirtiler ve Tedavi",
-      "symptoms_list": "Ana Belirtiler",
+      "title": "Belirtiler ve tedavi",
+      "what_are_symptoms": "Verem hastalığının belirtileri nelerdir?",
+      "what_are_symptoms_content": "Belirtiler, vücudun hangi kısmının etkilendiğine bağlı olarak değişir. Ancak tüm durumlarda, hastalık aşağıdaki belirtilere neden olabilir: ateş, gece terlemeleri, aşırı yorgunluk ve iştahsızlık ile kilo kaybı.\n\nPulmoner tüberküloz durumunda, öksürük vardır.\n\nBu belirtilerin birkaç hafta boyunca devam etmesi, veremden şüphelenilmesini ve bir doktora başvurulmasını gerektirir.",
+      "symptoms_list": "Ana belirtiler",
       "symptom_1": "Sürekli öksürük (3 haftadan fazla)",
       "symptom_2": "Balgamda kan",
       "symptom_3": "Göğüs ağrısı",
       "symptom_4": "Yorgunluk ve halsizlik",
       "symptom_5": "İstenmeyen kilo kaybı",
       "symptom_6": "Ateş ve gece terlemeleri",
-      "symptom_7": "İştah kaybı",
+      "symptom_7": "İştahsızlık",
+      "how_to_treat": "Verem hastalığı nasıl tedavi edilir?",
+      "how_to_treat_content": "Fransa'da, verem hastalığı bugün çok iyi tedavi edilebilmektedir. Tedavi, birkaç ilacın her gün, en az altı ay boyunca alınmasını gerektirir. Aç karnına alınmalıdır. Pratikte, günde bir kez, tek seferde, yemekten en az yarım saat önce alınmalıdır. Yemekten iki saat sonra da alınabilir.\n\nTedavi, düzenli takip gerektirir, örneğin kan testleri yapılması.\n\nTedavinin başlangıcında, hastanede başlatılan, bulaşıcı pulmoner tüberkülozlu kişi, diğerlerini enfekte etmemek için izole edilir (tek kişilik oda, maske vb.).\n\nTedaviyi kesmemek çok önemlidir, aksi takdirde hastalık geri gelebilir ve ilaçlara direnç gelişebilir, bu da ilaçların etkisiz hale gelmesine neden olabilir.\n\nSosyal güvenlik, tedavinin %100'ünü karşılar.",
       "treatment_title": "Tedavi",
-      "treatment_content": "Tedavi, birkaç ay boyunca her gün birkaç ilacın alınmasını gerektirir. Bunlar aç karnına alınmalıdır. Pratikte, yemekten en az yarım saat önce alınmalıdır.",
+      "treatment_content": "Tedavi, birkaç ilacın her gün, birkaç ay boyunca alınmasını gerektirir. Aç karnına alınmalıdır. Pratikte, yemekten en az yarım saat önce alınmalıdır.",
       "important_note": "Tedaviyi kesmemek çok önemlidir, aksi takdirde hastalık geri gelebilir."
     },
     "prevention": {
       "title": "Önleme",
-      "vaccination": "BCG Aşısı",
-      "vaccination_content": "BCG aşısı, özellikle beş yaşın altındaki risk faktörleri olan çocuklar için güçlü bir şekilde önerilmektedir.",
-      "screening": "Tüberküloz Kontrol Merkezleri tarafından Tarama",
-      "screening_content": "Tüberküloz kontrol merkezleri, vakalar etrafında araştırmalar ve taramalar düzenleyerek önlemede merkezî bir rol oynar."
+      "how_to_prevent": "Verem hastalığı nasıl önlenir?",
+      "how_to_prevent_content": "Önleme, risk altındaki çocuklar için erken ve hedeflenmiş BCG aşısı ile sağlanır, ayrıca Veremle Mücadele Merkezleri (CLAT) tarafından, bulaşıcı verem vakaları çevresinde ve en çok risk altındaki popülasyonlarda taramalar yapılır.\n\nBCG aşısı, 2007'den beri Fransa'da zorunlu olmamasına rağmen, özellikle beş yaşın altındaki çocuklar için, çevreleri veya yakınları ile ilgili risk faktörleri (örneğin ailede verem öyküsü veya veremin sık görüldüğü bir ülke ile bağlantılar) bulunan çocuklar için güçlü bir şekilde önerilmektedir.\n\nAşı, tercihen ikinci ayda olmak üzere, bir aylıkken yapılmaya başlanır. Tüberküloz menenjiti de dahil olmak üzere veremin ağır formlarına karşı koruma sağlar.\n\nCLAT, veremin önlenmesinde merkezi bir rol oynar. Bulaşıcı verem vakası teşhis edildiğinde, CLAT, sağlık yetkilileri tarafından bilgilendirilir ve hasta ile yakın temasta bulunan kişileri bulmak için bir soruşturma yürütür. Bu kişiler daha sonra, tıbbi muayene, göğüs röntgeni ve immünolojik test (tüberkülin testi veya IGRA testi gibi) içeren bir tarama hizmetinden yararlanabilir.\n\nLatent tüberküloz enfeksiyonu tespit edilirse, CLAT, aktif vereme ilerlemesini önlemek için önleyici tedavi önerir.\n\nAyrıca, CLAT, veremin sık görüldüğü ülkelerden gelen kişiler gibi daha fazla risk altındaki bazı popülasyonlarda hedeflenmiş taramalar da düzenler, böylece hastalık mümkün olan en kısa sürede tespit edilebilir.",
+      "vaccination": "BCG aşısı",
+      "vaccination_content": "BCG aşısı, özellikle beş yaşın altındaki risk faktörüne sahip çocuklar için güçlü bir şekilde önerilmektedir.",
+      "screening": "Veremle mücadele merkezleri tarafından taramalar",
+      "screening_content": "Veremle mücadele merkezleri, vakalar çevresinde soruşturmalar ve taramalar düzenleyerek önlemede merkezi bir rol oynar."
     },
     "faq": {
       "title": "Sıkça Sorulan Sorular",
-      "q1": "Tüberküloz her zaman bulaşıcı mıdır?",
-      "a1": "Hayır, sadece akciğer tüberkülozu bulaşıcıdır. Vücudun diğer kısımlarını etkilediğinde bulaşıcı değildir.",
+      "q1": "Verem hastalığı her zaman bulaşıcı mıdır?",
+      "a1": "Hayır, sadece pulmoner verem bulaşıcıdır. Vücudun diğer kısımlarını etkilediğinde bulaşıcı değildir.",
       "q2": "Tedavi ne kadar sürer?",
-      "a2": "Tedavi genellikle 6 ay sürer, bazen duruma göre daha uzun da sürebilir. Tamamını takip etmek çok önemlidir.",
-      "q3": "Tüberküloz tedavi edilebilir mi?",
-      "a3": "Evet, tüberküloz günümüzde Fransa'da tedavi edilebilir bir hastalıktır, eğer tedavi doğru şekilde takip edilirse.",
-      "q4": "Kim taranmalıdır?",
-      "a4": "Yakın temas halinde olanlar ve bir hasta ile sık sık temas halinde olanlar, tüberküloz kontrol merkezlerinin ekipleri tarafından taranır."
+      "a2": "Tedavi genellikle 6 ay sürer, bazen duruma göre daha uzun sürebilir. Tamamlanması çok önemlidir.",
+      "q3": "Verem hastalığı tedavi edilebilir mi?",
+      "a3": "Evet, verem hastalığı bugün Fransa'da tedavi edilebilir, eğer tedavi doğru şekilde uygulanırsa.",
+      "q4": "Kimler taranmalıdır?",
+      "a4": "Yakın temaslılar ve hasta ile sık sık temas halinde olan kişiler, veremle mücadele merkezleri ekipleri tarafından taranır."
     }
   },
   "quiz": {
     "question": "Soru",
     "score": "Skor",
     "explanation": "Açıklama",
-    "restart": "Yeniden Başla",
+    "restart": "Yeniden başla",
     "home": "Ana Sayfa",
     "result": {
-      "title": "Test Tamamlandı!",
+      "title": "Test tamamlandı!",
       "excellent": "Mükemmel! Konuyu çok iyi biliyorsunuz!",
-      "good": "İyi! İyi bir bilgi birikiminiz var.",
-      "average": "Orta. Hala gözden geçirilmesi gereken bazı noktalar var.",
-      "needs_improvement": "Tüberküloz hakkında bilgileri tekrar okumak iyi olur."
+      "good": "İyi! İyi bilgiye sahipsiniz.",
+      "average": "Orta. Hala gözden geçirilmesi gereken birkaç nokta var.",
+      "needs_improvement": "Verem hastalığı hakkında bilgileri yeniden okumak iyi olur."
     },
     "q1": {
-      "question": "Tüberkülozun nedeni nedir?",
+      "question": "Verem hastalığına ne neden olur?",
       "a1": "Bir virüs",
       "a2": "Mycobacterium tuberculosis adı verilen bir bakteri",
       "a3": "Bir mantar",
       "a4": "Bir parazit",
-      "explanation": "Tüberküloz, Mycobacterium tuberculosis adı verilen bir bakteri tarafından neden olur, ayrıca Koch basilisi olarak da bilinir."
+      "explanation": "Mycobacterium tuberculosis adı verilen bir bakteri tarafından neden olur, ayrıca Koch basilisi olarak da bilinir."
     },
     "q2": {
-      "question": "Tüberküloz nasıl bulaşır?",
-      "a1": "Hava yoluyla (öksürük, hapşırık)",
-      "a2": "Cilt teması yoluyla",
-      "a3": "Kirlenmiş su yoluyla",
-      "a4": "Böcek ısırıkları yoluyla",
-      "explanation": "Tüberküloz, enfekte bir kişi öksürdüğünde, hapşırdığında veya konuştuğunda havaya bakteri içeren damlacıklar yayarak bulaşır."
+      "question": "Verem hastalığı nasıl bulaşır?",
+      "a1": "Hava yoluyla (öksürük, hapşırma)",
+      "a2": "Cilt temasıyla",
+      "a3": "Kirli sudan",
+      "a4": "Böcek ısırıklarıyla",
+      "explanation": "Verem, enfekte bir kişi öksürdüğünde, hapşırdığında veya konuştuğunda havadan bulaşır, bakteri içeren damlacıklar yayar."
     },
     "q3": {
-      "question": "Tüberkülozun hangi formu bulaşıcıdır?",
+      "question": "Verem hastalığının hangi formu bulaşıcıdır?",
       "a1": "Kemik tüberkülozu",
       "a2": "Böbrek tüberkülozu",
-      "a3": "Akciğer tüberkülozu",
-      "a4": "Lenf bezi tüberkülozu",
-      "explanation": "Sadece akciğer tüberkülozu bulaşıcıdır çünkü akciğerleri etkiler ve havadan bulaşmaya izin verir."
+      "a3": "Pulmoner tüberküloz",
+      "a4": "Lenf düğümü tüberkülozu",
+      "explanation": "Sadece pulmoner tüberküloz bulaşıcıdır, çünkü akciğerleri etkiler ve havadan bulaşmayı sağlar."
     },
     "q4": {
-      "question": "Tüberküloz tedavisi genellikle ne kadar sürer?",
+      "question": "Verem hastalığının tedavisi genellikle ne kadar sürer?",
       "a1": "2 hafta",
       "a2": "6 ay veya daha uzun",
       "a3": "1 ay",
       "a4": "1 yıl",
-      "explanation": "Tüberküloz tedavisi genellikle 6 ay sürer, bazen duruma göre daha uzun da sürebilir. Tamamını takip etmek çok önemlidir."
+      "explanation": "Verem hastalığının tedavisi genellikle 6 ay sürer, bazen duruma göre daha uzun sürebilir. Tamamlanması çok önemlidir."
     },
     "q5": {
       "question": "LTBI ne anlama gelir?",
       "a1": "Latent Tüberküloz Enfeksiyonu",
-      "a2": "Uzun Süreli Enfeksiyon",
+      "a2": "Uzun Toplam Enfeksiyon",
       "a3": "Yerel Terapötik Müdahale",
       "a4": "Tüberküloza Sınırlı Bağışıklık",
-      "explanation": "LTBI, Latent Tüberküloz Enfeksiyonu anlamına gelir. Bu, bakterinin mevcut olduğu ancak 'uyku halinde' olduğu, belirti veya bulaşıcılık olmadığı zamandır."
+      "explanation": "LTBI, Latent Tüberküloz Enfeksiyonu anlamına gelir. Bakteri mevcut ancak 'uyku halinde', semptom veya bulaşıcılık yoktur."
     },
     "q6": {
       "question": "Tüberküloz ilaçları ne zaman alınmalıdır?",
@@ -293,15 +299,15 @@
       "a2": "Yemekler sırasında",
       "a3": "Herhangi bir zaman",
       "a4": "Aç karnına (yemeklerden önce)",
-      "explanation": "Tüberküloz ilaçları aç karnına alınmalıdır, yemekten en az 30 dakika önce veya 2 saat sonra."
+      "explanation": "Tüberküloz ilaçları aç karnına, yemeklerden en az 30 dakika önce veya 2 saat sonra alınmalıdır."
     },
     "q7": {
-      "question": "Akciğer tüberkülozunun ana belirtisi nedir?",
+      "question": "Pulmoner tüberkülozun ana belirtisi nedir?",
       "a1": "Baş ağrısı",
       "a2": "Sürekli öksürük",
       "a3": "Karın ağrısı",
       "a4": "Cilt döküntüsü",
-      "explanation": "Akciğer tüberkülozunun ana belirtisi 3 haftadan uzun süren sürekli öksürüktür."
+      "explanation": "Pulmoner tüberkülozun ana belirtisi, 3 haftadan uzun süren sürekli öksürüktür."
     },
     "q8": {
       "question": "Tedavi çok erken kesilirse ne olur?",
@@ -309,24 +315,24 @@
       "a2": "Daha hızlı iyileşme",
       "a3": "Nüks ve direnç riski",
       "a4": "Yan etkilerin azalması",
-      "explanation": "Tedaviyi çok erken kesmek, hastalığın nüks etmesine ve ilaçlara karşı direnç gelişmesine neden olabilir."
+      "explanation": "Tedaviyi çok erken kesmek, hastalığın nüksetmesine ve ilaçlara direnç gelişmesine neden olabilir."
     }
   },
   "settings": {
-    "language_choice": "Dil Seçimi",
+    "language_choice": "Dil seçimi",
     "language_changed": "Dil değiştirildi",
     "actions": "İşlemler",
-    "reset_data": "Verileri Sıfırla",
+    "reset_data": "Verileri sıfırla",
     "reset_description": "Uygulamanın tüm verilerini sil",
     "reset_confirmation": "Tüm verileri sıfırlamak istediğinizden emin misiniz?",
-    "reset_warning": "Bu işlem şunları silecektir:\n• Pozolojiniz\n• İlaç alımlarınız\n• Tüm yapılandırmalarınız",
+    "reset_warning": "Bu işlem şunları silecektir:\n• Dozajınız\n• İlaç alımlarınız\n• Tüm yapılandırmanız",
     "reset_success": "Veriler başarıyla sıfırlandı",
-    "quit_app": "Uygulamadan Çık",
-    "quit_description": "Tüberkülozum'u Kapat",
-    "quit_confirmation": "Tüberkülozum'dan çıkmak istediğinizden emin misiniz?"
+    "quit_app": "Uygulamadan çık",
+    "quit_description": "TB&Me'yi kapat",
+    "quit_confirmation": "TB&Me'den çıkmak istediğinizden emin misiniz?"
   },
   "common": {
-    "cancel": "İptal",
+    "cancel": "İptal et",
     "confirm": "Onayla",
     "reset": "Sıfırla",
     "quit": "Çık",
@@ -334,67 +340,76 @@
     "later": "Sonra"
   },
   "notifications": {
-    "fasting_reminder_title": "⏰ Oruç Hatırlatma",
-    "fasting_reminder_body": "2 saat içinde {medication} {dosage} alın. Şimdi hiçbir şey yemeyin veya içmeyin!",
-    "5min_reminder_title": "🔔 Yaklaşan Hatırlatma",
-    "5min_reminder_body": "5 dakika içinde: {medication} {dosage} ({tablets} tablet)",
-    "time_reminder_title": "💊 Zamanı Geldi!",
+    "fasting_reminder_title": "⏰ Oruç hatırlatması",
+    "fasting_reminder_body": "2 saat sonra {medication} {dosage} alacaksınız. Şimdi yiyip içmeyin!",
+    "30min_reminder_title": "⏰ Hatırlatma",
+    "30min_reminder_body": "30 dakika sonra: {medication} {dosage} ({tablets} tablet)",
+    "5min_reminder_title": "🔔 Yakın hatırlatma",
+    "5min_reminder_body": "5 dakika sonra: {medication} {dosage} ({tablets} tablet)",
+    "time_reminder_title": "💊 Şimdi zamanı!",
     "time_reminder_body": "Şimdi alın: {medication} {dosage} ({tablets} tablet)",
     "fasting_note": " - Aç karnına alın",
     "permissions_help": "Bu izinleri cihaz ayarlarından etkinleştirebilirsiniz.",
-    "test_simple": "🔔 Basit Test",
+    "test_simple": "🔔 Basit test",
     "test_sent_immediately": "Test bildirimi hemen gönderildi"
   },
   "permissions": {
     "notifications": "Bildirimler",
-    "exact_alarms": "Kesin Alarmlar",
+    "exact_alarms": "Kesin alarmlar",
     "storage": "Depolama",
-    "required_title": "Gerekli İzinler",
-    "required_message": "Uygulamanın doğru çalışması için aşağıdaki izinlere ihtiyacı vardır:"
+    "required_title": "Gerekli izinler",
+    "required_message": "Uygulamanın doğru çalışması için aşağıdaki izinlere ihtiyacı var:"
   },
   "encouragement": {
     "regular_taking": [
       "💊 Her alım önemlidir! Bu ek adım için tebrikler.",
       "🌟 Kararlılığınız fark yaratır. Böyle devam edin!",
       "🎯 İyi iş! Her gün, iyileşmenizi inşa ediyorsunuz.",
-      "🌱 Temel bir adım, daha sağlıklı bir gelecek. Tebrikler!",
-      "💪 Kendinize iyi bakıyorsunuz ve bu belli. Tebrikler!",
+      "🌱 Önemli bir adım, daha sağlıklı bir gelecek. Tebrikler!",
+      "💪 Kendinize iyi bakıyorsunuz, ve belli oluyor. Tebrikler!",
       "🏆 Küçük adımlar, büyük zaferler. Harika!",
       "✨ Her eylem sizi sağlığa bir adım daha yaklaştırır. Mükemmel!"
     ],
     "missed_recovery": [
-      "🔄 Önemli olan devam etmektir. Her alım önemlidir, hatta unuttuktan sonra bile!",
-      "🤗 Sorun değil, hata insanlıktır. Bugüne odaklanalım!",
-      "💚 Unutmak olur. Tedaviye devam ettiğiniz için tebrikler! Birlikte devam edelim.",
+      "🔄 Önemli olan devam etmektir. Her alım önemlidir, unutulduktan sonra bile!",
+      "🤗 Sorun değil, hata insanidir. Bugüne odaklanalım!",
+      "💚 Unutmak olabilir. Tedaviye devam ettiğiniz için tebrikler! Birlikte devam edelim.",
       "🌈 Yol bazen engellerle doludur, ama siz buradasınız! Devam etmek için iyi iş.",
       "🚀 Bu küçük adım, kararlılığınızın büyük bir kanıtı. Hadi gidelim!",
-      "💪 Pes etmiyoruz! Önemli olan devam etmektir. Bu devam için tebrikler.",
-      "⭐ Rotada kalın! Bir unutkanlık ilerlemenizi durdurmaz. Devamınız için tebrikler."
+      "💪 Pes etmeyin! Önemli olan devam etmektir. Devam etmek için tebrikler.",
+      "⭐ Rotada kalın! Bir unutkanlık ilerlemenizi durdurmaz. Devam etmek için tebrikler."
     ]
   },
   "catch_up": {
-    "title": "Alımı Yakalama",
-    "button": "Yakala",
-    "fasting_period": "Gerekli Oruç Süresi",
-    "fasting_duration": "2 saat oruç",
-    "fasting_rules": "Sonraki 2 saat için:\n• Hiçbir şey yemeyin\n• Hiçbir şey içmeyin\n• Sigara içmeyin",
-    "timer_title": "Oruç Süresi Devam Ediyor",
+    "title": "Alımın telafisi",
+    "button": "Telafi et",
+    "fasting_period": "Gerekli oruç süresi",
+    "fasting_duration": "2 saatlik oruç",
+    "fasting_rules": "Sonraki 2 saat için:\n• Yemek yemeyin\n• İçecek içmeyin\n• Sigara içmeyin",
+    "timer_title": "Oruç süresi devam ediyor",
     "timer_subtitle": "Daha fazla oruç tutun",
-    "ready_title": "✅ Oruç Süresi Bitti!",
-    "ready_message": "Şimdi ilacınızı alabilirsiniz",
-    "take_now": "Şimdi Alın",
-    "cancel_catchup": "Yakalamayı İptal Et"
+    "ready_title": "✅ Oruç süresi bitti!",
+    "ready_message": "Artık ilacınızı alabilirsiniz",
+    "take_now": "Şimdi alın",
+    "cancel_catchup": "Telafiyi iptal et",
+    "confirm_fasting": "Orucu onayla",
+    "confirm_fasting_message": "En az 2 saattir oruçlu olduğunuzu onaylıyor musunuz?",
+    "ready_to_take": "Artık ilacınızı alabilirsiniz.",
+    "wait_time": "Kalan süre",
+    "choose_time": "Saati seçin",
+    "success_title": "Tebrikler!",
+    "select_last_meal_time": "Son yemek/içecek/sigara saati"
   },
   "messages": {
     "medication_added_success": "İlaç başarıyla eklendi",
     "medication_deleted_success": "İlaç başarıyla silindi",
     "stock_updated": "Stok güncellendi: {stock} tablet",
     "notifications_scheduled": "{medication} için {time} saatinde bildirimler planlandı",
-    "notifications_scheduled_fasting": " (2 saat önce oruç hatırlatması ile)",
+    "notifications_scheduled_fasting": " (2 saat öncesinde oruç hatırlatmasıyla)",
     "notifications_error": "Bildirim hatası: {error}",
-    "no_medications_posology": "Pozolojinizde ilaç yok",
+    "no_medications_posology": "Dozajınızda hiç ilaç yok",
     "test_scheduled": "{medication} için 1 dakika içinde test planlandı",
-    "view_photos_title": "📸 İlaç Fotoğrafları",
+    "view_photos_title": "📸 İlaç fotoğrafları",
     "close_dialog": "Kapat",
     "image_not_available": "Resim mevcut değil",
     "touch_to_close": "Kapatmak için dokunun",
@@ -405,15 +420,16 @@
   },
   "history": {
     "title": "📊 Geçmiş",
-    "week_of": "Hafta",
-    "before_installation": "Kurulumdan Önce",
+    "week_of": "Haftası",
+    "before_installation": "Kurulum öncesi",
     "upcoming": "Yaklaşan",
     "taken_count": "✅ {count} alındı",
     "missed_count": "❌ {count} kaçırıldı",
-    "details_title": "Detaylar",
+    "details_title": "Tarihinin detayları",
     "no_data": "Bu gün için veri yok",
     "unknown_medication": "Bilinmeyen",
-    "taken_at": "Alındı",
+    "scheduled_at": "Planlanan saat",
+    "taken_at": "Alındığı saat",
     "missed": "Kaçırıldı"
   }
 }

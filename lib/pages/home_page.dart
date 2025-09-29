@@ -64,7 +64,7 @@ class _HomePageState extends State<HomePage> {
               currentIndex: _currentIndex,
               onTap: (index) => setState(() => _currentIndex = index),
               selectedItemColor: const Color(0xFF6C63FF),
-              unselectedItemColor: Colors.grey[500],
+              unselectedItemColor: const Color.fromARGB(255, 0, 0, 0),
               selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
               unselectedLabelStyle: const TextStyle(fontSize: 10),
               backgroundColor: Colors.transparent,
@@ -113,39 +113,6 @@ class _HomePageState extends State<HomePage> {
                     child: const Icon(Icons.calendar_today, size: 22),
                   ),
                   label: _tr('app.calendar'),
-                ),
-                BottomNavigationBarItem(
-                  icon: Container(
-                    padding: const EdgeInsets.all(6),
-                    decoration: BoxDecoration(
-                      color: _currentIndex == 4 ? const Color(0xFF6C63FF).withOpacity(0.1) : Colors.transparent,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Icon(Icons.quiz, size: 22),
-                  ),
-                  label: _tr('app.quiz'),
-                ),
-                BottomNavigationBarItem(
-                  icon: Container(
-                    padding: const EdgeInsets.all(6),
-                    decoration: BoxDecoration(
-                      color: _currentIndex == 5 ? const Color(0xFF6C63FF).withOpacity(0.1) : Colors.transparent,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Icon(Icons.info, size: 22),
-                  ),
-                  label: _tr('app.information'),
-                ),
-                BottomNavigationBarItem(
-                  icon: Container(
-                    padding: const EdgeInsets.all(6),
-                    decoration: BoxDecoration(
-                      color: _currentIndex == 6 ? const Color(0xFF6C63FF).withOpacity(0.1) : Colors.transparent,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: const Icon(Icons.settings, size: 22),
-                  ),
-                  label: _tr('app.settings'),
                 ),
               ],
             ),

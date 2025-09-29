@@ -417,7 +417,6 @@
     "link_open_error": "Impossible d'ouvrir le lien: {url}",
     "error": "Erreur: {error}"
 
-
     },
     "history": {
     "title": "📊 Historique",

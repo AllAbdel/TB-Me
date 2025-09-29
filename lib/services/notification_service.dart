@@ -17,36 +17,27 @@ class NotificationService {
   }
   
   static Future<void> initialize() async {
-    print('🔔 Initialisation des notifications...');
-    
     tz.initializeTimeZones();
-    tz.setLocalLocation(tz.getLocation('Europe/Paris')); // Ajustez selon votre fuseau
-    print('🌐 Fuseaux horaires initialisés');
+    tz.setLocalLocation(tz.getLocation('Europe/Paris'));
     
-    const AndroidInitializationSettings androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
-    const DarwinInitializationSettings iosSettings = DarwinInitializationSettings(
+     AndroidInitializationSettings androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
+     DarwinInitializationSettings iosSettings = DarwinInitializationSettings(
       requestAlertPermission: true,
       requestBadgePermission: true,
       requestSoundPermission: true,
     );
     
-    const InitializationSettings settings = InitializationSettings(
+     InitializationSettings settings = InitializationSettings(
       android: androidSettings,
       iOS: iosSettings,
     );
     
-    try {
-      bool? initialized = await _notifications.initialize(
-        settings,
-        onDidReceiveNotificationResponse: _onNotificationTapped,
-      );
-      print('✅ Notifications initialisées: $initialized');
-    } catch (e) {
-      print('❌ Erreur initialisation notifications: $e');
-    }
+    await _notifications.initialize(
+      settings,
+      onDidReceiveNotificationResponse: _onNotificationTapped,
+    );
     
     await _requestPermissions();
-    print('🔔 Permissions demandées');
   }  
   
   static Future<void> _requestPermissions() async {
@@ -60,11 +51,7 @@ class NotificationService {
     if (Platform.isIOS) {
       await _notifications
           .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
-          ?.requestPermissions(
-            alert: true,
-            badge: true,
-            sound: true,
-          );
+          ?.requestPermissions(alert: true, badge: true, sound: true);
     }
   }
   
@@ -72,7 +59,6 @@ class NotificationService {
     print('Notification tapped: ${response.payload}');
   }
 
-  // Notification 2h avant pour jeûne
   static Future<void> showFastingReminder({
     required int baseId,
     required String medicamentNom,
@@ -87,18 +73,15 @@ class NotificationService {
       priority: Priority.high,
       enableVibration: true,
       vibrationPattern: Int64List.fromList([0, 500, 200, 500]),
-      playSound: true,
-      sound: const RawResourceAndroidNotificationSound('medication_sound'), // Sans extension
     );
     
-    const DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
+     DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
       presentAlert: true,
       presentBadge: true,
       presentSound: true,
-      sound: 'medication_sound.wav', // Avec extension pour iOS
     );
     
-    NotificationDetails notificationDetails = NotificationDetails(
+     NotificationDetails notificationDetails = NotificationDetails(
       android: androidDetails,
       iOS: iosDetails,
     );
@@ -111,65 +94,60 @@ class NotificationService {
       (baseId % 100000) + 1000,
       _tr('notifications.fasting_reminder_title'),
       body,
-      tz.TZDateTime.from(scheduledTime.subtract(const Duration(hours: 2)), tz.local),
+      tz.TZDateTime.from(scheduledTime.subtract( Duration(hours: 2)), tz.local),
       notificationDetails,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
     );
   }
 
-  // NOUVELLE : Notification 30 minutes APRÈS (rappel si pas pris)
-static Future<void> show30MinLateReminder({
-  required int baseId,
-  required String medicamentNom,
-  required String dosage,
-  required int nombreComprimes,
-  required bool aJeun,
-  required DateTime scheduledTime,
-}) async {
-  AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
-    '30min_late_reminders',
-    'Rappels retard 30 minutes',
-    channelDescription: 'Rappels 30 minutes après si médicament non pris',
-    importance: Importance.max,
-    priority: Priority.high,
-    enableVibration: true,
-    vibrationPattern: Int64List.fromList([0, 500, 200, 500, 200, 500]),
-    playSound: true,
-    sound: const RawResourceAndroidNotificationSound('medication_sound'),
-  );
-  
-  const DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
-    presentAlert: true,
-    presentBadge: true,
-    presentSound: true,
-    sound: 'medication_sound.wav',
-  );
-  
-  NotificationDetails notificationDetails = NotificationDetails(
-    android: androidDetails,
-    iOS: iosDetails,
-  );
-  
-  String plural = nombreComprimes > 1 ? 's' : '';
-  String body = '⚠️ Avez-vous pris votre médicament ?\n$medicamentNom $dosage ($nombreComprimes comprimé$plural)';
-  
-  if (aJeun) {
-    body += '\n${_tr('notifications.fasting_note')}';
+  static Future<void> show30MinLateReminder({
+    required int baseId,
+    required String medicamentNom,
+    required String dosage,
+    required int nombreComprimes,
+    required bool aJeun,
+    required DateTime scheduledTime,
+  }) async {
+    AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
+      '30min_late_reminders',
+      'Rappels retard 30 minutes',
+      channelDescription: 'Rappels 30 minutes après si médicament non pris',
+      importance: Importance.max,
+      priority: Priority.high,
+      enableVibration: true,
+      vibrationPattern: Int64List.fromList([0, 500, 200, 500, 200, 500]),
+    );
+    
+     DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
+      presentAlert: true,
+      presentBadge: true,
+      presentSound: true,
+    );
+    
+     NotificationDetails notificationDetails = NotificationDetails(
+      android: androidDetails,
+      iOS: iosDetails,
+    );
+    
+    String plural = nombreComprimes > 1 ? 's' : '';
+    String body = '⚠️ Avez-vous pris votre médicament ?\n$medicamentNom $dosage ($nombreComprimes comprimé$plural)';
+    
+    if (aJeun) {
+      body += '\n${_tr('notifications.fasting_note')}';
+    }
+    
+    await _notifications.zonedSchedule(
+      (baseId % 100000) + 2000,
+      '⏰ Rappel : Médicament non pris',
+      body,
+      tz.TZDateTime.from(scheduledTime.add( Duration(minutes: 30)), tz.local),
+      notificationDetails,
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+    );
   }
-  
-  await _notifications.zonedSchedule(
-    (baseId % 100000) + 2000,
-    '⏰ Rappel : Médicament non pris',
-    body,
-    tz.TZDateTime.from(scheduledTime.add(const Duration(minutes: 30)), tz.local),
-    notificationDetails,
-    androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-    uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
-  );
-}
 
-  // Notification 5 minutes avant
   static Future<void> show5MinReminder({
     required int baseId,
     required String medicamentNom,
@@ -186,18 +164,15 @@ static Future<void> show30MinLateReminder({
       priority: Priority.high,
       enableVibration: true,
       vibrationPattern: Int64List.fromList([0, 300, 100, 300]),
-      playSound: true,
-      sound: const RawResourceAndroidNotificationSound('medication_sound'),
     );
     
-    const DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
+     DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
       presentAlert: true,
       presentBadge: true,
       presentSound: true,
-      sound: 'medication_sound.wav',
     );
     
-    NotificationDetails notificationDetails = NotificationDetails(
+     NotificationDetails notificationDetails = NotificationDetails(
       android: androidDetails,
       iOS: iosDetails,
     );
@@ -217,14 +192,13 @@ static Future<void> show30MinLateReminder({
       (baseId % 100000) + 3000,
       _tr('notifications.5min_reminder_title'),
       body,
-      tz.TZDateTime.from(scheduledTime.subtract(const Duration(minutes: 5)), tz.local),
+      tz.TZDateTime.from(scheduledTime.subtract( Duration(minutes: 5)), tz.local),
       notificationDetails,
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
     );
   }
 
-  // Notification à l'heure exacte
   static Future<void> showTimeReminder({
     required int baseId,
     required String medicamentNom,
@@ -241,20 +215,17 @@ static Future<void> show30MinLateReminder({
       priority: Priority.max,
       enableVibration: true,
       vibrationPattern: Int64List.fromList([0, 1000, 500, 1000, 500, 1000]),
-      playSound: true,
       enableLights: true,
-      sound: const RawResourceAndroidNotificationSound('medication_sound'),
     );
     
-    const DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
+     DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
       presentAlert: true,
       presentBadge: true,
       presentSound: true,
       badgeNumber: 1,
-      sound: 'medication_sound.wav',
     );
     
-    NotificationDetails notificationDetails = NotificationDetails(
+     NotificationDetails notificationDetails = NotificationDetails(
       android: androidDetails,
       iOS: iosDetails,
     );
@@ -290,89 +261,81 @@ static Future<void> show30MinLateReminder({
   }
   
   static Future<void> cancelMedicationNotifications(int baseId) async {
-    await _notifications.cancel((baseId % 100000) + 1000); // Jeûne
-    await _notifications.cancel((baseId % 100000) + 2000); // Rappel 30min après
-    await _notifications.cancel((baseId % 100000) + 4000); // Heure exacte
+    await _notifications.cancel((baseId % 100000) + 1000);
+    await _notifications.cancel((baseId % 100000) + 2000);
+    await _notifications.cancel((baseId % 100000) + 4000);
   }
   
-  // NOUVELLE : Annuler toutes les notifications pour un traitement complet
   static Future<void> cancelAllDaysNotifications(int baseId, int dureeTraitement) async {
     for (int day = 0; day < dureeTraitement; day++) {
       final dayId = baseId + (day * 10000);
       await cancelMedicationNotifications(dayId);
     }
   }
-  // Ajoutez ces deux méthodes à la fin de la classe NotificationService
 
-static Future<void> showSimpleTestNotification() async {
-  const AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
-    'test_channel',
-    'Test',
-    channelDescription: 'Test simple',
-    importance: Importance.max,
-    priority: Priority.high,
-    playSound: true,
-    sound: RawResourceAndroidNotificationSound('medication_sound'),
-  );
-  
-  const DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
-    presentAlert: true,
-    presentBadge: true,
-    presentSound: true,
-    sound: 'medication_sound.wav',
-  );
-  
-  const NotificationDetails notificationDetails = NotificationDetails(
-    android: androidDetails,
-    iOS: iosDetails,
-  );
-  
-  await _notifications.show(
-    999,
-    _tr('notifications.test_simple'),
-    '🔔',
-    notificationDetails,
-  );
-}
+  static Future<void> showSimpleTestNotification() async {
+    AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
+      'test_channel',
+      'Test',
+      channelDescription: 'Test simple',
+      importance: Importance.max,
+      priority: Priority.high,
+    );
+    
+     DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
+      presentAlert: true,
+      presentBadge: true,
+      presentSound: true,
+    );
+    
+     NotificationDetails notificationDetails = NotificationDetails(
+      android: androidDetails,
+      iOS: iosDetails,
+    );
+    
+    await _notifications.show(
+      999,
+      _tr('notifications.test_simple'),
+      'Test notification',
+      notificationDetails,
+    );
+  }
 
-static Future<void> showCatchupComplete({
-  required int baseId,
-  required String medicamentNom,
-  required String dosage,
-  required DateTime scheduledTime,
-}) async {
-  AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
-    'catchup_complete',
-    'Rattrapage terminé',
-    channelDescription: 'Notification quand la période de jeûne est terminée',
-    importance: Importance.max,
-    priority: Priority.max,
-    enableVibration: true,
-    vibrationPattern: Int64List.fromList([0, 1000, 500, 1000]),
-    playSound: true,
-    sound: const RawResourceAndroidNotificationSound('medication_sound'),
-  );
-  
-  const DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
-    presentAlert: true,
-    presentBadge: true,
-    presentSound: true,
-    sound: 'medication_sound.wav',
-  );
-  
-  NotificationDetails notificationDetails = NotificationDetails(
-    android: androidDetails,
-    iOS: iosDetails,
-  );
-  
-  await _notifications.zonedSchedule(
-    (baseId % 100000) + 5000,
-    '✅ Période de jeûne terminée !',
-    'Vous pouvez maintenant prendre $medicamentNom $dosage',
-    tz.TZDateTime.from(scheduledTime, tz.local),
-    notificationDetails,
-    androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
-    uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
-  );
-}
+  static Future<void> showCatchupComplete({
+    required int baseId,
+    required String medicamentNom,
+    required String dosage,
+    required DateTime scheduledTime,
+  }) async {
+    AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
+      'catchup_complete',
+      'Rattrapage terminé',
+      channelDescription: 'Notification quand la période de jeûne est terminée',
+      importance: Importance.max,
+      priority: Priority.max,
+      enableVibration: true,
+      vibrationPattern: Int64List.fromList([0, 1000, 500, 1000]),
+    );
+    
+     DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
+      presentAlert: true,
+      presentBadge: true,
+      presentSound: true,
+    );
+    
+     NotificationDetails notificationDetails = NotificationDetails(
+      android: androidDetails,
+      iOS: iosDetails,
+    );
+    
+    await _notifications.zonedSchedule(
+      (baseId % 100000) + 5000,
+      '✅ Période de jeûne terminée !',
+      'Vous pouvez maintenant prendre $medicamentNom $dosage',
+      tz.TZDateTime.from(scheduledTime, tz.local),
+      notificationDetails,
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+      uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
+    );
+  }
 }
