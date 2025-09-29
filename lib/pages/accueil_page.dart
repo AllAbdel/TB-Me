@@ -653,66 +653,82 @@ Future<void> _loadData() async {
   }
 
   StatutPrise _getStatutPrise(Map<String, dynamic> medicament) {
-    final heurePrise = _parseHeure(medicament['heure']);
-    final maintenant = DateTime.now();
-    final heureMaintenant = TimeOfDay.now();
-    
-    // Vérifier si déjà pris
-    final prise = prisesAujourdhui.firstWhere(
-      (p) => p['medicamentId'] == medicament['id'] && p['heure'] == medicament['heure'],
-      orElse: () => {},
-    );
-    
-    if (prise.isNotEmpty && prise['pris'] == true) {
-      return StatutPrise.pris;
-    }
-    
-    // Comparer les heures
-    final heureActuelleEnMinutes = heureMaintenant.hour * 60 + heureMaintenant.minute;
-    final heurePriseEnMinutes = heurePrise.hour * 60 + heurePrise.minute;
-    
-    if (heureActuelleEnMinutes < heurePriseEnMinutes) {
-      return StatutPrise.aVenir;
-    } else if (heureActuelleEnMinutes - heurePriseEnMinutes > 30) {
-      // Considéré comme oublié après 30 minutes de retard
+  final heurePrise = _parseHeure(medicament['heure']);
+  final maintenant = DateTime.now();
+  final heureMaintenant = TimeOfDay.now();
+  final aJeun = medicament['aJeun'] ?? false;
+  
+  // Vérifier si déjà pris
+  final prise = prisesAujourdhui.firstWhere(
+    (p) => p['medicamentId'] == medicament['id'] && p['heure'] == medicament['heure'],
+    orElse: () => {},
+  );
+  
+  if (prise.isNotEmpty && prise['pris'] == true) {
+    return StatutPrise.pris;
+  }
+  
+  // Comparer les heures
+  final heureActuelleEnMinutes = heureMaintenant.hour * 60 + heureMaintenant.minute;
+  final heurePriseEnMinutes = heurePrise.hour * 60 + heurePrise.minute;
+  final minutesDeRetard = heureActuelleEnMinutes - heurePriseEnMinutes;
+  
+  if (heureActuelleEnMinutes < heurePriseEnMinutes) {
+    // Heure pas encore arrivée
+    return StatutPrise.aVenir;
+  } else if (minutesDeRetard <= 30) {
+    // Dans les 30 premières minutes après l'heure prévue
+    return StatutPrise.enCours;
+  } else if (minutesDeRetard <= 40) {
+    // Entre 30 et 40 minutes : en cours mais en rouge
+    return StatutPrise.enCours; // On garde enCours mais on change la couleur
+  } else {
+    // Plus de 40 minutes de retard
+    if (aJeun) {
+      // Si à jeun : passe en "oublié" et nécessite rattrapage
       return StatutPrise.oublie;
     } else {
-      return StatutPrise.enCours;
+      // Si pas à jeun : reste prenable mais en rouge
+      return StatutPrise.enCoursRetard; // NOUVEAU statut
     }
   }
-
+}
   TimeOfDay _parseHeure(String heure) {
     final parts = heure.split(':');
     return TimeOfDay(hour: int.parse(parts[0]), minute: int.parse(parts[1]));
   }
 
   Color _getStatutColor(StatutPrise statut) {
-    switch (statut) {
-      case StatutPrise.pris:
-        return Colors.green;
-      case StatutPrise.aVenir:
-        return Colors.blue;
-      case StatutPrise.enCours:
-        return Colors.orange;
-      case StatutPrise.oublie:
-        return Colors.red;
-    }
+  switch (statut) {
+    case StatutPrise.pris:
+      return Colors.green;
+    case StatutPrise.aVenir:
+      return Colors.blue;
+    case StatutPrise.enCours:
+      return Colors.orange;
+    case StatutPrise.enCoursRetard: // NOUVEAU
+      return Colors.red;
+    case StatutPrise.oublie:
+      return Colors.red;
   }
+}
 
-  IconData _getStatutIcon(StatutPrise statut) {
-    switch (statut) {
-      case StatutPrise.pris:
-        return Icons.check_circle;
-      case StatutPrise.aVenir:
-        return Icons.schedule;
-      case StatutPrise.enCours:
-        return Icons.notifications_active;
-      case StatutPrise.oublie:
-        return Icons.warning;
-    }
+IconData _getStatutIcon(StatutPrise statut) {
+  switch (statut) {
+    case StatutPrise.pris:
+      return Icons.check_circle;
+    case StatutPrise.aVenir:
+      return Icons.schedule;
+    case StatutPrise.enCours:
+      return Icons.notifications_active;
+    case StatutPrise.enCoursRetard: // NOUVEAU
+      return Icons.alarm;
+    case StatutPrise.oublie:
+      return Icons.warning;
   }
+}
 
-  String _getStatutText(StatutPrise statut) {
+String _getStatutText(StatutPrise statut) {
   switch (statut) {
     case StatutPrise.pris:
       return _tr('home.status.taken');
@@ -720,6 +736,8 @@ Future<void> _loadData() async {
       return _tr('home.status.upcoming');
     case StatutPrise.enCours:
       return _tr('home.status.now');
+    case StatutPrise.enCoursRetard: // NOUVEAU
+      return _tr('home.status.late'); // À ajouter dans vos traductions
     case StatutPrise.oublie:
       return _tr('home.status.missed');
   }
@@ -1276,50 +1294,50 @@ int getTotalMedicamentsAujourdhui() {
                                       ],
                                     ),
                                   trailing: statut != StatutPrise.pris
-                                  ? statut == StatutPrise.oublie && medicament['aJeun'] == true
-                                      ? ElevatedButton(
-                                          onPressed: () => _demarrerRattrapage(medicament),
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.purple,
-                                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                                          ),
-                                          child: Text(
-                                            _tr('catch_up.button'),
-                                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 11),
-                                            textAlign: TextAlign.center,
-                                          ),
-                                        )
-                                      : statut == StatutPrise.oublie
-                                          ? Container(
-                                              padding: const EdgeInsets.all(12),
-                                              decoration: BoxDecoration(
-                                                color: Colors.red.withOpacity(0.2),
-                                                borderRadius: BorderRadius.circular(10),
-                                              ),
-                                              child: const Icon(Icons.block, color: Colors.red, size: 24),
-                                            )
-                                          : ElevatedButton(
-                                              onPressed: () => _marquerCommePris(medicament),
-                                              style: ElevatedButton.styleFrom(
-                                                backgroundColor: couleur,
-                                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                                                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                                              ),
-                                              child: Text(
-                                                _tr('home.mark_taken'),
-                                                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 11),
-                                                textAlign: TextAlign.center,
-                                              ),
-                                            )
-                                  : Container(
-                                      padding: const EdgeInsets.all(12),
-                                      decoration: BoxDecoration(
-                                        color: Colors.green.withOpacity(0.2),
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: const Icon(Icons.check, color: Colors.green, size: 24),
-                                    ),
+  ? statut == StatutPrise.oublie && medicament['aJeun'] == true
+      ? ElevatedButton(
+          onPressed: () => _demarrerRattrapage(medicament),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.purple,
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          ),
+          child: Text(
+            _tr('catch_up.button'),
+            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 11),
+            textAlign: TextAlign.center,
+          ),
+        )
+      : statut == StatutPrise.oublie
+          ? Container(
+              padding: const EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.red.withOpacity(0.2),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: const Icon(Icons.block, color: Colors.red, size: 24),
+            )
+          : ElevatedButton( // Pour enCours ET enCoursRetard
+              onPressed: () => _marquerCommePris(medicament),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: couleur,
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              ),
+              child: Text(
+                _tr('home.mark_taken'),
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 11),
+                textAlign: TextAlign.center,
+              ),
+            )
+  : Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.green.withOpacity(0.2),
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: const Icon(Icons.check, color: Colors.green, size: 24),
+    ),
                                   ),
                                 );
                               }).toList(),
@@ -1667,5 +1685,6 @@ enum StatutPrise {
   pris,
   aVenir,
   enCours,
+  enCoursRetard,
   oublie,
 }

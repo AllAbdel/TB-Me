@@ -30,6 +30,7 @@
       "taken": "Pris",
       "upcoming": "À venir",
       "now": "Maintenant",
+      "late": "En retard",
       "missed": "Manqué"
     }
   },
@@ -157,36 +158,20 @@
     "title": "Informations sur la tuberculose",
     "links": {
       "title": "Liens utiles",
-      "error": "Impossible d'ouvrir le lien",
-      "who": {
-        "title": "OMS - Organisation Mondiale de la Santé",
-        "description": "Fiche d'information sur la tuberculose"
-      },
-      "ministry": {
-        "title": "Ministère de la Santé - France", 
-        "description": "La tuberculose : informations officielles"
-      },
-      "fight": {
-        "title": "Lutte contre la tuberculose",
-        "description": "Stratégies et actions en France"
-      },
-      "refugees": {
-        "title": "Réfugiés.info",
-        "description": "Information pour les réfugiés"
-      }
+      "error": "Impossible d'ouvrir le lien"
     },
     "understanding": {
       "title": "Comprendre la tuberculose",
       "subtitle": "Une maladie infectieuse qui nécessite de l'attention",
       "what_is": "Qu'est-ce que la tuberculose ?",
-      "what_is_content": "La tuberculose est une maladie causée par la bactérie appelée Mycobacterium tuberculosis, qui après une phase latente, devient active. Cette forme active de la maladie correspond à une multiplication de la bactérie. Elle est accompagnée de symptômes et nécessite un traitement prolongé avec des antibiotiques spécifiques.",
-      "transmission": "Comment est-elle transmise ?",
-      "transmission_content": "La tuberculose est transmise par l'air par une personne dont les poumons sont atteints lorsqu'elle tousse, éternue ou parle. La transmission nécessite un contact prolongé et étroit avec une personne qui a une tuberculose pulmonaire contagieuse."
+      "what_is_content": "La tuberculose est une maladie causée par la bactérie appelée Mycobacterium tuberculosis, qui après une phase latente, devient active. Cette forme active de la maladie correspond à une multiplication de la bactérie.Elle est accompagnée de symptômes et nécessite un traitement prolongé à base d'antibiotiques spécifiques.\n\nElle touche le plus souvent les poumons, on parle alors de tuberculose pulmonaire.La maladie est contagieuse uniquement quand les poumons sont atteints. Elle peut affecter aussi d'autres parties du corps, comme les ganglions, les reins, le cerveau, les os …etc.Dans ces cas, la maladie n'est pas contagieuse. Elle peut parfois toucher plusieurs organes.\n\nMais on peut éviter cette maladie, et on peut en guérir si on se soigne correctement.",
+      "transmission": "Comment la tuberculose maladie se transmet ?",
+      "transmission_content": "La tuberculose se transmet par l'air, par une personne dont les poumons sont atteints lorsqu'elle tousse ou éternue ou parle. La transmission nécessite des contacts prolongés et rapprochés avec une personne qui a une tuberculose pulmonaire contagieuse, par exemple lorsqu'on vit dans le même logement que la personne contagieuse ou que l'on voyage ensemble dans un véhicule.\n\nQuand la tuberculose touche d'autres parties du corps que les poumons, elle n'est pas contagieuse.\n\nToutes les personnes en contact avec un cas de tuberculose ne seront donc pas systématiquement infectées, ni, encore moins, malades.\n\nLa tuberculose pulmonaire est moins contagieuse que des maladies comme la grippe ou la rougeole.",
+      "how_occurs": "Comment survient la tuberculose maladie ?",
+      "how_occurs_content": "La tuberculose maladie survient quand les bactéries de la tuberculose \"se réveillent\" dans le corps.\n\nEn effet, quand une personne respire les bactéries, elles restent endormies dans le corps, sans provoquer de maladie.Elles restent à l'état de repos, inactive, dormante. C'est ce qu'on appelle l'infection tuberculeuse latente (ITL). La personne contaminée, porteuse d'une infection tuberculeuse latente, n'est pas malade. Elle ne présente aucun symptôme et n'est pas contagieuse.\n\nLa bactérie peut rester dans le corps toute la vie de la personne infectée sans rien faire, car son système immunitaire permet de contenir l'infection.\n\nMais pour 1 personne infectée sur 10, les bactéries « se réveillent » après la phase latente et deviennent actives en se multipliant. La personne devient alors malade.\n\nLe réveil survient le plus souvent dans les deux années qui suivent la transmission ou lorsque qu'il y a une immunodépression liée à une maladie (comme le SIDA), à certains médicaments immunosuppresseurs, à un état de malnutrition ou à l'âge (les personnes âgées et les très jeunes enfants ont un système immunitaire faible).\n\nEn l'absence de tout signe clinique et radiologique, le diagnostic de l'infection tuberculeuse latente peut être fait grâce aux tests immunologiques comme le test tuberculinique (IDR à la tuberculine) ou les tests de libération d'interféron gamma (test IGRA)."
     },
     "itl": {
       "title": "Infection tuberculeuse latente (ITL)",
-      "what_is": "Que signifie ITL ?",
-      "what_is_content": "Dans l'infection tuberculeuse latente, la bactérie est neutralisée, piégée grâce aux défenses de l'organisme. Cette bactérie peut rester 'dormante'. La personne peut ne jamais développer la maladie de sa vie.",
       "vs_active": "ITL vs Tuberculose active",
       "itl_characteristics": "Infection tuberculeuse latente",
       "itl_char_1": "Les bacilles sont 'dormants, neutralisés'",
@@ -203,6 +188,8 @@
     },
     "symptoms": {
       "title": "Symptômes et traitement",
+      "what_are_symptoms": "Quels sont les symptômes de la tuberculose maladie ?",
+      "what_are_symptoms_content": "Les symptômes sont variables selon la partie du corps qui est atteinte. Mais dans tous les cas, la maladie peut provoquer les signes suivants : une fièvre, une transpiration intense la nuit, une grande fatigue et une perte d'appétit et de poids.\n\nEn cas de tuberculose pulmonaire, il y a la présence d'une toux.\n\nLa persistance de ces signes pendant plusieurs semaines doit faire penser à une tuberculose et doit faire consulter un médecin.",
       "symptoms_list": "Principaux symptômes",
       "symptom_1": "Toux persistante (plus de 3 semaines)",
       "symptom_2": "Sang dans les crachats",
@@ -211,12 +198,16 @@
       "symptom_5": "Perte de poids non intentionnelle",
       "symptom_6": "Fièvre et sueurs nocturnes",
       "symptom_7": "Perte d'appétit",
+      "how_to_treat": "Comment se soigne la tuberculose maladie ?",
+      "how_to_treat_content": "En France, la tuberculose se soigne très bien aujourd'hui. Le traitement demande de prendre plusieurs médicaments tous les jours, pendant au moins six mois. Ils doivent être pris à jeun. En pratique, il faut les prendre, une fois par jour, en une seule fois, au moins une demi-heure avant de manger. On peut aussi attendre 2h après un repas pour les prendre.\n\nLe traitement s'accompagne d'une surveillance régulière comme la réalisation de prises de sang.\n\nAu début du traitement, démarré à l'hôpital, la personne qui a une tuberculose pulmonaire contagieuse est isolée (chambre seule, masque…) pour éviter de contaminer les autres.\n\nIl est très important de ne pas arrêter le traitement, sinon la maladie peut revenir, et pour éviter une la survenue d'une résistance aux médicaments qui seraient alors inefficaces.\n\nLa Sécurité sociale prend en charge 100% du traitement.",
       "treatment_title": "Traitement",
       "treatment_content": "Le traitement nécessite la prise de plusieurs médicaments chaque jour, pendant plusieurs mois. Ils doivent être pris à jeun. En pratique, ils doivent être pris au moins une demi-heure avant de manger.",
       "important_note": "Il est très important de ne pas arrêter le traitement, sinon la maladie pourrait revenir."
     },
     "prevention": {
       "title": "Prévention",
+      "how_to_prevent": "Comment prévenir la tuberculose ?",
+      "how_to_prevent_content": "La prévention passe par une vaccination BCG précoce et ciblée pour les enfants à risque, ainsi que par un dépistage assuré par les Centres de Lutte Antituberculeuse (CLAT), aussi bien autour des cas de tuberculose contagieuse que dans les populations les plus exposées.\n\nBien que la vaccination BCG ne soit plus obligatoire en France depuis 2007, elle reste fortement recommandée, en priorité aux enfants de moins de cinq ans présentant un facteur de risque lié à leur environnement ou à leurs proches (notamment un antécédent familial de tuberculose ou des liens avec un pays où la tuberculose est très fréquente).\n\nLa vaccination est recommandée à partir de l'âge de 1 mois, de préférence au cours du 2ᵉ mois. Elle protège contre les formes graves de tuberculose, en particulier les méningites tuberculeuses.\n\nLes CLAT jouent un rôle central dans la prévention de la tuberculose. Lorsqu'un cas de tuberculose contagieuse est diagnostiqué, le CLAT, informé par les autorités de santé, mène une enquête pour retrouver les personnes ayant été en contact étroit avec le malade. Ces personnes peuvent alors bénéficier d'un dépistage, comprenant une consultation médicale, une radiographie thoracique et un test immunologique (comme le test tuberculinique ou le test IGRA).\n\nEn cas de dépistage d'une infection tuberculeuse latente, le CLAT propose un traitement préventif pour éviter qu'elle n'évolue vers une tuberculose active.\n\nPar ailleurs, le CLAT organise également un dépistage ciblé dans certaines populations plus exposées, comme les personnes venues de pays où la tuberculose est fréquente, afin de détecter la maladie le plus tôt possible.",
       "vaccination": "Vaccination BCG",
       "vaccination_content": "La vaccination BCG reste fortement recommandée, surtout pour les enfants de moins de cinq ans avec des facteurs de risque.",
       "screening": "Dépistage par les centres de lutte contre la tuberculose",
@@ -337,6 +328,8 @@
   "notifications": {
     "fasting_reminder_title": "⏰ Rappel de jeûne",
     "fasting_reminder_body": "Dans 2h, prenez {medication} {dosage}. Ne mangez ni ne buvez rien maintenant !",
+    "30min_reminder_title": "⏰ Rappel",
+    "30min_reminder_body": "Dans 30 minutes : {medication} {dosage} ({tablets} comprimé{plural})",
     "5min_reminder_title": "🔔 Rappel proche",
     "5min_reminder_body": "Dans 5 minutes : {medication} {dosage} ({tablets} comprimé{plural})",
     "time_reminder_title": "💊 C'est l'heure !",
@@ -345,7 +338,6 @@
     "permissions_help": "Vous pouvez activer ces permissions dans les paramètres de l'appareil.",
     "test_simple": "🔔 Test Simple",
     "test_sent_immediately": "Notification test envoyée immédiatement"
-
   },
   "permissions": {
     "notifications": "Notifications",
@@ -424,6 +416,7 @@
     "details_title": "Détails du",
     "no_data": "Aucune donnée pour ce jour",
     "unknown_medication": "Inconnu",
+    "scheduled_at": "Prévu à",
     "taken_at": "Pris à",
     "missed": "Manqué"
     }

@@ -172,6 +172,21 @@ class _InformationsPageState extends State<InformationsPage> {
 
                     const SizedBox(height: 32),
 
+                    const SizedBox(height: 16),
+
+                    // Section Comment survient
+                    _buildInfoCard(
+                      icon: Icons.psychology,
+                      iconColor: Colors.purple[600]!,
+                      title: _tr('information.understanding.how_occurs'),
+                      content: _tr('information.understanding.how_occurs_content'),
+                      gradientColors: [Colors.purple[50]!, Colors.white],
+                      borderColor: Colors.purple[200]!,
+                    ),
+
+                    const SizedBox(height: 32),
+
+
                     // Section ITL vs Tuberculose Active
                     _buildSectionTitle(
                       icon: Icons.compare_arrows,
@@ -259,6 +274,29 @@ class _InformationsPageState extends State<InformationsPage> {
                       ],
                     ),
 
+
+                    const SizedBox(height: 32),
+
+                    // Section Quels sont les symptômes
+                    _buildSectionTitle(
+                      icon: Icons.info_outline,
+                      title: _tr('information.symptoms.what_are_symptoms'),
+                      color: const Color(0xFFFF5722),
+                    ),
+
+                    const SizedBox(height: 16),
+
+                    _buildInfoCard(
+                      icon: Icons.coronavirus_outlined,
+                      iconColor: Colors.red[600]!,
+                      title: _tr('information.symptoms.what_are_symptoms'),
+                      content: _tr('information.symptoms.what_are_symptoms_content'),
+                      gradientColors: [Colors.red[50]!, Colors.white],
+                      borderColor: Colors.red[200]!,
+                    ),
+
+                    const SizedBox(height: 32),
+
                     const SizedBox(height: 32),
 
                     // Section Symptômes
@@ -309,6 +347,75 @@ class _InformationsPageState extends State<InformationsPage> {
                     ),
 
                     const SizedBox(height: 24),
+
+
+
+                    const SizedBox(height: 32),
+
+                    // Section Comment se soigne
+                    _buildSectionTitle(
+                      icon: Icons.healing,
+                      title: _tr('information.symptoms.how_to_treat'),
+                      color: const Color(0xFF4CAF50),
+                    ),
+
+                    const SizedBox(height: 16),
+
+                    _buildInfoCard(
+                      icon: Icons.medication,
+                      iconColor: Colors.green[600]!,
+                      title: _tr('information.symptoms.how_to_treat'),
+                      content: _tr('information.symptoms.how_to_treat_content'),
+                      gradientColors: [Colors.green[50]!, Colors.white],
+                      borderColor: Colors.green[200]!,
+                      additionalContent: Container(
+                        margin: const EdgeInsets.only(top: 12),
+                        padding: const EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: Colors.red[50],
+                          borderRadius: BorderRadius.circular(8),
+                          border: Border.all(color: Colors.red[200]!),
+                        ),
+                        child: Row(
+                          children: [
+                            Icon(Icons.warning, color: Colors.red[600], size: 20),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Text(
+                                _tr('information.symptoms.important_note'),
+                                style: TextStyle(
+                                  color: Colors.red[700],
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 13,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 32),
+
+                    // Section Comment prévenir
+                    _buildSectionTitle(
+                      icon: Icons.shield,
+                      title: _tr('information.prevention.how_to_prevent'),
+                      color: const Color(0xFF009688),
+                    ),
+
+                    const SizedBox(height: 16),
+
+                    _buildInfoCard(
+                      icon: Icons.vaccines,
+                      iconColor: Colors.teal[600]!,
+                      title: _tr('information.prevention.how_to_prevent'),
+                      content: _tr('information.prevention.how_to_prevent_content'),
+                      gradientColors: [Colors.teal[50]!, Colors.white],
+                      borderColor: Colors.teal[200]!,
+                    ),
+
+                    const SizedBox(height: 32),
 
                     // Section Traitement
                     _buildInfoCard(

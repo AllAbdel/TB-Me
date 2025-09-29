@@ -141,6 +141,13 @@ List<Map<String, dynamic>> _regrouperPosologie() {
       'pdf': 'assets/pdf/RIMIFON 150 mg.pdf'
     },
   ];
+    final List<String> medicamentsAJeunObligatoire = [
+    'Rifater',
+    'Rifinah', 
+    'Rimifon',
+    'Rifadine',
+    'Rimactan'
+  ];
 
   List<Map<String, dynamic>> maPosologie = [];
 
@@ -174,6 +181,27 @@ List<Map<String, dynamic>> _regrouperPosologie() {
     String stockKey = '${nom}_${dosage}_stock';
     return prefs.getInt(stockKey) ?? 0;
   }
+
+  // Nouvelle fonction pour synchroniser les stocks
+  Future<void> _synchroniserStocks() async {
+  final prefs = await SharedPreferences.getInstance();
+  bool stocksModifies = false;
+  
+  for (int i = 0; i < maPosologie.length; i++) {
+    String stockKey = '${maPosologie[i]['nom']}_${maPosologie[i]['dosage']}_stock';
+    int stockSauvegarde = prefs.getInt(stockKey) ?? maPosologie[i]['stock'];
+    
+    if (maPosologie[i]['stock'] != stockSauvegarde) {
+      maPosologie[i]['stock'] = stockSauvegarde;
+      stocksModifies = true;
+    }
+  }
+  
+  if (stocksModifies && mounted) {
+    setState(() {});
+    await _savePosologie();
+  }
+}
 
   void _gererStock(Map<String, dynamic> medicament) async {
     final prefs = await SharedPreferences.getInstance();
@@ -313,106 +341,83 @@ List<Map<String, dynamic>> _regrouperPosologie() {
     }
   }
 
-  Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication) async {
-    try {
-      final time = medication['heure'].split(':');
-      final hour = int.parse(time[0]);
-      final minute = int.parse(time[1]);
-      final aJeun = medication['aJeun'] ?? false;
-      final now = DateTime.now();
-      
-      // Pour aujourd'hui
-      DateTime scheduledTime = DateTime(now.year, now.month, now.day, hour, minute);
-      
-      // Si l'heure est déjà passée aujourd'hui, programmer pour demain
-      if (scheduledTime.isBefore(now)) {
-        scheduledTime = scheduledTime.add(const Duration(days: 1));
-      }
-      
-      final baseId = medication['id'];
-      
-      // 1. Notification de jeûne (2h avant, seulement si à jeun)
-      if (aJeun) {
-        DateTime fastingTime = scheduledTime.subtract(const Duration(hours: 2));
-        if (fastingTime.isAfter(now)) {
-          await NotificationService.showFastingReminder(
-            baseId: baseId,
-            medicamentNom: medication['nom'],
-            dosage: medication['dosage'],
-            scheduledTime: scheduledTime,
-          );
-        }
-      }
-      
-      // 2. Notification 5 minutes avant
-      DateTime fiveMinBefore = scheduledTime.subtract(const Duration(minutes: 5));
-      if (fiveMinBefore.isAfter(now)) {
-        await NotificationService.show5MinReminder(
+  // ANCIENNE FONCTION - À GARDER telle quelle
+Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication) async {
+  try {
+    final time = medication['heure'].split(':');
+    final hour = int.parse(time[0]);
+    final minute = int.parse(time[1]);
+    final aJeun = medication['aJeun'] ?? false;
+    final now = DateTime.now();
+    
+    DateTime scheduledTime = DateTime(now.year, now.month, now.day, hour, minute);
+    
+    if (scheduledTime.isBefore(now)) {
+      scheduledTime = scheduledTime.add(const Duration(days: 1));
+    }
+    
+    final baseId = medication['id'];
+    
+    if (aJeun) {
+      DateTime fastingTime = scheduledTime.subtract(const Duration(hours: 2));
+      if (fastingTime.isAfter(now)) {
+        await NotificationService.showFastingReminder(
           baseId: baseId,
           medicamentNom: medication['nom'],
           dosage: medication['dosage'],
-          nombreComprimes: medication['nombreComprimes'],
-          aJeun: aJeun,
           scheduledTime: scheduledTime,
         );
       }
-      
-      // 3. Notification à l'heure exacte
-      if (scheduledTime.isAfter(now)) {
-        await NotificationService.showTimeReminder(
-          baseId: baseId,
-          medicamentNom: medication['nom'],
-          dosage: medication['dosage'],
-          nombreComprimes: medication['nombreComprimes'],
-          aJeun: aJeun,
-          scheduledTime: scheduledTime,
-        );
-      }
-      
-      // Message de confirmation
-      String confirmMsg = _tr('messages.notifications_scheduled')
-        .replaceAll('{medication}', medication['nom'])
-        .replaceAll('{time}', medication['heure']);
-      if (aJeun && scheduledTime.subtract(const Duration(hours: 2)).isAfter(now)) {
-        confirmMsg += _tr('messages.notifications_scheduled_fasting');
-      }
-      
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(confirmMsg),
-          backgroundColor: Colors.green,
-          duration: const Duration(seconds: 3),
-        ),
-      );
-      
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(_tr('messages.notifications_error').replaceAll('{error}', '$e')),
-          backgroundColor: Colors.red,
-          duration: const Duration(seconds: 5),
-        ),
-      );
-    }
-  }  Future<void> _synchroniserStocks() async {
-    final prefs = await SharedPreferences.getInstance();
-    bool stocksModifies = false;
-    
-    for (int i = 0; i < maPosologie.length; i++) {
-      String stockKey = '${maPosologie[i]['nom']}_${maPosologie[i]['dosage']}_stock';
-      int stockSauvegarde = prefs.getInt(stockKey) ?? maPosologie[i]['stock'];
-      
-      if (maPosologie[i]['stock'] != stockSauvegarde) {
-        maPosologie[i]['stock'] = stockSauvegarde;
-        stocksModifies = true;
-      }
     }
     
-    if (stocksModifies && mounted) {
-      setState(() {});
-      await _savePosologie();
+    DateTime fiveMinBefore = scheduledTime.subtract(const Duration(minutes: 5));
+    if (fiveMinBefore.isAfter(now)) {
+      await NotificationService.show5MinReminder(
+        baseId: baseId,
+        medicamentNom: medication['nom'],
+        dosage: medication['dosage'],
+        nombreComprimes: medication['nombreComprimes'],
+        aJeun: aJeun,
+        scheduledTime: scheduledTime,
+      );
     }
+    
+    if (scheduledTime.isAfter(now)) {
+      await NotificationService.showTimeReminder(
+        baseId: baseId,
+        medicamentNom: medication['nom'],
+        dosage: medication['dosage'],
+        nombreComprimes: medication['nombreComprimes'],
+        aJeun: aJeun,
+        scheduledTime: scheduledTime,
+      );
+    }
+    
+    String confirmMsg = _tr('messages.notifications_scheduled')
+      .replaceAll('{medication}', medication['nom'])
+      .replaceAll('{time}', medication['heure']);
+    if (aJeun && scheduledTime.subtract(const Duration(hours: 2)).isAfter(now)) {
+      confirmMsg += _tr('messages.notifications_scheduled_fasting');
+    }
+    
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(confirmMsg),
+        backgroundColor: Colors.green,
+        duration: const Duration(seconds: 3),
+      ),
+    );
+    
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(_tr('messages.notifications_error').replaceAll('{error}', '$e')),
+        backgroundColor: Colors.red,
+        duration: const Duration(seconds: 5),
+      ),
+    );
   }
+}
 
   Future<void> _savePosologie() async {
     final prefs = await SharedPreferences.getInstance();
@@ -514,441 +519,619 @@ List<Map<String, dynamic>> _regrouperPosologie() {
   }
 
   void _ajouterMedicament(Map<String, dynamic> medicament) async {
-    Map<String, dynamic>? medicamentExistant;
-    try {
-      medicamentExistant = maPosologie.firstWhere(
-        (m) => m['nom'] == medicament['nom'] && m['dosage'] == medicament['dosage'],
-      );
-    } catch (e) {
-      medicamentExistant = null;
-    }
+  Map<String, dynamic>? medicamentExistant;
+  try {
+    medicamentExistant = maPosologie.firstWhere(
+      (m) => m['nom'] == medicament['nom'] && m['dosage'] == medicament['dosage'],
+    );
+  } catch (e) {
+    medicamentExistant = null;
+  }
 
-    final prefs = await SharedPreferences.getInstance();
-    String stockKey = '${medicament['nom']}_${medicament['dosage']}_stock';
-    int stockInitial = prefs.getInt(stockKey) ?? (medicamentExistant != null ? medicamentExistant['stock'] : 30);
+  final prefs = await SharedPreferences.getInstance();
+  String stockKey = '${medicament['nom']}_${medicament['dosage']}_stock';
+  int stockInitial = prefs.getInt(stockKey) ?? (medicamentExistant != null ? medicamentExistant['stock'] : 30);
 
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        TimeOfDay heureSelectionnee = TimeOfDay.now();
-        int nombreComprimes = 1;
-        bool aJeun = true;
-        int stock = stockInitial;
-        bool formatDialog24h = true;
+  // Déterminer si le médicament doit être à jeun obligatoirement
+  bool estAJeunObligatoire = medicamentsAJeunObligatoire.contains(medicament['nom']);
 
-        return StatefulBuilder(
-          builder: (context, setDialogState) {
-            return AlertDialog(
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-              title: Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF6C63FF), Color(0xFF4CAF50)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                  ),
-                  borderRadius: BorderRadius.circular(15),
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      TimeOfDay heureSelectionnee = TimeOfDay.now();
+      int nombreComprimes = 1;
+      bool aJeun = estAJeunObligatoire; // Coché par défaut si obligatoire
+      int stock = stockInitial;
+      bool formatDialog24h = true;
+      int dureeTraitement = 60; // Durée par défaut en jours
+
+      return StatefulBuilder(
+        builder: (context, setDialogState) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            title: Container(
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  colors: [Color(0xFF6C63FF), Color(0xFF4CAF50)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Column(
+                children: [
+                  const Icon(Icons.medication, color: Colors.white, size: 30),
+                  const SizedBox(height: 8),
+                  Text(
+                    '${_tr('medications.add_dialog_title')} ${medicament['nom']}',
+                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            ),
+            content: SizedBox(
+              width: double.maxFinite,
+              child: SingleChildScrollView(
                 child: Column(
+                  mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.medication, color: Colors.white, size: 30),
-                    const SizedBox(height: 8),
-                    Text(
-                      '${_tr('medications.add_dialog_title')} ${medicament['nom']}',
-                      style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                      textAlign: TextAlign.center,
+                    // Format d'heure (code existant)
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.indigo[50]!, Colors.white],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(color: Colors.indigo[200]!),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.access_time, color: Colors.indigo[600]),
+                          const SizedBox(width: 12),
+                          Text(
+                            _tr('medications.time_format'),
+                            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                          ),
+                          const Spacer(),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: formatDialog24h ? Colors.indigo[100] : Colors.grey[200],
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              '24h',
+                              style: TextStyle(
+                                color: formatDialog24h ? Colors.indigo[700] : Colors.grey[600],
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ),
+                          Switch(
+                            value: !formatDialog24h,
+                            onChanged: (value) {
+                              setDialogState(() {
+                                formatDialog24h = !value;
+                              });
+                            },
+                            activeColor: Colors.indigo[600],
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: !formatDialog24h ? Colors.indigo[100] : Colors.grey[200],
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              '12h',
+                              style: TextStyle(
+                                color: !formatDialog24h ? Colors.indigo[700] : Colors.grey[600],
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // Heure de prise (code existant)
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.blue[50]!, Colors.white],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(color: Colors.blue[200]!),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.access_time, color: Colors.blue[700]),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              '${_tr('medications.time_label')}: ${_formatTime(heureSelectionnee, formatDialog24h)}',
+                              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                            ),
+                          ),
+                          ElevatedButton(
+                            onPressed: () async {
+                              final TimeOfDay? nouvelleHeure = await showTimePicker(
+                                context: context,
+                                initialTime: heureSelectionnee,
+                                builder: (BuildContext context, Widget? child) {
+                                  return MediaQuery(
+                                    data: MediaQuery.of(context).copyWith(
+                                      alwaysUse24HourFormat: formatDialog24h,
+                                    ),
+                                    child: child!,
+                                  );
+                                },
+                              );
+                              
+                              if (nouvelleHeure != null) {
+                                setDialogState(() {
+                                  heureSelectionnee = nouvelleHeure;
+                                });
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue[600],
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                            ),
+                            child: Text(_tr('medications.change'), style: const TextStyle(color: Colors.white)),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // Nombre de comprimés (code existant)
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.green[50]!, Colors.white],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(color: Colors.green[200]!),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.medication_liquid, color: Colors.green[700]),
+                          const SizedBox(width: 12),
+                          Text(_tr('medications.tablets_count'), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                          const Spacer(),
+                          IconButton(
+                            onPressed: () {
+                              if (nombreComprimes > 1) {
+                                setDialogState(() => nombreComprimes--);
+                              }
+                            },
+                            icon: const Icon(Icons.remove_circle, color: Colors.red),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.grey[300]!),
+                            ),
+                            child: Text('$nombreComprimes', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              setDialogState(() => nombreComprimes++);
+                            },
+                            icon: const Icon(Icons.add_circle, color: Colors.green),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // NOUVEAU : Durée du traitement
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.teal[50]!, Colors.white],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(color: Colors.teal[200]!),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.calendar_today, color: Colors.teal[700]),
+                          const SizedBox(width: 12),
+                          Text('Durée (jours):', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                          const Spacer(),
+                          IconButton(
+                            onPressed: () {
+                              if (dureeTraitement > 1) {
+                                setDialogState(() => dureeTraitement--);
+                              }
+                            },
+                            icon: const Icon(Icons.remove_circle, color: Colors.red),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.grey[300]!),
+                            ),
+                            child: Text('$dureeTraitement', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              setDialogState(() => dureeTraitement++);
+                            },
+                            icon: const Icon(Icons.add_circle, color: Colors.green),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // Stock (code existant)
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Colors.purple[50]!, Colors.white],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(color: Colors.purple[200]!),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.inventory, color: Colors.purple[700]),
+                          const SizedBox(width: 12),
+                          Text('${_tr('medications.stock')}:', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                          const Spacer(),
+                          IconButton(
+                            onPressed: () {
+                              if (stock > 0) {
+                                setDialogState(() => stock--);
+                              }
+                            },
+                            icon: const Icon(Icons.remove_circle, color: Colors.red),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                            decoration: BoxDecoration(
+                              color: _getStockColor(stock),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Text('$stock', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
+                          ),
+                          IconButton(
+                            onPressed: () {
+                              setDialogState(() => stock++);
+                            },
+                            icon: const Icon(Icons.add_circle, color: Colors.green),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // À jeun - MODIFIÉ
+                    Container(
+                      margin: const EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [
+                            estAJeunObligatoire ? Colors.orange[50]! : Colors.grey[200]!,
+                            estAJeunObligatoire ? Colors.white : Colors.grey[100]!
+                          ],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(
+                          color: estAJeunObligatoire ? Colors.orange[200]! : Colors.grey[300]!
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.no_food,
+                            color: estAJeunObligatoire ? Colors.orange[700] : Colors.grey[500]
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Text(
+                              _tr('medications.take_fasting'),
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: estAJeunObligatoire ? Colors.black : Colors.grey[500]
+                              ),
+                            ),
+                          ),
+                          Switch(
+                            value: aJeun,
+                            onChanged: estAJeunObligatoire ? null : (value) {
+                              setDialogState(() => aJeun = value);
+                            },
+                            activeColor: estAJeunObligatoire ? Colors.orange[600] : Colors.grey[400],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-              content: SizedBox(
-                width: double.maxFinite,
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      // Format d'heure
-                      Container(
-                        margin: const EdgeInsets.symmetric(vertical: 8),
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [Colors.indigo[50]!, Colors.white],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                          ),
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(color: Colors.indigo[200]!),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.access_time, color: Colors.indigo[600]),
-                            const SizedBox(width: 12),
-                            Text(
-                              _tr('medications.time_format'),
-                              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                            ),
-                            const Spacer(),
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                              decoration: BoxDecoration(
-                                color: formatDialog24h ? Colors.indigo[100] : Colors.grey[200],
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Text(
-                                '24h',
-                                style: TextStyle(
-                                  color: formatDialog24h ? Colors.indigo[700] : Colors.grey[600],
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ),
-                            Switch(
-                              value: !formatDialog24h,
-                              onChanged: (value) {
-                                setDialogState(() {
-                                  formatDialog24h = !value;
-                                });
-                              },
-                              activeColor: Colors.indigo[600],
-                            ),
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                              decoration: BoxDecoration(
-                                color: !formatDialog24h ? Colors.indigo[100] : Colors.grey[200],
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Text(
-                                '12h',
-                                style: TextStyle(
-                                  color: !formatDialog24h ? Colors.indigo[700] : Colors.grey[600],
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      // Heure de prise
-                      Container(
-                        margin: const EdgeInsets.symmetric(vertical: 8),
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [Colors.blue[50]!, Colors.white],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                          ),
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(color: Colors.blue[200]!),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.access_time, color: Colors.blue[700]),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Text(
-                                '${_tr('medications.time_label')}: ${_formatTime(heureSelectionnee, formatDialog24h)}',
-                                style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                              ),
-                            ),
-                            ElevatedButton(
-                              onPressed: () async {
-                                final TimeOfDay? nouvelleHeure = await showTimePicker(
-                                  context: context,
-                                  initialTime: heureSelectionnee,
-                                  builder: (BuildContext context, Widget? child) {
-                                    return MediaQuery(
-                                      data: MediaQuery.of(context).copyWith(
-                                        alwaysUse24HourFormat: formatDialog24h,
-                                      ),
-                                      child: child!,
-                                    );
-                                  },
-                                );
-                                
-                                if (nouvelleHeure != null) {
-                                  setDialogState(() {
-                                    heureSelectionnee = nouvelleHeure;
-                                  });
-                                }
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue[600],
-                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                              ),
-                              child: Text(_tr('medications.change'), style: const TextStyle(color: Colors.white)),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      // Nombre de comprimés
-                      Container(
-                        margin: const EdgeInsets.symmetric(vertical: 8),
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [Colors.green[50]!, Colors.white],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                          ),
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(color: Colors.green[200]!),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.medication_liquid, color: Colors.green[700]),
-                            const SizedBox(width: 12),
-                            Text(_tr('medications.tablets_count'), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-                            const Spacer(),
-                            IconButton(
-                              onPressed: () {
-                                if (nombreComprimes > 1) {
-                                  setDialogState(() => nombreComprimes--);
-                                }
-                              },
-                              icon: const Icon(Icons.remove_circle, color: Colors.red),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(10),
-                                border: Border.all(color: Colors.grey[300]!),
-                              ),
-                              child: Text('$nombreComprimes', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                setDialogState(() => nombreComprimes++);
-                              },
-                              icon: const Icon(Icons.add_circle, color: Colors.green),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      // Stock
-                      Container(
-                        margin: const EdgeInsets.symmetric(vertical: 8),
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [Colors.purple[50]!, Colors.white],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                          ),
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(color: Colors.purple[200]!),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.inventory, color: Colors.purple[700]),
-                            const SizedBox(width: 12),
-                            Text('${_tr('medications.stock')}:', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-                            const Spacer(),
-                            IconButton(
-                              onPressed: () {
-                                if (stock > 0) {
-                                  setDialogState(() => stock--);
-                                }
-                              },
-                              icon: const Icon(Icons.remove_circle, color: Colors.red),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                              decoration: BoxDecoration(
-                                color: _getStockColor(stock),
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                              child: Text('$stock', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
-                            ),
-                            IconButton(
-                              onPressed: () {
-                                setDialogState(() => stock++);
-                              },
-                              icon: const Icon(Icons.add_circle, color: Colors.green),
-                            ),
-                          ],
-                        ),
-                      ),
-
-                      // À jeun
-                      Container(
-                        margin: const EdgeInsets.symmetric(vertical: 8),
-                        padding: const EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            colors: [Colors.orange[50]!, Colors.white],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                          ),
-                          borderRadius: BorderRadius.circular(15),
-                          border: Border.all(color: Colors.orange[200]!),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.no_food, color: Colors.orange[700]),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: Text(_tr('medications.take_fasting'), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-                            ),
-                            Switch(
-                              value: aJeun,
-                              onChanged: (value) {
-                                setDialogState(() => aJeun = value);
-                              },
-                              activeColor: Colors.orange[600],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text(_tr('common.cancel'), style: TextStyle(color: Colors.grey[600])),
               ),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context),
-                  child: Text(_tr('common.cancel'), style: TextStyle(color: Colors.grey[600])),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    final newMedication = {
+                      'id': _generateSafeId(),
+                      'nom': medicament['nom'],
+                      'dosage': medicament['dosage'],
+                      'heure': '${heureSelectionnee.hour.toString().padLeft(2, '0')}:${heureSelectionnee.minute.toString().padLeft(2, '0')}',
+                      'nombreComprimes': nombreComprimes,
+                      'aJeun': aJeun,
+                      'stock': stock,
+                      'image': medicament['image'],
+                      'dureeTraitement': dureeTraitement, // NOUVEAU
+                      'dateDebut': DateTime.now().toIso8601String(), // NOUVEAU
+                    };
+                    maPosologie.add(newMedication);
+                    
+                    // Programmer les notifications pour tous les jours
+                    _scheduleAllNotificationsForMedication(newMedication);
+                  });
+                  _savePosologie();
+                  Navigator.pop(context);
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green[600],
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    setState(() {
-                      final newMedication = {
-                        'id': _generateSafeId(),
-                        'nom': medicament['nom'],
-                        'dosage': medicament['dosage'],
-                        'heure': '${heureSelectionnee.hour.toString().padLeft(2, '0')}:${heureSelectionnee.minute.toString().padLeft(2, '0')}',
-                        'nombreComprimes': nombreComprimes,
-                        'aJeun': aJeun,
-                        'stock': stock,
-                        'image': medicament['image'],
-                      };
-                      maPosologie.add(newMedication);
-                      
-                      _scheduleNotificationForMedication(newMedication);
-                    });
-                    _savePosologie();
-                    Navigator.pop(context);
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green[600],
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-                  ),
-                  child: Text(_tr('medications.add_button'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-                ),
-              ],
-            );
-          },
+                child: Text(_tr('medications.add_button'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+              ),
+            ],
+          );
+        },
+      );
+    },
+  );
+}
+
+// NOUVELLE FONCTION : Programmer toutes les notifications pour la durée du traitement
+// FONCTION CORRIGÉE : Seulement notification à l'heure + rappel 30min après
+Future<void> _scheduleAllNotificationsForMedication(Map<String, dynamic> medication) async {
+  try {
+    final time = medication['heure'].split(':');
+    final hour = int.parse(time[0]);
+    final minute = int.parse(time[1]);
+    final aJeun = medication['aJeun'] ?? false;
+    final dureeTraitement = medication['dureeTraitement'] ?? 60;
+    final dateDebut = DateTime.parse(medication['dateDebut']);
+    final baseId = medication['id'];
+    
+    final now = DateTime.now();
+    final joursEcoules = now.difference(dateDebut).inDays;
+    final joursRestants = dureeTraitement - joursEcoules;
+    final joursToProgrammer = joursRestants > 7 ? 7 : joursRestants;
+    
+    if (joursToProgrammer <= 0) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Le traitement pour ${medication['nom']} est terminé'),
+          backgroundColor: Colors.orange,
+        ),
+      );
+      return;
+    }
+    
+    for (int day = 0; day < joursToProgrammer; day++) {
+      DateTime scheduledDate = now.add(Duration(days: day));
+      DateTime scheduledTime = DateTime(
+        scheduledDate.year,
+        scheduledDate.month,
+        scheduledDate.day,
+        hour,
+        minute,
+      );
+      
+      if (day == 0 && scheduledTime.isBefore(now)) {
+        continue;
+      }
+      
+      final dayId = baseId + (day * 10000);
+      
+      print('📅 Programmation pour le ${scheduledDate.day}/${scheduledDate.month} à ${hour}h${minute.toString().padLeft(2, '0')}');
+      
+      // 1. Notification de jeûne (2h avant, seulement si à jeun)
+      if (aJeun) {
+        DateTime fastingTime = scheduledTime.subtract(const Duration(hours: 2));
+        if (fastingTime.isAfter(now)) {
+          await NotificationService.showFastingReminder(
+            baseId: dayId,
+            medicamentNom: medication['nom'],
+            dosage: medication['dosage'],
+            scheduledTime: scheduledTime,
+          );
+          print('⏰ Notification jeûne programmée pour ${fastingTime.hour}h${fastingTime.minute.toString().padLeft(2, '0')}');
+        }
+      }
+      
+      // 2. Notification à l'heure exacte
+      if (scheduledTime.isAfter(now)) {
+        await NotificationService.showTimeReminder(
+          baseId: dayId,
+          medicamentNom: medication['nom'],
+          dosage: medication['dosage'],
+          nombreComprimes: medication['nombreComprimes'],
+          aJeun: aJeun,
+          scheduledTime: scheduledTime,
         );
-      },
+        print('⏰ Notification heure exacte programmée');
+      }
+      
+      // 3. NOUVEAU : Notification 30 minutes APRÈS (rappel si pas pris)
+      DateTime thirtyMinAfter = scheduledTime.add(const Duration(minutes: 30));
+      if (thirtyMinAfter.isAfter(now)) {
+        await NotificationService.show30MinLateReminder(
+          baseId: dayId,
+          medicamentNom: medication['nom'],
+          dosage: medication['dosage'],
+          nombreComprimes: medication['nombreComprimes'],
+          aJeun: aJeun,
+          scheduledTime: scheduledTime,
+        );
+        print('⏰ Notification rappel +30min programmée');
+      }
+    }
+    
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('last_schedule_${medication['id']}', now.toIso8601String());
+    
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Notifications programmées pour les $joursToProgrammer prochains jours'),
+        backgroundColor: Colors.green,
+        duration: const Duration(seconds: 3),
+      ),
+    );
+    
+  } catch (e) {
+    print('❌ Erreur programmation: $e');
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(_tr('messages.notifications_error').replaceAll('{error}', '$e')),
+        backgroundColor: Colors.red,
+        duration: const Duration(seconds: 5),
+      ),
     );
   }
-
+}
+  
   void _supprimerMedicament(int id) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          title: Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                colors: [Colors.red[400]!, Colors.red[600]!],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.red[400]!, Colors.red[600]!],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(15),
+          ),
+          child: Column(
+            children: [
+              const Icon(Icons.delete_forever, color: Colors.white, size: 30),
+              const SizedBox(height: 8),
+              Text(
+                _tr('medications.delete_confirmation'),
+                style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Column(
-              children: [
-                const Icon(Icons.delete_forever, color: Colors.white, size: 30),
-                const SizedBox(height: 8),
-                Text(
-                  _tr('medications.delete_confirmation'),
-                  style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            ),
+            ],
           ),
-          content: Text(
-            _tr('medications.delete_question'),
-            style: const TextStyle(fontSize: 16),
-            textAlign: TextAlign.center,
+        ),
+        content: Text(
+          _tr('medications.delete_question'),
+          style: const TextStyle(fontSize: 16),
+          textAlign: TextAlign.center,
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text(_tr('common.cancel'), style: TextStyle(color: Colors.grey[600])),
           ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text(_tr('common.cancel'), style: TextStyle(color: Colors.grey[600])),
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                // DEBUG: Afficher l'ID à supprimer
-                print('🗑️ Tentative de suppression du médicament avec ID: $id');
-                print('📋 Liste actuelle: ${maPosologie.map((m) => '${m['nom']} (ID: ${m['id']})').toList()}');
+          ElevatedButton(
+            onPressed: () async {
+              print('🗑️ Tentative de suppression du médicament avec ID: $id');
+              
+              // Trouver le médicament pour obtenir la durée du traitement
+              Map<String, dynamic>? medicamentASupprimer;
+              try {
+                medicamentASupprimer = maPosologie.firstWhere((med) => med['id'] == id);
+              } catch (e) {
+                medicamentASupprimer = null;
+              }
+              
+              // Annuler toutes les notifications
+              if (medicamentASupprimer != null) {
+                final dureeTraitement = medicamentASupprimer['dureeTraitement'] ?? 60;
+                await NotificationService.cancelAllDaysNotifications(id, dureeTraitement);
+                print('🔕 Notifications annulées pour $dureeTraitement jours');
+              }
+              
+              // Supprimer de la liste
+              final initialLength = maPosologie.length;
+              setState(() {
+                maPosologie.removeWhere((med) => med['id'] == id);
+              });
+              
+              final newLength = maPosologie.length;
+              
+              if (newLength < initialLength) {
+                await _savePosologie();
+                Navigator.pop(context);
                 
-                // Annuler les notifications
-                try {
-                  for (int day = 0; day < 30; day++) {
-                    final baseId = id + (day * 10000);
-                    await NotificationService.cancelMedicationNotifications(baseId);
-                  }
-                } catch (e) {
-                  print('⚠️ Erreur lors de l\'annulation des notifications: $e');
-                }
-                
-                // Supprimer de la liste
-                final initialLength = maPosologie.length;
-                setState(() {
-                  maPosologie.removeWhere((med) => med['id'] == id);
-                });
-                
-                // Vérifier si la suppression a fonctionné
-                final newLength = maPosologie.length;
-                
-                if (newLength < initialLength) {
-                  // Sauvegarder immédiatement
-                  await _savePosologie();
-                  
-                  Navigator.pop(context);
-                  
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
                     content: Text(_tr('messages.medication_deleted_success')),
-                      backgroundColor: Colors.green[600],
-                    ),
-                  );
-                } else {
-                  Navigator.pop(context);
-                  
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    backgroundColor: Colors.green[600],
+                  ),
+                );
+              } else {
+                Navigator.pop(context);
+                
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
                     content: Text(_tr('messages.medication_not_found')),
-                      backgroundColor: Colors.red[600],
-                    ),
-                  );
-                }
-              },
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.red[600],
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-              ),
-            child: Text(_tr('medications.delete'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+                    backgroundColor: Colors.red[600],
+                  ),
+                );
+              }
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.red[600],
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             ),
-          ],
-        );
-      },
-    );
-  }
-  void _voirDetailsMedicament(Map<String, dynamic> medicament) {
+            child: Text(_tr('medications.delete'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          ),
+        ],
+      );
+    },
+  );
+}  void _voirDetailsMedicament(Map<String, dynamic> medicament) {
     showDialog(
       context: context,
       builder: (BuildContext context) {

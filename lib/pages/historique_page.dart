@@ -3,10 +3,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import '../providers/language_provider.dart';
 
-
 class HistoriquePage extends StatefulWidget {
   const HistoriquePage({super.key});
-
 
   @override
   _HistoriquePageState createState() => _HistoriquePageState();
@@ -24,42 +22,29 @@ class _HistoriquePageState extends State<HistoriquePage> {
   @override
   void initState() {
     super.initState();
-    _loadWeeklyData();
-    _loadPosology();
+    _loadInstallationDate();
   }
 
-  Future<void> _setInstallationDate() async {
-  final prefs = await SharedPreferences.getInstance();
-  
-  // OPTION 1: Forcer la date d'installation à aujourd'hui (pour test)
-  final today = DateTime.now();
-  final dateKey = '${today.year}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
-  
-  // DÉCOMMENTER CETTE LIGNE POUR FORCER LA RÉINITIALISATION :
-  // await prefs.remove('installation_date');
-  
-  String? installationDateString = prefs.getString('installation_date');
-  
-  if (installationDateString == null) {
-    await prefs.setString('installation_date', dateKey);
-    print('📅 Date d\'installation enregistrée: $dateKey');
+  Future<void> _loadInstallationDate() async {
+    final prefs = await SharedPreferences.getInstance();
+    String? installationDateString = prefs.getString('installation_date');
     
-    setState(() {
-      _installationDate = today;
-    });
-  } else {
-    final parts = installationDateString.split('-');
-    final year = int.parse(parts[0]);
-    final month = int.parse(parts[1]);
-    final day = int.parse(parts[2]);
+    if (installationDateString != null) {
+      final parts = installationDateString.split('-');
+      final year = int.parse(parts[0]);
+      final month = int.parse(parts[1]);
+      final day = int.parse(parts[2]);
+      
+      setState(() {
+        _installationDate = DateTime(year, month, day);
+      });
+      
+      print('📅 Date d\'installation récupérée: $installationDateString');
+    }
     
-    setState(() {
-      _installationDate = DateTime(year, month, day);
-    });
-    
-    print('📅 Date d\'installation récupérée: $installationDateString');
+    await _loadPosology();
+    await _loadWeeklyData();
   }
-}
 
   Future<void> _loadPosology() async {
     final prefs = await SharedPreferences.getInstance();
@@ -75,7 +60,6 @@ class _HistoriquePageState extends State<HistoriquePage> {
     final prefs = await SharedPreferences.getInstance();
     Map<String, List<Map<String, dynamic>>> weekData = {};
     
-    // Charger les données de la semaine sélectionnée
     DateTime startOfWeek = _selectedWeek.subtract(Duration(days: _selectedWeek.weekday - 1));
     
     for (int i = 0; i < 7; i++) {
@@ -120,7 +104,6 @@ class _HistoriquePageState extends State<HistoriquePage> {
         ),
         child: Column(
           children: [
-            // Navigation semaine
             Container(
               padding: const EdgeInsets.all(16),
               child: Row(
@@ -141,7 +124,6 @@ class _HistoriquePageState extends State<HistoriquePage> {
                 ],
               ),
             ),
-            // Grille des jours
             Expanded(
               child: GridView.builder(
                 padding: const EdgeInsets.all(16),
@@ -166,169 +148,154 @@ class _HistoriquePageState extends State<HistoriquePage> {
     );
   }
 
-Widget _buildDayCard(DateTime day, List<Map<String, dynamic>> dayData) {
-List<String> dayNames = [
-  _tr('date.monday_short'), 
-  _tr('date.tuesday_short'), 
-  _tr('date.wednesday_short'), 
-  _tr('date.thursday_short'), 
-  _tr('date.friday_short'), 
-  _tr('date.saturday_short'), 
-  _tr('date.sunday_short')
-];  DateTime today = DateTime.now();
-  DateTime todayOnly = DateTime(today.year, today.month, today.day);
-  DateTime dayOnly = DateTime(day.year, day.month, day.day);
-  
-  // NOUVEAU : Vérifier si le jour est avant l'installation
-  if (_installationDate != null) {
-    DateTime installationOnly = DateTime(_installationDate!.year, _installationDate!.month, _installationDate!.day);
+  Widget _buildDayCard(DateTime day, List<Map<String, dynamic>> dayData) {
+    List<String> dayNames = [
+      _tr('date.monday_short'), 
+      _tr('date.tuesday_short'), 
+      _tr('date.wednesday_short'), 
+      _tr('date.thursday_short'), 
+      _tr('date.friday_short'), 
+      _tr('date.saturday_short'), 
+      _tr('date.sunday_short')
+    ];
     
-    if (dayOnly.isBefore(installationOnly)) {
-      // Jour avant l'installation - ne pas compter
-      return Container(
-        decoration: BoxDecoration(
-          color: Colors.grey[100],
-          borderRadius: BorderRadius.circular(15),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.05),
-              blurRadius: 5,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            children: [
-              // Date
-              SizedBox(
-                width: 60,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      dayNames[day.weekday - 1],
-                      style: TextStyle(fontSize: 12, color: Colors.grey[400]),
-                    ),
-                    Text(
-                      '${day.day}',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey[400]),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(width: 16),
-              // Message
-              Expanded(
-                child: Center(
-                  child: Text(
-                    _tr('history.before_installation'),
-                    style: TextStyle(
-                      fontSize: 14, 
-                      color: Colors.grey[500], 
-                      fontStyle: FontStyle.italic
-                    ),
-                  ),
-                ),
+    DateTime today = DateTime.now();
+    DateTime todayOnly = DateTime(today.year, today.month, today.day);
+    DateTime dayOnly = DateTime(day.year, day.month, day.day);
+    
+    // Vérifier si le jour est avant l'installation
+    if (_installationDate != null) {
+      DateTime installationOnly = DateTime(_installationDate!.year, _installationDate!.month, _installationDate!.day);
+      
+      if (dayOnly.isBefore(installationOnly)) {
+        return Container(
+          decoration: BoxDecoration(
+            color: Colors.grey[100],
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 5,
+                offset: const Offset(0, 2),
               ),
             ],
           ),
-        ),
-      );
-    }
-  }
-  
-  // Logique normale pour les jours après l'installation
-  int taken = 0;
-  int missed = 0;
-  String statusText = '';
-  
-  if (dayOnly.isAfter(todayOnly)) {
-    // Jour futur
-    statusText = _tr('history.upcoming');
-  } else if (dayOnly.isBefore(todayOnly)) {
-    // Jour passé (mais après l'installation)
-    taken = dayData.where((d) => d['pris'] == true).length;
-    int expectedMedications = _getExpectedMedicationsForDay(day);
-    missed = expectedMedications - taken;
-    statusText = '';
-  } else {
-    // Aujourd'hui
-    taken = dayData.where((d) => d['pris'] == true).length;
-    int expectedMedications = _posology.length;
-    missed = expectedMedications - taken;
-    statusText = '';
-  }
-
-  return Container(
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(15),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withOpacity(0.1),
-          blurRadius: 10,
-          offset: const Offset(0, 5),
-        ),
-      ],
-    ),
-    child: Padding(
-      padding: const EdgeInsets.all(16),
-      child: Row(
-        children: [
-          // Date
-          SizedBox(
-            width: 60,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Row(
               children: [
-                Text(
-                  dayNames[day.weekday - 1],
-                  style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                SizedBox(
+                  width: 60,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        dayNames[day.weekday - 1],
+                        style: TextStyle(fontSize: 12, color: Colors.grey[400]),
+                      ),
+                      Text(
+                        '${day.day}',
+                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.grey[400]),
+                      ),
+                    ],
+                  ),
                 ),
-                Text(
-                  '${day.day}',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.teal[700]),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: Center(
+                    child: Text(
+                      _tr('history.before_installation'),
+                      style: TextStyle(
+                        fontSize: 14, 
+                        color: Colors.grey[500], 
+                        fontStyle: FontStyle.italic
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
-          const SizedBox(width: 16),
-          // Statistiques
-          Expanded(
-            child: statusText.isNotEmpty
-                ? Center(
-                    child: Text(
-                      statusText,
-                      style: TextStyle(fontSize: 16, color: Colors.grey[600], fontStyle: FontStyle.italic),
-                    ),
-                  )
-                : Row(
-                    children: [
-                      _buildStatChip(_tr('history.taken_count').replaceAll('{count}', taken.toString()), Colors.green),
-                      const SizedBox(width: 8),
-                      if (missed > 0) _buildStatChip(_tr('history.missed_count').replaceAll('{count}', missed.toString()), Colors.red),
-                    ]
-                  ),
+        );
+      }
+    }
+    
+    // Logique pour les jours après l'installation
+    int taken = 0;
+    int missed = 0;
+    String statusText = '';
+    
+    if (dayOnly.isAfter(todayOnly)) {
+      // Jour futur
+      statusText = _tr('history.upcoming');
+    } else {
+      // Jour passé ou aujourd'hui
+      taken = dayData.where((d) => d['pris'] == true).length;
+      int expectedMedications = _posology.length;
+      missed = expectedMedications - taken;
+      statusText = '';
+    }
+
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
           ),
-          // Détails (seulement pour les jours passés/présents après installation)
-          if (statusText.isEmpty)
-            IconButton(
-              onPressed: () => _showDayDetails(day, dayData),
-              icon: Icon(Icons.info_outline, color: Colors.teal[600]),
-            ),
         ],
       ),
-    ),
-  );
-}
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Row(
+          children: [
+            SizedBox(
+              width: 60,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    dayNames[day.weekday - 1],
+                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),
+                  ),
+                  Text(
+                    '${day.day}',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.teal[700]),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 16),
+            Expanded(
+              child: statusText.isNotEmpty
+                  ? Center(
+                      child: Text(
+                        statusText,
+                        style: TextStyle(fontSize: 16, color: Colors.grey[600], fontStyle: FontStyle.italic),
+                      ),
+                    )
+                  : Row(
+                      children: [
+                        _buildStatChip(_tr('history.taken_count').replaceAll('{count}', taken.toString()), Colors.green),
+                        const SizedBox(width: 8),
+                        if (missed > 0) _buildStatChip(_tr('history.missed_count').replaceAll('{count}', missed.toString()), Colors.red),
+                      ]
+                    ),
+            ),
+            if (statusText.isEmpty)
+              IconButton(
+                onPressed: () => _showDayDetails(day, dayData),
+                icon: Icon(Icons.info_outline, color: Colors.teal[600]),
+              ),
+          ],
+        ),
+      ),
+    );
+  }
 
-int _getExpectedMedicationsForDay(DateTime day) {
-  // Retourner le nombre de médicaments attendus pour ce jour
-  // Pour simplifier, on assume que la posologie actuelle était la même
-  return _posology.length;
-}
   Widget _buildStatChip(String text, Color color) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
@@ -345,31 +312,91 @@ int _getExpectedMedicationsForDay(DateTime day) {
   }
 
   void _showDayDetails(DateTime day, List<Map<String, dynamic>> dayData) {
+    // Créer la liste complète des médicaments attendus
+    Map<String, Map<String, dynamic>> expectedMedications = {};
+    
+    for (var med in _posology) {
+      String key = '${med['id']}_${med['heure']}';
+      expectedMedications[key] = {
+        'medicament': med,
+        'pris': false,
+        'heurePrise': null,
+      };
+    }
+    
+    // Marquer les médicaments pris
+    for (var prise in dayData) {
+      String key = '${prise['medicamentId']}_${prise['heure']}';
+      if (expectedMedications.containsKey(key)) {
+        expectedMedications[key]!['pris'] = prise['pris'] ?? false;
+        expectedMedications[key]!['heurePrise'] = prise['heurePrise'];
+      }
+    }
+    
+    // Trier par heure
+    List<MapEntry<String, Map<String, dynamic>>> sortedMeds = expectedMedications.entries.toList()
+      ..sort((a, b) {
+        String heureA = a.value['medicament']['heure'];
+        String heureB = b.value['medicament']['heure'];
+        return heureA.compareTo(heureB);
+      });
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: Text('${_tr('history.details_title')} ${day.day}/${day.month}'),
+        title: Text('${_tr('history.details_title')} ${day.day}/${day.month}/${day.year}'),
         content: SizedBox(
           width: double.maxFinite,
-          height: 300,
-          child: dayData.isEmpty
-            ? Center(child: Text(_tr('history.no_data')))
+          height: 400,
+          child: sortedMeds.isEmpty
+              ? Center(child: Text(_tr('history.no_data')))
               : ListView.builder(
-                  itemCount: dayData.length,
+                  itemCount: sortedMeds.length,
                   itemBuilder: (context, index) {
-                    final prise = dayData[index];
-                    final medicament = _posology.firstWhere(
-                      (m) => m['id'].toString() == prise['medicamentId'].toString(),
-                    orElse: () => {'nom': _tr('history.unknown_medication'), 'dosage': ''},
-                    );
+                    final entry = sortedMeds[index].value;
+                    final medicament = entry['medicament'];
+                    final pris = entry['pris'];
+                    final heurePrise = entry['heurePrise'];
                     
-                    return ListTile(
-                      leading: Icon(
-                        prise['pris'] ? Icons.check_circle : Icons.cancel,
-                        color: prise['pris'] ? Colors.green : Colors.red,
+                    return Container(
+                      margin: const EdgeInsets.only(bottom: 8),
+                      decoration: BoxDecoration(
+                        color: pris ? Colors.green[50] : Colors.red[50],
+                        borderRadius: BorderRadius.circular(10),
+                        border: Border.all(
+                          color: pris ? Colors.green[200]! : Colors.red[200]!,
+                        ),
                       ),
-                      title: Text('${medicament['nom']} ${medicament['dosage']}'),
-                    subtitle: Text(prise['pris'] ? '${_tr('history.taken_at')} ${prise['heurePrise']}' : _tr('history.missed')),
+                      child: ListTile(
+                        leading: Icon(
+                          pris ? Icons.check_circle : Icons.cancel,
+                          color: pris ? Colors.green : Colors.red,
+                          size: 30,
+                        ),
+                        title: Text(
+                          '${medicament['nom']} ${medicament['dosage']}',
+                          style: const TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              '${_tr('history.scheduled_at')} ${medicament['heure']}',
+                              style: TextStyle(color: Colors.grey[700]),
+                            ),
+                            if (pris && heurePrise != null)
+                              Text(
+                                '${_tr('history.taken_at')} $heurePrise',
+                                style: const TextStyle(color: Colors.green, fontWeight: FontWeight.w600),
+                              )
+                            else if (!pris)
+                              Text(
+                                _tr('history.missed'),
+                                style: const TextStyle(color: Colors.red, fontWeight: FontWeight.w600),
+                              ),
+                          ],
+                        ),
+                      ),
                     );
                   },
                 ),
@@ -377,7 +404,8 @@ int _getExpectedMedicationsForDay(DateTime day) {
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
-            child: Text(_tr('common.close')),          ),
+            child: Text(_tr('common.close')),
+          ),
         ],
       ),
     );
