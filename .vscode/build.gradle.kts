@@ -24,8 +24,8 @@ android {
 
     defaultConfig {
         applicationId = "com.example.my_tuberculose"
-        minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
+        minSdkVersion flutter.minSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
@@ -41,6 +41,7 @@ android {
             keyPassword = keystoreProperties["keyPassword"] as String
         }
     }
+    
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -49,7 +50,6 @@ android {
         }
     }
 }
-
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")

@@ -7,7 +7,7 @@ import '../services/catchup_service.dart' as catchup_service;
 import '../pages/catchup_timer_page.dart';
 import '../pages/historique_page.dart';
 import '../pages/medicaments_page.dart';
-
+import '../widgets/credits_widget.dart';
 
 class AccueilPage extends StatefulWidget {
   const AccueilPage({super.key});
@@ -1650,6 +1650,8 @@ Future<int> _getStockForMedication(String nom, String dosage) async {
             ),
             textAlign: TextAlign.center,
           ),
+        const CreditsWidget(),
+                  const SizedBox(height: 20),
         ],
       ),
     );

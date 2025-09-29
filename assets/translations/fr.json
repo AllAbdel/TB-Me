@@ -2,10 +2,13 @@
   "app": {
     "title": "TB&Me",
     "home": "Accueil",
+    "mangement" : "Mes prises de médicaments",
     "medications": "Médicaments",
     "quiz": "Quiz",
     "information": "Information",
     "settings": "Paramètres",
+    "history": "Historique",
+    "calendar": "Calendrier",
     "description": "Application dédiée au suivi du traitement de la tuberculose"
   },
   "home": {
@@ -61,10 +64,20 @@
     "friday_short": "Ven",
     "saturday_short": "Sam",
     "sunday_short": "Dim"
-
+  },
+  "calendar": {
+    "title": "Calendrier",
+    "event_title": "Titre de l'événement",
+    "event_description": "Description",
+    "choose_time": "Choisir l'heure",
+    "notification": "Notification",
+    "add": "Ajouter",
+    "events_today": "Événements d'aujourd'hui",
+    "no_events_today": "Aucun événement aujourd'hui",
+    "all_events": "Tous les événements",
+    "no_events": "Aucun événement"
   },
   "medications": {
-    
     "available_title": "Médicaments disponibles",
     "add_button": "Ajouter",
     "my_posology": "Ma posologie",

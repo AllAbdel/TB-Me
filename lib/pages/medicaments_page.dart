@@ -10,6 +10,7 @@ import 'package:permission_handler/permission_handler.dart';
 import 'pdf_viewer_page.dart';
 import 'package:flutter/foundation.dart';
 import '../services/notification_service.dart';
+import '../widgets/credits_widget.dart';
 
 class MedicamentsPage extends StatefulWidget {
   const MedicamentsPage({super.key});
@@ -2048,6 +2049,8 @@ Future<void> _scheduleAllNotificationsForMedication(Map<String, dynamic> medicat
                               }).toList(),
                             ),
                           ),
+                          const CreditsWidget(),
+                          const SizedBox(height: 20),
                       const SizedBox(height: 100), // Espace pour la navigation
                       ],
                     ),

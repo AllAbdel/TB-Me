@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   
   permission_handler: ^11.0.2
+  table_calendar: ^3.0.9
+  local_auth: ^2.1.8
 
   file_picker: ^10.2.0
   archive: ^3.4.9
@@ -24,10 +26,7 @@ dependencies:
   sqflite: ^2.3.0
   path: ^1.8.3
 
-
   url_launcher: ^6.1.7
-
-
 
   # Notifications locales
   flutter_local_notifications: ^17.2.2
@@ -42,14 +41,13 @@ dependencies:
   # Internationalisation
   flutter_localizations:
     sdk: flutter
-  intl: any
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
   flutter_launcher_icons: ^0.13.1
-
 
 flutter:
   uses-material-design: true
@@ -61,13 +59,6 @@ flutter:
     - assets/translations/
     - assets/sounds/
     - assets/flags/berber_flag.png
-
-  # fonts:
-  #   - family: Roboto
-  #     fonts:
-  #       - asset: fonts/Roboto-Regular.ttf
-  #       - asset: fonts/Roboto-Bold.ttf
-  #         weight: 700
 
 flutter_icons:
   android: true

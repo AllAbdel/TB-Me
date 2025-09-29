@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import '../providers/language_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import '../widgets/credits_widget.dart';
 
 class InformationsPage extends StatefulWidget {
   const InformationsPage({super.key});
@@ -527,8 +527,10 @@ class _InformationsPageState extends State<InformationsPage> {
                         ],
                       ),
                     ),
-
+                    const CreditsWidget(),
+                    const SizedBox(height: 20),
                     const SizedBox(height: 100), // Espace pour la navigation
+
                   ],
                 ),
               ),

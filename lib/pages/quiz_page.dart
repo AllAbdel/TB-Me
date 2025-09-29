@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../providers/language_provider.dart';
 import 'dart:convert';
+import '../widgets/credits_widget.dart';
 
 class QuizPage extends StatefulWidget {
   const QuizPage({super.key});
@@ -798,8 +799,10 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
             ),
           ],
         ),
+        const CreditsWidget(),
+        const SizedBox(height: 20),
         const SizedBox(height: 100),
-      ],
+    ],
     );
   }
 }
