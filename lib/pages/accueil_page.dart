@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 import '../providers/language_provider.dart';
-import '../services/catchup_service.dart';
+import '../services/catchup_service.dart' as catchup_service;
 import '../pages/catchup_timer_page.dart';
 import '../pages/historique_page.dart';
 import '../pages/medicaments_page.dart';
@@ -107,123 +107,346 @@ void _demarrerRattrapage(Map<String, dynamic> medicament) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return AlertDialog(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        title: Container(
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.purple[400]!, Colors.purple[600]!],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Column(
-            children: [
-              const Icon(Icons.access_time, color: Colors.white, size: 30),
-              const SizedBox(height: 8),
-              Text(
-                _tr('catch_up.title'),
-                style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
+      TimeOfDay? lastMealTime;
+      return StatefulBuilder(
+        builder: (context, setState) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+            title: Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                color: Colors.orange[50],
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: Colors.orange[200]!),
+                gradient: LinearGradient(
+                  colors: [Colors.purple[400]!, Colors.purple[600]!],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.circular(15),
               ),
               child: Column(
                 children: [
-                  Icon(Icons.no_food, size: 40, color: Colors.orange[700]),
-                  const SizedBox(height: 12),
-                  Text(
-                    _tr('catch_up.fasting_period'),
-                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
+                  const Icon(Icons.access_time, color: Colors.white, size: 30),
                   const SizedBox(height: 8),
                   Text(
-                    _tr('catch_up.fasting_duration'),
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.orange[700]),
-                    textAlign: TextAlign.center,
-                  ),
-                  const SizedBox(height: 12),
-                  Text(
-                    _tr('catch_up.fasting_rules'),
-                    style: const TextStyle(fontSize: 14),
+                    _tr('catch_up.title'),
+                    style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                     textAlign: TextAlign.center,
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 16),
-            Text(
-              '${medicament['nom']} ${medicament['dosage']}',
-              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(_tr('common.cancel')),
-          ),
-          ElevatedButton(
-            onPressed: () async {
-              // Démarrer le rattrapage
-              await CatchupService.startCatchup(
-                medicationId: medicament['id'],
-                medicamentNom: medicament['nom'],
-                dosage: medicament['dosage'],
-                nombreComprimes: medicament['nombreComprimes'],
-                startTime: DateTime.now(),
-              );
-              
-              Navigator.pop(context);
-              
-              // Afficher un message d'encouragement
-              final encouragements = _languageProvider.getEncouragementList('encouragement.missed_recovery');
-
-              final message = CatchupService.getRandomEncouragement(encouragements);
-              
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(message),
-                  backgroundColor: Colors.purple,
-                  duration: const Duration(seconds: 4),
-                ),
-              );
-              
-              // Naviguer vers la page de rattrapage
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => CatchupTimerPage(
-                    medicament: medicament,
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                    color: Colors.orange[50],
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Colors.orange[200]!),
+                  ),
+                  child: Column(
+                    children: [
+                      Icon(Icons.no_food, size: 40, color: Colors.orange[700]),
+                      const SizedBox(height: 12),
+                      Text(
+                        _tr('catch_up.fasting_period'),
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        _tr('catch_up.fasting_duration'),
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.orange[700]),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        _tr('catch_up.fasting_rules'),
+                        style: const TextStyle(fontSize: 14),
+                        textAlign: TextAlign.center,
+                      ),
+                    ],
                   ),
                 ),
-              );
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.purple,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                const SizedBox(height: 16),
+                Text(
+                  '${medicament['nom']} ${medicament['dosage']}',
+                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 16),
+                Text(
+                  _tr('catch_up.select_last_meal_time'),
+                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 12),
+                ElevatedButton.icon(
+                  onPressed: () async {
+                    final TimeOfDay? pickedTime = await showTimePicker(
+                      context: context,
+                      initialTime: TimeOfDay.now(),
+                    );
+                    if (pickedTime != null) {
+                      setState(() {
+                        lastMealTime = pickedTime;
+                      });
+                    }
+                  },
+                  icon: const Icon(Icons.schedule),
+                  label: Text(lastMealTime == null 
+                    ? _tr('catch_up.choose_time')
+                    : '${lastMealTime!.hour.toString().padLeft(2, '0')}:${lastMealTime!.minute.toString().padLeft(2, '0')}'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.purple[100],
+                    foregroundColor: Colors.purple[700],
+                  ),
+                ),
+                if (lastMealTime != null) ...[
+                  const SizedBox(height: 16),
+                  Builder(
+                    builder: (context) {
+                      final now = TimeOfDay.now();
+                      final lastMealInMinutes = lastMealTime!.hour * 60 + lastMealTime!.minute;
+                      final nowInMinutes = now.hour * 60 + now.minute;
+                      final minutesSinceMeal = nowInMinutes - lastMealInMinutes;
+                      final minutesToWait = 120 - minutesSinceMeal;
+
+                      if (minutesSinceMeal >= 120) {
+                        return Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.green[50],
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Colors.green[300]!),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.check_circle, color: Colors.green[700], size: 20),
+                              const SizedBox(width: 8),
+                              Flexible(
+                                child: Text(
+                                  _tr('catch_up.ready_to_take'),
+                                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.green[700]),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      } else {
+                        return Container(
+                          padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.orange[50],
+                            borderRadius: BorderRadius.circular(10),
+                            border: Border.all(color: Colors.orange[300]!),
+                          ),
+                          child: Column(
+                            children: [
+                              Icon(Icons.hourglass_bottom, color: Colors.orange[700], size: 24),
+                              const SizedBox(height: 8),
+                              Text(
+                                _tr('catch_up.waiting_time'),
+                                style: const TextStyle(fontSize: 12),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                '${(minutesToWait ~/ 60).toString().padLeft(2, '0')}:${(minutesToWait % 60).toString().padLeft(2, '0')}',
+                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.orange[700]),
+                              ),
+                            ],
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ],
+              ],
             ),
-            child: Text(_tr('catch_up.button'), style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-          ),
-        ],
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.pop(context),
+                child: Text(_tr('common.cancel')),
+              ),
+              if (lastMealTime != null)
+                ElevatedButton(
+                  onPressed: () async {
+                    // Calculer le temps écoulé depuis le dernier repas
+                    final now = DateTime.now();
+                    final lastMealDateTime = DateTime(
+                      now.year,
+                      now.month,
+                      now.day,
+                      lastMealTime!.hour,
+                      lastMealTime!.minute,
+                    );
+                    final difference = now.difference(lastMealDateTime);
+                    final minutesSinceMeal = difference.inMinutes;
+
+                    if (minutesSinceMeal >= 120) {
+                      // Plus de 2h : on prend le médicament IMMÉDIATEMENT
+                      Navigator.pop(context); // Fermer le dialog
+                      await _effectuerPriseRattrapage(medicament);
+                    } else {
+                      // Moins de 2h : lancer le minuteur
+                      final minutesToWait = 120 - minutesSinceMeal;
+                      final endTime = DateTime.now().add(Duration(minutes: minutesToWait));
+                      
+                      // Enregistrer le rattrapage
+                      await catchup_service.CatchupService.startCatchup(
+                        medicationId: medicament['id'],
+                        medicamentNom: medicament['nom'],
+                        dosage: medicament['dosage'],
+                        nombreComprimes: medicament['nombreComprimes'],
+                        startTime: DateTime.now().millisecondsSinceEpoch,
+                        endTime: endTime.millisecondsSinceEpoch,
+                      );
+                      
+                      Navigator.pop(context); // Fermer le dialog
+                      
+                      // Naviguer vers la page de timer
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CatchupTimerPage(
+                            medicament: medicament,
+                            isAlreadyFasting: false,
+                          ),
+                        ),
+                      );
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.purple,
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                  ),
+                  child: Text(
+                    _tr('catch_up.button'),
+                    style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  ),
+                ),
+            ],
+          );
+        },
       );
     },
   );
+}
+
+// Nouvelle fonction pour effectuer la prise en rattrapage
+Future<void> _effectuerPriseRattrapage(Map<String, dynamic> medicament) async {
+  final index = maPosologie.indexWhere((m) => m['id'] == medicament['id']);
+  if (index == -1) return;
+  
+  final stockActuel = maPosologie[index]['stock'] as int;
+  final nombreAPrendre = medicament['nombreComprimes'] as int;
+  
+  if (stockActuel < nombreAPrendre) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Row(
+          children: [
+            const Icon(Icons.warning, color: Colors.white),
+            const SizedBox(width: 8),
+            Text('${_tr('home.insufficient_stock')} $stockActuel ${_tr('home.tablets_remaining')}'),
+          ],
+        ),
+        backgroundColor: Colors.red,
+        behavior: SnackBarBehavior.floating,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ),
+    );
+    return;
+  }
+
+  setState(() {
+    // Supprimer l'ancienne prise si elle existe
+    prisesAujourdhui.removeWhere(
+      (p) => p['medicamentId'] == medicament['id'] && p['heure'] == medicament['heure'],
+    );
+    
+    // Ajouter la nouvelle prise
+    prisesAujourdhui.add({
+      'medicamentId': medicament['id'],
+      'heure': medicament['heure'],
+      'pris': true,
+      'heurePrise': TimeOfDay.now().format(context),
+      'nombreComprimes': medicament['nombreComprimes'],
+      'rattrapage': true,
+    });
+    
+    // Décrémenter le stock
+    maPosologie[index]['stock'] = stockActuel - nombreAPrendre;
+  });
+  
+  // Sauvegarder
+  await _savePrises();
+  await _savePosologie();
+  
+  final prefs = await SharedPreferences.getInstance();
+  String stockKey = '${medicament['nom']}_${medicament['dosage']}_stock';
+  await prefs.setInt(stockKey, stockActuel - nombreAPrendre);
+  
+  // Supprimer le rattrapage enregistré
+  await catchup_service.CatchupService.removeCatchup(medicament['id']);
+  
+  // Message de confirmation
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Row(
+        children: [
+          const Icon(Icons.check_circle, color: Colors.white),
+          const SizedBox(width: 8),
+          Text('${medicament['nom']} ${_tr('home.marked_as_taken')} ! ${_tr('home.stock')}: ${maPosologie[index]['stock']}'),
+        ],
+      ),
+      backgroundColor: Colors.green,
+      behavior: SnackBarBehavior.floating,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    ),
+  );
+  
+  // Message d'encouragement
+  Future.delayed(const Duration(milliseconds: 500), () {
+    final encouragements = _languageProvider.getEncouragementList('encouragement.missed_recovery');
+    final message = catchup_service.CatchupService.getRandomEncouragement(encouragements);
+    
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        Future.delayed(const Duration(seconds: 30), () {
+          if (Navigator.of(context).canPop()) {
+            Navigator.of(context).pop();
+          }
+        });
+        return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          title: Row(
+            children: [
+              Icon(Icons.celebration, color: Colors.green[600]),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  _tr('catch_up.success_title'),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text(_tr('common.close')),
+            ),
+          ],
+        );
+      },
+    );
+  });
 }
   void _startPeriodicRefresh() {
     Future.delayed(const Duration(seconds: 60), () {
@@ -655,7 +878,7 @@ void _effectuerPrise(Map<String, dynamic> medicament) async {
     // NOUVEAU : Afficher un message d'encouragement pour la prise régulière
     Future.delayed(const Duration(milliseconds: 500), () {
       final encouragements = _languageProvider.getEncouragementList('encouragement.regular_taking');
-      final message = CatchupService.getRandomEncouragement(encouragements);
+      final message = catchup_service.CatchupService.getRandomEncouragement(encouragements);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(message),
@@ -664,6 +887,42 @@ void _effectuerPrise(Map<String, dynamic> medicament) async {
         ),
       );
     });
+
+
+
+// Pop-up d'encouragement
+Future.delayed(const Duration(milliseconds: 500), () {
+  final encouragements = _languageProvider.getEncouragementList('encouragement.regular_taking');
+  final message = catchup_service.CatchupService.getRandomEncouragement(encouragements);
+
+  showDialog(
+    context: context,
+    barrierDismissible: false, // Empêche de fermer en cliquant à l'extérieur
+    builder: (BuildContext context) {
+      Future.delayed(const Duration(seconds: 30), () {
+        if (Navigator.of(context).canPop()) {
+          Navigator.of(context).pop();
+        }
+      });
+
+      return AlertDialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        title: Text(
+          _tr(''),
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+        content: Text(message),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: Text(_tr('common.close')),
+          ),
+        ],
+      );
+    },
+  );
+});
+
   }
 
   Future<void> _savePosologie() async {

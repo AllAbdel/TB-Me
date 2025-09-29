@@ -203,7 +203,7 @@ void _quitApp() {
       return AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: const Text(
-          "TB&Me",
+          "à propos de TB&Me",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: const SingleChildScrollView(
@@ -212,8 +212,9 @@ void _quitApp() {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Application faite par :\n"
-                "\nAbdelslam ALLAOUAT \nContact : Abdelslam.allaouat.pro@gmail.com "
+                "Application rélaisée par :\n"
+                "\nIUT Evry Paris-Saclay :\n"
+                "\nAbdelslam ALLAOUAT \n "
                 "\n& \n"
                 "Pedro GOMES \n\n"
                 "En collaboration avec le CLAT 91 :\n"
@@ -224,7 +225,7 @@ void _quitApp() {
               ),
               SizedBox(height: 20),
               Text(
-                "© 2023 Centre de Lutte Antituberculeuse de l'Essonne (CLAT 91). Tous droits réservés.",
+                "© 2025 Centre de Lutte Antituberculeuse de l'Essonne (CLAT 91). \nIUT Evry Paris Sacaly. \n Tous droits réservés.",
                 style: TextStyle(fontSize: 14, fontStyle: FontStyle.italic),
               ),
             ],

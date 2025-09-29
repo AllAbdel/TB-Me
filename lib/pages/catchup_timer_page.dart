@@ -1,13 +1,19 @@
+// ===== lib/pages/catchup_timer_page.dart =====
 import 'package:flutter/material.dart';
 import 'dart:async';
 import '../providers/language_provider.dart';
-import '../services/catchup_service.dart';
+import '../services/catchup_service.dart' as catchup_service;
 import '../services/notification_service.dart';
 
 class CatchupTimerPage extends StatefulWidget {
   final Map<String, dynamic> medicament;
+  final bool isAlreadyFasting;
 
-  const CatchupTimerPage({super.key, required this.medicament});
+  const CatchupTimerPage({
+    super.key,
+    required this.medicament,
+    this.isAlreadyFasting = false,
+  });
 
   @override
   _CatchupTimerPageState createState() => _CatchupTimerPageState();
@@ -31,28 +37,34 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
   }
 
   Future<void> _loadCatchupData() async {
-    // Charger les données de rattrapage existantes
-    final catchups = await CatchupService.getActiveCatchups();
-    final existingCatchup = catchups.firstWhere(
-      (c) => c['medicationId'] == widget.medicament['id'],
-      orElse: () => {},
-    );
-
-    if (existingCatchup.isNotEmpty) {
-      // Rattrapage existant - calculer le temps restant
-      _endTime = DateTime.fromMillisecondsSinceEpoch(existingCatchup['endTime']);
-      _calculateRemainingTime();
-    } else {
-      // Nouveau rattrapage - créer et programmer notification
-      _endTime = DateTime.now().add(const Duration(hours: 2));
-      await _programmerNotificationRattrapage();
-    }
-    
-    _startTimer();
+  if (widget.isAlreadyFasting) {
+    await catchup_service.CatchupService.removeCatchup(widget.medicament['id']);
+    setState(() {
+      _isCompleted = true;
+      _remainingTime = Duration.zero;
+    });
+    return;
   }
 
+  final catchups = await catchup_service.CatchupService.getActiveCatchups();
+  final existingCatchup = catchups.firstWhere(
+    (c) => c['medicationId'] == widget.medicament['id'],
+    orElse: () => <String, dynamic>{},
+  );
+
+
+  if (existingCatchup.isNotEmpty) {
+    _endTime = DateTime.fromMillisecondsSinceEpoch(existingCatchup['endTime']);
+    _calculateRemainingTime();
+    _startTimer();
+  } else {
+    _endTime = DateTime.now().add(const Duration(hours: 2));
+    await _programmerNotificationRattrapage();
+    _startTimer();
+  }
+}
+
   Future<void> _programmerNotificationRattrapage() async {
-    // Programmer une notification quand les 2h sont écoulées
     await NotificationService.showCatchupComplete(
       baseId: widget.medicament['id'],
       medicamentNom: widget.medicament['nom'],
@@ -63,14 +75,15 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
 
   void _calculateRemainingTime() {
     final now = DateTime.now();
-    if (_endTime!.isAfter(now)) {
-      setState(() {
-        _remainingTime = _endTime!.difference(now);
-      });
-    } else {
+    if (_endTime!.isBefore(now)) {
       setState(() {
         _isCompleted = true;
         _remainingTime = Duration.zero;
+      });
+      _timer?.cancel();
+    } else {
+      setState(() {
+        _remainingTime = _endTime!.difference(now);
       });
     }
   }
@@ -79,7 +92,7 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (_endTime != null) {
         _calculateRemainingTime();
-        
+
         if (_remainingTime.inSeconds <= 0) {
           setState(() {
             _isCompleted = true;
@@ -226,14 +239,11 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
                   const SizedBox(height: 30),
                   ElevatedButton(
                     onPressed: () async {
-                      // Marquer comme pris et supprimer le rattrapage
-                      await CatchupService.removeCatchup(widget.medicament['id']);
-                      
-                      // Message d'encouragement
-                      final encouragements = _languageProvider.getEncouragementList('encouragement.regular_taking');
+                      await catchup_service.CatchupService.removeCatchup(widget.medicament['id']);
 
-                      final message = CatchupService.getRandomEncouragement(encouragements);
-                      
+                      final encouragements = _languageProvider.getEncouragementList('encouragement.regular_taking');
+                      final message = catchup_service.CatchupService.getRandomEncouragement(encouragements);
+
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(message),
@@ -241,7 +251,7 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
                           duration: const Duration(seconds: 4),
                         ),
                       );
-                      
+
                       Navigator.pop(context);
                     },
                     style: ElevatedButton.styleFrom(
@@ -258,7 +268,7 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
                 const SizedBox(height: 40),
                 TextButton(
                   onPressed: () async {
-                    await CatchupService.removeCatchup(widget.medicament['id']);
+                    await catchup_service.CatchupService.removeCatchup(widget.medicament['id']);
                     Navigator.pop(context);
                   },
                   child: Text(

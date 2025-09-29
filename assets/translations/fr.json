@@ -385,7 +385,14 @@
     "ready_title": "✅ Période de jeûne terminée !",
     "ready_message": "Vous pouvez maintenant prendre votre médicament",
     "take_now": "Prendre maintenant",
-    "cancel_catchup": "Annuler le rattrapage"
+    "cancel_catchup": "Annuler le rattrapage",
+    "confirm_fasting": "Confirmer le jeûne",
+    "confirm_fasting_message": "Confirmez-vous être à jeun depuis au moins 2 heures ?",
+    "ready_to_take": "Vous pouvez prendre votre médicament maintenant.",
+    "wait_time": "Temps restant",
+    "choose_time": "Choisir l'heure",
+    "success_title": "Bravo !",
+    "select_last_meal_time": "Heure du dernier repas/boisson/cigarette"
   },
     "messages": {
     "medication_added_success": "Médicament ajouté avec succès",
