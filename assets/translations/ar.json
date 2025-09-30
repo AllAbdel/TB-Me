@@ -318,19 +318,6 @@
       "explanation": "إيقاف العلاج مبكرًا يمكن أن يؤدي إلى انتكاس المرض وتطوير مقاومة للأدوية."
     }
   },
-  "settings": {
-    "language_choice": "اختيار اللغة",
-    "language_changed": "تم تغيير اللغة إلى",
-    "actions": "الإجراءات",
-    "reset_data": "إعادة تعيين البيانات",
-    "reset_description": "حذف جميع بيانات التطبيق",
-    "reset_confirmation": "هل أنت متأكد من أنك تريد إعادة تعيين جميع البيانات؟",
-    "reset_warning": "سيؤدي هذا الإجراء إلى حذف:\n• جرعتك\n• تناول أدويتك\n• جميع إعداداتك",
-    "reset_success": "تم إعادة تعيين البيانات بنجاح",
-    "quit_app": "الخروج من التطبيق",
-    "quit_description": "إغلاق TB&Me",
-    "quit_confirmation": "هل أنت متأكد من أنك تريد إغلاق TB&Me؟"
-  },
   "common": {
     "cancel": "إلغاء",
     "confirm": "تأكيد",
@@ -431,5 +418,47 @@
     "scheduled_at": "مجدول في",
     "taken_at": "مُتناول في",
     "missed": "فُوِّت"
+  },
+  "tutorial": {
+    "skip": "تخطي",
+    "next": "التالي",
+    "finish": "إنتهاء",
+    "welcome_title": "مرحبًا بك في TB&Me!",
+    "welcome_message": "دعنا نرشدك خلال ميزات التطبيق.",
+    "dashboard_title": "أدويتي",
+    "dashboard_description": "اطلع على أدويتك ليومك هذا وسجلها كمأخوذة.",
+    "medications_title": "إدارة الأدوية",
+    "medications_description": "قم بإعداد جرعاتك وإدارة مخزون أدويتك.",
+    "calendar_title": "التقويم",
+    "calendar_description": "جدولة مواعيدك الطبية والأحداث المهمة.",
+    "history_title": "السجل",
+    "history_description": "تتبع التزامك بالعلاج بمرور الوقت.",
+    "security_title": "الأمان الموصى به",
+    "security_intro": "نوصي بقفل التطبيق لحماية بياناتك الطبية.",
+    "ios": "على نظام iOS",
+    "android": "على نظام Android",
+    "ios_step1": "1. انتقل إلى شاشة الرئيسية لهاتف iPhone الخاص بك وابحث عن التطبيق الذي تريد قفله.",
+    "ios_step2": "2. اضغط مع الاستمرار على أيقونة التطبيق حتى يفتح قائمة الإجراءات السريعة.",
+    "ios_step3": "3. اضغط على 'مطلوب Face ID' (أو Touch ID أو رمز المرور)، ثم اضغط مرة أخرى على 'مطلوب Face ID' (أو Touch ID أو رمز المرور)، وقم بالمصادقة باستخدام Face ID (أو Touch ID أو رمز المرور).",
+    "android_step1": "1. افتح إعدادات هاتفك",
+    "android_step2": "2. انتقل إلى التطبيقات > TB&Me",
+    "android_step3": "3. اختر 'قفل التطبيق'",
+    "android_step4": "4. اختر طريقتك (بصمة/رمز PIN)"
+  },
+  "settings": {
+    "language_choice": "اختيار اللغة",
+    "language_changed": "تم تغيير اللغة إلى",
+    "actions": "إجراءات",
+    "reset_data": "إعادة تعيين البيانات",
+    "reset_description": "حذف جميع بيانات التطبيق",
+    "reset_confirmation": "هل أنت متأكد من أنك تريد إعادة تعيين جميع البيانات؟",
+    "reset_warning": "سيؤدي هذا الإجراء إلى حذف:\n• جرعاتك\n• تناولك للأدوية\n• جميع إعداداتك",
+    "reset_success": "تم إعادة تعيين البيانات بنجاح",
+    "quit_app": "مغادرة التطبيق",
+    "quit_description": "إغلاق TB&Me",
+    "quit_confirmation": "هل أنت متأكد من أنك تريد مغادرة TB&Me؟",
+    "tutorial": "إعادة تشغيل الدليل",
+    "tutorial_description": "مراجعة دليل المستخدم",
+    "tutorial_restarted": "ارجع إلى الشاشة الرئيسية لمشاهدة الدليل"
   }
 }

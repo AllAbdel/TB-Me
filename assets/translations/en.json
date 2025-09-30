@@ -318,19 +318,6 @@
       "explanation": "Stopping treatment too early can lead to a relapse of the disease and the development of drug resistance."
     }
   },
-  "settings": {
-    "language_choice": "Language Choice",
-    "language_changed": "Language changed to",
-    "actions": "Actions",
-    "reset_data": "Reset Data",
-    "reset_description": "Delete all application data",
-    "reset_confirmation": "Are you sure you want to reset all data?",
-    "reset_warning": "This action will delete:\n• Your posology\n• Your medication intakes\n• All your settings",
-    "reset_success": "Data successfully reset",
-    "quit_app": "Quit Application",
-    "quit_description": "Close TB&Me",
-    "quit_confirmation": "Are you sure you want to quit TB&Me?"
-  },
   "common": {
     "cancel": "Cancel",
     "confirm": "Confirm",
@@ -431,5 +418,48 @@
     "scheduled_at": "Scheduled at",
     "taken_at": "Taken at",
     "missed": "Missed"
+  },
+  "tutorial": {
+    "skip": "Skip",
+    "next": "Next",
+    "finish": "Finish",
+    "welcome_title": "Welcome to TB&Me!",
+    "welcome_message": "Let us guide you through the app's features.",
+    "dashboard_title": "My Medications",
+    "dashboard_description": "View your medications for today and mark them as taken.",
+    "medications_title": "Medication Management",
+    "medications_description": "Set up your dosage and manage your medication stock.",
+    "calendar_title": "Calendar",
+    "calendar_description": "Schedule your medical appointments and important events.",
+    "history_title": "History",
+    "history_description": "Track your treatment adherence over time.",
+    "security_title": "Recommended Security",
+    "security_intro": "We recommend locking the app to protect your medical data.",
+    "ios": "On iOS",
+    "android": "On Android",
+    "ios_step1": "1. Go to your iPhone's home screen and locate the app you want to lock.",
+    "ios_step2": "2. Tap and hold the app icon until the quick actions menu opens.",
+    "ios_step3": "3. Tap 'Require Face ID' (or Touch ID or passcode), then tap again 'Require Face ID' (or Touch ID or passcode), and authenticate with Face ID (or Touch ID or passcode).",
+    "android_step1": "1. Open your phone's Settings",
+    "android_step2": "2. Go to Apps > TB&Me",
+    "android_step3": "3. Select 'Lock app'",
+    "android_step4": "4. Choose your method (fingerprint/PIN code)"
+  },
+  "settings": {
+    "language_choice": "Language Choice",
+    "language_changed": "Language changed to",
+    "actions": "Actions",
+    "reset_data": "Reset Data",
+    "reset_description": "Delete all app data",
+    "reset_confirmation": "Are you sure you want to reset all data?",
+    "reset_warning": "This action will delete:\n• Your dosage\n• Your medication intakes\n• All your settings",
+    "reset_success": "Data successfully reset",
+    "quit_app": "Quit App",
+    "quit_description": "Close TB&Me",
+    "quit_confirmation": "Are you sure you want to quit TB&Me?",
+    "tutorial": "Restart Tutorial",
+    "tutorial_description": "Review the user guide",
+    "tutorial_restarted": "Go back to the home screen to see the tutorial"
   }
 }
+

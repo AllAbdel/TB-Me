@@ -318,19 +318,6 @@
       "explanation": "Tedaviyi çok erken kesmek, hastalığın nüksetmesine ve ilaçlara direnç gelişmesine neden olabilir."
     }
   },
-  "settings": {
-    "language_choice": "Dil seçimi",
-    "language_changed": "Dil değiştirildi",
-    "actions": "İşlemler",
-    "reset_data": "Verileri sıfırla",
-    "reset_description": "Uygulamanın tüm verilerini sil",
-    "reset_confirmation": "Tüm verileri sıfırlamak istediğinizden emin misiniz?",
-    "reset_warning": "Bu işlem şunları silecektir:\n• Dozajınız\n• İlaç alımlarınız\n• Tüm yapılandırmanız",
-    "reset_success": "Veriler başarıyla sıfırlandı",
-    "quit_app": "Uygulamadan çık",
-    "quit_description": "TB&Me'yi kapat",
-    "quit_confirmation": "TB&Me'den çıkmak istediğinizden emin misiniz?"
-  },
   "common": {
     "cancel": "İptal et",
     "confirm": "Onayla",
@@ -431,5 +418,47 @@
     "scheduled_at": "Planlanan saat",
     "taken_at": "Alındığı saat",
     "missed": "Kaçırıldı"
+  },
+  "tutorial": {
+    "skip": "Atla",
+    "next": "İleri",
+    "finish": "Bitir",
+    "welcome_title": "TB&Me'ye Hoş Geldiniz!",
+    "welcome_message": "Uygulamanın özelliklerini size rehberlik edelim.",
+    "dashboard_title": "İlaçlarım",
+    "dashboard_description": "Bugünkü ilaçlarınızı görüntüleyin ve aldığınızı işaretleyin.",
+    "medications_title": "İlaç Yönetimi",
+    "medications_description": "Dozajınızı ayarlayın ve ilaç stoklarınızı yönetin.",
+    "calendar_title": "Takvim",
+    "calendar_description": "Tıbbi randevularınızı ve önemli etkinliklerinizi planlayın.",
+    "history_title": "Geçmiş",
+    "history_description": "Tedaviye uyumunuzu zaman içinde takip edin.",
+    "security_title": "Önerilen Güvenlik",
+    "security_intro": "Tıbbi verilerinizi korumak için uygulamayı kilitlemenizi öneririz.",
+    "ios": "iOS'ta",
+    "android": "Android'te",
+    "ios_step1": "1. iPhone'unuzun ana ekranına gidin ve kilitlemek istediğiniz uygulamayı bulun.",
+    "ios_step2": "2. Uygulama simgesine dokunun ve hızlı eylem menüsü açılana kadar basılı tutun.",
+    "ios_step3": "3. 'Face ID Gerektir' (veya Touch ID veya şifre) seçeneğine dokunun, tekrar 'Face ID Gerektir' (veya Touch ID veya şifre) seçeneğine dokunun ve Face ID (veya Touch ID veya şifre) ile kimlik doğrulayın.",
+    "android_step1": "1. Telefonunuzun Ayarlarını açın",
+    "android_step2": "2. Uygulamalar > TB&Me'ye gidin",
+    "android_step3": "3. 'Uygulamayı Kilitle' seçeneğini seçin",
+    "android_step4": "4. Yönteminizi seçin (parmak izi/PIN kodu)"
+  },
+  "settings": {
+    "language_choice": "Dil Seçimi",
+    "language_changed": "Dil değiştirildi",
+    "actions": "İşlemler",
+    "reset_data": "Verileri Sıfırla",
+    "reset_description": "Uygulamanın tüm verilerini sil",
+    "reset_confirmation": "Tüm verileri sıfırlamak istediğinizden emin misiniz?",
+    "reset_warning": "Bu işlem şunları silecek:\n• Dozajınız\n• İlaç alımlarınız\n• Tüm ayarlarınız",
+    "reset_success": "Veriler başarıyla sıfırlandı",
+    "quit_app": "Uygulamadan Çık",
+    "quit_description": "TB&Me'yi Kapat",
+    "quit_confirmation": "TB&Me'den çıkmak istediğinizden emin misiniz?",
+    "tutorial": "Eğitimi Yeniden Başlat",
+    "tutorial_description": "Kullanıcı kılavuzunu gözden geçir",
+    "tutorial_restarted": "Eğitimi görmek için ana ekrana dönün"
   }
 }

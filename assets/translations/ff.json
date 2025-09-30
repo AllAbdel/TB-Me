@@ -318,19 +318,6 @@
       "explanation": "Raha voaosona ny ndiyamɗe alohan'ny fotoana, dia mety ho avy indray ny tuberkuloosi ary mety ho misy koɓɓere amin'ny fananana."
     }
   },
-  "settings": {
-    "language_choice": "Filti teny",
-    "language_changed": "Teny filtinde ho",
-    "actions": "Asa",
-    "reset_data": "Fanavaozana ny angona",
-    "reset_description": "Fafana ny angona rehetra a softweeri",
-    "reset_confirmation": "Tena tianao ve ny manavao ny angona rehetra?",
-    "reset_warning": "Ny asa dia hanimba:\n• Ny doosi\n• Ny ndiyamɗe\n• Ny settinde ɓe",
-    "reset_success": "Angona voavao tsara",
-    "quit_app": "Hiala a softweeri",
-    "quit_description": "Takkude TB&Me",
-    "quit_confirmation": "Tena tianao ve ny hiala a TB&Me?"
-  },
   "common": {
     "cancel": "Aosora",
     "confirm": "Waawi",
@@ -431,5 +418,47 @@
     "scheduled_at": "Voafetra a",
     "taken_at": "Daɓɓude a",
     "missed": "Tsy daɓɓude"
+  },
+  "tutorial": {
+    "skip": "Hollude",
+    "next": "Wonnde",
+    "finish": "Wurnde",
+    "welcome_title": "Njaamu ɓur TB&Me!",
+    "welcome_message": "Nde men nan ndarnde e application ndu.",
+    "dashboard_title": "Ndaaraaji ma",
+    "dashboard_description": "Ndaaraaji ma ɓe hokki, ndee ndi ko ɓe ndiyam.",
+    "medications_title": "Ndarnde ndaraaji",
+    "medications_description": "Hokki ndaraaji ma, ndee ndarnde stock ma.",
+    "calendar_title": "Kalandaar",
+    "calendar_description": "Ndarnde rendez-vous ɓe ndu e evenement ɓe.",
+    "history_title": "Taariiku",
+    "history_description": "Ndarnde adherence ma e traitement la.",
+    "security_title": "Securité ndu",
+    "security_intro": "Min ndarnde application la ka ɓe ndu mo data ma ara-pahasalamana.",
+    "ios": "E iOS",
+    "android": "E Android",
+    "ios_step1": "1. Mande home screen la ka iPhone ma, ndee hokki application la min bɗata.",
+    "ios_step2": "2. Pikio icon la ka application la, ndee ndarnde menu la ka quick actions la.",
+    "ios_step3": "3. Pikio 'Require Face ID' (ko Touch ID ko code), pikio indray 'Require Face ID' (ko Touch ID ko code), ndee ndarnde Face ID (ko Touch ID ko code) la ka authenticate.",
+    "android_step1": "1. Mande settings la ka téléphone ma",
+    "android_step2": "2. Mande Apps > TB&Me",
+    "android_step3": "3. Fafao 'Verrouiller l’application'",
+    "android_step4": "4. Fafao méthode ma (empreinte/code PIN)"
+  },
+  "settings": {
+    "language_choice": "Fayde tenyge",
+    "language_changed": "Tenyge ndu ndiyam",
+    "actions": "Actions ɓe",
+    "reset_data": "Reset data ɓe",
+    "reset_description": "Hokki data ɓe e application la",
+    "reset_confirmation": "A waa ko ndarnde data ɓe?",
+    "reset_warning": "Action ndu bɗata:\n• Dose ma\n• Ndaaraaji ma\n• Settings ɓe",
+    "reset_success": "Data ɓe ndu reset ndiyam",
+    "quit_app": "Quit application la",
+    "quit_description": "Close TB&Me",
+    "quit_confirmation": "A waa ko ndarnde quit TB&Me?",
+    "tutorial": "Restart tutorial la",
+    "tutorial_description": "Review user guide la",
+    "tutorial_restarted": "Mande home screen la ka tutorial la ka see"
   }
 }

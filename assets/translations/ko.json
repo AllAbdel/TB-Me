@@ -318,19 +318,6 @@
       "explanation": "치료를 너무 일찍 중단하면 질병이 재발하고 약물 내성이 발생할 수 있습니다."
     }
   },
-  "settings": {
-    "language_choice": "언어 선택",
-    "language_changed": "언어가 변경됨: ",
-    "actions": "작업",
-    "reset_data": "데이터 재설정",
-    "reset_description": "애플리케이션의 모든 데이터 삭제",
-    "reset_confirmation": "모든 데이터를 재설정하시겠습니까?",
-    "reset_warning": "이 작업은 다음을 삭제합니다:\n• 복용량\n• 약 복용 기록\n• 모든 설정",
-    "reset_success": "데이터가 성공적으로 재설정됨",
-    "quit_app": "애플리케이션 종료",
-    "quit_description": "TB&Me 닫기",
-    "quit_confirmation": "TB&Me를 종료하시겠습니까?"
-  },
   "common": {
     "cancel": "취소",
     "confirm": "확인",
@@ -431,5 +418,47 @@
     "scheduled_at": "예정 시간",
     "taken_at": "복용 시간",
     "missed": "놓침"
+  },
+  "tutorial": {
+    "skip": "건너뛰기",
+    "next": "다음",
+    "finish": "완료",
+    "welcome_title": "TB&Me에 오신 것을 환영합니다!",
+    "welcome_message": "앱의 기능을 안내해 드리겠습니다.",
+    "dashboard_title": "내 약",
+    "dashboard_description": "오늘 복용해야 할 약을 확인하고 복용 완료로 표시하세요.",
+    "medications_title": "약 관리",
+    "medications_description": "복용량을 설정하고 약 재고를 관리하세요.",
+    "calendar_title": "달력",
+    "calendar_description": "의료 예약과 중요한 이벤트를 계획하세요.",
+    "history_title": "기록",
+    "history_description": "시간에 따른 치료 준수도를 추적하세요.",
+    "security_title": "권장 보안",
+    "security_intro": "의료 데이터를 보호하기 위해 앱을 잠그는 것을 권장합니다.",
+    "ios": "iOS에서",
+    "android": "Android에서",
+    "ios_step1": "1. 아이폰 홈 화면으로 이동하여 잠그려는 앱을 찾으세요.",
+    "ios_step2": "2. 앱 아이콘을 길게 눌러 빠른 작업 메뉴를 엽니다.",
+    "ios_step3": "3. 'Face ID 필요' (또는 Touch ID 또는 비밀번호)를 탭한 후, 다시 'Face ID 필요' (또는 Touch ID 또는 비밀번호)를 탭하고 Face ID (또는 Touch ID 또는 비밀번호)로 인증하세요.",
+    "android_step1": "1. 휴대폰 설정 열기",
+    "android_step2": "2. 앱 > TB&Me로 이동",
+    "android_step3": "3. '앱 잠금' 선택",
+    "android_step4": "4. 방법 선택 (지문/PIN 코드)"
+  },
+  "settings": {
+    "language_choice": "언어 선택",
+    "language_changed": "언어가 다음으로 변경됨",
+    "actions": "작업",
+    "reset_data": "데이터 재설정",
+    "reset_description": "앱의 모든 데이터 삭제",
+    "reset_confirmation": "모든 데이터를 재설정하시겠습니까?",
+    "reset_warning": "이 작업은 다음을 삭제합니다:\n• 복용량\n• 약 복용 기록\n• 모든 설정",
+    "reset_success": "데이터가 성공적으로 재설정되었습니다",
+    "quit_app": "앱 종료",
+    "quit_description": "TB&Me 닫기",
+    "quit_confirmation": "TB&Me를 종료하시겠습니까?",
+    "tutorial": "튜토리얼 다시 시작",
+    "tutorial_description": "사용자 가이드 검토",
+    "tutorial_restarted": "홈 화면으로 돌아가 튜토리얼을 보세요"
   }
 }

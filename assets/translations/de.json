@@ -318,19 +318,6 @@
       "explanation": "Wenn die Behandlung zu früh abgebrochen wird, kann es zu einem Rückfall der Krankheit und zur Entwicklung von Resistenzen gegen die Medikamente kommen."
     }
   },
-  "settings": {
-    "language_choice": "Sprachauswahl",
-    "language_changed": "Sprache geändert in",
-    "actions": "Aktionen",
-    "reset_data": "Daten zurücksetzen",
-    "reset_description": "Alle App-Daten löschen",
-    "reset_confirmation": "Möchten Sie wirklich alle Daten zurücksetzen?",
-    "reset_warning": "Diese Aktion löscht:\n• Ihre Dosierung\n• Ihre Medikamenteneinnahmen\n• Alle Ihre Einstellungen",
-    "reset_success": "Daten erfolgreich zurückgesetzt",
-    "quit_app": "App beenden",
-    "quit_description": "TB&Me schließen",
-    "quit_confirmation": "Möchten Sie TB&Me wirklich beenden?"
-  },
   "common": {
     "cancel": "Abbrechen",
     "confirm": "Bestätigen",
@@ -431,5 +418,47 @@
     "scheduled_at": "Geplant um",
     "taken_at": "Eingenommen um",
     "missed": "Verpasst"
+  },
+  "tutorial": {
+    "skip": "Überspringen",
+    "next": "Weiter",
+    "finish": "Beenden",
+    "welcome_title": "Willkommen bei TB&Me!",
+    "welcome_message": "Lassen Sie uns Sie durch die Funktionen der App führen.",
+    "dashboard_title": "Meine Medikamente",
+    "dashboard_description": "Sehen Sie sich Ihre heutigen Medikamente an und markieren Sie sie als eingenommen.",
+    "medications_title": "Medikamentenverwaltung",
+    "medications_description": "Legen Sie Ihre Dosierung fest und verwalten Sie Ihren Medikamentenbestand.",
+    "calendar_title": "Kalender",
+    "calendar_description": "Planen Sie Ihre Arzttermine und wichtigen Ereignisse.",
+    "history_title": "Verlauf",
+    "history_description": "Verfolgen Sie Ihre Therapietreue im Laufe der Zeit.",
+    "security_title": "Empfohlene Sicherheit",
+    "security_intro": "Wir empfehlen, die App zu sperren, um Ihre medizinischen Daten zu schützen.",
+    "ios": "Auf iOS",
+    "android": "Auf Android",
+    "ios_step1": "1. Gehen Sie zum Startbildschirm Ihres iPhones und suchen Sie die App, die Sie sperren möchten.",
+    "ios_step2": "2. Tippen und halten Sie das App-Symbol, bis das Schnellaktionsmenü geöffnet wird.",
+    "ios_step3": "3. Tippen Sie auf 'Face ID erfordern' (oder Touch ID oder Code), tippen Sie erneut auf 'Face ID erfordern' (oder Touch ID oder Code) und authentifizieren Sie sich mit Face ID (oder Touch ID oder Code).",
+    "android_step1": "1. Öffnen Sie die Einstellungen Ihres Telefons",
+    "android_step2": "2. Gehen Sie zu Apps > TB&Me",
+    "android_step3": "3. Wählen Sie 'App sperren'",
+    "android_step4": "4. Wählen Sie Ihre Methode (Fingerabdruck/PIN-Code)"
+  },
+  "settings": {
+    "language_choice": "Sprachauswahl",
+    "language_changed": "Sprache geändert in",
+    "actions": "Aktionen",
+    "reset_data": "Daten zurücksetzen",
+    "reset_description": "Alle App-Daten löschen",
+    "reset_confirmation": "Möchten Sie wirklich alle Daten zurücksetzen?",
+    "reset_warning": "Diese Aktion löscht:\n• Ihre Dosierung\n• Ihre Medikamenteneinnahme\n• Alle Ihre Einstellungen",
+    "reset_success": "Daten erfolgreich zurückgesetzt",
+    "quit_app": "App verlassen",
+    "quit_description": "TB&Me schließen",
+    "quit_confirmation": "Möchten Sie TB&Me wirklich verlassen?",
+    "tutorial": "Tutorial neu starten",
+    "tutorial_description": "Benutzerhandbuch überprüfen",
+    "tutorial_restarted": "Kehren Sie zum Startbildschirm zurück, um das Tutorial zu sehen"
   }
 }

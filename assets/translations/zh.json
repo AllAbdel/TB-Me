@@ -318,19 +318,6 @@
       "explanation": "过早停止治疗可能导致疾病复发和产生耐药性。"
     }
   },
-  "settings": {
-    "language_choice": "语言选择",
-    "language_changed": "语言已更改为",
-    "actions": "操作",
-    "reset_data": "重置数据",
-    "reset_description": "删除应用程序中的所有数据",
-    "reset_confirmation": "您确定要重置所有数据吗？",
-    "reset_warning": "此操作将删除：\n• 您的处方\n• 您的用药记录\n• 您的所有配置",
-    "reset_success": "数据已成功重置",
-    "quit_app": "退出应用程序",
-    "quit_description": "关闭TB&Me",
-    "quit_confirmation": "您确定要退出TB&Me吗？"
-  },
   "common": {
     "cancel": "取消",
     "confirm": "确认",
@@ -431,5 +418,47 @@
     "scheduled_at": "计划于",
     "taken_at": "服用于",
     "missed": "未服用"
+  },
+  "tutorial": {
+    "skip": "跳过",
+    "next": "下一步",
+    "finish": "完成",
+    "welcome_title": "欢迎使用TB&Me！",
+    "welcome_message": "让我们为您介绍应用程序的功能。",
+    "dashboard_title": "我的用药",
+    "dashboard_description": "查看您今天需要服用的药物，并标记为已服用。",
+    "medications_title": "药物管理",
+    "medications_description": "设置您的用药剂量并管理您的药物库存。",
+    "calendar_title": "日历",
+    "calendar_description": "安排您的医疗预约和重要活动。",
+    "history_title": "历史记录",
+    "history_description": "随时间跟踪您的治疗依从性。",
+    "security_title": "推荐安全设置",
+    "security_intro": "我们建议您锁定应用程序以保护您的医疗数据。",
+    "ios": "在iOS上",
+    "android": "在Android上",
+    "ios_step1": "1. 进入您的iPhone主屏幕，找到要锁定的应用程序。",
+    "ios_step2": "2. 长按应用程序图标，直到快速操作菜单打开。",
+    "ios_step3": "3. 点击“要求Face ID”（或Touch ID或密码），再次点击“要求Face ID”（或Touch ID或密码），然后使用Face ID（或Touch ID或密码）进行身份验证。",
+    "android_step1": "1. 打开手机的设置",
+    "android_step2": "2. 进入应用程序 > TB&Me",
+    "android_step3": "3. 选择“锁定应用程序”",
+    "android_step4": "4. 选择您的方法（指纹/PIN码）"
+  },
+  "settings": {
+    "language_choice": "语言选择",
+    "language_changed": "语言已更改为",
+    "actions": "操作",
+    "reset_data": "重置数据",
+    "reset_description": "删除应用程序的所有数据",
+    "reset_confirmation": "您确定要重置所有数据吗？",
+    "reset_warning": "此操作将删除：\n• 您的剂量\n• 您的用药记录\n• 您的所有设置",
+    "reset_success": "数据已成功重置",
+    "quit_app": "退出应用程序",
+    "quit_description": "关闭TB&Me",
+    "quit_confirmation": "您确定要退出TB&Me吗？",
+    "tutorial": "重新启动教程",
+    "tutorial_description": "查看用户指南",
+    "tutorial_restarted": "返回主屏幕查看教程"
   }
 }

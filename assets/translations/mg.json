@@ -318,19 +318,6 @@
       "explanation": "Raha voaosona ny fahitako alohan'ny fotoana, dia mety ho avy indray ny aretina ary mety ho misy fahasimbana amin'ny fananana."
     }
   },
-  "settings": {
-    "language_choice": "Fifidiana teny",
-    "language_changed": "Tenina voafetra ho",
-    "actions": "Asa",
-    "reset_data": "Fanavaozana ny angona",
-    "reset_description": "Fafana ny angona rehetra ao anatin'ny rakitra",
-    "reset_confirmation": "Tena tianao ve ny manavao ny angona rehetra?",
-    "reset_warning": "Ny asa dia hanimba:\n• Ny dozy\n• Ny fahitako\n• Ny fitantanana rehetra",
-    "reset_success": "Angona voavao tsara",
-    "quit_app": "Hiala amin'ny rakitra",
-    "quit_description": "Hakana ny TB&Me",
-    "quit_confirmation": "Tena tianao ve ny hiala amin'ny TB&Me?"
-  },
   "common": {
     "cancel": "Aosora",
     "confirm": "Manamafy",
@@ -431,5 +418,47 @@
     "scheduled_at": "Voafetra amin'ny",
     "taken_at": "Natao amin'ny",
     "missed": "Tsy natao"
+  },
+  "tutorial": {
+    "skip": "Avelao",
+    "next": "Manaraka",
+    "finish": "Vita",
+    "welcome_title": "Tongasoa eto @ TB&Me!",
+    "welcome_message": "Azafady avelao antsika hampianatra anao momba ny toetra ao amin'ny applikasio.",
+    "dashboard_title": "Ny fahazoako anio",
+    "dashboard_description": "Jereo ny fahazoako anio ary manamarika azy ho efa notapahina.",
+    "medications_title": "Fitantanana ny fahazoana",
+    "medications_description": "Mametraka ny dozy ary mitantana ny stock an'ny fahazoana.",
+    "calendar_title": "Kalandra",
+    "calendar_description": "Mametraka ny fotoana ho an'ny doktorina sy ny zava-lehibe hafa.",
+    "history_title": "Tantara",
+    "history_description": "Mamantatra ny fahatanterahan'ny fahazoana amin'ny fotoana.",
+    "security_title": "Fiarovana an-behivavy",
+    "security_intro": "Mampanohana antsika ny mamarana ny applikasio mba hiaro ny angon-drakitra ara-pahasalamana.",
+    "ios": "Ao amin'iOS",
+    "android": "Ao amin'ny Android",
+    "ios_step1": "1. Mandehana any amin'ny ekrany fahasalamana ao amin'ny iPhone anao ary hitanao ny applikasio hofarana.",
+    "ios_step2": "2. Pikio ny sary fanambarana ny applikasio mandra-pahitana ny menu momba ny asa haingana.",
+    "ios_step3": "3. Pikio 'Face ID dia ilaina' (na 'Touch ID' na 'code'), pikio indray 'Face ID dia ilaina' (na 'Touch ID' na 'code'), ary manamarina amin'ny Face ID (na Touch ID na code).",
+    "android_step1": "1. Mampidiry ny 'Paramètres' ao amin'ny finday anao",
+    "android_step2": "2. Mandehana any amin'ny 'Applications' > 'TB&Me'",
+    "android_step3": "3. Fafao ny 'Verrouiller l’application'",
+    "android_step4": "4. Fafao ny fomba (empreinte/code PIN)"
+  },
+  "settings": {
+    "language_choice": "Fisafidianana teny",
+    "language_changed": "Tenim-pirenena no natao ho",
+    "actions": "Asa",
+    "reset_data": "Manova ny angon-drakitra",
+    "reset_description": "Mamafa ny angon-drakitra rehetra ao amin'ny applikasio",
+    "reset_confirmation": "Tena tianao ve ny manova ny angon-drakitra rehetra?",
+    "reset_warning": "Ny asa ity dia hamafa:\n• Ny dozy anao\n• Ny fahazoana anao\n• Ny fametrahana anao rehetra",
+    "reset_success": "Ny angon-drakitra no voarova soa aman-tsara",
+    "quit_app": "Miala amin'ny applikasio",
+    "quit_description": "Makafa ny TB&Me",
+    "quit_confirmation": "Tena tianao ve ny miala amin'ny TB&Me?",
+    "tutorial": "Manomboka indray ny fanazavana",
+    "tutorial_description": "Mijery indray ny toromarika ho an'ny mpampiasa",
+    "tutorial_restarted": "Miverina any amin'ny ekrany fahasalamana mba hijery ny fanazavana"
   }
 }

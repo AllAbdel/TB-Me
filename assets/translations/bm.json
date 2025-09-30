@@ -318,19 +318,6 @@
       "explanation": "Kelenya ka sɔrɔ bɛ kelenya ka bɔli, o ye mikurɔbu ka fɛnw."
     }
   },
-  "settings": {
-    "language_choice": "Kan ka kelenya",
-    "language_changed": "Kan ka sanjula",
-    "actions": "Donw",
-    "reset_data": "Donw ka sanjula",
-    "reset_description": "Pulɔri ka donw ka sanjula",
-    "reset_confirmation": "I bɛnna pulɔri ka donw ka sanjula?",
-    "reset_warning": "Donw ka sanjula bɛ sɔrɔ:\n• N ka kelenya\n• N ka mɛdikamanw ka kelenya\n• N ka dɔnniw",
-    "reset_success": "Donw ka sanjula ka kan",
-    "quit_app": "Pulɔri ka taa",
-    "quit_description": "TB&Me ka taa",
-    "quit_confirmation": "I bɛnna TB&Me ka taa?"
-  },
   "common": {
     "cancel": "Sira",
     "confirm": "Dɔn",
@@ -431,5 +418,47 @@
     "scheduled_at": "Kelenya ka sigi",
     "taken_at": "Ka kɛ ka sigi",
     "missed": "Ka kɛma"
+  },
+   "tutorial": {
+    "skip": "Soteli",
+    "next": "Taa",
+    "finish": "Kɔnɔ",
+    "welcome_title": "I ka TB&Me la!",
+    "welcome_message": "A ka kan application min nu fɔlɔ ye.",
+    "dashboard_title": "N bɔsiw la",
+    "dashboard_description": "I ka bɔsiw bi min nu na bi, i ka kan min nu na bi ka bɔsiw bi la.",
+    "medications_title": "Bɔsiw kelen",
+    "medications_description": "I ka bɔsiw min nu ye, i ka kan bɔsiw min nu ka stock la.",
+    "calendar_title": "Jɔli",
+    "calendar_description": "I ka rendez-vous min nu ye, i ka kan evenement min nu ye.",
+    "history_title": "Tɔgɔ",
+    "history_description": "I ka traitement la ka adherence ye.",
+    "security_title": "Securité la",
+    "security_intro": "A ka kɛ application la ka data min nu ka bɔ.",
+    "ios": "Sur iOS",
+    "android": "Sur Android",
+    "ios_step1": "1. I ka home screen la ka iPhone la, i ka application la min bɛ soteli.",
+    "ios_step2": "2. I ka application la ka icon la ka press la, i ka menu la ka open la.",
+    "ios_step3": "3. I ka 'Require Face ID' (ou Touch ID ou code) la, i ka 'Require Face ID' (ou Touch ID ou code) la, i ka Face ID (ou Touch ID ou code) la ka authenticate la.",
+    "android_step1": "1. I ka téléphone la ka settings la ka open la",
+    "android_step2": "2. I ka Apps > TB&Me la",
+    "android_step3": "3. I ka 'Verrouiller l’application' la ka select la",
+    "android_step4": "4. I ka méthode la ka choose la (empreinte/code PIN)"
+  },
+  "settings": {
+    "language_choice": "Kan ka kɛ",
+    "language_changed": "Kan la ka change la",
+    "actions": "Actionw la",
+    "reset_data": "Dataw la ka reset la",
+    "reset_description": "Application la ka dataw la ka delete la",
+    "reset_confirmation": "I bɛ dataw la ka reset la?",
+    "reset_warning": "Action la bɛ delete la:\n• I bɔsiw la\n• I ka bɔsiw la ka prise la\n• I ka settings la",
+    "reset_success": "Dataw la ka reset la ka bon la",
+    "quit_app": "Application la ka quit la",
+    "quit_description": "TB&Me la ka close la",
+    "quit_confirmation": "I bɛ TB&Me la ka quit la?",
+    "tutorial": "Tutorial la ka restart la",
+    "tutorial_description": "User guide la ka review la",
+    "tutorial_restarted": "I ka home screen la ka return la ka tutorial la ka see la"
   }
 }

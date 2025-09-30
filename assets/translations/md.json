@@ -318,19 +318,6 @@
       "explanation": "Opritul tratamentului prea devreme poate duce la recidiva bolii și la dezvoltarea unei rezistențe la medicamente."
     }
   },
-  "settings": {
-    "language_choice": "Alegerea limbii",
-    "language_changed": "Limba a fost schimbată în",
-    "actions": "Acțiuni",
-    "reset_data": "Resetează datele",
-    "reset_description": "Șterge toate datele aplicației",
-    "reset_confirmation": "Ești sigur că dorești să resetezi toate datele?",
-    "reset_warning": "Această acțiune va șterge:\n• Posologia ta\n• Administrarea medicamentelor tale\n• Toate configurările tale",
-    "reset_success": "Datele au fost resetate cu succes",
-    "quit_app": "Ieși din aplicație",
-    "quit_description": "Închide TB&Me",
-    "quit_confirmation": "Ești sigur că dorești să ieși din TB&Me?"
-  },
   "common": {
     "cancel": "Anulează",
     "confirm": "Confirmă",
@@ -431,5 +418,47 @@
     "scheduled_at": "Programat la",
     "taken_at": "Luat la",
     "missed": "Ratate"
+  },
+  "tutorial": {
+    "skip": "Sari peste",
+    "next": "Următorul",
+    "finish": "Finalizează",
+    "welcome_title": "Bun venit la TB&Me!",
+    "welcome_message": "Permiteți-ne să vă ghidăm prin funcțiile aplicației.",
+    "dashboard_title": "Medicamentele mele",
+    "dashboard_description": "Vizualizați medicamentele de astăzi și marcați-le ca luate.",
+    "medications_title": "Gestionarea medicamentelor",
+    "medications_description": "Configurați doza și gestionați stocul de medicamente.",
+    "calendar_title": "Calendar",
+    "calendar_description": "Programați-vă programările medicale și evenimentele importante.",
+    "history_title": "Istoric",
+    "history_description": "Urmăriți aderența la tratament în timp.",
+    "security_title": "Securitate recomandată",
+    "security_intro": "Vă recomandăm să blocați aplicația pentru a vă proteja datele medicale.",
+    "ios": "Pe iOS",
+    "android": "Pe Android",
+    "ios_step1": "1. Accesați ecranul principal al iPhone-ului și localizați aplicația pe care doriți să o blocați.",
+    "ios_step2": "2. Țineți apăsat pe iconița aplicației până când se deschide meniul de acțiuni rapide.",
+    "ios_step3": "3. Atingeți 'Solicită Face ID' (sau Touch ID sau cod), atingeți din nou 'Solicită Face ID' (sau Touch ID sau cod) și autentificați-vă cu Face ID (sau Touch ID sau cod).",
+    "android_step1": "1. Deschideți Setările telefonului",
+    "android_step2": "2. Accesați Aplicații > TB&Me",
+    "android_step3": "3. Selectați 'Blochează aplicația'",
+    "android_step4": "4. Alegeți metoda (amprentă/cod PIN)"
+  },
+  "settings": {
+    "language_choice": "Selectarea limbii",
+    "language_changed": "Limba a fost schimbată în",
+    "actions": "Acțiuni",
+    "reset_data": "Resetează datele",
+    "reset_description": "Șterge toate datele aplicației",
+    "reset_confirmation": "Sunteți sigur că doriți să resetați toate datele?",
+    "reset_warning": "Această acțiune va șterge:\n• Doza dumneavoastră\n• Medicamentele luate\n• Toate setările dumneavoastră",
+    "reset_success": "Datele au fost resetate cu succes",
+    "quit_app": "Ieșiți din aplicație",
+    "quit_description": "Închide TB&Me",
+    "quit_confirmation": "Sunteți sigur că doriți să părăsiți TB&Me?",
+    "tutorial": "Repornire tutorial",
+    "tutorial_description": "Revizuire ghid utilizator",
+    "tutorial_restarted": "Reveniți la ecranul principal pentru a vedea tutorialul"
   }
 }

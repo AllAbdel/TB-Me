@@ -318,19 +318,6 @@
       "explanation": "Interrumpir el tratamiento demasiado pronto puede provocar una recaída de la enfermedad y el desarrollo de resistencia a los medicamentos."
     }
   },
-  "settings": {
-    "language_choice": "Elección de idioma",
-    "language_changed": "Idioma cambiado a",
-    "actions": "Acciones",
-    "reset_data": "Restablecer datos",
-    "reset_description": "Eliminar todos los datos de la aplicación",
-    "reset_confirmation": "¿Estás seguro de que quieres restablecer todos los datos?",
-    "reset_warning": "Esta acción eliminará:\n• Tu posología\n• Tus tomas de medicamentos\n• Todas tus configuraciones",
-    "reset_success": "Datos restablecidos con éxito",
-    "quit_app": "Salir de la aplicación",
-    "quit_description": "Cerrar TB&Me",
-    "quit_confirmation": "¿Estás seguro de que quieres salir de TB&Me?"
-  },
   "common": {
     "cancel": "Cancelar",
     "confirm": "Confirmar",
@@ -431,5 +418,47 @@
     "scheduled_at": "Programado a las",
     "taken_at": "Tomado a las",
     "missed": "Perdido"
+  },
+  "tutorial": {
+    "skip": "Omitir",
+    "next": "Siguiente",
+    "finish": "Finalizar",
+    "welcome_title": "¡Bienvenido a TB&Me!",
+    "welcome_message": "Permítanos guiarle a través de las funciones de la aplicación.",
+    "dashboard_title": "Mis Medicamentos",
+    "dashboard_description": "Revise sus medicamentos para hoy y márquelos como tomados.",
+    "medications_title": "Gestión de Medicamentos",
+    "medications_description": "Configure su dosificación y gestione su stock de medicamentos.",
+    "calendar_title": "Calendario",
+    "calendar_description": "Programe sus citas médicas y eventos importantes.",
+    "history_title": "Historial",
+    "history_description": "Haga un seguimiento de su adherencia al tratamiento con el tiempo.",
+    "security_title": "Seguridad Recomendada",
+    "security_intro": "Le recomendamos bloquear la aplicación para proteger sus datos médicos.",
+    "ios": "En iOS",
+    "android": "En Android",
+    "ios_step1": "1. Vaya a la pantalla de inicio de su iPhone y ubique la aplicación que desea bloquear.",
+    "ios_step2": "2. Toque y mantenga presionado el ícono de la aplicación hasta que se abra el menú de acciones rápidas.",
+    "ios_step3": "3. Toque 'Requerir Face ID' (o Touch ID o código), toque nuevamente 'Requerir Face ID' (o Touch ID o código) y autentíquese con Face ID (o Touch ID o código).",
+    "android_step1": "1. Abra la Configuración de su teléfono",
+    "android_step2": "2. Vaya a Aplicaciones > TB&Me",
+    "android_step3": "3. Seleccione 'Bloquear aplicación'",
+    "android_step4": "4. Elija su método (huella digital/código PIN)"
+  },
+  "settings": {
+    "language_choice": "Elección de Idioma",
+    "language_changed": "Idioma cambiado a",
+    "actions": "Acciones",
+    "reset_data": "Restablecer Datos",
+    "reset_description": "Eliminar todos los datos de la aplicación",
+    "reset_confirmation": "¿Está seguro de que desea restablecer todos los datos?",
+    "reset_warning": "Esta acción eliminará:\n• Su dosificación\n• Sus tomas de medicamentos\n• Todas sus configuraciones",
+    "reset_success": "Datos restablecidos con éxito",
+    "quit_app": "Salir de la Aplicación",
+    "quit_description": "Cerrar TB&Me",
+    "quit_confirmation": "¿Está seguro de que desea salir de TB&Me?",
+    "tutorial": "Reiniciar Tutorial",
+    "tutorial_description": "Revisar la guía del usuario",
+    "tutorial_restarted": "Vuelva a la pantalla de inicio para ver el tutorial"
   }
 }

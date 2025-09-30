@@ -318,19 +318,6 @@
       "explanation": "治療を早めに中断すると、病気が再発し、薬剤耐性が発生する可能性があります。"
     }
   },
-  "settings": {
-    "language_choice": "言語選択",
-    "language_changed": "言語が変更されました: ",
-    "actions": "アクション",
-    "reset_data": "データリセット",
-    "reset_description": "アプリケーションのすべてのデータを削除",
-    "reset_confirmation": "すべてのデータをリセットしてもよろしいですか？",
-    "reset_warning": "この操作は以下を削除します：\n• 投与量\n• 薬の服用記録\n• すべての設定",
-    "reset_success": "データが正常にリセットされました",
-    "quit_app": "アプリケーションを終了",
-    "quit_description": "TB&Meを閉じる",
-    "quit_confirmation": "TB&Meを終了してもよろしいですか？"
-  },
   "common": {
     "cancel": "キャンセル",
     "confirm": "確認",
@@ -431,5 +418,47 @@
     "scheduled_at": "予定時間",
     "taken_at": "服用時間",
     "missed": "未服用"
+  },
+  "tutorial": {
+    "skip": "スキップ",
+    "next": "次へ",
+    "finish": "完了",
+    "welcome_title": "TB&Meへようこそ！",
+    "welcome_message": "アプリの機能をご案内します。",
+    "dashboard_title": "私の服薬",
+    "dashboard_description": "今日の服薬を確認し、服用済みとしてマークします。",
+    "medications_title": "服薬管理",
+    "medications_description": "服用量を設定し、薬の在庫を管理します。",
+    "calendar_title": "カレンダー",
+    "calendar_description": "医療の予約や重要なイベントをスケジュールします。",
+    "history_title": "履歴",
+    "history_description": "治療の順守状況を時間をかけて追跡します。",
+    "security_title": "推奨セキュリティ",
+    "security_intro": "医療データを保護するためにアプリをロックすることをお勧めします。",
+    "ios": "iOSで",
+    "android": "Androidで",
+    "ios_step1": "1. iPhoneのホーム画面に移動し、ロックしたいアプリを見つけてください。",
+    "ios_step2": "2. アプリのアイコンを長押ししてクイックアクションメニューを開きます。",
+    "ios_step3": "3. 'Face IDを要求'（またはTouch IDまたはパスコード）をタップし、もう一度'Face IDを要求'（またはTouch IDまたはパスコード）をタップして、Face ID（またはTouch IDまたはパスコード）で認証します。",
+    "android_step1": "1. 電話の設定を開く",
+    "android_step2": "2. アプリ > TB&Meに移動",
+    "android_step3": "3. 'アプリをロック'を選択",
+    "android_step4": "4. 方法を選択（指紋/PINコード）"
+  },
+  "settings": {
+    "language_choice": "言語選択",
+    "language_changed": "言語が次のように変更されました",
+    "actions": "アクション",
+    "reset_data": "データをリセット",
+    "reset_description": "アプリのすべてのデータを削除",
+    "reset_confirmation": "すべてのデータをリセットしますか？",
+    "reset_warning": "この操作は以下を削除します：\n• 服用量\n• 服薬記録\n• すべての設定",
+    "reset_success": "データが正常にリセットされました",
+    "quit_app": "アプリを終了",
+    "quit_description": "TB&Meを閉じる",
+    "quit_confirmation": "TB&Meを終了しますか？",
+    "tutorial": "チュートリアルを再開",
+    "tutorial_description": "ユーザーガイドを確認",
+    "tutorial_restarted": "ホーム画面に戻りチュートリアルを表示"
   }
 }

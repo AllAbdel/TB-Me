@@ -318,19 +318,6 @@
       "explanation": "In daaweynta loo joojiyo waqtiga waxaa jira khatarta in cudurrada soo noqdo iyo in loo abuuro daawooyin aan sax ahayn."
     }
   },
-  "settings": {
-    "language_choice": "Doorta luqadda",
-    "language_changed": "Luqadda loo beddelay",
-    "actions": "Faalamada",
-    "reset_data": "Dib u eegis macluumaadka",
-    "reset_description": "Tirtir macluumaadka oo dhan ee app-ka",
-    "reset_confirmation": "Ma hubtaa inaad dib u eegiso macluumaadka oo dhan?",
-    "reset_warning": "Faalamadan waxaa ku jira:\n• Cuntadaada\n• Daaweyntaada\n• Dejinta oo dhan",
-    "reset_success": "Macluumaadka dib u eegisay si fiican",
-    "quit_app": "Ka bax app-ka",
-    "quit_description": "Xir TB&Me",
-    "quit_confirmation": "Ma hubtaa inaad ka baxdo TB&Me?"
-  },
   "common": {
     "cancel": "Jebis",
     "confirm": "Xaqii",
@@ -431,5 +418,47 @@
     "scheduled_at": "Loo qorsheeyay",
     "taken_at": "La qabay",
     "missed": "Laga yaabay"
+  },
+  "tutorial": {
+    "skip": "Ka deg",
+    "next": "Xiga",
+    "finish": "Dhamaystir",
+    "welcome_title": "Soo dhawoow TB&Me!",
+    "welcome_message": "Ogolaannu inaan ku caawino xirfadaha app-ka.",
+    "dashboard_title": "Daawadaada",
+    "dashboard_description": "Eeg daawadaada maanta iyo ku xus daawada ku guulaystay.",
+    "medications_title": "Maareynta daawada",
+    "medications_description": "Ku samee doorkaada iyo maareyn daawadaada.",
+    "calendar_title": "Taariikhda",
+    "calendar_description": "Qor mar u qaabaysiga doctor-ka iyo dhacdooyinka muhimka ah.",
+    "history_title": "Taariikhda",
+    "history_description": "Raac daahinta daawadaada waqtiga oo dhan.",
+    "security_title": "Amin ah ee loo talogalay",
+    "security_intro": "Waxaan ku talinaynaa in aad ku xidho app-ka si aad u ilaaliyo macluumaadka caafimaadkaaga.",
+    "ios": "IOS-ka",
+    "android": "Android-ka",
+    "ios_step1": "1. Ka soo qaado home screen-ka iPhone-kaaga oo raadi app-ka aad rabto in aad ku xidho.",
+    "ios_step2": "2. Guji icon-ka app-kaaga oo hadhay ugu jirto menu-ga quick actions-ka.",
+    "ios_step3": "3. Guji 'Require Face ID' (ama Touch ID ama code), guji mar labad 'Require Face ID' (ama Touch ID ama code), ka dib markaa u samee Face ID (ama Touch ID ama code).",
+    "android_step1": "1. Fura settings-ka telephone-kaaga",
+    "android_step2": "2. Taga Apps > TB&Me",
+    "android_step3": "3. Doorso 'Lock app'",
+    "android_step4": "4. Doorso habkaaga (fingerprint/PIN code)"
+  },
+  "settings": {
+    "language_choice": "Doorta luqada",
+    "language_changed": "Luqada loo beddelay",
+    "actions": "Faalamada",
+    "reset_data": "Reset data",
+    "reset_description": "Tirtir macluumaadka app-ka oo dhan",
+    "reset_confirmation": "Ma hubtaa inaad reset garteen macluumaadka oo dhan?",
+    "reset_warning": "Faalamadan waxay tirtiri doontaa:\n• Doorkaaga\n• Daawadaada\n• Dhammaan settings-kaaga",
+    "reset_success": "Macluumaadka waxaa loo reset garay",
+    "quit_app": "Ka bax app-ka",
+    "quit_description": "Xir TB&Me",
+    "quit_confirmation": "Ma hubtaa inaad ka baxdo TB&Me?",
+    "tutorial": "Bilaw tutorial-ka",
+    "tutorial_description": "Eeg user guide-ka",
+    "tutorial_restarted": "Dib u noqo home screen-ka si aad u aragto tutorial-ka"
   }
 }
