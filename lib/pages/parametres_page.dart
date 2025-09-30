@@ -4,6 +4,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../providers/language_provider.dart';
 import '../services/notification_service.dart';
 import 'dart:io'; // Importer dart:io pour utiliser exit(0)
+import '../widgets/tutorial_overlay.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ParametresPage extends StatefulWidget {
   const ParametresPage({super.key});
@@ -141,6 +143,7 @@ Future<void> _resetData() async {
     },
   );
 }
+
 
 // Fonction pour quitter l'app corrigée
 void _quitApp() {
@@ -436,7 +439,30 @@ Widget build(BuildContext context) {
                           color: Colors.grey,
                           onTap: _quitApp, // Utiliser la nouvelle fonction
                         ),
+
+                        // Tutoriel
                         const SizedBox(height: 32),
+                        _buildActionButton(
+                          title: _tr('settings.tutorial'),
+                          subtitle: _tr('settings.tutorial_description'),
+                          icon: Icons.help_outline,
+                          color: Colors.blue,
+                          onTap: () async {
+                            // Réinitialiser le flag pour forcer le tutoriel
+                            final prefs = await SharedPreferences.getInstance();
+                            await prefs.setBool('has_seen_tutorial', false);
+                            
+                            // Retourner à l'accueil
+                            Navigator.of(context).popUntil((route) => route.isFirst);
+                            
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(_tr('settings.tutorial_restarted')),
+                                backgroundColor: Colors.blue,
+                              ),
+                            );
+                          },
+                        ),
                         Center(
                         child: ElevatedButton(
                           onPressed: _showTBMInfo,

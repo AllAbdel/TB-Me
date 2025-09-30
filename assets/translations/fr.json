@@ -316,19 +316,6 @@
       "explanation": "Arrêter le traitement trop tôt peut entraîner une rechute de la maladie et le développement d'une résistance aux médicaments."
     }
   },
-  "settings": {
-    "language_choice": "Choix de la langue",
-    "language_changed": "Langue changée en",
-    "actions": "Actions",
-    "reset_data": "Réinitialiser les données",
-    "reset_description": "Supprimer toutes les données de l'application",
-    "reset_confirmation": "Êtes-vous sûr de vouloir réinitialiser toutes les données ?",
-    "reset_warning": "Cette action supprimera :\n• Votre posologie\n• Vos prises de médicaments\n• Toutes vos configurations",
-    "reset_success": "Données réinitialisées avec succès",
-    "quit_app": "Quitter l'application",
-    "quit_description": "Fermer TB&Me",
-    "quit_confirmation": "Êtes-vous sûr de vouloir quitter TB&Me ?"
-  },
   "common": {
     "cancel": "Annuler",
     "confirm": "Confirmer",
@@ -431,5 +418,47 @@
     "scheduled_at": "Prévu à",
     "taken_at": "Pris à",
     "missed": "Manqué"
-    }
+    },
+    "tutorial": {
+      "skip": "Passer",
+      "next": "Suivant",
+      "finish": "Terminer",
+      "welcome_title": "Bienvenue sur TB&Me !",
+      "welcome_message": "Laissez-nous vous guider à travers les fonctionnalités de l'application.",
+      "dashboard_title": "Mes prises de médicaments",
+      "dashboard_description": "Consultez vos médicaments à prendre aujourd'hui et marquez-les comme pris.",
+      "medications_title": "Gestion des médicaments",
+      "medications_description": "Configurez votre posologie et gérez vos stocks de médicaments.",
+      "calendar_title": "Calendrier",
+      "calendar_description": "Planifiez vos rendez-vous médicaux et événements importants.",
+      "history_title": "Historique",
+      "history_description": "Suivez votre adhérence au traitement au fil du temps.",
+      "security_title": "Sécurité recommandée",
+      "security_intro": "Nous vous recommandons de verrouiller l'application pour protéger vos données médicales.",
+      "ios": "Sur iOS",
+      "android": "Sur Android",
+      "ios_step1": "1. Accédez à l’écran d’accueil de votre iPhone, puis localisez l’app que vous voulez verrouiller.",
+      "ios_step2": "2. Touchez l’icône de l’app et maintenez le doigt dessus jusqu’à ce que le menu d’actions rapides s’ouvre.",
+      "ios_step3": "3. Touchez « Exiger Face ID » (ou Touch ID ou le code), Touchez à nouveau « Exiger Face ID » (ou Touch ID ou le code), puis authentifiez-vous avec Face ID (ou Touch ID ou un code)",
+      "android_step1": "1. Ouvrez les Paramètres de votre téléphone",
+      "android_step2": "2. Allez dans Applications > TB&Me",
+      "android_step3": "3. Sélectionnez 'Verrouiller l'application'",
+      "android_step4": "4. Choisissez votre méthode (empreinte/code PIN)"
+    },
+    "settings": {
+      "language_choice": "Choix de la langue",
+      "language_changed": "Langue changée en",
+      "actions": "Actions",
+      "reset_data": "Réinitialiser les données",
+      "reset_description": "Supprimer toutes les données de l'application",
+      "reset_confirmation": "Êtes-vous sûr de vouloir réinitialiser toutes les données ?",
+      "reset_warning": "Cette action supprimera :\n• Votre posologie\n• Vos prises de médicaments\n• Toutes vos configurations",
+      "reset_success": "Données réinitialisées avec succès",
+      "quit_app": "Quitter l'application",
+      "quit_description": "Fermer TB&Me",
+      "quit_confirmation": "Êtes-vous sûr de vouloir quitter TB&Me ?",
+      "tutorial": "Relancer le tutoriel",
+      "tutorial_description": "Revoir le guide d'utilisation",
+      "tutorial_restarted": "Retournez à l'accueil pour voir le tutoriel"
+}
 }

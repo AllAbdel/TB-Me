@@ -1170,179 +1170,245 @@ int getTotalMedicamentsAujourdhui() {
                               ],
                             ),
                           )
-                        else
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.1),
-                                  blurRadius: 20,
-                                  offset: const Offset(0, 10),
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              children: medicamentsTriees.map((medicament) {
-                                final statut = _getStatutPrise(medicament);
-                                final couleur = _getStatutColor(statut);
-                                final icone = _getStatutIcon(statut);
-                                final texteStatut = _getStatutText(statut);
-
-                                return Container(
-                                  margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                                  decoration: BoxDecoration(
-                                    gradient: LinearGradient(
-                                      colors: [couleur.withOpacity(0.1), Colors.white],
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                    ),
-                                    borderRadius: BorderRadius.circular(15),
-                                    border: Border.all(color: couleur.withOpacity(0.3), width: 2),
-                                  ),
-                                  child: ListTile(
-                                    contentPadding: const EdgeInsets.all(16),
-                                    leading: Container(
-                                      width: 60,
-                                      height: 60,
-                                      decoration: BoxDecoration(
-                                        color: couleur.withOpacity(0.2),
-                                        borderRadius: BorderRadius.circular(15),
-                                        border: Border.all(color: couleur.withOpacity(0.5)),
-                                      ),
-                                      child: Icon(
-                                        icone,
-                                        color: couleur,
-                                        size: 28,
-                                      ),
-                                    ),
-                                    title: Row(
-                                      children: [
-                                        Expanded(
-                                          child: Text(
-                                            '${medicament['nom']} ${medicament['dosage']}',
-                                            style: const TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 16,
-                                              color: Color(0xFF2E3A59),
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                                          decoration: BoxDecoration(
-                                            color: couleur,
-                                            borderRadius: BorderRadius.circular(20),
-                                          ),
-                                          child: Text(
-                                            texteStatut,
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    subtitle: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        const SizedBox(height: 8),
-                                        Row(
-                                          children: [
-                                            Icon(Icons.access_time, size: 16, color: Colors.blue[600]),
-                                            const SizedBox(width: 4),
-                                            Text(
-                                              medicament['heure'],
-                                              style: TextStyle(
-                                                color: Colors.blue[600],
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 16,
-                                              ),
-                                            ),
-                                            const SizedBox(width: 16),
-                                            Icon(Icons.medication_liquid, size: 16, color: Colors.green[600]),
-                                            const SizedBox(width: 4),
-                                            Text(
-                                              '${medicament['nombreComprimes']} ${_tr('home.tablets')}',
-                                              style: TextStyle(
-                                                color: Colors.green[600],
-                                                fontWeight: FontWeight.w600,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        if (medicament['aJeun'] == true) ...[
-                                          const SizedBox(height: 4),
-                                          Row(
-                                            children: [
-                                              Icon(Icons.no_food, size: 16, color: Colors.orange[600]),
-                                              const SizedBox(width: 4),
-                                              Text(
-                                                _tr('home.take_on_empty_stomach'),
-                                                style: TextStyle(
-                                                  color: Colors.orange[600],
-                                                  fontWeight: FontWeight.w600,
-                                                  fontStyle: FontStyle.italic,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ],
-                                      ],
-                                    ),
-                                  trailing: statut != StatutPrise.pris
-  ? statut == StatutPrise.oublie && medicament['aJeun'] == true
-      ? ElevatedButton(
-          onPressed: () => _demarrerRattrapage(medicament),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.purple,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          ),
-          child: Text(
-            _tr('catch_up.button'),
-            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 11),
-            textAlign: TextAlign.center,
-          ),
-        )
-      : statut == StatutPrise.oublie
-          ? Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.red.withOpacity(0.2),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: const Icon(Icons.block, color: Colors.red, size: 24),
-            )
-          : ElevatedButton( // Pour enCours ET enCoursRetard
-              onPressed: () => _marquerCommePris(medicament),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: couleur,
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              ),
-              child: Text(
-                _tr('home.mark_taken'),
-                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 11),
-                textAlign: TextAlign.center,
-              ),
-            )
-  : Container(
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.green.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: const Icon(Icons.check, color: Colors.green, size: 24),
+                        // Dans le build(), remplacer la partie "Liste des médicaments" par :
+else
+  Container(
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(20),
+      boxShadow: [
+        BoxShadow(
+          color: Colors.black.withOpacity(0.1),
+          blurRadius: 20,
+          offset: const Offset(0, 10),
+        ),
+      ],
     ),
-                                  ),
-                                );
-                              }).toList(),
+    child: Column(
+      children: medicamentsTriees.map((medicament) {
+        final statut = _getStatutPrise(medicament);
+        final couleur = _getStatutColor(statut);
+        final icone = _getStatutIcon(statut);
+        final texteStatut = _getStatutText(statut);
+
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [couleur.withOpacity(0.1), Colors.white],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(color: couleur.withOpacity(0.3), width: 2),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // En-tête avec icône et badge de statut
+                Row(
+                  children: [
+                    Container(
+                      width: 60,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: couleur.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(15),
+                        border: Border.all(color: couleur.withOpacity(0.5)),
+                      ),
+                      child: Icon(
+                        icone,
+                        color: couleur,
+                        size: 28,
+                      ),
+                    ),
+                    const SizedBox(width: 12),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            '${medicament['nom']} ${medicament['dosage']}',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Color(0xFF2E3A59),
                             ),
                           ),
+                          const SizedBox(height: 4),
+                          Container(
+                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                            decoration: BoxDecoration(
+                              color: couleur,
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            child: Text(
+                              texteStatut,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 12,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                
+                const SizedBox(height: 12),
+                
+                // Informations du médicament
+                Row(
+                  children: [
+                    Icon(Icons.access_time, size: 18, color: Colors.blue[600]),
+                    const SizedBox(width: 6),
+                    Text(
+                      medicament['heure'],
+                      style: TextStyle(
+                        color: Colors.blue[600],
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                      ),
+                    ),
+                    const SizedBox(width: 20),
+                    Icon(Icons.medication_liquid, size: 18, color: Colors.green[600]),
+                    const SizedBox(width: 6),
+                    Text(
+                      '${medicament['nombreComprimes']} ${_tr('home.tablets')}',
+                      style: TextStyle(
+                        color: Colors.green[600],
+                        fontWeight: FontWeight.w600,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ],
+                ),
+                
+                if (medicament['aJeun'] == true) ...[
+                  const SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Icon(Icons.no_food, size: 18, color: Colors.orange[600]),
+                      const SizedBox(width: 6),
+                      Flexible(
+                        child: Text(
+                          _tr('home.take_on_empty_stomach'),
+                          style: TextStyle(
+                            color: Colors.orange[600],
+                            fontWeight: FontWeight.w600,
+                            fontStyle: FontStyle.italic,
+                            fontSize: 13,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+                
+                const SizedBox(height: 16),
+                
+                // Bouton d'action - AMÉLIORÉ
+                SizedBox(
+                  width: double.infinity,
+                  child: statut != StatutPrise.pris
+                      ? statut == StatutPrise.oublie && medicament['aJeun'] == true
+                          ? ElevatedButton.icon(
+                              onPressed: () => _demarrerRattrapage(medicament),
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.purple,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                padding: const EdgeInsets.symmetric(vertical: 14),
+                              ),
+                              icon: const Icon(Icons.update, color: Colors.white, size: 20),
+                              label: Text(
+                                _tr('catch_up.button'),
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            )
+                          : statut == StatutPrise.oublie
+                              ? Container(
+                                  padding: const EdgeInsets.symmetric(vertical: 14),
+                                  decoration: BoxDecoration(
+                                    color: Colors.red.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(12),
+                                    border: Border.all(color: Colors.red.withOpacity(0.5)),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const Icon(Icons.block, color: Colors.red, size: 20),
+                                      const SizedBox(width: 8),
+                                      Text(
+                                        _tr('home.status.missed'),
+                                        style: const TextStyle(
+                                          color: Colors.red,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              : ElevatedButton.icon(
+                                  onPressed: () => _marquerCommePris(medicament),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: couleur,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    padding: const EdgeInsets.symmetric(vertical: 14),
+                                  ),
+                                  icon: const Icon(Icons.check_circle, color: Colors.white, size: 20),
+                                  label: Text(
+                                    _tr('home.mark_taken'),
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14,
+                                    ),
+                                  ),
+                                )
+                      : Container(
+                          padding: const EdgeInsets.symmetric(vertical: 14),
+                          decoration: BoxDecoration(
+                            color: Colors.green.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(color: Colors.green.withOpacity(0.5)),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Icon(Icons.check, color: Colors.green, size: 20),
+                              const SizedBox(width: 8),
+                              Text(
+                                _tr('home.status.taken'),
+                                style: const TextStyle(
+                                  color: Colors.green,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 14,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                ),
+              ],
+            ),
+          ),
+        );
+      }).toList(),
+    ),
+  ),
 
                         const SizedBox(height: 20),
 
