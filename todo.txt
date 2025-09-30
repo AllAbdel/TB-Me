@@ -1,3 +1,5 @@
-- changement du thème global, que 3 couleurs, bleu clair presque gris, bleu qui servira pour faire des dégradé, bleu foncé
+- Réglé le bouton tutorielle dans les paramètres
+
+- Version IOS
 
 - demander à audrey de tester
