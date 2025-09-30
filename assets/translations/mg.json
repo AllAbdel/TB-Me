@@ -443,7 +443,8 @@
     "android_step1": "1. Mampidiry ny 'Paramètres' ao amin'ny finday anao",
     "android_step2": "2. Mandehana any amin'ny 'Applications' > 'TB&Me'",
     "android_step3": "3. Fafao ny 'Verrouiller l’application'",
-    "android_step4": "4. Fafao ny fomba (empreinte/code PIN)"
+    "android_step4": "4. Fafao ny fomba (empreinte/code PIN)",
+    "scroll_hint": "👇 Jereo ambany ekrany"
   },
   "settings": {
     "language_choice": "Fisafidianana teny",

@@ -443,7 +443,8 @@
     "android_step1": "1. Telefonunuzun Ayarlarını açın",
     "android_step2": "2. Uygulamalar > TB&Me'ye gidin",
     "android_step3": "3. 'Uygulamayı Kilitle' seçeneğini seçin",
-    "android_step4": "4. Yönteminizi seçin (parmak izi/PIN kodu)"
+    "android_step4": "4. Yönteminizi seçin (parmak izi/PIN kodu)",
+    "scroll_hint": "👇 Ekranın altına bakın"
   },
   "settings": {
     "language_choice": "Dil Seçimi",

@@ -443,7 +443,8 @@
     "android_step1": "1. Deschideți Setările telefonului",
     "android_step2": "2. Accesați Aplicații > TB&Me",
     "android_step3": "3. Selectați 'Blochează aplicația'",
-    "android_step4": "4. Alegeți metoda (amprentă/cod PIN)"
+    "android_step4": "4. Alegeți metoda (amprentă/cod PIN)",
+    "scroll_hint": "👇 Uitați-vă în partea de jos a ecranului"
   },
   "settings": {
     "language_choice": "Selectarea limbii",

@@ -443,7 +443,8 @@
       "android_step1": "1. Ouvrez les Paramètres de votre téléphone",
       "android_step2": "2. Allez dans Applications > TB&Me",
       "android_step3": "3. Sélectionnez 'Verrouiller l'application'",
-      "android_step4": "4. Choisissez votre méthode (empreinte/code PIN)"
+      "android_step4": "4. Choisissez votre méthode (empreinte/code PIN)",
+      "scroll_hint": "👇 Regardez en bas de l'écran"
     },
     "settings": {
       "language_choice": "Choix de la langue",

@@ -443,7 +443,8 @@
     "android_step1": "1. Abra as Configurações do seu telefone",
     "android_step2": "2. Vá em Aplicativos > TB&Me",
     "android_step3": "3. Selecione 'Bloquear aplicativo'",
-    "android_step4": "4. Escolha seu método (impressão digital/código PIN)"
+    "android_step4": "4. Escolha seu método (impressão digital/código PIN)",
+    "scroll_hint": "👇 Olhe na parte inferior da tela"
   },
   "settings": {
     "language_choice": "Escolha do Idioma",

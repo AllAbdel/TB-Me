@@ -443,7 +443,8 @@
     "android_step1": "1. Öffnen Sie die Einstellungen Ihres Telefons",
     "android_step2": "2. Gehen Sie zu Apps > TB&Me",
     "android_step3": "3. Wählen Sie 'App sperren'",
-    "android_step4": "4. Wählen Sie Ihre Methode (Fingerabdruck/PIN-Code)"
+    "android_step4": "4. Wählen Sie Ihre Methode (Fingerabdruck/PIN-Code)",
+    "scroll_hint": "👇 Schauen Sie unten auf dem Bildschirm"
   },
   "settings": {
     "language_choice": "Sprachauswahl",

@@ -443,7 +443,8 @@
     "android_step1": "1. Abra la Configuración de su teléfono",
     "android_step2": "2. Vaya a Aplicaciones > TB&Me",
     "android_step3": "3. Seleccione 'Bloquear aplicación'",
-    "android_step4": "4. Elija su método (huella digital/código PIN)"
+    "android_step4": "4. Elija su método (huella digital/código PIN)",
+    "scroll_hint": "👇 Mire en la parte inferior de la pantalla"
   },
   "settings": {
     "language_choice": "Elección de Idioma",

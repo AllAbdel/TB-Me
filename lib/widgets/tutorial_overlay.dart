@@ -120,83 +120,103 @@ class _TutorialOverlayState extends State<TutorialOverlay> {
   }
 
   Widget _buildTutorialBubble() {
-    final step = _steps[_currentStep];
-    
-    Widget content;
-    switch (step.targetKey) {
-      case 'welcome':
-        content = _buildWelcomeContent();
-        break;
-      case 'dashboard_tile':
-        content = _buildDashboardContent();
-        break;
-      case 'medications_tile':
-        content = _buildMedicationsContent();
-        break;
-      case 'calendar_tile':
-        content = _buildCalendarContent();
-        break;
-      case 'history_tile':
-        content = _buildHistoryContent();
-        break;
-      case 'security':
-        content = _buildSecurityContent();
-        break;
-      default:
-        content = Container();
-    }
+  final step = _steps[_currentStep];
+  
+  Widget content;
+  switch (step.targetKey) {
+    case 'welcome':
+      content = _buildWelcomeContent();
+      break;
+    case 'dashboard_tile':
+      content = _buildDashboardContent();
+      break;
+    case 'medications_tile':
+      content = _buildMedicationsContent();
+      break;
+    case 'calendar_tile':
+      content = _buildCalendarContent();
+      break;
+    case 'history_tile':
+      content = _buildHistoryContent();
+      break;
+    case 'security':
+      content = _buildSecurityContent();
+      break;
+    default:
+      content = Container();
+  }
 
-    return Positioned(
-      top: _getTopPosition(step.position),
-      bottom: _getBottomPosition(step.position),
-      left: _getLeftPosition(step.position),
-      right: _getRightPosition(step.position),
-      child: Center(
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20),
-          padding: const EdgeInsets.all(20),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.3),
-                blurRadius: 20,
-                offset: const Offset(0, 10),
-              ),
-            ],
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              content,
-              const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _nextStep,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF1565C0),
-                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                ),
-                child: Text(
-                  _currentStep < _steps.length - 1
-                      ? _tr('tutorial.next')
-                      : _tr('tutorial.finish'),
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                  ),
+  // Position adaptative selon l'étape
+  bool isBottomTile = step.position == TutorialPosition.bottomLeft || 
+                      step.position == TutorialPosition.bottomRight;
+
+  return Align(
+    alignment: isBottomTile ? Alignment.topCenter : Alignment.center,
+    child: SingleChildScrollView( // AJOUT DU SCROLLVIEW
+      child: Container(
+        margin: EdgeInsets.only(
+          top: isBottomTile ? 100 : 150,
+          left: 20,
+          right: 20,
+          bottom: 20,
+        ),
+        padding: const EdgeInsets.all(20),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              blurRadius: 20,
+              offset: const Offset(0, 10),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // Flèche indicative pour les tuiles du bas
+            if (isBottomTile) ...[
+              Icon(Icons.arrow_downward, color: Colors.orange, size: 40),
+              SizedBox(height: 8),
+              Text(
+                _tr('tutorial.scroll_hint'),
+                style: TextStyle(
+                  fontSize: 12,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.grey[600],
                 ),
               ),
+              SizedBox(height: 12),
             ],
-          ),
+            content,
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _nextStep,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF1565C0),
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+              ),
+              child: Text(
+                _currentStep < _steps.length - 1
+                    ? _tr('tutorial.next')
+                    : _tr('tutorial.finish'),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
   Widget _buildWelcomeContent() {
     return Column(
@@ -371,48 +391,6 @@ class _TutorialOverlayState extends State<TutorialOverlay> {
         ],
       ),
     );
-  }
-
-  double? _getTopPosition(TutorialPosition position) {
-    switch (position) {
-      case TutorialPosition.topLeft:
-      case TutorialPosition.topRight:
-        return 150;
-      case TutorialPosition.center:
-        return null;
-      default:
-        return null;
-    }
-  }
-
-  double? _getBottomPosition(TutorialPosition position) {
-    switch (position) {
-      case TutorialPosition.bottomLeft:
-      case TutorialPosition.bottomRight:
-        return 150;
-      default:
-        return null;
-    }
-  }
-
-  double? _getLeftPosition(TutorialPosition position) {
-    switch (position) {
-      case TutorialPosition.topLeft:
-      case TutorialPosition.bottomLeft:
-        return 20;
-      default:
-        return null;
-    }
-  }
-
-  double? _getRightPosition(TutorialPosition position) {
-    switch (position) {
-      case TutorialPosition.topRight:
-      case TutorialPosition.bottomRight:
-        return 20;
-      default:
-        return null;
-    }
   }
 }
 

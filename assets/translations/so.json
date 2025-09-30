@@ -443,7 +443,8 @@
     "android_step1": "1. Fura settings-ka telephone-kaaga",
     "android_step2": "2. Taga Apps > TB&Me",
     "android_step3": "3. Doorso 'Lock app'",
-    "android_step4": "4. Doorso habkaaga (fingerprint/PIN code)"
+    "android_step4": "4. Doorso habkaaga (fingerprint/PIN code)",
+    "scroll_hint": "👇 Eeg hooska skriinka"
   },
   "settings": {
     "language_choice": "Doorta luqada",

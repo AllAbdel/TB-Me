@@ -443,7 +443,8 @@
     "android_step1": "1. 휴대폰 설정 열기",
     "android_step2": "2. 앱 > TB&Me로 이동",
     "android_step3": "3. '앱 잠금' 선택",
-    "android_step4": "4. 방법 선택 (지문/PIN 코드)"
+    "android_step4": "4. 방법 선택 (지문/PIN 코드)",
+    "scroll_hint": "👇 화면 아래쪽을 보세요"
   },
   "settings": {
     "language_choice": "언어 선택",
