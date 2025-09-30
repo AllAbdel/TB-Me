@@ -25,9 +25,11 @@ android {
     defaultConfig {
         applicationId = "com.example.my_tuberculose"
         targetSdk = flutter.targetSdkVersion
-        minSdkVersion flutter.minSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        minSdkVersion = 21
+        targetSdkVersion = 34
+        multiDexEnabled = true
     }
 
     signingConfigs {
@@ -52,6 +54,8 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.core:core:1.12.0'
+    implementation 'androidx.work:work-runtime:2.8.1'
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
 }
 

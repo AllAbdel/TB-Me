@@ -79,7 +79,7 @@ class AccueilPageState extends State<AccueilPage> with WidgetsBindingObserver {
 void initState() {
   super.initState();
   WidgetsBinding.instance.addObserver(this);
-  _setInstallationDateIfNeeded(); // NOUVEAU
+  _setInstallationDateIfNeeded(); 
   _loadData();
   _updateTime();
   _startPeriodicRefresh();
@@ -689,7 +689,7 @@ Future<void> _loadData() async {
       return StatutPrise.oublie;
     } else {
       // Si pas à jeun : reste prenable mais en rouge
-      return StatutPrise.enCoursRetard; // NOUVEAU statut
+      return StatutPrise.enCoursRetard; 
     }
   }
 }
@@ -706,7 +706,7 @@ Future<void> _loadData() async {
       return Colors.blue;
     case StatutPrise.enCours:
       return Colors.orange;
-    case StatutPrise.enCoursRetard: // NOUVEAU
+    case StatutPrise.enCoursRetard: 
       return Colors.red;
     case StatutPrise.oublie:
       return Colors.red;
@@ -721,7 +721,7 @@ IconData _getStatutIcon(StatutPrise statut) {
       return Icons.schedule;
     case StatutPrise.enCours:
       return Icons.notifications_active;
-    case StatutPrise.enCoursRetard: // NOUVEAU
+    case StatutPrise.enCoursRetard: 
       return Icons.alarm;
     case StatutPrise.oublie:
       return Icons.warning;
@@ -736,8 +736,8 @@ String _getStatutText(StatutPrise statut) {
       return _tr('home.status.upcoming');
     case StatutPrise.enCours:
       return _tr('home.status.now');
-    case StatutPrise.enCoursRetard: // NOUVEAU
-      return _tr('home.status.late'); // À ajouter dans vos traductions
+    case StatutPrise.enCoursRetard: 
+      return _tr('home.status.late'); 
     case StatutPrise.oublie:
       return _tr('home.status.missed');
   }
@@ -893,7 +893,7 @@ void _effectuerPrise(Map<String, dynamic> medicament) async {
       ),
     );
 
-    // NOUVEAU : Afficher un message d'encouragement pour la prise régulière
+    // : Afficher un message d'encouragement pour la prise régulière
     Future.delayed(const Duration(milliseconds: 500), () {
       final encouragements = _languageProvider.getEncouragementList('encouragement.regular_taking');
       final message = catchup_service.CatchupService.getRandomEncouragement(encouragements);

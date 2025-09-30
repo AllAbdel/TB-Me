@@ -17,29 +17,42 @@ class NotificationService {
   }
   
   static Future<void> initialize() async {
-    tz.initializeTimeZones();
-    tz.setLocalLocation(tz.getLocation('Europe/Paris'));
-    
-     AndroidInitializationSettings androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
-     DarwinInitializationSettings iosSettings = DarwinInitializationSettings(
-      requestAlertPermission: true,
-      requestBadgePermission: true,
-      requestSoundPermission: true,
-    );
-    
-     InitializationSettings settings = InitializationSettings(
-      android: androidSettings,
-      iOS: iosSettings,
-    );
-    
+  tz.initializeTimeZones();
+  tz.setLocalLocation(tz.getLocation('Europe/Paris'));
+  
+  const AndroidInitializationSettings androidSettings = AndroidInitializationSettings('@mipmap/ic_launcher');
+  const DarwinInitializationSettings iosSettings = DarwinInitializationSettings(
+    requestAlertPermission: true,
+    requestBadgePermission: true,
+    requestSoundPermission: true,
+  );
+  
+  const InitializationSettings settings = InitializationSettings(
+    android: androidSettings,
+    iOS: iosSettings,
+  );
+  
+  try {
     await _notifications.initialize(
       settings,
       onDidReceiveNotificationResponse: _onNotificationTapped,
     );
+  } catch (e) {
+    print('Erreur initialisation, nettoyage des notifications...');
+    // Supprimer toutes les notifications corrompues
+    try {
+      await _notifications.cancelAll();
+    } catch (_) {}
     
-    await _requestPermissions();
-  }  
+    // Réessayer l'initialisation
+    await _notifications.initialize(
+      settings,
+      onDidReceiveNotificationResponse: _onNotificationTapped,
+    );
+  }
   
+  await _requestPermissions();
+}  
   static Future<void> _requestPermissions() async {
     if (Platform.isAndroid) {
       await Permission.notification.request();

@@ -29,7 +29,7 @@ dependencies:
   url_launcher: ^6.1.7
 
   # Notifications locales
-  flutter_local_notifications: ^18.0.1
+  flutter_local_notifications: ^17.2.3
   timezone: ^0.9.4
 
   # Préférences locales

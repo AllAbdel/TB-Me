@@ -27,12 +27,15 @@ class MedicamentsPageState extends State<MedicamentsPage> with WidgetsBindingObs
     return _languageProvider.translate(key);
   }
   int _generateSafeId() {
-  // Utiliser les secondes depuis epoch + un nombre aléatoire
+  // Générer un ID entre 1000 et 2147483647 (max int32)
   final now = DateTime.now();
-  final seconds = now.millisecondsSinceEpoch ~/ 1000; // Diviser par 1000
-  final random = (seconds % 100000); // Garder seulement les 5 derniers chiffres
-  return random;
+  final milliseconds = now.millisecondsSinceEpoch;
+  // Prendre les 8 derniers chiffres et s'assurer qu'on est > 1000
+  final id = (milliseconds % 2147483000) + 1000;
+  return id;
 }
+
+
 List<Map<String, dynamic>> _regrouperPosologie() {
   Map<String, Map<String, dynamic>> medicamentsGroupes = {};
 
@@ -384,14 +387,19 @@ Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication)
     }
     
     if (scheduledTime.isAfter(now)) {
-      await NotificationService.showTimeReminder(
-        baseId: baseId,
-        medicamentNom: medication['nom'],
-        dosage: medication['dosage'],
-        nombreComprimes: medication['nombreComprimes'],
-        aJeun: aJeun,
-        scheduledTime: scheduledTime,
-      );
+      try {
+        await NotificationService.showTimeReminder(
+          baseId: medication['id'],
+          medicamentNom: medication['nom'],
+          dosage: medication['dosage'],
+          nombreComprimes: medication['nombreComprimes'],
+          aJeun: medication['aJeun'],
+          scheduledTime: scheduledTime,
+        );
+      } catch (e) {
+        print('Erreur notification ignorée: $e');
+        // L'erreur est ignorée, le médicament s'affichera quand même
+      }
     }
     
     String confirmMsg = _tr('messages.notifications_scheduled')
@@ -743,7 +751,7 @@ Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication)
                       ),
                     ),
 
-                    // NOUVEAU : Durée du traitement
+                    // Durée du traitement
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 8),
                       padding: const EdgeInsets.all(16),
@@ -900,8 +908,8 @@ Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication)
                       'aJeun': aJeun,
                       'stock': stock,
                       'image': medicament['image'],
-                      'dureeTraitement': dureeTraitement, // NOUVEAU
-                      'dateDebut': DateTime.now().toIso8601String(), // NOUVEAU
+                      'dureeTraitement': dureeTraitement,
+                      'dateDebut': DateTime.now().toIso8601String(),
                     };
                     maPosologie.add(newMedication);
                     
