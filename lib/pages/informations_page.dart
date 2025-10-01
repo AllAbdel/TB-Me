@@ -191,6 +191,7 @@ class _InformationsPageState extends State<InformationsPage> {
                     // Section Quels sont les symptômes
                     _buildSectionTitle(
                       icon: Icons.info_outline,
+                      fontSize: 18,
                       title: _tr('information.symptoms.what_are_symptoms'),
                       color: const Color(0xFFFF5722),
                     ),
@@ -213,6 +214,7 @@ class _InformationsPageState extends State<InformationsPage> {
                     // Section Comment se soigne
                     _buildSectionTitle(
                       icon: Icons.healing,
+                      fontSize: 18,
                       title: _tr('information.symptoms.how_to_treat'),
                       color: const Color(0xFF4CAF50),
                     ),
@@ -258,6 +260,7 @@ class _InformationsPageState extends State<InformationsPage> {
                     // Section Comment prévenir
                     _buildSectionTitle(
                       icon: Icons.shield,
+                      fontSize: 18,
                       title: _tr('information.prevention.how_to_prevent'),
                       color: const Color(0xFF009688),
                     ),
@@ -364,31 +367,37 @@ class _InformationsPageState extends State<InformationsPage> {
     );
   }
 
-  Widget _buildSectionTitle({required IconData icon, required String title, required Color color}) {
-    return Row(
-      children: [
-        Container(
-          padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [color, color.withOpacity(0.7)],
-            ),
-            borderRadius: BorderRadius.circular(15),
+  Widget _buildSectionTitle({
+  required IconData icon,
+  required String title,
+  required Color color,
+  double fontSize = 22, // Valeur par défaut
+}) {
+  return Row(
+    children: [
+      Container(
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [color, color.withOpacity(0.7)],
           ),
-          child: Icon(icon, color: Colors.white, size: 24),
+          borderRadius: BorderRadius.circular(15),
         ),
-        const SizedBox(width: 12),
-        Text(
-          title,
-          style: const TextStyle(
-            fontSize: 22,
-            fontWeight: FontWeight.bold,
-            color: Color(0xFF2E3A59),
-          ),
+        child: Icon(icon, color: Colors.white, size: 24),
+      ),
+      const SizedBox(width: 12),
+      Text(
+        title,
+        style: TextStyle(
+          fontSize: fontSize, // Utilise la valeur passée ou 22 par défaut
+          fontWeight: FontWeight.bold,
+          color: const Color(0xFF2E3A59),
         ),
-      ],
-    );
-  }
+      ),
+    ],
+  );
+}
+
 
   Widget _buildInfoCard({
     required IconData icon,
