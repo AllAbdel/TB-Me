@@ -77,12 +77,6 @@ class _QuizPageState extends State<QuizPage> with TickerProviderStateMixin {
         'explanation': 'quiz.q3.explanation'
       },
       {
-        'question': 'quiz.q4.question',
-        'answers': ['quiz.q4.a1', 'quiz.q4.a2', 'quiz.q4.a3', 'quiz.q4.a4'],
-        'correct': 1,
-        'explanation': 'quiz.q4.explanation'
-      },
-      {
         'question': 'quiz.q5.question',
         'answers': ['quiz.q5.a1', 'quiz.q5.a2', 'quiz.q5.a3', 'quiz.q5.a4'],
         'correct': 0,

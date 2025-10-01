@@ -541,7 +541,6 @@ Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication)
   String stockKey = '${medicament['nom']}_${medicament['dosage']}_stock';
   int stockInitial = prefs.getInt(stockKey) ?? (medicamentExistant != null ? medicamentExistant['stock'] : 30);
 
-  // Déterminer si le médicament doit être à jeun obligatoirement
   bool estAJeunObligatoire = medicamentsAJeunObligatoire.contains(medicament['nom']);
 
   showDialog(
@@ -549,10 +548,15 @@ Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication)
     builder: (BuildContext context) {
       TimeOfDay heureSelectionnee = TimeOfDay.now();
       int nombreComprimes = 1;
-      bool aJeun = estAJeunObligatoire; // Coché par défaut si obligatoire
+      bool aJeun = estAJeunObligatoire;
       int stock = stockInitial;
       bool formatDialog24h = true;
-      int dureeTraitement = 60; // Durée par défaut en jours
+      int dureeTraitement = 60;
+      
+      // Contrôleurs pour les champs texte
+      final TextEditingController nombreComprimesController = TextEditingController(text: '1');
+      final TextEditingController dureeController = TextEditingController(text: '60');
+      final TextEditingController stockController = TextEditingController(text: '$stockInitial');
 
       return StatefulBuilder(
         builder: (context, setDialogState) {
@@ -586,10 +590,10 @@ Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication)
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Format d'heure (code existant)
+                    // Format d'heure - AMÉLIORÉ
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 8),
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(12),
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [Colors.indigo[50]!, Colors.white],
@@ -599,59 +603,36 @@ Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication)
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(color: Colors.indigo[200]!),
                       ),
-                      child: Row(
+                      child: Column(
                         children: [
-                          Icon(Icons.access_time, color: Colors.indigo[600]),
-                          const SizedBox(width: 12),
-                          Text(
-                            _tr('medications.time_format'),
-                            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                          ),
-                          const Spacer(),
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                            decoration: BoxDecoration(
-                              color: formatDialog24h ? Colors.indigo[100] : Colors.grey[200],
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Text(
-                              '24h',
-                              style: TextStyle(
-                                color: formatDialog24h ? Colors.indigo[700] : Colors.grey[600],
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12,
+                          Row(
+                            children: [
+                              Icon(Icons.access_time, color: Colors.indigo[600], size: 20),
+                              const SizedBox(width: 8),
+                              Text(
+                                _tr('medications.time_format'),
+                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
                               ),
-                            ),
+                            ],
                           ),
-                          Switch(
-                            value: !formatDialog24h,
-                            onChanged: (value) {
-                              setDialogState(() {
-                                formatDialog24h = !value;
-                              });
-                            },
-                            activeColor: Colors.indigo[600],
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                            decoration: BoxDecoration(
-                              color: !formatDialog24h ? Colors.indigo[100] : Colors.grey[200],
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Text(
-                              '12h',
-                              style: TextStyle(
-                                color: !formatDialog24h ? Colors.indigo[700] : Colors.grey[600],
-                                fontWeight: FontWeight.bold,
-                                fontSize: 12,
-                              ),
-                            ),
+                          const SizedBox(height: 8),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              _buildFormatButton('24h', formatDialog24h, () {
+                                setDialogState(() => formatDialog24h = true);
+                              }),
+                              const SizedBox(width: 12),
+                              _buildFormatButton('12h', !formatDialog24h, () {
+                                setDialogState(() => formatDialog24h = false);
+                              }),
+                            ],
                           ),
                         ],
                       ),
                     ),
 
-                    // Heure de prise (code existant)
+                    // Heure de prise - AMÉLIORÉ
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 8),
                       padding: const EdgeInsets.all(16),
@@ -664,185 +645,125 @@ Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication)
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(color: Colors.blue[200]!),
                       ),
-                      child: Row(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.access_time, color: Colors.blue[700]),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Text(
-                              '${_tr('medications.time_label')}: ${_formatTime(heureSelectionnee, formatDialog24h)}',
-                              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                            ),
+                          Row(
+                            children: [
+                              Icon(Icons.access_time, color: Colors.blue[700], size: 20),
+                              const SizedBox(width: 8),
+                              Text(
+                                _tr('medications.time_label'),
+                                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                              ),
+                            ],
                           ),
-                          ElevatedButton(
-                            onPressed: () async {
-                              final TimeOfDay? nouvelleHeure = await showTimePicker(
-                                context: context,
-                                initialTime: heureSelectionnee,
-                                builder: (BuildContext context, Widget? child) {
-                                  return MediaQuery(
-                                    data: MediaQuery.of(context).copyWith(
-                                      alwaysUse24HourFormat: formatDialog24h,
-                                    ),
-                                    child: child!,
-                                  );
-                                },
-                              );
-                              
-                              if (nouvelleHeure != null) {
-                                setDialogState(() {
-                                  heureSelectionnee = nouvelleHeure;
-                                });
-                              }
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.blue[600],
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                          const SizedBox(height: 12),
+                          Center(
+                            child: ElevatedButton(
+                              onPressed: () async {
+                                final TimeOfDay? nouvelleHeure = await showTimePicker(
+                                  context: context,
+                                  initialTime: heureSelectionnee,
+                                  builder: (BuildContext context, Widget? child) {
+                                    return MediaQuery(
+                                      data: MediaQuery.of(context).copyWith(
+                                        alwaysUse24HourFormat: formatDialog24h,
+                                      ),
+                                      child: child!,
+                                    );
+                                  },
+                                );
+                                
+                                if (nouvelleHeure != null) {
+                                  setDialogState(() => heureSelectionnee = nouvelleHeure);
+                                }
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue[600],
+                                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+                                padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                              ),
+                              child: Text(
+                                _formatTime(heureSelectionnee, formatDialog24h),
+                                style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
+                              ),
                             ),
-                            child: Text(_tr('medications.change'), style: const TextStyle(color: Colors.white)),
                           ),
                         ],
                       ),
                     ),
 
-                    // Nombre de comprimés (code existant)
-                    Container(
-                      margin: const EdgeInsets.symmetric(vertical: 8),
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.green[50]!, Colors.white],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(color: Colors.green[200]!),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(Icons.medication_liquid, color: Colors.green[700]),
-                          const SizedBox(width: 12),
-                          Text(_tr('medications.tablets_count'), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-                          const Spacer(),
-                          IconButton(
-                            onPressed: () {
-                              if (nombreComprimes > 1) {
-                                setDialogState(() => nombreComprimes--);
-                              }
-                            },
-                            icon: const Icon(Icons.remove_circle, color: Colors.red),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.grey[300]!),
-                            ),
-                            child: Text('$nombreComprimes', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              setDialogState(() => nombreComprimes++);
-                            },
-                            icon: const Icon(Icons.add_circle, color: Colors.green),
-                          ),
-                        ],
-                      ),
+                    // Nombre de comprimés - AMÉLIORÉ avec TextField
+                    _buildNumberInputField(
+                      label: _tr('medications.tablets_count'),
+                      controller: nombreComprimesController,
+                      icon: Icons.medication_liquid,
+                      color: Colors.green,
+                      onChanged: (value) {
+                        nombreComprimes = int.tryParse(value) ?? 1;
+                      },
+                      onIncrement: () {
+                        nombreComprimes++;
+                        nombreComprimesController.text = '$nombreComprimes';
+                        setDialogState(() {});
+                      },
+                      onDecrement: () {
+                        if (nombreComprimes > 1) {
+                          nombreComprimes--;
+                          nombreComprimesController.text = '$nombreComprimes';
+                          setDialogState(() {});
+                        }
+                      },
                     ),
 
-                    // Durée du traitement
-                    Container(
-                      margin: const EdgeInsets.symmetric(vertical: 8),
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.teal[50]!, Colors.white],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(color: Colors.teal[200]!),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(Icons.calendar_today, color: Colors.teal[700]),
-                          const SizedBox(width: 12),
-                          Text('Durée (jours):', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-                          const Spacer(),
-                          IconButton(
-                            onPressed: () {
-                              if (dureeTraitement > 1) {
-                                setDialogState(() => dureeTraitement--);
-                              }
-                            },
-                            icon: const Icon(Icons.remove_circle, color: Colors.red),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                              border: Border.all(color: Colors.grey[300]!),
-                            ),
-                            child: Text('$dureeTraitement', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              setDialogState(() => dureeTraitement++);
-                            },
-                            icon: const Icon(Icons.add_circle, color: Colors.green),
-                          ),
-                        ],
-                      ),
+                    // Durée du traitement - AMÉLIORÉ avec TextField
+                    _buildNumberInputField(
+                      label: 'Durée (jours)',
+                      controller: dureeController,
+                      icon: Icons.calendar_today,
+                      color: Colors.teal,
+                      onChanged: (value) {
+                        dureeTraitement = int.tryParse(value) ?? 60;
+                      },
+                      onIncrement: () {
+                        dureeTraitement++;
+                        dureeController.text = '$dureeTraitement';
+                        setDialogState(() {});
+                      },
+                      onDecrement: () {
+                        if (dureeTraitement > 1) {
+                          dureeTraitement--;
+                          dureeController.text = '$dureeTraitement';
+                          setDialogState(() {});
+                        }
+                      },
                     ),
 
-                    // Stock (code existant)
-                    Container(
-                      margin: const EdgeInsets.symmetric(vertical: 8),
-                      padding: const EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          colors: [Colors.purple[50]!, Colors.white],
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                        ),
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(color: Colors.purple[200]!),
-                      ),
-                      child: Row(
-                        children: [
-                          Icon(Icons.inventory, color: Colors.purple[700]),
-                          const SizedBox(width: 12),
-                          Text('${_tr('medications.stock')}:', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
-                          const Spacer(),
-                          IconButton(
-                            onPressed: () {
-                              if (stock > 0) {
-                                setDialogState(() => stock--);
-                              }
-                            },
-                            icon: const Icon(Icons.remove_circle, color: Colors.red),
-                          ),
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                            decoration: BoxDecoration(
-                              color: _getStockColor(stock),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Text('$stock', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white)),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              setDialogState(() => stock++);
-                            },
-                            icon: const Icon(Icons.add_circle, color: Colors.green),
-                          ),
-                        ],
-                      ),
+                    // Stock - AMÉLIORÉ avec TextField
+                    _buildNumberInputField(
+                      label: '${_tr('medications.stock')}',
+                      controller: stockController,
+                      icon: Icons.inventory,
+                      color: Colors.purple,
+                      onChanged: (value) {
+                        stock = int.tryParse(value) ?? 0;
+                      },
+                      onIncrement: () {
+                        stock++;
+                        stockController.text = '$stock';
+                        setDialogState(() {});
+                      },
+                      onDecrement: () {
+                        if (stock > 0) {
+                          stock--;
+                          stockController.text = '$stock';
+                          setDialogState(() {});
+                        }
+                      },
                     ),
 
-                    // À jeun - MODIFIÉ
+                    // À jeun
                     Container(
                       margin: const EdgeInsets.symmetric(vertical: 8),
                       padding: const EdgeInsets.all(16),
@@ -864,14 +785,15 @@ Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication)
                         children: [
                           Icon(
                             Icons.no_food,
-                            color: estAJeunObligatoire ? Colors.orange[700] : Colors.grey[500]
+                            color: estAJeunObligatoire ? Colors.orange[700] : Colors.grey[500],
+                            size: 20,
                           ),
                           const SizedBox(width: 12),
                           Expanded(
                             child: Text(
                               _tr('medications.take_fasting'),
                               style: TextStyle(
-                                fontSize: 16,
+                                fontSize: 14,
                                 fontWeight: FontWeight.w500,
                                 color: estAJeunObligatoire ? Colors.black : Colors.grey[500]
                               ),
@@ -912,8 +834,6 @@ Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication)
                       'dateDebut': DateTime.now().toIso8601String(),
                     };
                     maPosologie.add(newMedication);
-                    
-                    // Programmer les notifications pour tous les jours
                     _scheduleAllNotificationsForMedication(newMedication);
                   });
                   _savePosologie();
@@ -934,6 +854,87 @@ Future<void> _scheduleNotificationForMedication(Map<String, dynamic> medication)
   );
 }
 
+// NOUVELLES FONCTIONS HELPER À AJOUTER
+
+Widget _buildFormatButton(String label, bool isSelected, VoidCallback onPressed) {
+  return ElevatedButton(
+    onPressed: onPressed,
+    style: ElevatedButton.styleFrom(
+      backgroundColor: isSelected ? Colors.indigo[600] : Colors.grey[300],
+      foregroundColor: isSelected ? Colors.white : Colors.grey[700],
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+    ),
+    child: Text(label, style: const TextStyle(fontWeight: FontWeight.bold)),
+  );
+}
+
+Widget _buildNumberInputField({
+  required String label,
+  required TextEditingController controller,
+  required IconData icon,
+  required MaterialColor color,
+  required Function(String) onChanged,
+  required VoidCallback onIncrement,
+  required VoidCallback onDecrement,
+}) {
+  return Container(
+    margin: const EdgeInsets.symmetric(vertical: 8),
+    padding: const EdgeInsets.all(16),
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+        colors: [color[50]!, Colors.white],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+      ),
+      borderRadius: BorderRadius.circular(15),
+      border: Border.all(color: color[200]!),
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Row(
+          children: [
+            Icon(icon, color: color[700], size: 20),
+            const SizedBox(width: 8),
+            Text(label, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
+          ],
+        ),
+        const SizedBox(height: 12),
+        Row(
+          children: [
+            IconButton(
+              onPressed: onDecrement,
+              icon: const Icon(Icons.remove_circle, color: Colors.red, size: 32),
+            ),
+            Expanded(
+              child: TextField(
+                controller: controller,
+                keyboardType: TextInputType.number,
+                textAlign: TextAlign.center,
+                style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                decoration: InputDecoration(
+                  contentPadding: const EdgeInsets.symmetric(vertical: 12),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: Colors.grey[300]!),
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                ),
+                onChanged: onChanged,
+              ),
+            ),
+            IconButton(
+              onPressed: onIncrement,
+              icon: const Icon(Icons.add_circle, color: Colors.green, size: 32),
+            ),
+          ],
+        ),
+      ],
+    ),
+  );
+}
 // NOUVELLE FONCTION : Programmer toutes les notifications pour la durée du traitement
 // FONCTION CORRIGÉE : Seulement notification à l'heure + rappel 30min après
 Future<void> _scheduleAllNotificationsForMedication(Map<String, dynamic> medication) async {
@@ -1687,155 +1688,183 @@ Future<void> _scheduleAllNotificationsForMedication(Map<String, dynamic> medicat
                         ),
 
                         // Liste des médicaments disponibles avec stock
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(20),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.1),
-                                blurRadius: 20,
-                                offset: const Offset(0, 10),
+Container(
+  decoration: BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(20),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withOpacity(0.1),
+        blurRadius: 20,
+        offset: const Offset(0, 10),
+      ),
+    ],
+  ),
+  child: Column(
+    children: medicamentsDisponibles.map((medicament) {
+      return FutureBuilder<int>(
+        future: _getStockForMedication(medicament['nom'], medicament['dosage']),
+        builder: (context, snapshot) {
+          int stock = snapshot.data ?? 0;
+          
+          return Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [Colors.grey[50]!, Colors.white],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.circular(15),
+              border: Border.all(color: Colors.grey[200]!, width: 1),
+            ),
+            child: InkWell(
+              onTap: () => _voirDetailsMedicament(medicament),
+              borderRadius: BorderRadius.circular(15),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // En-tête avec image et titre
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        GestureDetector(
+                          onTap: () => _agrandirImage(medicament['image'], medicament['nom']),
+                          child: Container(
+                            width: 60,
+                            height: 60,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              border: Border.all(color: const Color(0xFF6C63FF).withOpacity(0.3)),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                medicament['image'],
+                                fit: BoxFit.cover,
+                                errorBuilder: (context, error, stackTrace) {
+                                  return const Icon(
+                                    Icons.medication,
+                                    color: Color(0xFF6C63FF),
+                                    size: 24,
+                                  );
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 12),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                medicament['nom'],
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 16,
+                                  color: Color(0xFF2E3A59),
+                                ),
+                              ),
+                              const SizedBox(height: 4),
+                              Text(
+                                medicament['dosage'],
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              const SizedBox(height: 6),
+                              Row(
+                                children: [
+                                  Icon(Icons.inventory, size: 16, color: _getStockColor(stock)),
+                                  const SizedBox(width: 4),
+                                  Text(
+                                    '${_tr('medications.stock')}: $stock',
+                                    style: TextStyle(
+                                      color: _getStockColor(stock),
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                          child: Column(
-                            children: medicamentsDisponibles.map((medicament) {
-                              return FutureBuilder<int>(
-                                future: _getStockForMedication(medicament['nom'], medicament['dosage']),
-                                builder: (context, snapshot) {
-                                  int stock = snapshot.data ?? 0;
-                                  
-                                  return Container(
-                                    margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [Colors.grey[50]!, Colors.white],
-                                        begin: Alignment.topLeft,
-                                        end: Alignment.bottomRight,
-                                      ),
-                                      borderRadius: BorderRadius.circular(15),
-                                      border: Border.all(color: Colors.grey[200]!, width: 1),
-                                    ),
-                                    child: ListTile(
-                                      contentPadding: const EdgeInsets.all(16),
-                                      onTap: () => _voirDetailsMedicament(medicament),
-                                      leading: GestureDetector(
-                                        onTap: () => _agrandirImage(medicament['image'], medicament['nom']),
-                                        child: Container(
-                                          width: 50,
-                                          height: 50,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(12),
-                                            border: Border.all(color: const Color(0xFF6C63FF).withOpacity(0.3)),
-                                          ),
-                                          child: ClipRRect(
-                                            borderRadius: BorderRadius.circular(10),
-                                            child: Image.asset(
-                                              medicament['image'],
-                                              fit: BoxFit.cover,
-                                              errorBuilder: (context, error, stackTrace) {
-                                                return const Icon(
-                                                  Icons.medication,
-                                                  color: Color(0xFF6C63FF),
-                                                  size: 24,
-                                                );
-                                              },
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-
-                                      title: Text(
-                                        medicament['nom'],
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
-                                          color: Color(0xFF2E3A59),
-                                        ),
-                                      ),
-                                      subtitle: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            medicament['dosage'],
-                                            style: TextStyle(
-                                              color: Colors.grey[600],
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                          const SizedBox(height: 4),
-                                          // Affichage du stock
-                                          Row(
-                                            children: [
-                                              Icon(Icons.inventory, size: 16, color: _getStockColor(stock)),
-                                              const SizedBox(width: 4),
-                                              Text(
-                                                '${_tr('medications.stock')}: $stock',
-                                                style: TextStyle(
-                                                  color: _getStockColor(stock),
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.bold,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                          const SizedBox(height: 4),
-                                          Text(
-                                            _tr(medicament['descriptionKey']),
-                                            style: TextStyle(
-                                              color: Colors.grey[500],
-                                              fontSize: 12,
-                                            ),
-                                            maxLines: 2,
-                                            overflow: TextOverflow.ellipsis,
-                                          ),
-                                        ],
-                                      ),
-                                      trailing: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          ElevatedButton(
-                                            onPressed: () => _gererStock(medicament),
-                                            style: ElevatedButton.styleFrom(
-                                              backgroundColor: Colors.orange[600],
-                                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                                              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-                                            ),
-                                            child: Text(
-                                              _tr('medications.stock'),
-                                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 11),
-                                            ),
-                                          ),
-                                          const SizedBox(width: 8),
-                                          ElevatedButton(
-                                            onPressed: () => _ajouterMedicament(medicament),
-                                            style: ElevatedButton.styleFrom(
-                                              backgroundColor: const Color.fromARGB(255, 99, 255, 203),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius: BorderRadius.circular(10),
-                                              ),
-                                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                                            ),
-                                            child: Text(
-                                              _tr('medications.add_button'),
-                                              style: const TextStyle(
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 12,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                },
-                              );
-                            }).toList(),
+                        ),
+                      ],
+                    ),
+                    
+                    const SizedBox(height: 12),
+                    
+                    // Description
+                    Text(
+                      _tr(medicament['descriptionKey']),
+                      style: TextStyle(
+                        color: Colors.grey[500],
+                        fontSize: 12,
+                      ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    
+                    const SizedBox(height: 12),
+                    
+                    // Boutons
+                    Row(
+                      children: [
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            onPressed: () => _gererStock(medicament),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.orange[600],
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                            ),
+                            icon: const Icon(Icons.inventory, color: Colors.white, size: 18),
+                            label: Text(
+                              _tr('medications.stock'),
+                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 12),
+                            ),
                           ),
                         ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: ElevatedButton.icon(
+                            onPressed: () => _ajouterMedicament(medicament),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color.fromARGB(255, 99, 255, 203),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                            ),
+                            icon: const Icon(Icons.add, color: Colors.white, size: 18),
+                            label: Text(
+                              _tr('medications.add_button'),
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      );
+    }).toList(),
+  ),
+),
                         const SizedBox(height: 40),
                         // Section Ma posologie - Code corrigé
                         Container(

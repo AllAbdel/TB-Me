@@ -201,7 +201,7 @@
     },
     "symptoms": {
       "title": "Symptômes et traitement",
-      "what_are_symptoms": "Quels sont les symptômes de la tuberculose maladie ?",
+      "what_are_symptoms": "Quels sont les symptômes de la\ntuberculose maladie ?",
       "what_are_symptoms_content": "Les symptômes sont variables selon la partie du corps qui est atteinte. Mais dans tous les cas, la maladie peut provoquer les signes suivants : une fièvre, une transpiration intense la nuit, une grande fatigue et une perte d'appétit et de poids.\n\nEn cas de tuberculose pulmonaire, il y a la présence d'une toux.\n\nLa persistance de ces signes pendant plusieurs semaines doit faire penser à une tuberculose et doit faire consulter un médecin.",
       "symptoms_list": "Principaux symptômes",
       "symptom_1": "Toux persistante (plus de 3 semaines)",
@@ -211,7 +211,7 @@
       "symptom_5": "Perte de poids non intentionnelle",
       "symptom_6": "Fièvre et sueurs nocturnes",
       "symptom_7": "Perte d'appétit",
-      "how_to_treat": "Comment se soigne la tuberculose maladie ?",
+      "how_to_treat": "Comment se soigne la\nmaladie Tuberculose ?",
       "how_to_treat_content": "En France, la tuberculose se soigne très bien aujourd'hui. Le traitement demande de prendre plusieurs médicaments tous les jours, pendant au moins six mois. Ils doivent être pris à jeun. En pratique, il faut les prendre, une fois par jour, en une seule fois, au moins une demi-heure avant de manger. On peut aussi attendre 2h après un repas pour les prendre.\n\nLe traitement s'accompagne d'une surveillance régulière comme la réalisation de prises de sang.\n\nAu début du traitement, démarré à l'hôpital, la personne qui a une tuberculose pulmonaire contagieuse est isolée (chambre seule, masque…) pour éviter de contaminer les autres.\n\nIl est très important de ne pas arrêter le traitement, sinon la maladie peut revenir, et pour éviter une la survenue d'une résistance aux médicaments qui seraient alors inefficaces.\n\nLa Sécurité sociale prend en charge 100% du traitement.",
       "treatment_title": "Traitement",
       "treatment_content": "Le traitement nécessite la prise de plusieurs médicaments chaque jour, pendant plusieurs mois. Ils doivent être pris à jeun. En pratique, ils doivent être pris au moins une demi-heure avant de manger.",
@@ -219,7 +219,7 @@
     },
     "prevention": {
       "title": "Prévention",
-      "how_to_prevent": "Comment prévenir la tuberculose ?",
+      "how_to_prevent": "Comment prévenir la\ntuberculose ?",
       "how_to_prevent_content": "La prévention passe par une vaccination BCG précoce et ciblée pour les enfants à risque, ainsi que par un dépistage assuré par les Centres de Lutte Antituberculeuse (CLAT), aussi bien autour des cas de tuberculose contagieuse que dans les populations les plus exposées.\n\nBien que la vaccination BCG ne soit plus obligatoire en France depuis 2007, elle reste fortement recommandée, en priorité aux enfants de moins de cinq ans présentant un facteur de risque lié à leur environnement ou à leurs proches (notamment un antécédent familial de tuberculose ou des liens avec un pays où la tuberculose est très fréquente).\n\nLa vaccination est recommandée à partir de l'âge de 1 mois, de préférence au cours du 2ᵉ mois. Elle protège contre les formes graves de tuberculose, en particulier les méningites tuberculeuses.\n\nLes CLAT jouent un rôle central dans la prévention de la tuberculose. Lorsqu'un cas de tuberculose contagieuse est diagnostiqué, le CLAT, informé par les autorités de santé, mène une enquête pour retrouver les personnes ayant été en contact étroit avec le malade. Ces personnes peuvent alors bénéficier d'un dépistage, comprenant une consultation médicale, une radiographie thoracique et un test immunologique (comme le test tuberculinique ou le test IGRA).\n\nEn cas de dépistage d'une infection tuberculeuse latente, le CLAT propose un traitement préventif pour éviter qu'elle n'évolue vers une tuberculose active.\n\nPar ailleurs, le CLAT organise également un dépistage ciblé dans certaines populations plus exposées, comme les personnes venues de pays où la tuberculose est fréquente, afin de détecter la maladie le plus tôt possible.",
       "vaccination": "Vaccination BCG",
       "vaccination_content": "La vaccination BCG reste fortement recommandée, surtout pour les enfants de moins de cinq ans avec des facteurs de risque.",

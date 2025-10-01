@@ -186,95 +186,6 @@ class _InformationsPageState extends State<InformationsPage> {
 
                     const SizedBox(height: 32),
 
-
-                    // Section ITL vs Tuberculose Active
-                    _buildSectionTitle(
-                      icon: Icons.compare_arrows,
-                      title: _tr('information.itl.vs_active'),
-                      color: const Color(0xFF9C27B0),
-                    ),
-
-                    const SizedBox(height: 16),
-
-                    Row(
-                      children: [
-                        // ITL
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [Colors.green[50]!, Colors.white],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                              ),
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(color: Colors.green[200]!),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    _tr('information.itl.itl_characteristics'),
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                      color: Colors.green[700],
-                                    ),
-                                  ),
-                                  const SizedBox(height: 12),
-                                  _buildCharacteristic(_tr('information.itl.itl_char_1'), Colors.green),
-                                  _buildCharacteristic(_tr('information.itl.itl_char_2'), Colors.green),
-                                  _buildCharacteristic(_tr('information.itl.itl_char_3'), Colors.green),
-                                  _buildCharacteristic(_tr('information.itl.itl_char_4'), Colors.green),
-                                  _buildCharacteristic(_tr('information.itl.itl_char_5'), Colors.green),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 16),
-                        // Tuberculose Active
-                        Expanded(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [Colors.orange[50]!, Colors.white],
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                              ),
-                              borderRadius: BorderRadius.circular(15),
-                              border: Border.all(color: Colors.orange[200]!),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    _tr('information.itl.active_characteristics'),
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                      color: Colors.orange[700],
-                                    ),
-                                  ),
-                                  const SizedBox(height: 12),
-                                  _buildCharacteristic(_tr('information.itl.active_char_1'), Colors.orange),
-                                  _buildCharacteristic(_tr('information.itl.active_char_2'), Colors.orange),
-                                  _buildCharacteristic(_tr('information.itl.active_char_3'), Colors.orange),
-                                  _buildCharacteristic(_tr('information.itl.active_char_4'), Colors.orange),
-                                  _buildCharacteristic(_tr('information.itl.active_char_5'), Colors.orange),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-
-
                     const SizedBox(height: 32),
 
                     // Section Quels sont les symptômes
@@ -296,59 +207,6 @@ class _InformationsPageState extends State<InformationsPage> {
                     ),
 
                     const SizedBox(height: 32),
-
-                    const SizedBox(height: 32),
-
-                    // Section Symptômes
-                    _buildSectionTitle(
-                      icon: Icons.sick,
-                      title: _tr('information.symptoms.title'),
-                      color: const Color(0xFFE91E63),
-                    ),
-
-                    const SizedBox(height: 16),
-
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 20,
-                            offset: const Offset(0, 10),
-                          ),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              _tr('information.symptoms.symptoms_list'),
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 18,
-                                color: Color(0xFF2E3A59),
-                              ),
-                            ),
-                            const SizedBox(height: 16),
-                            _buildSymptom(Icons.sick, _tr('information.symptoms.symptom_1')),
-                            _buildSymptom(Icons.water_drop, _tr('information.symptoms.symptom_2')),
-                            _buildSymptom(Icons.favorite, _tr('information.symptoms.symptom_3')),
-                            _buildSymptom(Icons.battery_0_bar, _tr('information.symptoms.symptom_4')),
-                            _buildSymptom(Icons.trending_down, _tr('information.symptoms.symptom_5')),
-                            _buildSymptom(Icons.thermostat, _tr('information.symptoms.symptom_6')),
-                            _buildSymptom(Icons.no_food, _tr('information.symptoms.symptom_7')),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 24),
-
-
 
                     const SizedBox(height: 32),
 
@@ -413,43 +271,6 @@ class _InformationsPageState extends State<InformationsPage> {
                       content: _tr('information.prevention.how_to_prevent_content'),
                       gradientColors: [Colors.teal[50]!, Colors.white],
                       borderColor: Colors.teal[200]!,
-                    ),
-
-                    const SizedBox(height: 32),
-
-                    // Section Traitement
-                    _buildInfoCard(
-                      icon: Icons.medication,
-                      iconColor: Colors.green[600]!,
-                      title: _tr('information.symptoms.treatment_title'),
-                      content: _tr('information.symptoms.treatment_content'),
-                      gradientColors: [Colors.green[50]!, Colors.white],
-                      borderColor: Colors.green[200]!,
-                      additionalContent: Container(
-                        margin: const EdgeInsets.only(top: 12),
-                        padding: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          color: Colors.red[50],
-                          borderRadius: BorderRadius.circular(8),
-                          border: Border.all(color: Colors.red[200]!),
-                        ),
-                        child: Row(
-                          children: [
-                            Icon(Icons.warning, color: Colors.red[600], size: 20),
-                            const SizedBox(width: 8),
-                            Expanded(
-                              child: Text(
-                                _tr('information.symptoms.important_note'),
-                                style: TextStyle(
-                                  color: Colors.red[700],
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 13,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                     ),
 
                     const SizedBox(height: 32),
