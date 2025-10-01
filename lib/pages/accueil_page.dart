@@ -108,8 +108,20 @@ void _demarrerRattrapage(Map<String, dynamic> medicament) {
     context: context,
     builder: (BuildContext context) {
       TimeOfDay? lastMealTime;
+      bool use24HourFormat = true; // Format par défaut
+      
       return StatefulBuilder(
         builder: (context, setState) {
+          String formatTime(TimeOfDay time) {
+            if (use24HourFormat) {
+              return '${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}';
+            } else {
+              final hour = time.hourOfPeriod == 0 ? 12 : time.hourOfPeriod;
+              final period = time.period == DayPeriod.am ? 'AM' : 'PM';
+              return '${hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')} $period';
+            }
+          }
+          
           return AlertDialog(
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             title: Container(
@@ -134,136 +146,184 @@ void _demarrerRattrapage(Map<String, dynamic> medicament) {
                 ],
               ),
             ),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.orange[50],
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Colors.orange[200]!),
+            content: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.all(16),
+                    decoration: BoxDecoration(
+                      color: Colors.orange[50],
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: Colors.orange[200]!),
+                    ),
+                    child: Column(
+                      children: [
+                        Icon(Icons.no_food, size: 40, color: Colors.orange[700]),
+                        const SizedBox(height: 12),
+                        Text(
+                          _tr('catch_up.fasting_period'),
+                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 8),
+                        Text(
+                          _tr('catch_up.fasting_duration'),
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.orange[700]),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 12),
+                        Text(
+                          _tr('catch_up.fasting_rules'),
+                          style: const TextStyle(fontSize: 14),
+                          textAlign: TextAlign.center,
+                        ),
+                      ],
+                    ),
                   ),
-                  child: Column(
+                  const SizedBox(height: 16),
+                  Text(
+                    '${medicament['nom']} ${medicament['dosage']}',
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 16),
+                  Text(
+                    _tr('catch_up.select_last_meal_time'),
+                    style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 12),
+                  
+                  // Toggle 24h / 12h
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Icon(Icons.no_food, size: 40, color: Colors.orange[700]),
-                      const SizedBox(height: 12),
                       Text(
-                        _tr('catch_up.fasting_period'),
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                        textAlign: TextAlign.center,
+                        '12h',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: !use24HourFormat ? FontWeight.bold : FontWeight.normal,
+                          color: !use24HourFormat ? Colors.purple[700] : Colors.grey[600],
+                        ),
                       ),
-                      const SizedBox(height: 8),
-                      Text(
-                        _tr('catch_up.fasting_duration'),
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.orange[700]),
-                        textAlign: TextAlign.center,
+                      const SizedBox(width: 8),
+                      Switch(
+                        value: use24HourFormat,
+                        onChanged: (value) {
+                          setState(() {
+                            use24HourFormat = value;
+                          });
+                        },
+                        activeColor: Colors.purple[600],
                       ),
-                      const SizedBox(height: 12),
+                      const SizedBox(width: 8),
                       Text(
-                        _tr('catch_up.fasting_rules'),
-                        style: const TextStyle(fontSize: 14),
-                        textAlign: TextAlign.center,
+                        '24h',
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: use24HourFormat ? FontWeight.bold : FontWeight.normal,
+                          color: use24HourFormat ? Colors.purple[700] : Colors.grey[600],
+                        ),
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  '${medicament['nom']} ${medicament['dosage']}',
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 16),
-                Text(
-                  _tr('catch_up.select_last_meal_time'),
-                  style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 12),
-                ElevatedButton.icon(
-                  onPressed: () async {
-                    final TimeOfDay? pickedTime = await showTimePicker(
-                      context: context,
-                      initialTime: TimeOfDay.now(),
-                    );
-                    if (pickedTime != null) {
-                      setState(() {
-                        lastMealTime = pickedTime;
-                      });
-                    }
-                  },
-                  icon: const Icon(Icons.schedule),
-                  label: Text(lastMealTime == null 
-                    ? _tr('catch_up.choose_time')
-                    : '${lastMealTime!.hour.toString().padLeft(2, '0')}:${lastMealTime!.minute.toString().padLeft(2, '0')}'),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple[100],
-                    foregroundColor: Colors.purple[700],
-                  ),
-                ),
-                if (lastMealTime != null) ...[
-                  const SizedBox(height: 16),
-                  Builder(
-                    builder: (context) {
-                      final now = TimeOfDay.now();
-                      final lastMealInMinutes = lastMealTime!.hour * 60 + lastMealTime!.minute;
-                      final nowInMinutes = now.hour * 60 + now.minute;
-                      final minutesSinceMeal = nowInMinutes - lastMealInMinutes;
-                      final minutesToWait = 120 - minutesSinceMeal;
-
-                      if (minutesSinceMeal >= 120) {
-                        return Container(
-                          padding: const EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            color: Colors.green[50],
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.green[300]!),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(Icons.check_circle, color: Colors.green[700], size: 20),
-                              const SizedBox(width: 8),
-                              Flexible(
-                                child: Text(
-                                  _tr('catch_up.ready_to_take'),
-                                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.green[700]),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
-                      } else {
-                        return Container(
-                          padding: const EdgeInsets.all(12),
-                          decoration: BoxDecoration(
-                            color: Colors.orange[50],
-                            borderRadius: BorderRadius.circular(10),
-                            border: Border.all(color: Colors.orange[300]!),
-                          ),
-                          child: Column(
-                            children: [
-                              Icon(Icons.hourglass_bottom, color: Colors.orange[700], size: 24),
-                              const SizedBox(height: 8),
-                              Text(
-                                _tr('catch_up.waiting_time'),
-                                style: const TextStyle(fontSize: 12),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                '${(minutesToWait ~/ 60).toString().padLeft(2, '0')}:${(minutesToWait % 60).toString().padLeft(2, '0')}',
-                                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.orange[700]),
-                              ),
-                            ],
-                          ),
-                        );
+                  const SizedBox(height: 12),
+                  
+                  ElevatedButton.icon(
+                    onPressed: () async {
+                      final TimeOfDay? pickedTime = await showTimePicker(
+                        context: context,
+                        initialTime: TimeOfDay.now(),
+                        builder: (context, child) {
+                          return MediaQuery(
+                            data: MediaQuery.of(context).copyWith(
+                              alwaysUse24HourFormat: use24HourFormat,
+                            ),
+                            child: child!,
+                          );
+                        },
+                      );
+                      if (pickedTime != null) {
+                        setState(() {
+                          lastMealTime = pickedTime;
+                        });
                       }
                     },
+                    icon: const Icon(Icons.schedule),
+                    label: Text(lastMealTime == null 
+                      ? _tr('catch_up.choose_time')
+                      : formatTime(lastMealTime!)),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.purple[100],
+                      foregroundColor: Colors.purple[700],
+                      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                    ),
                   ),
+                  
+                  if (lastMealTime != null) ...[
+                    const SizedBox(height: 16),
+                    Builder(
+                      builder: (context) {
+                        final now = TimeOfDay.now();
+                        final lastMealInMinutes = lastMealTime!.hour * 60 + lastMealTime!.minute;
+                        final nowInMinutes = now.hour * 60 + now.minute;
+                        final minutesSinceMeal = nowInMinutes - lastMealInMinutes;
+                        final minutesToWait = 120 - minutesSinceMeal;
+
+                        if (minutesSinceMeal >= 120) {
+                          return Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: Colors.green[50],
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.green[300]!),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.check_circle, color: Colors.green[700], size: 20),
+                                const SizedBox(width: 8),
+                                Flexible(
+                                  child: Text(
+                                    _tr('catch_up.ready_to_take'),
+                                    style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold, color: Colors.green[700]),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        } else {
+                          return Container(
+                            padding: const EdgeInsets.all(12),
+                            decoration: BoxDecoration(
+                              color: Colors.orange[50],
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(color: Colors.orange[300]!),
+                            ),
+                            child: Column(
+                              children: [
+                                Icon(Icons.hourglass_bottom, color: Colors.orange[700], size: 24),
+                                const SizedBox(height: 8),
+                                Text(
+                                  _tr('catch_up.waiting_time'),
+                                  style: const TextStyle(fontSize: 12),
+                                ),
+                                const SizedBox(height: 4),
+                                Text(
+                                  '${(minutesToWait ~/ 60).toString().padLeft(2, '0')}:${(minutesToWait % 60).toString().padLeft(2, '0')}',
+                                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.orange[700]),
+                                ),
+                              ],
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  ],
                 ],
-              ],
+              ),
             ),
             actions: [
               TextButton(
@@ -273,7 +333,6 @@ void _demarrerRattrapage(Map<String, dynamic> medicament) {
               if (lastMealTime != null)
                 ElevatedButton(
                   onPressed: () async {
-                    // Calculer le temps écoulé depuis le dernier repas
                     final now = DateTime.now();
                     final lastMealDateTime = DateTime(
                       now.year,
@@ -286,15 +345,12 @@ void _demarrerRattrapage(Map<String, dynamic> medicament) {
                     final minutesSinceMeal = difference.inMinutes;
 
                     if (minutesSinceMeal >= 120) {
-                      // Plus de 2h : on prend le médicament IMMÉDIATEMENT
-                      Navigator.pop(context); // Fermer le dialog
+                      Navigator.pop(context);
                       await _effectuerPriseRattrapage(medicament);
                     } else {
-                      // Moins de 2h : lancer le minuteur
                       final minutesToWait = 120 - minutesSinceMeal;
                       final endTime = DateTime.now().add(Duration(minutes: minutesToWait));
                       
-                      // Enregistrer le rattrapage
                       await catchup_service.CatchupService.startCatchup(
                         medicationId: medicament['id'],
                         medicamentNom: medicament['nom'],
@@ -304,9 +360,8 @@ void _demarrerRattrapage(Map<String, dynamic> medicament) {
                         endTime: endTime.millisecondsSinceEpoch,
                       );
                       
-                      Navigator.pop(context); // Fermer le dialog
+                      Navigator.pop(context);
                       
-                      // Naviguer vers la page de timer
                       Navigator.push(
                         context,
                         MaterialPageRoute(

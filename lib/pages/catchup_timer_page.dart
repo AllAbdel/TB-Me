@@ -1,6 +1,7 @@
-// ===== lib/pages/catchup_timer_page.dart =====
 import 'package:flutter/material.dart';
 import 'dart:async';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'dart:convert';
 import '../providers/language_provider.dart';
 import '../services/catchup_service.dart' as catchup_service;
 import '../services/notification_service.dart';
@@ -19,7 +20,7 @@ class CatchupTimerPage extends StatefulWidget {
   _CatchupTimerPageState createState() => _CatchupTimerPageState();
 }
 
-class _CatchupTimerPageState extends State<CatchupTimerPage> {
+class _CatchupTimerPageState extends State<CatchupTimerPage> with WidgetsBindingObserver {
   final LanguageProvider _languageProvider = LanguageProvider();
   Timer? _timer;
   Duration _remainingTime = const Duration(hours: 2);
@@ -33,44 +34,61 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
     _loadCatchupData();
   }
 
+  @override
+  void dispose() {
+    _timer?.cancel();
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      // Recharger les données quand on revient sur l'app
+      _loadCatchupData();
+    }
+  }
+
   Future<void> _loadCatchupData() async {
-  if (widget.isAlreadyFasting) {
-    await catchup_service.CatchupService.removeCatchup(widget.medicament['id']);
-    setState(() {
-      _isCompleted = true;
-      _remainingTime = Duration.zero;
-    });
-    return;
+    if (widget.isAlreadyFasting) {
+      await catchup_service.CatchupService.removeCatchup(widget.medicament['id']);
+      setState(() {
+        _isCompleted = true;
+        _remainingTime = Duration.zero;
+      });
+      return;
+    }
+
+    final catchups = await catchup_service.CatchupService.getActiveCatchups();
+    final existingCatchup = catchups.firstWhere(
+      (c) => c['medicationId'] == widget.medicament['id'],
+      orElse: () => <String, dynamic>{},
+    );
+
+    if (existingCatchup.isNotEmpty) {
+      _endTime = DateTime.fromMillisecondsSinceEpoch(existingCatchup['endTime']);
+      _calculateRemainingTime();
+      _startTimer();
+    } else {
+      _endTime = DateTime.now().add(const Duration(hours: 2));
+      await _programmerNotificationRattrapage();
+      _startTimer();
+    }
   }
-
-  final catchups = await catchup_service.CatchupService.getActiveCatchups();
-  final existingCatchup = catchups.firstWhere(
-    (c) => c['medicationId'] == widget.medicament['id'],
-    orElse: () => <String, dynamic>{},
-  );
-
-
-  if (existingCatchup.isNotEmpty) {
-    _endTime = DateTime.fromMillisecondsSinceEpoch(existingCatchup['endTime']);
-    _calculateRemainingTime();
-    _startTimer();
-  } else {
-    _endTime = DateTime.now().add(const Duration(hours: 2));
-    await _programmerNotificationRattrapage();
-    _startTimer();
-  }
-}
 
   Future<void> _programmerNotificationRattrapage() async {
-    await NotificationService.showCatchupComplete(
-      baseId: widget.medicament['id'],
-      medicamentNom: widget.medicament['nom'],
-      dosage: widget.medicament['dosage'],
-      scheduledTime: _endTime!,
-    );
+    if (_endTime != null) {
+      await NotificationService.showCatchupComplete(
+        baseId: widget.medicament['id'],
+        medicamentNom: widget.medicament['nom'],
+        dosage: widget.medicament['dosage'],
+        scheduledTime: _endTime!,
+      );
+    }
   }
 
   void _calculateRemainingTime() {
@@ -103,17 +121,123 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
     });
   }
 
-  @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
-  }
-
   String _formatDuration(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, "0");
     String twoDigitMinutes = twoDigits(duration.inMinutes.remainder(60));
     String twoDigitSeconds = twoDigits(duration.inSeconds.remainder(60));
     return "${twoDigits(duration.inHours)}:$twoDigitMinutes:$twoDigitSeconds";
+  }
+
+  Future<void> _prendreLeMaticament() async {
+    final prefs = await SharedPreferences.getInstance();
+    
+    // Charger la posologie
+    final String? posologieJson = prefs.getString('ma_posologie');
+    if (posologieJson == null) return;
+    
+    List<Map<String, dynamic>> maPosologie = List<Map<String, dynamic>>.from(json.decode(posologieJson));
+    
+    // Trouver l'index du médicament
+    final index = maPosologie.indexWhere((m) => m['id'] == widget.medicament['id']);
+    if (index == -1) return;
+    
+    final stockActuel = maPosologie[index]['stock'] as int;
+    final nombreAPrendre = widget.medicament['nombreComprimes'] as int;
+    
+    if (stockActuel < nombreAPrendre) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Row(
+            children: [
+              const Icon(Icons.warning, color: Colors.white),
+              const SizedBox(width: 8),
+              Text('Stock insuffisant: $stockActuel comprimés restants'),
+            ],
+          ),
+          backgroundColor: Colors.red,
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+      return;
+    }
+    
+    // Charger les prises d'aujourd'hui
+    final today = DateTime.now();
+    final dateKey = '${today.year}-${today.month.toString().padLeft(2, '0')}-${today.day.toString().padLeft(2, '0')}';
+    final String? prisesJson = prefs.getString('prises_$dateKey');
+    List<Map<String, dynamic>> prisesAujourdhui = prisesJson != null 
+        ? List<Map<String, dynamic>>.from(json.decode(prisesJson))
+        : [];
+    
+    // Supprimer l'ancienne prise si elle existe
+    prisesAujourdhui.removeWhere(
+      (p) => p['medicamentId'] == widget.medicament['id'] && p['heure'] == widget.medicament['heure'],
+    );
+    
+    // Ajouter la nouvelle prise
+    prisesAujourdhui.add({
+      'medicamentId': widget.medicament['id'],
+      'heure': widget.medicament['heure'],
+      'pris': true,
+      'heurePrise': TimeOfDay.now().format(context),
+      'nombreComprimes': widget.medicament['nombreComprimes'],
+      'rattrapage': true,
+    });
+    
+    // Mettre à jour le stock
+    maPosologie[index]['stock'] = stockActuel - nombreAPrendre;
+    
+    // Sauvegarder
+    await prefs.setString('prises_$dateKey', json.encode(prisesAujourdhui));
+    await prefs.setString('ma_posologie', json.encode(maPosologie));
+    
+    String stockKey = '${widget.medicament['nom']}_${widget.medicament['dosage']}_stock';
+    await prefs.setInt(stockKey, stockActuel - nombreAPrendre);
+    
+    // Supprimer le rattrapage
+    await catchup_service.CatchupService.removeCatchup(widget.medicament['id']);
+    
+    // Message d'encouragement
+    final encouragements = _languageProvider.getEncouragementList('encouragement.missed_recovery');
+    final message = catchup_service.CatchupService.getRandomEncouragement(encouragements);
+    
+    // Afficher le message de succès
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext dialogContext) {
+        Future.delayed(const Duration(seconds: 30), () {
+          if (Navigator.of(dialogContext).canPop()) {
+            Navigator.of(dialogContext).pop();
+          }
+        });
+        return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+          title: Row(
+            children: [
+              Icon(Icons.celebration, color: Colors.green[600]),
+              const SizedBox(width: 8),
+              const Expanded(
+                child: Text(
+                  'Bravo !',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
+          ),
+          content: Text(message),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(dialogContext).pop(); // Fermer le dialog
+                Navigator.of(context).pop(); // Retourner à l'accueil
+              },
+              child: Text(_tr('common.close')),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -238,22 +362,7 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> {
                   ),
                   const SizedBox(height: 30),
                   ElevatedButton(
-                    onPressed: () async {
-                      await catchup_service.CatchupService.removeCatchup(widget.medicament['id']);
-
-                      final encouragements = _languageProvider.getEncouragementList('encouragement.regular_taking');
-                      final message = catchup_service.CatchupService.getRandomEncouragement(encouragements);
-
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(message),
-                          backgroundColor: Colors.green,
-                          duration: const Duration(seconds: 4),
-                        ),
-                      );
-
-                      Navigator.pop(context);
-                    },
+                    onPressed: _prendreLeMaticament,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green[600],
                       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 15),

@@ -189,13 +189,6 @@ class _InformationsPageState extends State<InformationsPage> {
                     const SizedBox(height: 32),
 
                     // Section Quels sont les symptômes
-                    _buildSectionTitle(
-                      icon: Icons.info_outline,
-                      fontSize: 18,
-                      title: _tr('information.symptoms.what_are_symptoms'),
-                      color: const Color(0xFFFF5722),
-                    ),
-
                     const SizedBox(height: 16),
 
                     _buildInfoCard(
@@ -209,15 +202,7 @@ class _InformationsPageState extends State<InformationsPage> {
 
                     const SizedBox(height: 32),
 
-                    const SizedBox(height: 32),
-
                     // Section Comment se soigne
-                    _buildSectionTitle(
-                      icon: Icons.healing,
-                      fontSize: 18,
-                      title: _tr('information.symptoms.how_to_treat'),
-                      color: const Color(0xFF4CAF50),
-                    ),
 
                     const SizedBox(height: 16),
 
@@ -258,15 +243,6 @@ class _InformationsPageState extends State<InformationsPage> {
                     const SizedBox(height: 32),
 
                     // Section Comment prévenir
-                    _buildSectionTitle(
-                      icon: Icons.shield,
-                      fontSize: 18,
-                      title: _tr('information.prevention.how_to_prevent'),
-                      color: const Color(0xFF009688),
-                    ),
-
-                    const SizedBox(height: 16),
-
                     _buildInfoCard(
                       icon: Icons.vaccines,
                       iconColor: Colors.teal[600]!,
