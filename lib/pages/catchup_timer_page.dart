@@ -1,3 +1,4 @@
+// /lib/pages/catchup_timer_page.dart
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -133,16 +134,24 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> with WidgetsBinding
     
     // Charger la posologie
     final String? posologieJson = prefs.getString('ma_posologie');
-    if (posologieJson == null) return;
+    if (posologieJson == null) {
+      print('❌ Erreur: Posologie introuvable');
+      return;
+    }
     
     List<Map<String, dynamic>> maPosologie = List<Map<String, dynamic>>.from(json.decode(posologieJson));
     
     // Trouver l'index du médicament
     final index = maPosologie.indexWhere((m) => m['id'] == widget.medicament['id']);
-    if (index == -1) return;
+    if (index == -1) {
+      print('❌ Erreur: Médicament introuvable dans la posologie');
+      return;
+    }
     
     final stockActuel = maPosologie[index]['stock'] as int;
     final nombreAPrendre = widget.medicament['nombreComprimes'] as int;
+    
+    print('📦 Stock actuel: $stockActuel, À prendre: $nombreAPrendre');
     
     if (stockActuel < nombreAPrendre) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -169,75 +178,93 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> with WidgetsBinding
         ? List<Map<String, dynamic>>.from(json.decode(prisesJson))
         : [];
     
+    print('📋 Prises avant: ${prisesAujourdhui.length}');
+    
     // Supprimer l'ancienne prise si elle existe
     prisesAujourdhui.removeWhere(
       (p) => p['medicamentId'] == widget.medicament['id'] && p['heure'] == widget.medicament['heure'],
     );
     
     // Ajouter la nouvelle prise
+    final heurePrise = TimeOfDay.now();
     prisesAujourdhui.add({
       'medicamentId': widget.medicament['id'],
       'heure': widget.medicament['heure'],
       'pris': true,
-      'heurePrise': TimeOfDay.now().format(context),
+      'heurePrise': '${heurePrise.hour.toString().padLeft(2, '0')}:${heurePrise.minute.toString().padLeft(2, '0')}',
       'nombreComprimes': widget.medicament['nombreComprimes'],
       'rattrapage': true,
     });
     
+    print('📋 Prises après: ${prisesAujourdhui.length}');
+    
     // Mettre à jour le stock
-    maPosologie[index]['stock'] = stockActuel - nombreAPrendre;
+    final nouveauStock = stockActuel - nombreAPrendre;
+    maPosologie[index]['stock'] = nouveauStock;
+    
+    print('📦 Nouveau stock: $nouveauStock');
     
     // Sauvegarder
     await prefs.setString('prises_$dateKey', json.encode(prisesAujourdhui));
     await prefs.setString('ma_posologie', json.encode(maPosologie));
     
     String stockKey = '${widget.medicament['nom']}_${widget.medicament['dosage']}_stock';
-    await prefs.setInt(stockKey, stockActuel - nombreAPrendre);
+    await prefs.setInt(stockKey, nouveauStock);
+    
+    print('✅ Données sauvegardées');
     
     // Supprimer le rattrapage
     await catchup_service.CatchupService.removeCatchup(widget.medicament['id']);
     
-    // Message d'encouragement
-    final encouragements = _languageProvider.getEncouragementList('encouragement.missed_recovery');
-    final message = catchup_service.CatchupService.getRandomEncouragement(encouragements);
+    print('✅ Rattrapage supprimé');
     
-    // Afficher le message de succès
-    showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (BuildContext dialogContext) {
-        Future.delayed(const Duration(seconds: 30), () {
-          if (Navigator.of(dialogContext).canPop()) {
-            Navigator.of(dialogContext).pop();
-          }
-        });
-        return AlertDialog(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-          title: Row(
-            children: [
-              Icon(Icons.celebration, color: Colors.green[600]),
-              const SizedBox(width: 8),
-              const Expanded(
-                child: Text(
-                  'Bravo !',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+    // Fermer la page et retourner à l'accueil
+    if (mounted) {
+      Navigator.of(context).pop();
+      
+      // Message d'encouragement
+      final encouragements = _languageProvider.getEncouragementList('encouragement.missed_recovery');
+      final message = catchup_service.CatchupService.getRandomEncouragement(encouragements);
+      
+      // Afficher le message de succès
+      Future.delayed(const Duration(milliseconds: 300), () {
+        if (mounted) {
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (BuildContext dialogContext) {
+              Future.delayed(const Duration(seconds: 30), () {
+                if (Navigator.of(dialogContext).canPop()) {
+                  Navigator.of(dialogContext).pop();
+                }
+              });
+              return AlertDialog(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                title: Row(
+                  children: [
+                    Icon(Icons.celebration, color: Colors.green[600]),
+                    const SizedBox(width: 8),
+                    const Expanded(
+                      child: Text(
+                        'Bravo !',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-            ],
-          ),
-          content: Text(message),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(dialogContext).pop(); // Fermer le dialog
-                Navigator.of(context).pop(); // Retourner à l'accueil
-              },
-              child: Text(_tr('common.close')),
-            ),
-          ],
-        );
-      },
-    );
+                content: Text(message),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.of(dialogContext).pop(),
+                    child: Text(_tr('common.close')),
+                  ),
+                ],
+              );
+            },
+          );
+        }
+      });
+    }
   }
 
   @override
