@@ -7,7 +7,7 @@ import '../services/catchup_service.dart' as catchup_service;
 import '../pages/catchup_timer_page.dart';
 import '../pages/historique_page.dart';
 import '../pages/medicaments_page.dart';
-
+import '../services/notification_service.dart';
 
 class AccueilPage extends StatefulWidget {
   const AccueilPage({super.key});
@@ -73,6 +73,7 @@ class AccueilPageState extends State<AccueilPage> with WidgetsBindingObserver {
   
   List<Map<String, dynamic>> maPosologie = [];
   List<Map<String, dynamic>> prisesAujourdhui = [];
+  List<Map<String, dynamic>> rattrapagesActifs = []; // AJOUTER CETTE LIGNE
   DateTime maintenant = DateTime.now();
 
   @override
@@ -307,7 +308,7 @@ void _demarrerRattrapage(Map<String, dynamic> medicament) {
                                 Icon(Icons.hourglass_bottom, color: Colors.orange[700], size: 24),
                                 const SizedBox(height: 8),
                                 Text(
-                                  _tr('catch_up.waiting_time'),
+                                  _tr('catch_up.wait_time'),
                                   style: const TextStyle(fontSize: 12),
                                 ),
                                 const SizedBox(height: 4),
@@ -347,10 +348,12 @@ void _demarrerRattrapage(Map<String, dynamic> medicament) {
                     if (minutesSinceMeal >= 120) {
                       Navigator.pop(context);
                       await _effectuerPriseRattrapage(medicament);
-                    } else {
+                    } // Dans la partie où minutesSinceMeal < 120
+                    else {
                       final minutesToWait = 120 - minutesSinceMeal;
                       final endTime = DateTime.now().add(Duration(minutes: minutesToWait));
                       
+                      // 1. D'ABORD enregistrer le rattrapage
                       await catchup_service.CatchupService.startCatchup(
                         medicationId: medicament['id'],
                         medicamentNom: medicament['nom'],
@@ -360,8 +363,18 @@ void _demarrerRattrapage(Map<String, dynamic> medicament) {
                         endTime: endTime.millisecondsSinceEpoch,
                       );
                       
+                      // 2. ENSUITE programmer la notification
+                      await NotificationService.showCatchupComplete(
+                        baseId: medicament['id'],
+                        medicamentNom: medicament['nom'],
+                        dosage: medicament['dosage'],
+                        scheduledTime: endTime,
+                      );
+                      
+                      // 3. Fermer le dialog
                       Navigator.pop(context);
                       
+                      // 4. Ouvrir la page timer
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -504,14 +517,14 @@ Future<void> _effectuerPriseRattrapage(Map<String, dynamic> medicament) async {
   });
 }
   void _startPeriodicRefresh() {
-    Future.delayed(const Duration(seconds: 60), () {
-      if (mounted) {
-        _updateTime();
-        _loadData();
-        _startPeriodicRefresh();
-      }
-    });
-  }
+  Future.delayed(const Duration(seconds: 1), () { // CHANGÉ : 60 -> 1
+    if (mounted) {
+      _updateTime();
+      _loadData();
+      _startPeriodicRefresh();
+    }
+  });
+}
 
   @override
   void dispose() {
@@ -675,6 +688,7 @@ List<Map<String, dynamic>> _getUniqueMedications() {
 
 Future<void> _loadData() async {
     final prefs = await SharedPreferences.getInstance();
+
     
     // Charger la posologie
     final String? posologieJson = prefs.getString('ma_posologie');
@@ -690,10 +704,13 @@ Future<void> _loadData() async {
       nouvellesPrises = List<Map<String, dynamic>>.from(json.decode(prisesJson));
     }
 
+    final rattrapages = await catchup_service.CatchupService.getActiveCatchups();
+  
     if (mounted) {
       setState(() {
         maPosologie = nouvellePosologie;
         prisesAujourdhui = nouvellesPrises;
+        rattrapagesActifs = rattrapages;  // NOUVEAU
       });
     }
   }
@@ -702,6 +719,18 @@ Future<void> _loadData() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('prises_${_getDateKey(maintenant)}', json.encode(prisesAujourdhui));
   }
+
+  String _formatRemainingTime(int endTimeMillis) {
+  final endTime = DateTime.fromMillisecondsSinceEpoch(endTimeMillis);
+  final remaining = endTime.difference(DateTime.now());
+  
+  if (remaining.isNegative) return "0:00";
+  
+  final hours = remaining.inHours;
+  final minutes = remaining.inMinutes.remainder(60);
+  
+  return '${hours}h${minutes.toString().padLeft(2, '0')}';
+}
 
   String _getDateKey(DateTime date) {
     return '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
@@ -877,7 +906,7 @@ String _getStatutText(StatutPrise statut) {
     );
   }
 
-void _effectuerPrise(Map<String, dynamic> medicament) async {
+Future<void> _effectuerPrise(Map<String, dynamic> medicament) async {
     // Trouver le bon médicament dans la posologie pour décrémenter le stock
     final index = maPosologie.indexWhere((m) => m['id'] == medicament['id']);
     if (index == -1) return; // Sécurité au cas où le médicament n'existe plus
@@ -1004,641 +1033,767 @@ Future.delayed(const Duration(milliseconds: 500), () {
   }
 
   @override
-  Widget build(BuildContext context) {
-    // Trier les médicaments par heure
-    final medicamentsTriees = List<Map<String, dynamic>>.from(maPosologie)
-      ..sort((a, b) {
-        final heureA = _parseHeure(a['heure']);
-        final heureB = _parseHeure(b['heure']);
-        final minutesA = heureA.hour * 60 + heureA.minute;
-        final minutesB = heureB.hour * 60 + heureB.minute;
-        return minutesA.compareTo(minutesB);
-      });
+Widget build(BuildContext context) {
+  // Trier les médicaments par heure
+  final medicamentsTriees = List<Map<String, dynamic>>.from(maPosologie)
+    ..sort((a, b) {
+      final heureA = _parseHeure(a['heure']);
+      final heureB = _parseHeure(b['heure']);
+      final minutesA = heureA.hour * 60 + heureA.minute;
+      final minutesB = heureB.hour * 60 + heureB.minute;
+      return minutesA.compareTo(minutesB);
+    });
 
-int getMedicamentsPrisAujourdhui() {
-  return medicamentsTriees.where((m) => _getStatutPrise(m) == StatutPrise.pris).length;
-}
+  int getMedicamentsPrisAujourdhui() {
+    return medicamentsTriees.where((m) => _getStatutPrise(m) == StatutPrise.pris).length;
+  }
 
-int getTotalMedicamentsAujourdhui() {
-  return medicamentsTriees.length;
-}
-    return AnimatedBuilder(
-      animation: _languageProvider,
-      builder: (context, child) {
-        return Scaffold(
-          body: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: [
-                  Color.fromARGB(255, 247, 247, 247), // Bleu très foncé
-                  Color.fromARGB(255, 255, 255, 255), // Bleu foncé
-                  Colors.white,
-                ],
-              ),
+  int getTotalMedicamentsAujourdhui() {
+    return medicamentsTriees.length;
+  }
+
+  return AnimatedBuilder(
+    animation: _languageProvider,
+    builder: (context, child) {
+      return Scaffold(
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromARGB(255, 247, 247, 247),
+                Color.fromARGB(255, 255, 255, 255),
+                Colors.white,
+              ],
             ),
-            child: CustomScrollView(
-              slivers: [
-                // Thème de l'application
-                SliverAppBar(
-                  expandedHeight: 120,
-                  floating: false,
-                  pinned: true,
-                  elevation: 0,
-                  backgroundColor: const Color.fromARGB(0, 255, 255, 255),
-                  flexibleSpace: FlexibleSpaceBar(
-                    title: Text(
-                      _tr('app.home'),
-                      style: const TextStyle(
-                        color: Color.fromARGB(255, 255, 255, 255),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 24,
+          ),
+          child: CustomScrollView(
+            slivers: [
+              // Thème de l'application
+              SliverAppBar(
+                expandedHeight: 120,
+                floating: false,
+                pinned: true,
+                elevation: 0,
+                backgroundColor: const Color.fromARGB(0, 255, 255, 255),
+                flexibleSpace: FlexibleSpaceBar(
+                  title: Text(
+                    _tr('app.home'),
+                    style: const TextStyle(
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 24,
+                    ),
+                  ),
+                  background: Container(
+                    decoration: const BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color.fromARGB(255, 15, 4, 4), 
+                          Color.fromARGB(255, 255, 255, 255), 
+                        ],
                       ),
                     ),
-                    background: Container(
+                    child: Container(
                       decoration: const BoxDecoration(
                         gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
                           colors: [
-                            Color.fromARGB(255, 15, 4, 4), 
-                            Color.fromARGB(255, 255, 255, 255), 
+                            Color(0xFF1565C0),
+                            Color(0xFF1E88E5),
+                            Color(0xFF1E88E5),
                           ],
-                        ),
-                      ),
-                      child: Container(
-                        // Le dégradé de fond global :
-                        decoration: const BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              Color(0xFF1565C0), // Bleu très foncé
-                              Color(0xFF1E88E5), // Bleu foncé
-                              Color(0xFF1E88E5), // Bleu foncé
-                            ],
-                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-                SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // Carte de bienvenue avec date/heure
-                        Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.all(24),
-                          decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color(0xFF81D4FA), // Bleu clair
-                          Color.fromARGB(255, 129, 212, 250),
-                          const Color.fromARGB(255, 255, 255, 255),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.all(16),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // Carte de bienvenue
+                      Container(
+                        width: double.infinity,
+                        padding: const EdgeInsets.all(24),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                            colors: [
+                              Color(0xFF81D4FA),
+                              Color.fromARGB(255, 129, 212, 250),
+                              const Color.fromARGB(255, 255, 255, 255),
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.1),
+                              blurRadius: 20,
+                              offset: const Offset(0, 10),
+                            ),
                           ],
                         ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                const Icon(Icons.wb_sunny, color: Colors.white, size: 28),
+                                const SizedBox(width: 12),
+                                Text(
+                                  _tr('home.welcome'),
+                                  style: const TextStyle(
+                                    color: Color.fromARGB(255, 0, 0, 0),
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              _getFormattedDate(maintenant),
+                              style: TextStyle(
+                                color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.9),
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              '${getMedicamentsPrisAujourdhui()}/${getTotalMedicamentsAujourdhui()} ${_tr('home.medications_today')}',
+                              style: TextStyle(
+                                color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.8),
+                                fontSize: 14,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      const SizedBox(height: 24),
+
+                      // Section Dashboard
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        child: Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [Color.fromARGB(255, 120, 235, 255), Color.fromARGB(255, 159, 236, 255)],
+                                ),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: const Icon(Icons.today, color: Color.fromARGB(255, 255, 255, 255), size: 24),
+                            ),
+                            const SizedBox(width: 12),
+                            Text(
+                              _tr('home.daily_dashboard'),
+                              style: const TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF2E3A59),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      // Liste des médicaments
+                      if (medicamentsTriees.isEmpty)
+                        Container(
+                          padding: const EdgeInsets.all(40),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(20),
                             boxShadow: [
                               BoxShadow(
-                                color: const Color.fromARGB(255, 255, 255, 255).withOpacity(0.1),
+                                color: Colors.black.withOpacity(0.1),
                                 blurRadius: 20,
                                 offset: const Offset(0, 10),
                               ),
                             ],
                           ),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Row(
-                                children: [
-                                  const Icon(Icons.wb_sunny, color: Colors.white, size: 28),
-                                  const SizedBox(width: 12),
-                                  Text(
-                                    _tr('home.welcome'),
-                                    style: const TextStyle(
-                                      color: Color.fromARGB(255, 0, 0, 0),
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ],
+                              Icon(
+                                Icons.medication_liquid_outlined,
+                                size: 60,
+                                color: Colors.grey[400],
+                              ),
+                              const SizedBox(height: 16),
+                              Text(
+                                _tr('home.no_medications'),
+                                style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                                textAlign: TextAlign.center,
                               ),
                               const SizedBox(height: 8),
                               Text(
-                                _getFormattedDate(maintenant),
+                                _tr('home.configure_medications'),
                                 style: TextStyle(
-                                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.9),
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              const SizedBox(height: 4),
-                              Text(
-                                '${getMedicamentsPrisAujourdhui()}/${getTotalMedicamentsAujourdhui()} ${_tr('home.medications_today')}',
-                                style: TextStyle(
-                                  color: const Color.fromARGB(255, 0, 0, 0).withOpacity(0.8),
+                                  color: Colors.grey[500],
                                   fontSize: 14,
                                 ),
+                                textAlign: TextAlign.center,
                               ),
                             ],
                           ),
-                        ),
-
-                        const SizedBox(height: 24),
-
-                        // Section Dashboard du jour
+                        )
+                      else
                         Container(
-                          margin: const EdgeInsets.only(bottom: 20),
-                          child: Row(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                blurRadius: 20,
+                                offset: const Offset(0, 10),
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            children: medicamentsTriees.map((medicament) {
+                              final statut = _getStatutPrise(medicament);
+                              final couleur = _getStatutColor(statut);
+                              final icone = _getStatutIcon(statut);
+                              final texteStatut = _getStatutText(statut);
+
+                              // NOUVEAU : Vérifier si ce médicament a un rattrapage actif
+                              final rattrapageActif = rattrapagesActifs.firstWhere(
+                                (r) => r['medicationId'] == medicament['id'],
+                                orElse: () => <String, dynamic>{},
+                              );
+
+                              return Container(
+                                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                                 decoration: BoxDecoration(
-                                  gradient: const LinearGradient(
-                                    colors: [Color.fromARGB(255, 120, 235, 255), Color.fromARGB(255, 159, 236, 255)],
+                                  gradient: LinearGradient(
+                                    colors: [couleur.withOpacity(0.1), Colors.white],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
                                   ),
                                   borderRadius: BorderRadius.circular(15),
+                                  border: Border.all(color: couleur.withOpacity(0.3), width: 2),
                                 ),
-                                child: const Icon(Icons.today, color: Color.fromARGB(255, 255, 255, 255), size: 24),
-                              ),
-                              const SizedBox(width: 12),
-                              Text(
-                                _tr('home.daily_dashboard'),
-                                style: const TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF2E3A59),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-
-                        // Liste des médicaments
-                        if (medicamentsTriees.isEmpty)
-                          Container(
-                            padding: const EdgeInsets.all(40),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.1),
-                                  blurRadius: 20,
-                                  offset: const Offset(0, 10),
-                                ),
-                              ],
-                            ),
-                            child: Column(
-                              children: [
-                                Icon(
-                                  Icons.medication_liquid_outlined,
-                                  size: 60,
-                                  color: Colors.grey[400],
-                                ),
-                                const SizedBox(height: 16),
-                                Text(
-                                  _tr('home.no_medications'),
-                                  style: TextStyle(
-                                    color: Colors.grey[600],
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                                const SizedBox(height: 8),
-                                Text(
-                                  _tr('home.configure_medications'),
-                                  style: TextStyle(
-                                    color: Colors.grey[500],
-                                    fontSize: 14,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                              ],
-                            ),
-                          )
-                        // Dans le build(), remplacer la partie "Liste des médicaments" par :
-else
-  Container(
-    decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.circular(20),
-      boxShadow: [
-        BoxShadow(
-          color: Colors.black.withOpacity(0.1),
-          blurRadius: 20,
-          offset: const Offset(0, 10),
-        ),
-      ],
-    ),
-    child: Column(
-      children: medicamentsTriees.map((medicament) {
-        final statut = _getStatutPrise(medicament);
-        final couleur = _getStatutColor(statut);
-        final icone = _getStatutIcon(statut);
-        final texteStatut = _getStatutText(statut);
-
-        return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [couleur.withOpacity(0.1), Colors.white],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(15),
-            border: Border.all(color: couleur.withOpacity(0.3), width: 2),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // En-tête avec icône et badge de statut
-                Row(
-                  children: [
-                    Container(
-                      width: 60,
-                      height: 60,
-                      decoration: BoxDecoration(
-                        color: couleur.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(15),
-                        border: Border.all(color: couleur.withOpacity(0.5)),
-                      ),
-                      child: Icon(
-                        icone,
-                        color: couleur,
-                        size: 28,
-                      ),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '${medicament['nom']} ${medicament['dosage']}',
-                            style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                              color: Color(0xFF2E3A59),
-                            ),
-                          ),
-                          const SizedBox(height: 4),
-                          Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-                            decoration: BoxDecoration(
-                              color: couleur,
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Text(
-                              texteStatut,
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 12,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-                
-                const SizedBox(height: 12),
-                
-                // Informations du médicament
-                Row(
-                  children: [
-                    Icon(Icons.access_time, size: 18, color: Colors.blue[600]),
-                    const SizedBox(width: 6),
-                    Text(
-                      medicament['heure'],
-                      style: TextStyle(
-                        color: Colors.blue[600],
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                      ),
-                    ),
-                    const SizedBox(width: 20),
-                    Icon(Icons.medication_liquid, size: 18, color: Colors.green[600]),
-                    const SizedBox(width: 6),
-                    Text(
-                      '${medicament['nombreComprimes']} ${_tr('home.tablets')}',
-                      style: TextStyle(
-                        color: Colors.green[600],
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ],
-                ),
-                
-                if (medicament['aJeun'] == true) ...[
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      Icon(Icons.no_food, size: 18, color: Colors.orange[600]),
-                      const SizedBox(width: 6),
-                      Flexible(
-                        child: Text(
-                          _tr('home.take_on_empty_stomach'),
-                          style: TextStyle(
-                            color: Colors.orange[600],
-                            fontWeight: FontWeight.w600,
-                            fontStyle: FontStyle.italic,
-                            fontSize: 13,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-                
-                const SizedBox(height: 16),
-                
-                // Bouton d'action - AMÉLIORÉ
-                SizedBox(
-                  width: double.infinity,
-                  child: statut != StatutPrise.pris
-                      ? statut == StatutPrise.oublie && medicament['aJeun'] == true
-                          ? ElevatedButton.icon(
-                              onPressed: () => _demarrerRattrapage(medicament),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.purple,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                padding: const EdgeInsets.symmetric(vertical: 14),
-                              ),
-                              icon: const Icon(Icons.update, color: Colors.white, size: 20),
-                              label: Text(
-                                _tr('catch_up.button'),
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
-                                ),
-                              ),
-                            )
-                          : statut == StatutPrise.oublie
-                              ? Container(
-                                  padding: const EdgeInsets.symmetric(vertical: 14),
-                                  decoration: BoxDecoration(
-                                    color: Colors.red.withOpacity(0.2),
-                                    borderRadius: BorderRadius.circular(12),
-                                    border: Border.all(color: Colors.red.withOpacity(0.5)),
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      const Icon(Icons.block, color: Colors.red, size: 20),
-                                      const SizedBox(width: 8),
-                                      Text(
-                                        _tr('home.status.missed'),
-                                        style: const TextStyle(
-                                          color: Colors.red,
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 14,
+                                child: Stack(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(16),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          // En-tête avec icône et badge
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: 60,
+                                                height: 60,
+                                                decoration: BoxDecoration(
+                                                  color: couleur.withOpacity(0.2),
+                                                  borderRadius: BorderRadius.circular(15),
+                                                  border: Border.all(color: couleur.withOpacity(0.5)),
+                                                ),
+                                                child: Icon(
+                                                  icone,
+                                                  color: couleur,
+                                                  size: 28,
+                                                ),
+                                              ),
+                                              const SizedBox(width: 12),
+                                              Expanded(
+                                                child: Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      '${medicament['nom']} ${medicament['dosage']}',
+                                                      style: const TextStyle(
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 16,
+                                                        color: Color(0xFF2E3A59),
+                                                      ),
+                                                    ),
+                                                    const SizedBox(height: 4),
+                                                    Container(
+                                                      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                                                      decoration: BoxDecoration(
+                                                        color: couleur,
+                                                        borderRadius: BorderRadius.circular(20),
+                                                      ),
+                                                      child: Text(
+                                                        texteStatut,
+                                                        style: const TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 12,
+                                                          fontWeight: FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          
+                                          const SizedBox(height: 12),
+                                          
+                                          // Informations du médicament
+                                          Row(
+                                            children: [
+                                              Icon(Icons.access_time, size: 18, color: Colors.blue[600]),
+                                              const SizedBox(width: 6),
+                                              Text(
+                                                medicament['heure'],
+                                                style: TextStyle(
+                                                  color: Colors.blue[600],
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                              const SizedBox(width: 20),
+                                              Icon(Icons.medication_liquid, size: 18, color: Colors.green[600]),
+                                              const SizedBox(width: 6),
+                                              Text(
+                                                '${medicament['nombreComprimes']} ${_tr('home.tablets')}',
+                                                style: TextStyle(
+                                                  color: Colors.green[600],
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 14,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          
+                                          if (medicament['aJeun'] == true) ...[
+                                            const SizedBox(height: 8),
+                                            Row(
+                                              children: [
+                                                Icon(Icons.no_food, size: 18, color: Colors.orange[600]),
+                                                const SizedBox(width: 6),
+                                                Flexible(
+                                                  child: Text(
+                                                    _tr('home.take_on_empty_stomach'),
+                                                    style: TextStyle(
+                                                      color: Colors.orange[600],
+                                                      fontWeight: FontWeight.w600,
+                                                      fontStyle: FontStyle.italic,
+                                                      fontSize: 13,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                          
+                                          const SizedBox(height: 16),
+                                          
+                                          // Bouton d'action - LOGIQUE AMÉLIORÉE
+                                            SizedBox(
+                                              width: double.infinity,
+                                              child: Builder(
+                                                builder: (context) {
+                                                  // Vérifier si le rattrapage est terminé
+                                                  bool rattrapageTermine = false;
+                                                  if (rattrapageActif.isNotEmpty) {
+                                                    DateTime endTime = DateTime.fromMillisecondsSinceEpoch(rattrapageActif['endTime']);
+                                                    rattrapageTermine = DateTime.now().isAfter(endTime);
+                                                  }
+                                                  
+                                                  // Si rattrapage terminé, permettre la prise
+                                                  if (rattrapageTermine) {
+                                                    return ElevatedButton.icon(
+                                                      onPressed: () async {
+                                                        // CORRECTION : Ne pas utiliser await car _effectuerPrise est void
+                                                        await _effectuerPrise(medicament);
+                                                        await catchup_service.CatchupService.removeCatchup(medicament['id']);
+                                                        // Recharger les données pour mettre à jour l'affichage
+                                                        await _loadData();
+                                                      },
+                                                      style: ElevatedButton.styleFrom(
+                                                        backgroundColor: Colors.green,
+                                                        shape: RoundedRectangleBorder(
+                                                          borderRadius: BorderRadius.circular(12),
+                                                        ),
+                                                        padding: const EdgeInsets.symmetric(vertical: 14),
+                                                      ),
+                                                      icon: const Icon(Icons.check_circle, color: Colors.white, size: 20),
+                                                      label: Text(
+                                                        _tr('catch_up.take_now'),
+                                                        style: const TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight: FontWeight.bold,
+                                                          fontSize: 14,
+                                                        ),
+                                                      ),
+                                                    );
+                                                  }
+                                                  
+                                                  // Logique normale
+                                                  if (statut != StatutPrise.pris) {
+                                                    if (statut == StatutPrise.oublie && medicament['aJeun'] == true) {
+                                                      return ElevatedButton.icon(
+                                                        onPressed: () => _demarrerRattrapage(medicament),
+                                                        style: ElevatedButton.styleFrom(
+                                                          backgroundColor: Colors.purple,
+                                                          shape: RoundedRectangleBorder(
+                                                            borderRadius: BorderRadius.circular(12),
+                                                          ),
+                                                          padding: const EdgeInsets.symmetric(vertical: 14),
+                                                        ),
+                                                        icon: const Icon(Icons.update, color: Colors.white, size: 20),
+                                                        label: Text(
+                                                          _tr('catch_up.button'),
+                                                          style: const TextStyle(
+                                                            color: Colors.white,
+                                                            fontWeight: FontWeight.bold,
+                                                            fontSize: 14,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    } else if (statut == StatutPrise.oublie) {
+                                                      return Container(
+                                                        padding: const EdgeInsets.symmetric(vertical: 14),
+                                                        decoration: BoxDecoration(
+                                                          color: Colors.red.withOpacity(0.2),
+                                                          borderRadius: BorderRadius.circular(12),
+                                                          border: Border.all(color: Colors.red.withOpacity(0.5)),
+                                                        ),
+                                                        child: Row(
+                                                          mainAxisAlignment: MainAxisAlignment.center,
+                                                          children: [
+                                                            const Icon(Icons.block, color: Colors.red, size: 20),
+                                                            const SizedBox(width: 8),
+                                                            Text(
+                                                              _tr('home.status.missed'),
+                                                              style: const TextStyle(
+                                                                color: Colors.red,
+                                                                fontWeight: FontWeight.bold,
+                                                                fontSize: 14,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      );
+                                                    } else {
+                                                      return ElevatedButton.icon(
+                                                        onPressed: () => _marquerCommePris(medicament),
+                                                        style: ElevatedButton.styleFrom(
+                                                          backgroundColor: couleur,
+                                                          shape: RoundedRectangleBorder(
+                                                            borderRadius: BorderRadius.circular(12),
+                                                          ),
+                                                          padding: const EdgeInsets.symmetric(vertical: 14),
+                                                        ),
+                                                        icon: const Icon(Icons.check_circle, color: Colors.white, size: 20),
+                                                        label: Text(
+                                                          _tr('home.mark_taken'),
+                                                          style: const TextStyle(
+                                                            color: Colors.white,
+                                                            fontWeight: FontWeight.bold,
+                                                            fontSize: 14,
+                                                          ),
+                                                        ),
+                                                      );
+                                                    }
+                                                  } else {
+                                                    return Container(
+                                                      padding: const EdgeInsets.symmetric(vertical: 14),
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.green.withOpacity(0.2),
+                                                        borderRadius: BorderRadius.circular(12),
+                                                        border: Border.all(color: Colors.green.withOpacity(0.5)),
+                                                      ),
+                                                      child: Row(
+                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                        children: [
+                                                          const Icon(Icons.check, color: Colors.green, size: 20),
+                                                          const SizedBox(width: 8),
+                                                          Text(
+                                                            _tr('home.status.taken'),
+                                                            style: const TextStyle(
+                                                              color: Colors.green,
+                                                              fontWeight: FontWeight.bold,
+                                                              fontSize: 14,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  }
+                                                },
+                                              ),
+                                            ),
+                                    
+                                    // NOUVEAU : Badge de rattrapage en cours - VERSION AMÉLIORÉE
+                                    if (rattrapageActif.isNotEmpty)
+                                      Positioned(
+                                        top: 8,
+                                        right: 8,
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => CatchupTimerPage(
+                                                  medicament: medicament,
+                                                  isAlreadyFasting: false,
+                                                ),
+                                              ),
+                                            ).then((_) => _loadData());
+                                          },
+                                          child: Container(
+                                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                            decoration: BoxDecoration(
+                                              gradient: LinearGradient(
+                                                colors: [Colors.purple[600]!, Colors.purple[800]!],
+                                              ),
+                                              borderRadius: BorderRadius.circular(12),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Colors.purple.withOpacity(0.5),
+                                                  blurRadius: 12,
+                                                  offset: const Offset(0, 4),
+                                                ),
+                                              ],
+                                            ),
+                                            child: Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Row(
+                                                  mainAxisSize: MainAxisSize.min,
+                                                  children: [
+                                                    const Icon(Icons.timer, color: Colors.white, size: 18),
+                                                    const SizedBox(width: 6),
+                                                    Text(
+                                                      _tr('catch_up.title'),
+                                                      style: const TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 11,
+                                                        fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                const SizedBox(height: 4),
+                                                Text(
+                                                  _formatRemainingTimeWithSeconds(rattrapageActif['endTime']),
+                                                  style: const TextStyle(
+                                                    color: Colors.white,
+                                                    fontSize: 16,
+                                                    fontWeight: FontWeight.bold,
+                                                    letterSpacing: 1.2,
+                                                  ),
+                                                ),
+                                                const SizedBox(height: 2),
+                                                Text(
+                                                  _tr('messages.touch_to_enlarge'),
+                                                  style: TextStyle(
+                                                    color: Colors.white.withOpacity(0.8),
+                                                    fontSize: 9,
+                                                    fontStyle: FontStyle.italic,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ],
                                   ),
                                 )
-                              : ElevatedButton.icon(
-                                  onPressed: () => _marquerCommePris(medicament),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: couleur,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    padding: const EdgeInsets.symmetric(vertical: 14),
-                                  ),
-                                  icon: const Icon(Icons.check_circle, color: Colors.white, size: 20),
-                                  label: Text(
-                                    _tr('home.mark_taken'),
-                                    style: const TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14,
-                                    ),
-                                  ),
-                                )
-                      : Container(
-                          padding: const EdgeInsets.symmetric(vertical: 14),
-                          decoration: BoxDecoration(
-                            color: Colors.green.withOpacity(0.2),
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(color: Colors.green.withOpacity(0.5)),
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Icon(Icons.check, color: Colors.green, size: 20),
-                              const SizedBox(width: 8),
-                              Text(
-                                _tr('home.status.taken'),
-                                style: const TextStyle(
-                                  color: Colors.green,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 14,
+                              ]
+                            )
+                          );
+                        }).toList(),
+                      ),
+                    ),
+
+                      const SizedBox(height: 20),
+
+                      // Section Stocks
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        child: Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [Color(0xFFFF9800), Color(0xFFF44336)],
                                 ),
+                                borderRadius: BorderRadius.circular(15),
                               ),
-                            ],
-                          ),
+                              child: const Icon(Icons.inventory, color: Colors.white, size: 24),
+                            ),
+                            const SizedBox(width: 12),
+                            Text(
+                              _tr('home.stock'),
+                              style: const TextStyle(
+                                fontSize: 22,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF2E3A59),
+                              ),
+                            ),
+                          ],
                         ),
-                ),
-              ],
-            ),
-          ),
-        );
-      }).toList(),
-    ),
-  ),
+                      ),
 
-                        const SizedBox(height: 20),
-
-                        // Section Stocks des médicaments
+                      // Grille des stocks
+                      if (medicamentsDisponibles.isNotEmpty)
                         Container(
-                          margin: const EdgeInsets.only(bottom: 20),
-                          child: Row(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(12),
-                                decoration: BoxDecoration(
-                                  gradient: const LinearGradient(
-                                    colors: [Color(0xFFFF9800), Color(0xFFF44336)],
-                                  ),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: const Icon(Icons.inventory, color: Colors.white, size: 24),
-                              ),
-                              const SizedBox(width: 12),
-                              Text(
-                                                _tr('home.stock'), // À traduire si nécessaire
-                                style: const TextStyle(
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF2E3A59),
-                                ),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(20),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.1),
+                                blurRadius: 20,
+                                offset: const Offset(0, 10),
                               ),
                             ],
                           ),
+                          child: Column(
+                            children: _buildAllMedicationsStockList(),
+                          ),
                         ),
 
-                        // Grille des stocks
-                        if (medicamentsDisponibles.isNotEmpty)
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.1),
-                                  blurRadius: 20,
-                                  offset: const Offset(0, 10),
+                      const SizedBox(height: 20),
+
+                      // Statistiques
+                      Container(
+                        padding: const EdgeInsets.all(20),
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [Colors.grey[50]!, Colors.white],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                          border: Border.all(color: Colors.grey[200]!),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              _tr('home.daily_statistics'),
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Color(0xFF2E3A59),
+                              ),
+                            ),
+                            const SizedBox(height: 16),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: _buildStatCard(
+                                    _tr('home.status.taken'),
+                                    medicamentsTriees.where((m) => _getStatutPrise(m) == StatutPrise.pris).length,
+                                    Colors.green,
+                                    Icons.check_circle,
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: _buildStatCard(
+                                    _tr('home.status.upcoming'),
+                                    medicamentsTriees.where((m) => _getStatutPrise(m) == StatutPrise.aVenir).length,
+                                    Colors.blue,
+                                    Icons.schedule,
+                                  ),
                                 ),
                               ],
                             ),
-                            child: Column(
-                              children: _buildAllMedicationsStockList(),
+                            const SizedBox(height: 12),
+                            Row(
+                              children: [
+                                Expanded(
+                                  child: _buildStatCard(
+                                    _tr('home.status.now'),
+                                    medicamentsTriees.where((m) => _getStatutPrise(m) == StatutPrise.enCours).length,
+                                    Colors.orange,
+                                    Icons.notifications_active,
+                                  ),
+                                ),
+                                const SizedBox(width: 12),
+                                Expanded(
+                                  child: _buildStatCard(
+                                    _tr('home.status.missed'),
+                                    medicamentsTriees.where((m) => _getStatutPrise(m) == StatutPrise.oublie).length,
+                                    Colors.red,
+                                    Icons.warning,
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
 
-                        const SizedBox(height: 20),
-
-                        // Statistiques du jour
-                        Container(
-                          padding: const EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [Colors.grey[50]!, Colors.white],
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
+                      // Bouton Historique
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 20),
+                        child: Row(
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [Color.fromARGB(255, 112, 55, 158), Colors.cyan],
+                                ),
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: const Icon(Icons.history, color: Colors.white, size: 24),
                             ),
-                            borderRadius: BorderRadius.circular(20),
-                            border: Border.all(color: Colors.grey[200]!),
-                          ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                _tr('home.daily_statistics'),
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: Color(0xFF2E3A59),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: ElevatedButton(
+                                onPressed: () => Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const HistoriquePage()),
+                                ),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color.fromARGB(255, 67, 154, 180),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                                  padding: const EdgeInsets.symmetric(vertical: 15),
+                                ),
+                                child: const Text(
+                                  '📊 Historique des prises',
+                                  style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
                                 ),
                               ),
-                              const SizedBox(height: 16),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: _buildStatCard(
-                                      _tr('home.status.taken'),
-                                      medicamentsTriees.where((m) => _getStatutPrise(m) == StatutPrise.pris).length,
-                                      Colors.green,
-                                      Icons.check_circle,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  Expanded(
-                                    child: _buildStatCard(
-                                      _tr('home.status.upcoming'),
-                                      medicamentsTriees.where((m) => _getStatutPrise(m) == StatutPrise.aVenir).length,
-                                      Colors.blue,
-                                      Icons.schedule,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 12),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: _buildStatCard(
-                                      _tr('home.status.now'),
-                                      medicamentsTriees.where((m) => _getStatutPrise(m) == StatutPrise.enCours).length,
-                                      Colors.orange,
-                                      Icons.notifications_active,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 12),
-                                  Expanded(
-                                    child: _buildStatCard(
-                                      _tr('home.status.missed'),
-                                      medicamentsTriees.where((m) => _getStatutPrise(m) == StatutPrise.oublie).length,
-                                      Colors.red,
-                                      Icons.warning,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: 20),
-
-                        
-
-                        // Bouton Historique
-                        Container(
-                          margin: const EdgeInsets.only(bottom: 20),
-                          child: Row(
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(12),
-                                decoration: BoxDecoration(
-                                  gradient: const LinearGradient(
-                                    colors: [Color.fromARGB(255, 112, 55, 158), Colors.cyan],
-                                  ),
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: const Icon(Icons.history, color: Colors.white, size: 24),
-                              ),
-                              const SizedBox(width: 12),
-                              Expanded(
-                                child: ElevatedButton(
-                                  onPressed: () => Navigator.push(
-                                    context,
-                                    MaterialPageRoute(builder: (context) => const HistoriquePage()),
-                                  ),
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: [Color.fromARGB(255, 67, 154, 180)][0],
-                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                                    padding: const EdgeInsets.symmetric(vertical: 15),
-                                  ),
-                                  child: const Text(
-                                    '📊 Historique des prises',
-                                    style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(height: 100), // Espace pour la navigation
-                      ],
-                    ),
+                      ),
+                      const SizedBox(height: 100),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        );
-      },
-    );
-  }
-
+        ),
+      );
+    },
+  );
+}
   // Ajouter cette fonction pour récupérer le stock :
 Future<int> _getStockForMedication(String nom, String dosage) async {
   final prefs = await SharedPreferences.getInstance();
@@ -1654,6 +1809,7 @@ Future<int> _getStockForMedication(String nom, String dosage) async {
         builder: (context, snapshot) {
           int stock = snapshot.data ?? 0;
           final couleurStock = _getStockColor(stock);
+          
           
           return Container(
             margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -1775,6 +1931,19 @@ Future<int> _getStockForMedication(String nom, String dosage) async {
       ),
     );
   }
+
+  String _formatRemainingTimeWithSeconds(int endTimeMillis) {
+  final endTime = DateTime.fromMillisecondsSinceEpoch(endTimeMillis);
+  final remaining = endTime.difference(DateTime.now());
+  
+  if (remaining.isNegative) return "00:00:00";
+  
+  final hours = remaining.inHours;
+  final minutes = remaining.inMinutes.remainder(60);
+  final seconds = remaining.inSeconds.remainder(60);
+  
+  return '${hours.toString().padLeft(2, '0')}:${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
+}
 
   String _getFormattedDate(DateTime date) {
     final jours = [

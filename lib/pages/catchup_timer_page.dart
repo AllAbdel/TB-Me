@@ -1,4 +1,5 @@
 // /lib/pages/catchup_timer_page.dart
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -75,9 +76,8 @@ class _CatchupTimerPageState extends State<CatchupTimerPage> with WidgetsBinding
       _calculateRemainingTime();
       _startTimer();
     } else {
-      _endTime = DateTime.now().add(const Duration(hours: 2));
-      await _programmerNotificationRattrapage();
-      _startTimer();
+      // Si pas de rattrapage trouvé, retourner à l'accueil
+      Navigator.pop(context);
     }
   }
 

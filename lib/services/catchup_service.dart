@@ -8,7 +8,6 @@ import 'dart:math';
 class CatchupService {
   static const String _catchupKey = 'catchups';
 
-  // Sauvegarder un rattrapage actif
   static Future<void> startCatchup({
     required int medicationId,
     required String medicamentNom,
@@ -23,7 +22,6 @@ class CatchupService {
     // Supprimer l'ancien rattrapage s'il existe
     await removeCatchup(medicationId);
 
-    // Ajouter le nouveau rattrapage
     final newCatchup = {
       'medicationId': medicationId,
       'medicamentNom': medicamentNom,
@@ -35,19 +33,20 @@ class CatchupService {
 
     catchups.add(newCatchup);
     await prefs.setString(_catchupKey, json.encode(catchups));
+    print('✅ Rattrapage enregistré pour $medicamentNom (ID: $medicationId)');
   }
 
-  // Récupérer les rattrapages actifs
+  // MODIFIÉ : Retourne aussi les rattrapages expirés mais récents (moins de 5 min)
   static Future<List<Map<String, dynamic>>> getActiveCatchups() async {
     final prefs = await SharedPreferences.getInstance();
     final catchupsJson = prefs.getString(_catchupKey) ?? '[]';
     List<Map<String, dynamic>> catchups = List<Map<String, dynamic>>.from(json.decode(catchupsJson));
 
-    // Filtrer seulement les rattrapages non expirés
     DateTime now = DateTime.now();
     List<Map<String, dynamic>> activeCatchups = catchups.where((catchup) {
       DateTime endTime = DateTime.fromMillisecondsSinceEpoch(catchup['endTime']);
-      return endTime.isAfter(now);
+      // Garde les rattrapages actifs OU expirés depuis moins de 5 minutes
+      return endTime.isAfter(now.subtract(Duration(minutes: 5)));
     }).toList();
 
     // Sauvegarder la liste filtrée
@@ -55,20 +54,34 @@ class CatchupService {
 
     return activeCatchups;
   }
-
-  // Supprimer un rattrapage
-  static Future<void> removeCatchup(int medicationId) async {
-    final prefs = await SharedPreferences.getInstance();
+  
+  // NOUVEAU : Vérifier si un rattrapage est terminé
+  static Future<bool> isCatchupCompleted(int medicationId) async {
     final catchups = await getActiveCatchups();
-    catchups.removeWhere((catchup) => catchup['medicationId'] == medicationId);
-    await prefs.setString(_catchupKey, json.encode(catchups));
+    final catchup = catchups.firstWhere(
+      (c) => c['medicationId'] == medicationId,
+      orElse: () => <String, dynamic>{},
+    );
+    
+    if (catchup.isEmpty) return false;
+    
+    DateTime endTime = DateTime.fromMillisecondsSinceEpoch(catchup['endTime']);
+    return DateTime.now().isAfter(endTime);
   }
 
-  // Obtenir un message d'encouragement aléatoire
+  static Future<void> removeCatchup(int medicationId) async {
+    final prefs = await SharedPreferences.getInstance();
+    final catchupsJson = prefs.getString(_catchupKey) ?? '[]';
+    List<Map<String, dynamic>> catchups = List<Map<String, dynamic>>.from(json.decode(catchupsJson));
+    
+    catchups.removeWhere((catchup) => catchup['medicationId'] == medicationId);
+    await prefs.setString(_catchupKey, json.encode(catchups));
+    print('🗑️ Rattrapage supprimé pour ID: $medicationId');
+  }
+
   static String getRandomEncouragement(List<String> messages) {
     if (messages.isEmpty) return "Bravo ! 🎉";
     Random random = Random();
     return messages[random.nextInt(messages.length)];
   }
 }
-

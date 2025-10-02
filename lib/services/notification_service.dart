@@ -321,6 +321,11 @@ class NotificationService {
     required String dosage,
     required DateTime scheduledTime,
   }) async {
+    // Utiliser un ID unique basé sur le timestamp pour éviter les conflits
+    final notificationId = (baseId % 100000) + 5000 + (scheduledTime.millisecondsSinceEpoch % 1000);
+    
+    print('🔔 Programmation notification rattrapage ID: $notificationId pour $medicamentNom à ${scheduledTime.toString()}');
+    
     AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
       'catchup_complete',
       'Rattrapage terminé',
@@ -331,19 +336,19 @@ class NotificationService {
       vibrationPattern: Int64List.fromList([0, 1000, 500, 1000]),
     );
     
-     DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
+    DarwinNotificationDetails iosDetails = DarwinNotificationDetails(
       presentAlert: true,
       presentBadge: true,
       presentSound: true,
     );
     
-     NotificationDetails notificationDetails = NotificationDetails(
+    NotificationDetails notificationDetails = NotificationDetails(
       android: androidDetails,
       iOS: iosDetails,
     );
     
     await _notifications.zonedSchedule(
-      (baseId % 100000) + 5000,
+      notificationId,
       '✅ Période de jeûne terminée !',
       'Vous pouvez maintenant prendre $medicamentNom $dosage',
       tz.TZDateTime.from(scheduledTime, tz.local),
@@ -351,5 +356,7 @@ class NotificationService {
       androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       uiLocalNotificationDateInterpretation: UILocalNotificationDateInterpretation.absoluteTime,
     );
+    
+    print('✅ Notification programmée avec succès');
   }
 }
