@@ -1010,7 +1010,7 @@ Future.delayed(const Duration(milliseconds: 500), () {
       return AlertDialog(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         title: Text(
-          _tr(''),
+          _tr('catch_up.success_title'),
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Text(message),
@@ -1403,29 +1403,97 @@ Widget build(BuildContext context) {
                                           const SizedBox(height: 16),
                                           
                                           // Bouton d'action - LOGIQUE AMÉLIORÉE
-                                            SizedBox(
-                                              width: double.infinity,
-                                              child: Builder(
-                                                builder: (context) {
-                                                  // Vérifier si le rattrapage est terminé
-                                                  bool rattrapageTermine = false;
-                                                  if (rattrapageActif.isNotEmpty) {
-                                                    DateTime endTime = DateTime.fromMillisecondsSinceEpoch(rattrapageActif['endTime']);
-                                                    rattrapageTermine = DateTime.now().isAfter(endTime);
-                                                  }
-                                                  
-                                                  // Si rattrapage terminé, permettre la prise
-                                                  if (rattrapageTermine) {
+                                          const SizedBox(height: 16),
+
+                                          SizedBox(
+                                            width: double.infinity,
+                                            child: Builder(
+                                              builder: (context) {
+                                                // Vérifier si le rattrapage est terminé
+                                                bool rattrapageTermine = false;
+                                                if (rattrapageActif.isNotEmpty) {
+                                                  DateTime endTime = DateTime.fromMillisecondsSinceEpoch(rattrapageActif['endTime']);
+                                                  rattrapageTermine = DateTime.now().isAfter(endTime);
+                                                }
+                                                
+                                                // Si rattrapage terminé, permettre la prise
+                                                if (rattrapageTermine) {
+                                                  return ElevatedButton.icon(
+                                                    onPressed: () async {
+                                                      await _effectuerPrise(medicament);
+                                                      await catchup_service.CatchupService.removeCatchup(medicament['id']);
+                                                      await _loadData();
+                                                    },
+                                                    style: ElevatedButton.styleFrom(
+                                                      backgroundColor: Colors.green,
+                                                      shape: RoundedRectangleBorder(
+                                                        borderRadius: BorderRadius.circular(12),
+                                                      ),
+                                                      padding: const EdgeInsets.symmetric(vertical: 14),
+                                                    ),
+                                                    icon: const Icon(Icons.check_circle, color: Colors.white, size: 20),
+                                                    label: Text(
+                                                      _tr('catch_up.take_now'),
+                                                      style: const TextStyle(
+                                                        color: Colors.white,
+                                                        fontWeight: FontWeight.bold,
+                                                        fontSize: 14,
+                                                      ),
+                                                    ),
+                                                  );
+                                                }
+                                                
+                                                // Logique normale
+                                                if (statut != StatutPrise.pris) {
+                                                  if (statut == StatutPrise.oublie && medicament['aJeun'] == true) {
                                                     return ElevatedButton.icon(
-                                                      onPressed: () async {
-                                                        // CORRECTION : Ne pas utiliser await car _effectuerPrise est void
-                                                        await _effectuerPrise(medicament);
-                                                        await catchup_service.CatchupService.removeCatchup(medicament['id']);
-                                                        // Recharger les données pour mettre à jour l'affichage
-                                                        await _loadData();
-                                                      },
+                                                      onPressed: () => _demarrerRattrapage(medicament),
                                                       style: ElevatedButton.styleFrom(
-                                                        backgroundColor: Colors.green,
+                                                        backgroundColor: Colors.purple,
+                                                        shape: RoundedRectangleBorder(
+                                                          borderRadius: BorderRadius.circular(12),
+                                                        ),
+                                                        padding: const EdgeInsets.symmetric(vertical: 14),
+                                                      ),
+                                                      icon: const Icon(Icons.update, color: Colors.white, size: 20),
+                                                      label: Text(
+                                                        _tr('catch_up.button'),
+                                                        style: const TextStyle(
+                                                          color: Colors.white,
+                                                          fontWeight: FontWeight.bold,
+                                                          fontSize: 14,
+                                                        ),
+                                                      ),
+                                                    );
+                                                  } else if (statut == StatutPrise.oublie) {
+                                                    return Container(
+                                                      padding: const EdgeInsets.symmetric(vertical: 14),
+                                                      decoration: BoxDecoration(
+                                                        color: Colors.red.withOpacity(0.2),
+                                                        borderRadius: BorderRadius.circular(12),
+                                                        border: Border.all(color: Colors.red.withOpacity(0.5)),
+                                                      ),
+                                                      child: Row(
+                                                        mainAxisAlignment: MainAxisAlignment.center,
+                                                        children: [
+                                                          const Icon(Icons.block, color: Colors.red, size: 20),
+                                                          const SizedBox(width: 8),
+                                                          Text(
+                                                            _tr('home.status.missed'),
+                                                            style: const TextStyle(
+                                                              color: Colors.red,
+                                                              fontWeight: FontWeight.bold,
+                                                              fontSize: 14,
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    );
+                                                  } else {
+                                                    return ElevatedButton.icon(
+                                                      onPressed: () => _marquerCommePris(medicament),
+                                                      style: ElevatedButton.styleFrom(
+                                                        backgroundColor: couleur,
                                                         shape: RoundedRectangleBorder(
                                                           borderRadius: BorderRadius.circular(12),
                                                         ),
@@ -1433,7 +1501,7 @@ Widget build(BuildContext context) {
                                                       ),
                                                       icon: const Icon(Icons.check_circle, color: Colors.white, size: 20),
                                                       label: Text(
-                                                        _tr('catch_up.take_now'),
+                                                        _tr('home.mark_taken'),
                                                         style: const TextStyle(
                                                           color: Colors.white,
                                                           fontWeight: FontWeight.bold,
@@ -1442,104 +1510,39 @@ Widget build(BuildContext context) {
                                                       ),
                                                     );
                                                   }
-                                                  
-                                                  // Logique normale
-                                                  if (statut != StatutPrise.pris) {
-                                                    if (statut == StatutPrise.oublie && medicament['aJeun'] == true) {
-                                                      return ElevatedButton.icon(
-                                                        onPressed: () => _demarrerRattrapage(medicament),
-                                                        style: ElevatedButton.styleFrom(
-                                                          backgroundColor: Colors.purple,
-                                                          shape: RoundedRectangleBorder(
-                                                            borderRadius: BorderRadius.circular(12),
-                                                          ),
-                                                          padding: const EdgeInsets.symmetric(vertical: 14),
-                                                        ),
-                                                        icon: const Icon(Icons.update, color: Colors.white, size: 20),
-                                                        label: Text(
-                                                          _tr('catch_up.button'),
+                                                } else {
+                                                  return Container(
+                                                    padding: const EdgeInsets.symmetric(vertical: 14),
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.green.withOpacity(0.2),
+                                                      borderRadius: BorderRadius.circular(12),
+                                                      border: Border.all(color: Colors.green.withOpacity(0.5)),
+                                                    ),
+                                                    child: Row(
+                                                      mainAxisAlignment: MainAxisAlignment.center,
+                                                      children: [
+                                                        const Icon(Icons.check, color: Colors.green, size: 20),
+                                                        const SizedBox(width: 8),
+                                                        Text(
+                                                          _tr('home.status.taken'),
                                                           style: const TextStyle(
-                                                            color: Colors.white,
+                                                            color: Colors.green,
                                                             fontWeight: FontWeight.bold,
                                                             fontSize: 14,
                                                           ),
                                                         ),
-                                                      );
-                                                    } else if (statut == StatutPrise.oublie) {
-                                                      return Container(
-                                                        padding: const EdgeInsets.symmetric(vertical: 14),
-                                                        decoration: BoxDecoration(
-                                                          color: Colors.red.withOpacity(0.2),
-                                                          borderRadius: BorderRadius.circular(12),
-                                                          border: Border.all(color: Colors.red.withOpacity(0.5)),
-                                                        ),
-                                                        child: Row(
-                                                          mainAxisAlignment: MainAxisAlignment.center,
-                                                          children: [
-                                                            const Icon(Icons.block, color: Colors.red, size: 20),
-                                                            const SizedBox(width: 8),
-                                                            Text(
-                                                              _tr('home.status.missed'),
-                                                              style: const TextStyle(
-                                                                color: Colors.red,
-                                                                fontWeight: FontWeight.bold,
-                                                                fontSize: 14,
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      );
-                                                    } else {
-                                                      return ElevatedButton.icon(
-                                                        onPressed: () => _marquerCommePris(medicament),
-                                                        style: ElevatedButton.styleFrom(
-                                                          backgroundColor: couleur,
-                                                          shape: RoundedRectangleBorder(
-                                                            borderRadius: BorderRadius.circular(12),
-                                                          ),
-                                                          padding: const EdgeInsets.symmetric(vertical: 14),
-                                                        ),
-                                                        icon: const Icon(Icons.check_circle, color: Colors.white, size: 20),
-                                                        label: Text(
-                                                          _tr('home.mark_taken'),
-                                                          style: const TextStyle(
-                                                            color: Colors.white,
-                                                            fontWeight: FontWeight.bold,
-                                                            fontSize: 14,
-                                                          ),
-                                                        ),
-                                                      );
-                                                    }
-                                                  } else {
-                                                    return Container(
-                                                      padding: const EdgeInsets.symmetric(vertical: 14),
-                                                      decoration: BoxDecoration(
-                                                        color: Colors.green.withOpacity(0.2),
-                                                        borderRadius: BorderRadius.circular(12),
-                                                        border: Border.all(color: Colors.green.withOpacity(0.5)),
-                                                      ),
-                                                      child: Row(
-                                                        mainAxisAlignment: MainAxisAlignment.center,
-                                                        children: [
-                                                          const Icon(Icons.check, color: Colors.green, size: 20),
-                                                          const SizedBox(width: 8),
-                                                          Text(
-                                                            _tr('home.status.taken'),
-                                                            style: const TextStyle(
-                                                              color: Colors.green,
-                                                              fontWeight: FontWeight.bold,
-                                                              fontSize: 14,
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    );
-                                                  }
-                                                },
-                                              ),
+                                                      ],
+                                                    ),
+                                                  );
+                                                }
+                                              },
                                             ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                     
-                                    // NOUVEAU : Badge de rattrapage en cours - VERSION AMÉLIORÉE
+                                    // NOUVEAU : Badge de rattrapage en cours
                                     if (rattrapageActif.isNotEmpty)
                                       Positioned(
                                         top: 8,
@@ -1581,7 +1584,7 @@ Widget build(BuildContext context) {
                                                     const SizedBox(width: 6),
                                                     Text(
                                                       _tr('catch_up.title'),
-                                                      style: const TextStyle(
+                                                       style: const TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 11,
                                                         fontWeight: FontWeight.bold,
@@ -1602,7 +1605,7 @@ Widget build(BuildContext context) {
                                                 const SizedBox(height: 2),
                                                 Text(
                                                   _tr('messages.touch_to_enlarge'),
-                                                  style: TextStyle(
+                                                   style: TextStyle(
                                                     color: Colors.white.withOpacity(0.8),
                                                     fontSize: 9,
                                                     fontStyle: FontStyle.italic,
@@ -1613,15 +1616,12 @@ Widget build(BuildContext context) {
                                           ),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                )
-                              ]
-                            )
-                          );
-                        }).toList(),
-                      ),
-                    ),
+                                  ],
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ),
 
                       const SizedBox(height: 20),
 
