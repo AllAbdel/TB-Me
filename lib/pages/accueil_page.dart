@@ -1294,8 +1294,12 @@ Widget build(BuildContext context) {
                                 child: Stack(
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.all(16),
-                                      child: Column(
+                                      padding: EdgeInsets.only(
+                                        left: 16,
+                                        right: 16,
+                                        top: 16,
+                                        bottom: rattrapageActif.isNotEmpty ? 80 : 16,
+                                      ),                                      child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           // En-tête avec icône et badge
@@ -1542,11 +1546,12 @@ Widget build(BuildContext context) {
                                       ),
                                     ),
                                     
-                                    // NOUVEAU : Badge de rattrapage en cours
+                                    // NOUVEAU : Badge de rattrapage en cours - POSITIONNÉ EN BAS
                                     if (rattrapageActif.isNotEmpty)
                                       Positioned(
-                                        top: 8,
-                                        right: 8,
+                                        bottom: 8,
+                                        left: 16,
+                                        right: 16,
                                         child: GestureDetector(
                                           onTap: () {
                                             Navigator.push(
@@ -1560,7 +1565,7 @@ Widget build(BuildContext context) {
                                             ).then((_) => _loadData());
                                           },
                                           child: Container(
-                                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                                            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
                                             decoration: BoxDecoration(
                                               gradient: LinearGradient(
                                                 colors: [Colors.purple[600]!, Colors.purple[800]!],
@@ -1574,42 +1579,39 @@ Widget build(BuildContext context) {
                                                 ),
                                               ],
                                             ),
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.min,
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
-                                                Row(
+                                                const Icon(Icons.timer, color: Colors.white, size: 20),
+                                                const SizedBox(width: 8),
+                                                Column(
                                                   mainAxisSize: MainAxisSize.min,
                                                   children: [
-                                                    const Icon(Icons.timer, color: Colors.white, size: 18),
-                                                    const SizedBox(width: 6),
                                                     Text(
-                                                      _tr('catch_up.title'),
-                                                       style: const TextStyle(
+                                                      'Rattrapage de prise',
+                                                      style: const TextStyle(
                                                         color: Colors.white,
-                                                        fontSize: 11,
+                                                        fontSize: 12,
                                                         fontWeight: FontWeight.bold,
+                                                      ),
+                                                    ),
+                                                    const SizedBox(height: 2),
+                                                    Text(
+                                                      _formatRemainingTimeWithSeconds(rattrapageActif['endTime']),
+                                                      style: const TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 18,
+                                                        fontWeight: FontWeight.bold,
+                                                        letterSpacing: 1.5,
                                                       ),
                                                     ),
                                                   ],
                                                 ),
-                                                const SizedBox(height: 4),
-                                                Text(
-                                                  _formatRemainingTimeWithSeconds(rattrapageActif['endTime']),
-                                                  style: const TextStyle(
-                                                    color: Colors.white,
-                                                    fontSize: 16,
-                                                    fontWeight: FontWeight.bold,
-                                                    letterSpacing: 1.2,
-                                                  ),
-                                                ),
-                                                const SizedBox(height: 2),
-                                                Text(
-                                                  _tr('messages.touch_to_enlarge'),
-                                                   style: TextStyle(
-                                                    color: Colors.white.withOpacity(0.8),
-                                                    fontSize: 9,
-                                                    fontStyle: FontStyle.italic,
-                                                  ),
+                                                const SizedBox(width: 8),
+                                                Icon(
+                                                  Icons.touch_app,
+                                                  color: Colors.white.withOpacity(0.7),
+                                                  size: 18,
                                                 ),
                                               ],
                                             ),
